@@ -1,0 +1,11 @@
+/*
+
+!.gitignore
+!README.md
+
+**/.dll
+**/.log
+
+!PowerShell/
+!WindowsPowerShell/
+
