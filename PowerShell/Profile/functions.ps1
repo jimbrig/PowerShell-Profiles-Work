@@ -47,7 +47,7 @@ ${function:Update-Environment} = {
 # Clean System
 ${function:Clean-System} = {
   Write-Verbose -Message 'Emptying Recycle Bin'
- (New-Object -ComObject Shell.Application).Namespace(0xA).items() | % { rm $_.path -Recurse -Confirm:$false }
+ (New-Object -ComObject Shell.Application).Namespace(0xA).items() | ForEach-Object { Remove-Item $_.path -Recurse -Confirm:$false }
   Write-Verbose 'Removing Windows %TEMP% files'
   Remove-Item c:\Windows\Temp\* -Recurse -Force -ErrorAction SilentlyContinue
   Write-Verbose 'Removing User %TEMP% files'
