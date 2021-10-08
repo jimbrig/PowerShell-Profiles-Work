@@ -1,11 +1,14 @@
 /*
 
-!.gitignore
-!*.md
-
 **/.dll
 **/.log
 
+!.gitignore
+!*.md
+!*.toml
+!*.yml
+!*.xml
+!*.R*
+
 !PowerShell/
 !WindowsPowerShell/
-
