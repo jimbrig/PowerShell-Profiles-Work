@@ -1,0 +1,1662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems xmlns="http://msh" schema="maml">
+  <!-- Updatable Help Version 5.0.0.0 -->
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Disable-PnpDevice</command:name>
+      <maml:description>
+        <maml:para>Disables a PnP device.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Disable</command:verb>
+      <command:noun>PnpDevice</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Disable-PnpDevice cmdlet disables a Plug and Play (PnP) device. You must use an Administrator account to disable a device. </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Disable-PnpDevice</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="1" aliases="DeviceId">
+          <maml:name>InstanceId</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of unique instance IDs of devices. </maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet returns a WMI error code. By default, this cmdlet does not return a value. </maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Disable-PnpDevice</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet returns a WMI error code. By default, this cmdlet does not return a value. </maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+        <maml:name>InformationAction</maml:name>
+        <maml:description>
+          <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">System.Management.Automation.ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>System.Management.Automation.ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+        <maml:name>InformationVariable</maml:name>
+        <maml:description>
+          <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">System.String</command:parameterValue>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="1" aliases="DeviceId">
+        <maml:name>InstanceId</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of unique instance IDs of devices. </maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Indicates that this cmdlet returns a WMI error code. By default, this cmdlet does not return a value. </maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.Management.Infrastructure.CimInstance#ROOT/Cimv2/Win32_PnPEntity[]</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>The Microsoft.Management.Infrastructure.CimInstance object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (#) provides the namespace and class name for the underlying WMI object.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Int32</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>This cmdlet generates a WMI error code. </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <maml:alertSet>
+      <maml:title />
+      <maml:alert>
+        <maml:para>You must use an Administrator account for this cmdlet. </maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Disable a device</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Disable-PnpDevice -InstanceId 'USB\VID_5986&amp;;PID_0266&amp;;MI_00\7&amp;;1E5D3568&amp;;0000'
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command disables a device that has the specified instance ID.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Enable-PnpDevice</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-PnpDevice</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Enable-PnpDevice</command:name>
+      <maml:description>
+        <maml:para>Enables a PnP device. </maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Enable</command:verb>
+      <command:noun>PnpDevice</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Enable-PnpDevice cmdlet enables a Plug and Play (PnP) device. You must use an Administrator account to enable a device. </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Enable-PnpDevice</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="1" aliases="DeviceId">
+          <maml:name>InstanceId</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of unique instance ID of devices. </maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet returns a WMI error code. By default, this cmdlet does not return a value.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Enable-PnpDevice</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet returns a WMI error code. By default, this cmdlet does not return a value.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+        <maml:name>InformationAction</maml:name>
+        <maml:description>
+          <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">System.Management.Automation.ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>System.Management.Automation.ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+        <maml:name>InformationVariable</maml:name>
+        <maml:description>
+          <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">System.String</command:parameterValue>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="1" aliases="DeviceId">
+        <maml:name>InstanceId</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of unique instance ID of devices. </maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Indicates that this cmdlet returns a WMI error code. By default, this cmdlet does not return a value.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.Management.Infrastructure.CimInstance#ROOT/Cimv2/Win32_PnPEntity[]</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>The Microsoft.Management.Infrastructure.CimInstance object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (#) provides the namespace and class name for the underlying WMI object.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>This cmdlet generates a WMI error code.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <maml:alertSet>
+      <maml:title />
+      <maml:alert>
+        <maml:para>You must use an Administrator account for this cmdlet. </maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Enable a device</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Enable-PnpDevice -InstanceId 'USB\VID_5986&amp;;PID_0266&amp;;MI_00\7&amp;;1E5D3568&amp;;0&amp;;0000' 
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command enables the device that has the specified instance ID.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Enable all disabled devices</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDevice | Where-Object {$_.Problem -match 22} | Enable-PnpDevice 
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all the PnP devices by using the Get-PnpDevice cmdlet, and then passes them to the Where-Object cmdlet by using the pipeline operator. For more information, type Get-Help Where-Object. That cmdlet drops the devices that do not have a Problem value of 22. That problem code means that the device is disabled. The current cmdlet enables those disabled devices. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Disable-PnpDevice</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-PnpDevice</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PnpDeviceProperty</command:name>
+      <maml:description>
+        <maml:para>Gets detailed properties for a PnP device.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Get</command:verb>
+      <command:noun>PnpDeviceProperty</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-PnpDeviceProperty cmdlet gets detailed properties for a Plug and Play (PnP) device. You can specify a device by instance ID or by using the Get-PnpDevice cmdlet. </maml:para>
+      <maml:para>A device property is a key-value pair. A property key takes the form {GUID} PID. The property value is one of several types, such as UTF-8, GUID, Uint32, or Boolean. The output object contains the typed data of a value, and the value type. Many properties also have friendly names, in the form of DEVPKEY_XXX.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PnpDeviceProperty</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="1" aliases="Key">
+          <maml:name>KeyName</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of key names.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="named" aliases="DeviceId">
+          <maml:name>InstanceId</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of unique instance ID of devices.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-PnpDeviceProperty</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="1" aliases="Key">
+          <maml:name>KeyName</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of key names.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+        <maml:name>InformationAction</maml:name>
+        <maml:description>
+          <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">System.Management.Automation.ActionPreference[]</command:parameterValue>
+        <dev:type>
+          <maml:name>System.Management.Automation.ActionPreference[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+        <maml:name>InformationVariable</maml:name>
+        <maml:description>
+          <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">System.String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>System.String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="named" aliases="DeviceId">
+        <maml:name>InstanceId</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of unique instance ID of devices.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="1" aliases="Key">
+        <maml:name>KeyName</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of key names.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Microsoft.Management.Infrastructure.CimInstance#ROOT/Cimv2/Win32_PnPEntity[]</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>The Microsoft.Management.Infrastructure.CimInstance object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (#) provides the namespace and class name for the underlying WMI object.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Int32, Win32_PnPDeviceProperty[]</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>This cmdlet generates an Int32 WMI success or failure code, or an array of  Win32_PnPDeviceProperty objects that represent properties for a PnP device. A Win32_PnPDeviceProperty object contains the following fields: 
+
+-- Device. The instance ID for the device with which this property is associated. 
+-- KeyName. The friendly name for the property. If no friendly name exists, this matches the Key field. 
+-- Key. The unique [GUID]-ID pairing representing the property. 
+-- Data. The typed data associated with the key. This value is defined in the classes which inherit from Win32_PnPDeviceProperty. For example, a Win32PnPDevicePropertySint32 object would be returned for an Int32 property. Data would be an Int32 value in this case. 
+-- Type. The type of the binary data. This is defined in the PnpDeviceProperty.Type enum.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <maml:alertSet>
+      <maml:title />
+      <maml:alert>
+        <maml:para>The objects returned by Get-PnpDeviceProperty are all of the (WMI Object) Win32_PnPDeviceProperty type. They are always of a WMI class inherited from Win32_PnPDeviceProperty. For example, a device may contain a String and signed Int32 properties. The cmdlet returns a Win32_PnPDeviceProperty array, where the first object in the array is a Win32_PnPDevicePropertyString object and the second is a Win32_PnPDevicePropertySint32 object. For each object type, there is a Data variable, of the given type, which contains the value of the property. </maml:para>
+        <maml:para>The following is a full list of possible WMI classes and the type of the Data variable:  
+
+-- Win32_PnPDevicePropertyUint8. Uint8. 
+-- Win32_PnPDevicePropertyUint16. Uint16. 
+-- Win32_PnPDevicePropertyUint32. Uint32. 
+-- Win32_PnPDevicePropertyUint64. Uint64. 
+-- Win32_PnPDevicePropertySint8. Sint8. 
+-- Win32_PnPDevicePropertySint16. Sint16. 
+-- Win32_PnPDevicePropertySint32. Sint32. 
+-- Win32_PnPDevicePropertySint64. Sint64. 
+-- Win32_PnPDevicePropertyString. String. 
+-- Win32_PnPDevicePropertyBoolean. Boolean. 
+-- Win32_PnPDevicePropertyReal32. Real32. 
+-- Win32_PnPDevicePropertyReal64. Real64. 
+-- Win32_PnPDevicePropertyDateTime. DateTime. 
+-- Win32_PnPDevicePropertySecurityDescriptor. Win32_SecurityDescriptor. 
+
+-- Win32_PnPDevicePropertyBinary. Uint8 array. 
+-- Win32_PnPDevicePropertyUint16Array. Uint16 array. 
+-- Win32_PnPDevicePropertyUint32Array. Uint32 array. 
+-- Win32_PnPDevicePropertyUint64Array. Uint64 array. 
+-- Win32_PnPDevicePropertySint8Array. Sint8 array. 
+-- Win32_PnPDevicePropertySint16Array. Sint16 array. 
+-- Win32_PnPDevicePropertySint32Array. Sint32 array. 
+-- Win32_PnPDevicePropertySint64Array. Sint64 array. 
+-- Win32_PnPDevicePropertyStringArray. String array. 
+-- Win32_PnPDevicePropertyBooleanArray. Boolean array. 
+-- Win32_PnPDevicePropertyReal32Array. Real32 array. 
+-- Win32_PnPDevicePropertyReal64Array. Real64 array. 
+-- Win32_PnPDevicePropertyDateTimeArray. DateTime array. 
+-- Win32_PnPDevicePropertySecurityDescriptorArray. Win32_SecurityDescriptor array.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Get properties for a device by using an ID</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDeviceProperty -InstanceId 'SWD\PRINTENUM\{E82E5EFD-6616-4E4F-9A96-7D94554A8BF0}'
+InstanceId KeyName                                   Type       Data                                                       
+---------- -------                                   ----       ----                                                       
+SWD\PRI... DEVPKEY_Device_DeviceDesc                 String     Local Print Queue                                          
+SWD\PRI... DEVPKEY_Device_HardwareIds                StringList {PRINTENUM\LocalPrintQueue}                                
+SWD\PRI... DEVPKEY_Device_CompatibleIds              StringList {GenPrintQueue, SWD\GenericRaw, SWD\Generic}               
+SWD\PRI... DEVPKEY_Device_Class                      String     PrintQueue                                                 
+SWD\PRI... DEVPKEY_Device_ClassGuid                  Guid       {1ED2BBF9-11F0-4084-B21F-AD83A8E6DCDC}                     
+. . . 
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets the PnP device properties for the device that has the specified ID. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Get properties for a device by using the pipeline</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDevice -InstanceId 'SWD\PRINTENUM\{E82E5EFD-6616-4E4F-9A96-7D94554A8BF0}' | Get-PnpDeviceProperty
+InstanceId KeyName                                   Type       Data                                                       
+---------- -------                                   ----       ----                                                       
+SWD\PRI... DEVPKEY_Device_DeviceDesc                 String     Local Print Queue                                          
+SWD\PRI... DEVPKEY_Device_HardwareIds                StringList {PRINTENUM\LocalPrintQueue}                                
+SWD\PRI... DEVPKEY_Device_CompatibleIds              StringList {GenPrintQueue, SWD\GenericRaw, SWD\Generic}               
+SWD\PRI... DEVPKEY_Device_Class                      String     PrintQueue                                                 
+SWD\PRI... DEVPKEY_Device_ClassGuid                  Guid       {1ED2BBF9-11F0-4084-B21F-AD83A8E6DCDC}                     
+. . . 
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command uses the Get-PnpDevice cmdlet to get the PnP device that has the specified ID. The command passes that object to the current cmdlet by using the pipeline operator. The current command gets the device properties for that device. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Get properties by using GUID-ID pairs</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDeviceProperty -KeyName '{A45C254E-DF1C-4EFD-8020-67D146A850E0} 2', '{A45C254E-DF1C-4EFD-8020-67D146A850E0} 10', '{4340A6C5-93FA-4706-972C-7B648008A5A7} 3' -InstanceId 'SWD\PRINTENUM\{E82E5EFD-6616-4E4F-9A96-7D94554A8BF0}'
+InstanceId KeyName                                   Type       Data                                         
+---------- -------                                   ----       ----                                                       
+SWD\PRI... DEVPKEY_Device_DeviceDesc                 String     Local Print Queue                          
+SWD\PRI... DEVPKEY_Device_ClassGuid                  Guid       {1ED2BBF9-11F0-4084-B21F-AD83A8E6DCDC}                     
+SWD\PRI... DEVPKEY_Device_ProblemCode                UInt32     0                               
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets some of the properties of the PnP device that has the specified instance ID. The command specifies three key names of properties to get. The command specifies names as GUID-ID pairs.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 4: Get properties by using DEVPKEY names</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDeviceProperty -KeyName 'DEVPKEY_Device_DeviceDesc', 'DEVPKEY_Device_ClassGuid', 'DEVPKEY_Device_ProblemCode' -InstanceId 'SWD\PRINTENUM\{E82E5EFD-6616-4E4F-9A96-7D94554A8BF0}'
+InstanceId KeyName                                   Type       Data                                             
+---------- -------                                   ----       ----                                                       
+SWD\PRI... DEVPKEY_Device_DeviceDesc                 String     Local Print Queue                                          
+SWD\PRI... DEVPKEY_Device_ClassGuid                  Guid       {1ED2BBF9-11F0-4084-B21F-AD83A8E6DCDC}                     
+SWD\PRI... DEVPKEY_Device_ProblemCode                UInt32     0                               
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets some of the properties of the PnP device that has the specified instance ID. The command specifies three key names of properties to get. The command specifies names as DEVPKEY short names. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Disable-PnpDevice</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Enable-PnpDevice</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-PnpDevice</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PnpDevice</command:name>
+      <maml:description>
+        <maml:para>Returns information about PnP devices. </maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Get</command:verb>
+      <command:noun>PnpDevice</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-PnpDevice cmdlet returns basic information about Plug and Play (PnP) devices. The values returned are common to all devices. </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PnpDevice</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="1" aliases="DeviceId">
+          <maml:name>InstanceId</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of unique instance ID of devices. </maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Class</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of PnP classes for devices. Some example values for this parameter are Monitor, DiskDrive, and Processor.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PresentOnly</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet gets only those devices that are present when you issue the command. Present devices are physically in the system or attached to it. </maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Status</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of current status values of devices. The acceptable values for this parameter are: 
+
+-- OK
+-- ERROR
+-- UNKNOWN
+-- DEGRADED</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="true">OK</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">ERROR</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">DEGRADED</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">UNKNOWN</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-PnpDevice</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Class</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of PnP classes for devices. Some example values for this parameter are Monitor, DiskDrive, and Processor.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="named" aliases="none">
+          <maml:name>FriendlyName</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of friendly names for devices. </maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PresentOnly</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet gets only those devices that are present when you issue the command. Present devices are physically in the system or attached to it. </maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Status</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of current status values of devices. The acceptable values for this parameter are: 
+
+-- OK
+-- ERROR
+-- UNKNOWN
+-- DEGRADED</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="true">OK</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">ERROR</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">DEGRADED</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">UNKNOWN</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-PnpDevice</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Class</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of PnP classes for devices. Some example values for this parameter are Monitor, DiskDrive, and Processor.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PresentOnly</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet gets only those devices that are present when you issue the command. Present devices are physically in the system or attached to it. </maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Status</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of current status values of devices. The acceptable values for this parameter are: 
+
+-- OK
+-- ERROR
+-- UNKNOWN
+-- DEGRADED</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="true">OK</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">ERROR</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">DEGRADED</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">UNKNOWN</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-PnpDevice</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Class</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of PnP classes for devices. Some example values for this parameter are Monitor, DiskDrive, and Processor.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PresentOnly</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet gets only those devices that are present when you issue the command. Present devices are physically in the system or attached to it. </maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-PnpDevice</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">System.String]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Status</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of current status values of devices. The acceptable values for this parameter are: 
+
+-- OK
+-- ERROR
+-- UNKNOWN
+-- DEGRADED</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="true">OK</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">ERROR</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">DEGRADED</command:parameterValue>
+            <command:parameterValue required="false" variableLength="true">UNKNOWN</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>Class</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of PnP classes for devices. Some example values for this parameter are Monitor, DiskDrive, and Processor.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="named" aliases="none">
+        <maml:name>FriendlyName</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of friendly names for devices. </maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+        <maml:name>InformationAction</maml:name>
+        <maml:description>
+          <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are: 
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">System.Management.Automation.ActionPreference]</command:parameterValue>
+        <dev:type>
+          <maml:name>System.Management.Automation.ActionPreference]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+        <maml:name>InformationVariable</maml:name>
+        <maml:description>
+          <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">System.String]</command:parameterValue>
+        <dev:type>
+          <maml:name>System.String]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="true(ByPropertyName)" position="1" aliases="DeviceId">
+        <maml:name>InstanceId</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of unique instance ID of devices. </maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>PresentOnly</maml:name>
+        <maml:description>
+          <maml:para>Indicates that this cmdlet gets only those devices that are present when you issue the command. Present devices are physically in the system or attached to it. </maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>Status</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of current status values of devices. The acceptable values for this parameter are: 
+
+-- OK
+-- ERROR
+-- UNKNOWN
+-- DEGRADED</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Microsoft.Management.Infrastructure.CimInstance#ROOT/Cimv2/Win32_PnPEntity[]</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>The Microsoft.Management.Infrastructure.CimInstance object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (#) provides the namespace and class name for the underlying WMI object.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Get all PnP devices</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDevice
+Status     Class           FriendlyName                                                                     InstanceId     
+------     -----           ------------                                                                     ----------     
+OK         System          High precision event timer                                                       ACPI\PNP0103... 
+OK         AudioEndpoint   Remote Audio                                                                     SWD\MMDEVAPI... 
+OK         System          System board                                                                     ACPI\PNP0C01\1 
+OK         System          System board                                                                     ACPI\PNP0C01\A 
+OK         System          Motherboard resources                                                            ACPI\PNP0C02\4 
+Unknown    MEDIA           Microsoft Streaming Service Proxy                                                SW\{96E080C7... 
+OK         System          UMBus Enumerator                                                                 UMB\UMB\1&amp;amp;84... 
+OK         Printer         \\prn-corp3\stug-2633-clr                                                        SWD\PRINTENU... 
+OK         PrintQueue      stug-2633-clr on prn-tsqa.contoso.com (redirected 1)             SWD\PRINTENU... 
+
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all devices known to PnP, whether they are present or not. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Get PnP devices by name</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDevice -FriendlyName 'Generic USB Hub'
+Status     Class           FriendlyName                                                                     InstanceId     
+------     -----           ------------                                                                     ----------     
+OK         USB             Generic USB Hub                                                                  USB\VID_0557... 
+OK         USB             Generic USB Hub                                                                  USB\VID_0409... 
+OK         USB             Generic USB Hub                                                                  USB\VID_8087... 
+OK         USB             Generic USB Hub                                                                  USB\VID_8087... 
+OK         USB             Generic USB Hub                                                                  USB\VID_0424... 
+OK         USB             Generic USB Hub                                                                  USB\VID_0424...                        
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all the devices named Generic USB Hub. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Get PnP devices by ID</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDevice -InstanceId 'USB\VID_8087&amp;amp;PID_0024\5&amp;amp;3541780&amp;amp;0&amp;amp;1'
+Status     Class           FriendlyName                                                                     InstanceId     
+------     -----           ------------                                                                     ----------     
+OK         USB             Generic USB Hub                                                                  USB\VID_8087...                        
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets the device that has the specified instance ID. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 4: Get present PnP devices in specified states</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDevice -PresentOnly -Status ERROR,DEGRADED,UNKNOWN
+Status     Class           FriendlyName                                                                     InstanceId     
+------     -----           ------------                                                                     ----------     
+Error                      PCI Serial Port                                                                  PCI\VEN_8086... 
+Error      Mouse           Microsoft PS/2 Mouse                                                             ACPI\PNP0F03... 
+Error                      PCI Simple Communications Controller                                             PCI\VEN_8086... 
+Error                      SAS Controller                                                                   PCI\VEN_8086... 
+Error      Keyboard        Standard PS/2 Keyboard                                                           ACPI\PNP0303...                        
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all present devices that report a status of error, degraded, or unknown. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 5: Get PnP devices of a class</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-PnpDevice -Class 'Mouse'
+Status     Class           FriendlyName                                                                     InstanceId     
+------     -----           ------------                                                                     ----------     
+OK         Mouse           HID-compliant mouse                                                              HID\VID_0557... 
+Error      Mouse           Microsoft PS/2 Mouse                                                             ACPI\PNP0F03... 
+OK         Mouse           Remote Desktop Mouse Device                                                      TERMINPUT_BU... 
+OK         Mouse           HID-compliant mouse                                                              HID\VID_045E... 
+
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all the devices that belong to the specified PnP class. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Disable-PnpDevice</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Enable-PnpDevice</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+</helpItems>

@@ -1,0 +1,247 @@
+
+
+ABOUT_FUNCTIONS_ARGUMENT_COMPLETION
+
+
+Short description
+
+Argument completion is a feature of PowerShell that provide hints, enables
+discovery, and speeds up input entry of argument values.
+
+
+Long description
+
+This article describe the different ways you can implement argument
+completers for PowerShell functions. Argument completers provide the
+possible values for a parameter. The available values are calculated at
+runtime when the user presses the Tab key after the parameter name. There
+are several ways to define an argument completer for a parameter.
+
+  [!NOTE] Tab is the default key binding on Windows. This keybinding can be
+  changed by the PSReadLine module or the application that is hosting
+  PowerShell. The keybinding is different on non-Windows platforms. For
+  more information, see about_PSReadLine.
+
+
+ValidateSet attribute
+
+The VALIDATESET attribute specifies a set of valid values for a parameter
+or variable and enables tab completion. PowerShell generates an error if a
+parameter or variable value doesn't match a value in the set. In the
+following example, the value of the FRUIT parameter can only be APPLE,
+BANANA, or PEAR.
+
+    Param(
+        [Parameter(Mandatory=$true)]
+        [ValidateSet('Apple', 'Banana', 'Pear')]
+        [string[]]
+        $Fruit
+    )
+
+In the following example, the value of the variable $flavor must be either
+CHOCOLATE, STRAWBERRY, or VANILLA. The ValidateSet attribute can be used on
+any variable, not just parameters.
+
+    [ValidateSet('Chocolate', 'Strawberry', 'Vanilla')]
+    [string]$flavor = 'Strawberry'
+
+The validation occurs whenever that variable is assigned even within the
+script.
+
+    Param(
+        [ValidateSet('hello', 'world')]
+        [string]$Message
+    )
+
+    $Message = 'bye'
+
+This example returns the following error at runtime:
+
+    MetadataError: The attribute cannot be added because variable Message with
+    value bye would no longer be valid.
+
+For more information about tab expansion, see about_Tab_Expansion.
+
+Dynamic ValidateSet values using classes
+
+You can use a CLASS to dynamically generate the values for VALIDATESET at
+runtime. In the following example, the valid values for the variable $Sound
+are generated via a CLASS named SOUNDNAMES that checks three filesystem
+paths for available sound files:
+
+    Class SoundNames : System.Management.Automation.IValidateSetValuesGenerator {
+        [string[]] GetValidValues() {
+            $SoundPaths = '/System/Library/Sounds/',
+                          '/Library/Sounds',
+                          '~/Library/Sounds'
+            $SoundNames = ForEach ($SoundPath in $SoundPaths) {
+                If (Test-Path $SoundPath) {
+                    (Get-ChildItem $SoundPath).BaseName
+                }
+            }
+            return [string[]] $SoundNames
+        }
+    }
+
+The [SoundNames] class is then implemented as a dynamic VALIDATESET value
+as follows:
+
+    Param(
+        [ValidateSet([SoundNames])]
+        [string]$Sound
+    )
+
+  [!NOTE] The IValidateSetValuesGenerator class was introduced in
+  PowerShell 6.0.
+
+
+ArgumentCompletions attribute
+
+The ARGUMENTCOMPLETIONS attribute allows you to add tab completion values
+to a specific parameter. An ARGUMENTCOMPLETIONS attribute must be defined
+for each parameter that needs tab completion. The ARGUMENTCOMPLETIONS
+attribute is similar to VALIDATESET. Both attributes take a list of values
+to be presented when the user presses Tab after the parameter name.
+However, unlike VALIDATESET, the values are not validated and more like
+suggestions. Therefore the user can supply any value, not just the values
+in the list.
+
+The ARGUMENTCOMPLETIONS attribute should not be confused with the
+ARGUMENTCOMPLETER attribute, which needs a scriptblock to define the
+options. the specified values are available
+
+The syntax is as follows:
+
+    function Test-ArgumentCompletions {
+        [CmdletBinding()]
+        param (
+            [Parameter(Mandatory=$true)]
+            [ArgumentCompletions('Fruits', 'Vegetables')]
+            $Type,
+
+            [Parameter()]
+            [ArgumentCompletions('Apple', 'Banana', 'Orange')]
+            $Fruit,
+
+            [Parameter()]
+            [ArgumentCompletions('Tomato', 'Corn', 'Squash')]
+            $Vegetable
+        )
+    }
+
+Each of the parameters is provided a list of options to the
+ARGUMENTCOMPLETIONS attribute to enable tab completion.
+
+This attribute was introduced in PowerShell Core 6.0
+
+
+ArgumentCompleter attribute
+
+The ARGUMENTCOMPLETER attribute allows you to add tab completion values to
+a specific parameter. An ARGUMENTCOMPLETER attribute must be defined for
+each parameter that needs tab completion.
+
+To add an ARGUMENTCOMPLETER attribute, you need to define a script block
+that determines the values. The script block must take the following
+parameters in the order specified below. The parameter's names don't matter
+as the values are provided positionally.
+
+The syntax is as follows:
+
+    function MyArgumentCompleter {
+        Param(
+            [Parameter(Mandatory)]
+            [ArgumentCompleter( {
+                param ( $commandName,
+                        $parameterName,
+                        $wordToComplete,
+                        $commandAst,
+                        $fakeBoundParameters )
+                # Perform calculation of tab completed values here.
+            } )]
+            $ParamName
+        )
+    }
+
+ArgumentCompleter script block
+
+The script block parameters are set to the following values:
+
+-   $commandName (Position 0) - This parameter is set to the name of the
+    command for which the script block is providing tab completion.
+-   $parameterName (Position 1) - This parameter is set to the parameter
+    whose value requires tab completion.
+-   $wordToComplete (Position 2) - This parameter is set to value the user
+    has provided before they pressed Tab. Your script block should use this
+    value to determine tab completion values.
+-   $commandAst (Position 3) - This parameter is set to the Abstract Syntax
+    Tree (AST) for the current input line. For more information, see the
+    AST type documentation.
+-   $fakeBoundParameters (Position 4) - This parameter is set to a
+    hashtable containing the $PSBoundParameters for the cmdlet, before the
+    user pressed Tab. For more information, see about_Automatic_Variables.
+
+The ARGUMENTCOMPLETER script block must unroll the values using the
+pipeline, such as ForEach-Object, Where-Object, or another suitable method.
+Returning an array of values causes PowerShell to treat the entire array as
+ONE tab completion value.
+
+The following example adds tab completion to the VALUE parameter. If only
+the VALUE parameter is specified, all possible values, or arguments, for
+VALUE are displayed. When the TYPE parameter is specified, the VALUE
+parameter only displays the possible values for that type.
+
+In addition, the -like operator ensures that if the user types the
+following command and uses Tab completion, only APPLE is returned.
+
+Test-ArgumentCompleter -Type Fruits -Value A
+
+    function MyArgumentCompleter{
+        param ( $commaName,
+                $parameterName,
+                $wordToComplete,
+                $commandAst,
+                $fakeBoundParameters )
+
+        $possibleValues = @{
+            Fruits = @('Apple', 'Orange', 'Banana')
+            Vegetables = @('Tomato', 'Squash', 'Corn')
+        }
+
+        if ($fakeBoundParameters.ContainsKey('Type')) {
+            $possibleValues[$fakeBoundParameters.Type] | Where-Object {
+                $_ -like "$wordToComplete*"
+            }
+        } else {
+            $possibleValues.Values | ForEach-Object {$_}
+        }
+    }
+
+    function Test-ArgumentCompleter {
+    [CmdletBinding()]
+     param (
+            [Parameter(Mandatory=$true)]
+            [ValidateSet('Fruits', 'Vegetables')]
+            $Type,
+
+            [Parameter(Mandatory=$true)]
+            [ArgumentCompleter({ MyArgumentCompleter @args })]
+            $Value
+          )
+    }
+
+
+Register-ArgumentCompleter
+
+The Register-ArgumentCompleter cmdlet registers a custom argument
+completer. An argument completer allows you to provide dynamic tab
+completion, at run time for any command that you specify.
+
+For more information, see Register-ArgumentCompleter.
+
+
+See also
+
+-   about_Functions_Advanced_Parameters
+-   Register-ArgumentCompleter
+-   about_Tab_Expansion

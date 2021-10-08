@@ -1,0 +1,93 @@
+
+
+ABOUT INTRINSIC MEMBERS
+
+
+Short description
+
+Provides information about PowerShell's intrinsic members that are
+available to all PowerShell objects.
+
+
+Detailed description
+
+When objects are created, PowerShell adds some "hidden" properties and
+methods to each object. These properties and methods are known as
+_intrinsic members_. These intrinsic members are normally hidden from view.
+Some of these members can be seen using the Get-Member -Force command.
+
+
+Object views
+
+The intrinsic members include a set of MEMBERSET properties that represent
+a view of the object. You can find the MEMBERSET properties using the
+Get-Member -Force command on any PowerShell object. Every PowerShell object
+includes the following MEMBERSET properties.
+
+psbase
+
+This PSBASE contains the members the base object without extension or
+adaptation.
+
+psadapted
+
+The PSADAPTED view shows the base object plus the adapted members, if
+present. Adapted members are added by the Extended Type System (ETS).
+
+psextended
+
+The PSEXTENDED view _only_ shows the members added by the Types.ps1xml
+files and the Add-Member cmdlet. Any object can be extended at runtime
+using the Add-Member cmdlet.
+
+psobject
+
+The base type of all PowerShell objects is [PSObject]. However, when an
+object gets created, PowerShell also wraps the object with a [PSObject]
+instance. The PSOBJECT member allows access to the [PSObject] wrapper
+instance. The wrapper includes methods, properties, and other information
+about the object. Using the PSOBJECT member is comparable to using
+Get-Member, but there are some differences since it is only accessing the
+wrapper instance.
+
+
+Type information
+
+pstypenames
+
+PSTYPENAMES is a CODEPROPERTY member that lists the object type hierarchy
+in order of inheritance. For example:
+
+    $file = Get-Item C:\temp\test.txt
+    $file.pstypenames
+
+    System.IO.FileInfo
+    System.IO.FileSystemInfo
+    System.MarshalByRefObject
+    System.Object
+
+As shown above, it starts with the most specific object type,
+System.IO.FileInfo, and continues down to the most generic type,
+System.Object.
+
+
+Methods
+
+PowerShell adds two hidden methods to all PowerShell objects. These methods
+are not visible using the Get-Member -Force command or tab completion.
+
+ForEach() and Where()
+
+The ForEach() and Where() methods are available to all PowerShell objects.
+However, they are most useful when working with collections. For more
+information on how to use these methods, see about_Arrays.
+
+
+Properties
+
+Count and Length
+
+The COUNT and LENGTH properties are available to all PowerShell objects.
+These are similar to each other but may work differently depending on the
+data type. For more information about these properties, see
+about_Properties.

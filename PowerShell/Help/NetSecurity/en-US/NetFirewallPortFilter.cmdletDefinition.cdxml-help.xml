@@ -1,0 +1,615 @@
+﻿<?xml version = "1.0" encoding = "utf-8" ?>
+
+<helpItems schema="maml">
+
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><command:details><command:name>Get-NetFirewallPortFilter</command:name><maml:description><maml:para>Retrieves port filter objects from the target computer.</maml:para></maml:description><maml:copyright><maml:para /></maml:copyright><command:verb>Get</command:verb><command:noun>NetFirewallPortFilter</command:noun><dev:version /></command:details><maml:description><maml:para>The Get-NetFirewallPortFilter cmdlet returns the port filter objects associated with the input rules.</maml:para><maml:para>Port filter objects represent the port and protocol conditions associated with the firewall and IPsec rules. The Protocol, LocalPort, RemotePort, IcmpType and DynamicTransport parameters of a single rule are represented in a single rule are represented in a separate NetFirewallPortFilter object. The filter to rule relationship is always one-to-one and is managed automatically. Rule parameters associated with filters can only be queried using filter objects.</maml:para><maml:para>This cmdlet displays the ports and protocols associated with firewall and IPsec rules. This allows for rule querying based on the Protocol, LocalPort, RemotePort, IcmpType and DynamicTransport parameters; this cmdlet returns filter objects that may be further queried with the <maml:navigationLink><maml:linkText>Where-Object</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The cmdlet also allows the interface type filters to be obtained by Protocol, LocalPort, RemotePort, IcmpType and DynamicTransport parameter query. The resultant filters are passed into the Get-NetFirewallRule or Get-NetIPsecRule cmdlet to return the rules queried by port or protocol.</maml:para><maml:para>To modify the port and protocol conditions, two methods can be used starting with the port filters returned by this cmdlet and optional additional querying.</maml:para><maml:para>The array of NetFirewallPortFilter objects can be piped into the Get-NetFirewallRule or Get-NetIPsecRule cmdlet, which returns the rules associated with the filters. These rules are then piped to the Set-NetFirewallRule or Set-NetIPsecRule cmdlet where the interface properties can be configured.</maml:para><maml:para>Alternatively, piping the array of NetFirewallPortFilter objects directly into the Set-NetFirewallInterfaceTypeFilter cmdlet allows the Protocol, LocalPort, RemotePort, IcmpType and DynamicTransport parameters of the rules to be modified.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-NetFirewallPortFilter</maml:name><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>All</maml:name><maml:description><maml:para>Indicates that all of the port filters within the specified policy store are retrieved.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>AsJob</maml:name><maml:description><maml:para>Runs the cmdlet as a background job. Use this parameter to run commands that take a long time to complete. 
+ The cmdlet immediately returns an object that represents the job and then displays the command prompt. You can continue to work in the session while the job completes. To manage the job, use the *-Job cmdlets. To get the job results, use the <maml:navigationLink><maml:linkText>Receive-Job</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. 
+ For more information about Windows PowerShell® background jobs, see <maml:navigationLink><maml:linkText>about_Jobs</maml:linkText><maml:uri></maml:uri></maml:navigationLink>.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session"><maml:name>CimSession</maml:name><maml:description><maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimSession[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>GPOSession</maml:name><maml:description><maml:para>Specifies the network GPO from which to retrieve the rules to be retrieved. 
+                         
+This parameter is used in the same way as the PolicyStore parameter. When modifying GPOs in Windows PowerShell®, each change to a GPO requires the entire GPO to be loaded, modified, and saved back. On a busy Domain Controller (DC), this can be a slow and resource-heavy operation. A GPO Session loads a domain GPO onto the local computer and makes all changes in a batch, before saving it back. This reduces the load on the DC and speeds up the Windows PowerShell cmdlets. To load a GPO Session, use the Open-NetGPO cmdlet. To save a GPO Session, use the Save-NetGPO cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PolicyStore</maml:name><maml:description><maml:para>Specifies the policy store from which to retrieve the rules to be retrieved. 
+                         
+A policy store is a container for firewall and IPsec policy. 
+The acceptable values for this parameter are: 
+                         
+ -- PersistentStore: Sometimes called static rules, this store contains the persistent policy for the local computer. This policy is not from GPOs, and has been created manually or programmatically (during application installation) on the computer. Rules created in this store are attached to the ActiveStore and activated on the computer immediately. 
+                         
+ -- ActiveStore: This store contains the currently active policy, which is the sum of all policy stores that apply to the computer. This is the resultant set of policy (RSOP) for the local computer (the sum of all GPOs that apply to the computer), and the local stores (the PersistentStore, the static Windows service hardening (WSH), and the configurable WSH). 
+                         
+ ---- GPOs are also policy stores. Computer GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore hostname. 
+                         
+ ---- Active Directory GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore domain.fqdn.com\GPO_Friendly_Name. 
+                         
+ ------ Such as the following. 
+                         
+ -------- -PolicyStore localhost
+                         
+ -------- -PolicyStore corp.contoso.com\FirewallPolicy
+                         
+ ---- Active Directory GPOs can be created using the New-GPO cmdlet or the Group Policy Management Console.
+                         
+                         
+ -- RSOP: This read-only store contains the sum of all GPOs applied to the local computer. 
+                         
+ -- SystemDefaults: This read-only store contains the default state of firewall rules that ship with Windows Server® 2012. 
+                         
+ -- StaticServiceStore: This read-only store contains all the service restrictions that ship with Windows Server 2012. Optional and product-dependent features are considered part of Windows Server 2012 for the purposes of WFAS. 
+                         
+ -- ConfigurableServiceStore: This read-write store contains all the service restrictions that are added for third-party services. In addition, network isolation rules that are created for Windows Store application containers will appear in this policy store. 
+                         
+The default value is PersistentStore. 
+Note: The Set-NetFirewallRule cmdlet cannot be used to add an object to a policy store. An object can only be added to a policy store at creation time with the Copy-NetFirewallRule cmdlet or with the New-NetFirewallRule cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>ThrottleLimit</maml:name><maml:description><maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">Int32</command:parameterValue></command:parameter></command:syntaxItem><command:syntaxItem><maml:name>Get-NetFirewallPortFilter</maml:name><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>AsJob</maml:name><maml:description><maml:para>Runs the cmdlet as a background job. Use this parameter to run commands that take a long time to complete. 
+ The cmdlet immediately returns an object that represents the job and then displays the command prompt. You can continue to work in the session while the job completes. To manage the job, use the *-Job cmdlets. To get the job results, use the <maml:navigationLink><maml:linkText>Receive-Job</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. 
+ For more information about Windows PowerShell® background jobs, see <maml:navigationLink><maml:linkText>about_Jobs</maml:linkText><maml:uri></maml:uri></maml:navigationLink>.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session"><maml:name>CimSession</maml:name><maml:description><maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimSession[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="DynamicTransport"><maml:name>DynamicTarget</maml:name><maml:description><maml:para>Specifies an array of dynamic transports. The cmdlet returns port filter objects associated with the input rules that have the dynamic transports that you specify. The acceptable values for this parameter are: 
+
+-- Any
+-- ProximityApps
+-- ProximitySharing
+-- WifiDirectPrinting
+-- WifiDirectDisplay
+-- WifiDirectDevices</maml:para><maml:para>Some types of dynamic transports, such as proximity sharing, abstract the network layer details, and you cannot use standard network layer conditions, such as protocols and ports, to identify the dynamic transports. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">DynamicTransport[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>GPOSession</maml:name><maml:description><maml:para>Specifies the network GPO from which to retrieve the rules to be retrieved. 
+                         
+This parameter is used in the same way as the PolicyStore parameter. When modifying GPOs in Windows PowerShell®, each change to a GPO requires the entire GPO to be loaded, modified, and saved back. On a busy Domain Controller (DC), this can be a slow and resource-heavy operation. A GPO Session loads a domain GPO onto the local computer and makes all changes in a batch, before saving it back. This reduces the load on the DC and speeds up the Windows PowerShell cmdlets. To load a GPO Session, use the Open-NetGPO cmdlet. To save a GPO Session, use the Save-NetGPO cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PolicyStore</maml:name><maml:description><maml:para>Specifies the policy store from which to retrieve the rules to be retrieved. 
+                         
+A policy store is a container for firewall and IPsec policy. 
+The acceptable values for this parameter are: 
+                         
+ -- PersistentStore: Sometimes called static rules, this store contains the persistent policy for the local computer. This policy is not from GPOs, and has been created manually or programmatically (during application installation) on the computer. Rules created in this store are attached to the ActiveStore and activated on the computer immediately. 
+                         
+ -- ActiveStore: This store contains the currently active policy, which is the sum of all policy stores that apply to the computer. This is the resultant set of policy (RSOP) for the local computer (the sum of all GPOs that apply to the computer), and the local stores (the PersistentStore, the static Windows service hardening (WSH), and the configurable WSH). 
+                         
+ ---- GPOs are also policy stores. Computer GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore hostname. 
+                         
+ ---- Active Directory GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore domain.fqdn.com\GPO_Friendly_Name. 
+                         
+ ------ Such as the following. 
+                         
+ -------- -PolicyStore localhost
+                         
+ -------- -PolicyStore corp.contoso.com\FirewallPolicy
+                         
+ ---- Active Directory GPOs can be created using the New-GPO cmdlet or the Group Policy Management Console.
+                         
+                         
+ -- RSOP: This read-only store contains the sum of all GPOs applied to the local computer. 
+                         
+ -- SystemDefaults: This read-only store contains the default state of firewall rules that ship with Windows Server® 2012. 
+                         
+ -- StaticServiceStore: This read-only store contains all the service restrictions that ship with Windows Server 2012. Optional and product-dependent features are considered part of Windows Server 2012 for the purposes of WFAS. 
+                         
+ -- ConfigurableServiceStore: This read-write store contains all the service restrictions that are added for third-party services. In addition, network isolation rules that are created for Windows Store application containers will appear in this policy store. 
+                         
+The default value is PersistentStore. 
+Note: The Set-NetFirewallRule cmdlet cannot be used to add an object to a policy store. An object can only be added to a policy store at creation time with the Copy-NetFirewallRule cmdlet or with the New-NetFirewallRule cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>Protocol</maml:name><maml:description><maml:para>Specifies that network packets with matching IP addresses match this rule. This parameter specifies the protocol for an IPsec rule. 
+The acceptable values for this parameter are: 
+                         
+ -- Protocols by number:  0 through 255. 
+                         
+ -- Protocols by name:  TCP, UDP, ICMPv4, or ICMPv6. 
+                         
+If a port number is identified by using port1 or port2, then this parameter must be set to TCP or UDP. 
+                         
+The values ICMPv4 and ICMPv6 create a rule that exempts ICMP network traffic from the IPsec requirements of another rule. 
+                         
+The default value is Any. 
+Note: Querying for rules with this parameter can only be performed using filter objects. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>ThrottleLimit</maml:name><maml:description><maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">Int32</command:parameterValue></command:parameter></command:syntaxItem><command:syntaxItem><maml:name>Get-NetFirewallPortFilter</maml:name><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>AsJob</maml:name><maml:description><maml:para>Runs the cmdlet as a background job. Use this parameter to run commands that take a long time to complete. 
+ The cmdlet immediately returns an object that represents the job and then displays the command prompt. You can continue to work in the session while the job completes. To manage the job, use the *-Job cmdlets. To get the job results, use the <maml:navigationLink><maml:linkText>Receive-Job</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. 
+ For more information about Windows PowerShell® background jobs, see <maml:navigationLink><maml:linkText>about_Jobs</maml:linkText><maml:uri></maml:uri></maml:navigationLink>.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session"><maml:name>CimSession</maml:name><maml:description><maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimSession[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>GPOSession</maml:name><maml:description><maml:para>Specifies the network GPO from which to retrieve the rules to be retrieved. 
+                         
+This parameter is used in the same way as the PolicyStore parameter. When modifying GPOs in Windows PowerShell®, each change to a GPO requires the entire GPO to be loaded, modified, and saved back. On a busy Domain Controller (DC), this can be a slow and resource-heavy operation. A GPO Session loads a domain GPO onto the local computer and makes all changes in a batch, before saving it back. This reduces the load on the DC and speeds up the Windows PowerShell cmdlets. To load a GPO Session, use the Open-NetGPO cmdlet. To save a GPO Session, use the Save-NetGPO cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PolicyStore</maml:name><maml:description><maml:para>Specifies the policy store from which to retrieve the rules to be retrieved. 
+                         
+A policy store is a container for firewall and IPsec policy. 
+The acceptable values for this parameter are: 
+                         
+ -- PersistentStore: Sometimes called static rules, this store contains the persistent policy for the local computer. This policy is not from GPOs, and has been created manually or programmatically (during application installation) on the computer. Rules created in this store are attached to the ActiveStore and activated on the computer immediately. 
+                         
+ -- ActiveStore: This store contains the currently active policy, which is the sum of all policy stores that apply to the computer. This is the resultant set of policy (RSOP) for the local computer (the sum of all GPOs that apply to the computer), and the local stores (the PersistentStore, the static Windows service hardening (WSH), and the configurable WSH). 
+                         
+ ---- GPOs are also policy stores. Computer GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore hostname. 
+                         
+ ---- Active Directory GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore domain.fqdn.com\GPO_Friendly_Name. 
+                         
+ ------ Such as the following. 
+                         
+ -------- -PolicyStore localhost
+                         
+ -------- -PolicyStore corp.contoso.com\FirewallPolicy
+                         
+ ---- Active Directory GPOs can be created using the New-GPO cmdlet or the Group Policy Management Console.
+                         
+                         
+ -- RSOP: This read-only store contains the sum of all GPOs applied to the local computer. 
+                         
+ -- SystemDefaults: This read-only store contains the default state of firewall rules that ship with Windows Server® 2012. 
+                         
+ -- StaticServiceStore: This read-only store contains all the service restrictions that ship with Windows Server 2012. Optional and product-dependent features are considered part of Windows Server 2012 for the purposes of WFAS. 
+                         
+ -- ConfigurableServiceStore: This read-write store contains all the service restrictions that are added for third-party services. In addition, network isolation rules that are created for Windows Store application containers will appear in this policy store. 
+                         
+The default value is PersistentStore. 
+Note: The Set-NetFirewallRule cmdlet cannot be used to add an object to a policy store. An object can only be added to a policy store at creation time with the Copy-NetFirewallRule cmdlet or with the New-NetFirewallRule cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>ThrottleLimit</maml:name><maml:description><maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">Int32</command:parameterValue></command:parameter><command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue)" position="named" aliases=""><maml:name>AssociatedNetFirewallRule</maml:name><maml:description><maml:para>Gets the port filter object associated with the specified firewall rule to be retrieved. 
+                         
+This parameter represents a firewall rule, which defines how traffic is filtered by the firewall. See the New-NetFirewallRule cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue></command:parameter></command:syntaxItem><command:syntaxItem><maml:name>Get-NetFirewallPortFilter</maml:name><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>AsJob</maml:name><maml:description><maml:para>Runs the cmdlet as a background job. Use this parameter to run commands that take a long time to complete. 
+ The cmdlet immediately returns an object that represents the job and then displays the command prompt. You can continue to work in the session while the job completes. To manage the job, use the *-Job cmdlets. To get the job results, use the <maml:navigationLink><maml:linkText>Receive-Job</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. 
+ For more information about Windows PowerShell® background jobs, see <maml:navigationLink><maml:linkText>about_Jobs</maml:linkText><maml:uri></maml:uri></maml:navigationLink>.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session"><maml:name>CimSession</maml:name><maml:description><maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimSession[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>GPOSession</maml:name><maml:description><maml:para>Specifies the network GPO from which to retrieve the rules to be retrieved. 
+                         
+This parameter is used in the same way as the PolicyStore parameter. When modifying GPOs in Windows PowerShell®, each change to a GPO requires the entire GPO to be loaded, modified, and saved back. On a busy Domain Controller (DC), this can be a slow and resource-heavy operation. A GPO Session loads a domain GPO onto the local computer and makes all changes in a batch, before saving it back. This reduces the load on the DC and speeds up the Windows PowerShell cmdlets. To load a GPO Session, use the Open-NetGPO cmdlet. To save a GPO Session, use the Save-NetGPO cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PolicyStore</maml:name><maml:description><maml:para>Specifies the policy store from which to retrieve the rules to be retrieved. 
+                         
+A policy store is a container for firewall and IPsec policy. 
+The acceptable values for this parameter are: 
+                         
+ -- PersistentStore: Sometimes called static rules, this store contains the persistent policy for the local computer. This policy is not from GPOs, and has been created manually or programmatically (during application installation) on the computer. Rules created in this store are attached to the ActiveStore and activated on the computer immediately. 
+                         
+ -- ActiveStore: This store contains the currently active policy, which is the sum of all policy stores that apply to the computer. This is the resultant set of policy (RSOP) for the local computer (the sum of all GPOs that apply to the computer), and the local stores (the PersistentStore, the static Windows service hardening (WSH), and the configurable WSH). 
+                         
+ ---- GPOs are also policy stores. Computer GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore hostname. 
+                         
+ ---- Active Directory GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore domain.fqdn.com\GPO_Friendly_Name. 
+                         
+ ------ Such as the following. 
+                         
+ -------- -PolicyStore localhost
+                         
+ -------- -PolicyStore corp.contoso.com\FirewallPolicy
+                         
+ ---- Active Directory GPOs can be created using the New-GPO cmdlet or the Group Policy Management Console.
+                         
+                         
+ -- RSOP: This read-only store contains the sum of all GPOs applied to the local computer. 
+                         
+ -- SystemDefaults: This read-only store contains the default state of firewall rules that ship with Windows Server® 2012. 
+                         
+ -- StaticServiceStore: This read-only store contains all the service restrictions that ship with Windows Server 2012. Optional and product-dependent features are considered part of Windows Server 2012 for the purposes of WFAS. 
+                         
+ -- ConfigurableServiceStore: This read-write store contains all the service restrictions that are added for third-party services. In addition, network isolation rules that are created for Windows Store application containers will appear in this policy store. 
+                         
+The default value is PersistentStore. 
+Note: The Set-NetFirewallRule cmdlet cannot be used to add an object to a policy store. An object can only be added to a policy store at creation time with the Copy-NetFirewallRule cmdlet or with the New-NetFirewallRule cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>ThrottleLimit</maml:name><maml:description><maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">Int32</command:parameterValue></command:parameter><command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue)" position="named" aliases=""><maml:name>AssociatedNetIPsecRule</maml:name><maml:description><maml:para>Gets the phase 1 authentication sets that are associated, via the pipeline, with the input IPsec rule to be retrieved. 
+                         
+A NetIPsecRule object represents an IPsec rule, which determines IPsec behavior. An IPsec rule can be associated with Phase1AuthSet, Phase2AuthSet, and NetIPsecQuickMode cryptographic sets. See the New-NetIPsecMainModeRule cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>All</maml:name><maml:description><maml:para>Indicates that all of the port filters within the specified policy store are retrieved.</maml:para></maml:description><command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue><dev:type><maml:name>SwitchParameter</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>AsJob</maml:name><maml:description><maml:para>Runs the cmdlet as a background job. Use this parameter to run commands that take a long time to complete. 
+ The cmdlet immediately returns an object that represents the job and then displays the command prompt. You can continue to work in the session while the job completes. To manage the job, use the *-Job cmdlets. To get the job results, use the <maml:navigationLink><maml:linkText>Receive-Job</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. 
+ For more information about Windows PowerShell® background jobs, see <maml:navigationLink><maml:linkText>about_Jobs</maml:linkText><maml:uri></maml:uri></maml:navigationLink>.</maml:para></maml:description><command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue><dev:type><maml:name>SwitchParameter</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue)" position="named" aliases=""><maml:name>AssociatedNetFirewallRule</maml:name><maml:description><maml:para>Gets the port filter object associated with the specified firewall rule to be retrieved. 
+                         
+This parameter represents a firewall rule, which defines how traffic is filtered by the firewall. See the New-NetFirewallRule cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue><dev:type><maml:name>CimInstance</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue)" position="named" aliases=""><maml:name>AssociatedNetIPsecRule</maml:name><maml:description><maml:para>Gets the phase 1 authentication sets that are associated, via the pipeline, with the input IPsec rule to be retrieved. 
+                         
+A NetIPsecRule object represents an IPsec rule, which determines IPsec behavior. An IPsec rule can be associated with Phase1AuthSet, Phase2AuthSet, and NetIPsecQuickMode cryptographic sets. See the New-NetIPsecMainModeRule cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue><dev:type><maml:name>CimInstance</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session"><maml:name>CimSession</maml:name><maml:description><maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimSession[]</command:parameterValue><dev:type><maml:name>CimSession[]</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="DynamicTransport"><maml:name>DynamicTarget</maml:name><maml:description><maml:para>Specifies an array of dynamic transports. The cmdlet returns port filter objects associated with the input rules that have the dynamic transports that you specify. The acceptable values for this parameter are: 
+
+-- Any
+-- ProximityApps
+-- ProximitySharing
+-- WifiDirectPrinting
+-- WifiDirectDisplay
+-- WifiDirectDevices</maml:para><maml:para>Some types of dynamic transports, such as proximity sharing, abstract the network layer details, and you cannot use standard network layer conditions, such as protocols and ports, to identify the dynamic transports. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">DynamicTransport[]</command:parameterValue><dev:type><maml:name>DynamicTransport[]</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>GPOSession</maml:name><maml:description><maml:para>Specifies the network GPO from which to retrieve the rules to be retrieved. 
+                         
+This parameter is used in the same way as the PolicyStore parameter. When modifying GPOs in Windows PowerShell®, each change to a GPO requires the entire GPO to be loaded, modified, and saved back. On a busy Domain Controller (DC), this can be a slow and resource-heavy operation. A GPO Session loads a domain GPO onto the local computer and makes all changes in a batch, before saving it back. This reduces the load on the DC and speeds up the Windows PowerShell cmdlets. To load a GPO Session, use the Open-NetGPO cmdlet. To save a GPO Session, use the Save-NetGPO cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PolicyStore</maml:name><maml:description><maml:para>Specifies the policy store from which to retrieve the rules to be retrieved. 
+                         
+A policy store is a container for firewall and IPsec policy. 
+The acceptable values for this parameter are: 
+                         
+ -- PersistentStore: Sometimes called static rules, this store contains the persistent policy for the local computer. This policy is not from GPOs, and has been created manually or programmatically (during application installation) on the computer. Rules created in this store are attached to the ActiveStore and activated on the computer immediately. 
+                         
+ -- ActiveStore: This store contains the currently active policy, which is the sum of all policy stores that apply to the computer. This is the resultant set of policy (RSOP) for the local computer (the sum of all GPOs that apply to the computer), and the local stores (the PersistentStore, the static Windows service hardening (WSH), and the configurable WSH). 
+                         
+ ---- GPOs are also policy stores. Computer GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore hostname. 
+                         
+ ---- Active Directory GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore domain.fqdn.com\GPO_Friendly_Name. 
+                         
+ ------ Such as the following. 
+                         
+ -------- -PolicyStore localhost
+                         
+ -------- -PolicyStore corp.contoso.com\FirewallPolicy
+                         
+ ---- Active Directory GPOs can be created using the New-GPO cmdlet or the Group Policy Management Console.
+                         
+                         
+ -- RSOP: This read-only store contains the sum of all GPOs applied to the local computer. 
+                         
+ -- SystemDefaults: This read-only store contains the default state of firewall rules that ship with Windows Server® 2012. 
+                         
+ -- StaticServiceStore: This read-only store contains all the service restrictions that ship with Windows Server 2012. Optional and product-dependent features are considered part of Windows Server 2012 for the purposes of WFAS. 
+                         
+ -- ConfigurableServiceStore: This read-write store contains all the service restrictions that are added for third-party services. In addition, network isolation rules that are created for Windows Store application containers will appear in this policy store. 
+                         
+The default value is PersistentStore. 
+Note: The Set-NetFirewallRule cmdlet cannot be used to add an object to a policy store. An object can only be added to a policy store at creation time with the Copy-NetFirewallRule cmdlet or with the New-NetFirewallRule cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>Protocol</maml:name><maml:description><maml:para>Specifies that network packets with matching IP addresses match this rule. This parameter specifies the protocol for an IPsec rule. 
+The acceptable values for this parameter are: 
+                         
+ -- Protocols by number:  0 through 255. 
+                         
+ -- Protocols by name:  TCP, UDP, ICMPv4, or ICMPv6. 
+                         
+If a port number is identified by using port1 or port2, then this parameter must be set to TCP or UDP. 
+                         
+The values ICMPv4 and ICMPv6 create a rule that exempts ICMP network traffic from the IPsec requirements of another rule. 
+                         
+The default value is Any. 
+Note: Querying for rules with this parameter can only be performed using filter objects. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue><dev:type><maml:name>String[]</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>ThrottleLimit</maml:name><maml:description><maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">Int32</command:parameterValue><dev:type><maml:name>Int32</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name>Microsoft.Management.Infrastructure.CimInstance#root\StandardCimv2\MSFT_NetConSecRule[]</maml:name><maml:uri></maml:uri><maml:description><maml:para /></maml:description></dev:type><maml:description><maml:para>The Microsoft.Management.Infrastructure.CimInstance object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (#) provides the namespace and class name for the underlying WMI object.</maml:para></maml:description></command:inputType><command:inputType><dev:type><maml:name>Microsoft.Management.Infrastructure.CimInstance#root\StandardCimv2\MSFT_NetFirewallRule</maml:name><maml:uri></maml:uri><maml:description><maml:para /></maml:description></dev:type><maml:description><maml:para>The Microsoft.Management.Infrastructure.CimInstance object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (#) provides the namespace and class name for the underlying WMI object.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>Microsoft.Management.Infrastructure.CimInstance#root\StandardCimv2\MSFT_NetProtocolPortFilter[]</maml:name><maml:uri></maml:uri><maml:description><maml:para /></maml:description></dev:type><maml:description><maml:para>The Microsoft.Management.Infrastructure.CimInstance object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (#) provides the namespace and class name for the underlying WMI object.</maml:para></maml:description></command:returnValue></command:returnValues><command:terminatingErrors /><command:nonTerminatingErrors /><command:examples><command:example><maml:title>Example 1</maml:title><maml:introduction><maml:para></maml:para></maml:introduction><dev:code>
+PS C:\&gt;Get-NetFirewallPortFilter -PolicyStore ActiveStore
+
+
+This cmdlet displays the same information in a dynamically sized formatted table.
+PS C:\&gt;Get-NetFirewallPortFilter -PolicyStore ActiveStore | Format-Table -Property *
+
+</dev:code><dev:remarks><maml:para>This example retrieves the port conditions associated with all the rules in the active store. Note: Running this cmdlet without specifying the policy store retrieves the persistent store.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText /></command:commandLine></command:commandLines></command:example><command:example><maml:title>Example 2</maml:title><maml:introduction><maml:para></maml:para></maml:introduction><dev:code>PS C:\&gt;Get-NetFirewallRule –DisplayName "Contoso Messenger" | Get-NetFirewallPortFilter
+
+</dev:code><dev:remarks><maml:para>This example gets the port properties of a particular firewall rule.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText /></command:commandLine></command:commandLines></command:example><command:example><maml:title>Example 3</maml:title><maml:introduction><maml:para></maml:para></maml:introduction><dev:code>
+PS C:\&gt;Get-FirewallRule –DisplayName "Play To streaming server" | Get-NetFirewallPortFilter | Set-NetFirewallPortFilter –LocalPort 10246
+
+
+This task can alternatively be done with this cmdlet.
+PS C:\&gt;Set-NetFirewallRule –DisplayName "Play To streaming server" –LocalPort 10246
+
+</dev:code><dev:remarks><maml:para>This example modifies the local port field of a particular firewall rule.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText /></command:commandLine></command:commandLines></command:example><command:example><maml:title>Example 4</maml:title><maml:introduction><maml:para></maml:para></maml:introduction><dev:code>PS C:\&gt;Get-NetFirewallPortFilter | Where-Object -Property { $_.LocalPort -Eq "10246" } | Set-NetFirewallPortFilter –LocalPort Any
+
+</dev:code><dev:remarks><maml:para>This example modifies all of the rules associated with a specific port.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText /></command:commandLine></command:commandLines></command:example><command:example><maml:title>Example 5</maml:title><maml:introduction><maml:para></maml:para></maml:introduction><dev:code>PS C:\&gt;Get-NetFirewallRule –DisplayGroup "File and Printer Sharing" | Get-NetFirewallPortFilter | Where-Object -Property { $_.RemotePort –Eq "137" } | Set-NetFirewallPortFilter –LocalPort Any
+
+</dev:code><dev:remarks><maml:para>This example modifies the interface type associated with all of the firewall rules in a specified group.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText /></command:commandLine></command:commandLines></command:example><command:example><maml:title>Example 6</maml:title><maml:introduction><maml:para></maml:para></maml:introduction><dev:code>PS C:\&gt;Get-NetFirewallPortFilter -DynamicTransport ProximitySharing | Get-NetFirewallRule | Set-NetFirewall –Action Block
+
+</dev:code><dev:remarks><maml:para>This example shows how to locate the built-in network isolation rule permitting ProximitySharing and blocks it so that the proximity pairing is disallowed.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText /></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText><maml:uri>http://go.microsoft.com/fwlink/?LinkId=282432</maml:uri></maml:navigationLink><maml:navigationLink><maml:linkText>Format-Table</maml:linkText><maml:uri></maml:uri></maml:navigationLink><maml:navigationLink><maml:linkText>Where-Object</maml:linkText><maml:uri></maml:uri></maml:navigationLink><maml:navigationLink><maml:linkText>Get-NetFirewallRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Get-NetIPSecRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>New-NetFirewallRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>New-NetIPSecRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Set-NetFirewallInterfaceFilter</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Set-NetFirewallPortFilter</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Set-NetFirewallRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Set-NetIPSecRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>New-GPO</maml:linkText><maml:uri /></maml:navigationLink></maml:relatedLinks></command:command>
+
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"><command:details><command:name>Set-NetFirewallPortFilter</command:name><maml:description><maml:para>Modifies port filter objects, thereby modifying the protocol and port conditions using the Protocol, LocalPort, RemotePort, IcmpType, and DynamicTransport parameters of the firewall or IPsec rules.</maml:para></maml:description><maml:copyright><maml:para /></maml:copyright><command:verb>Set</command:verb><command:noun>NetFirewallPortFilter</command:noun><dev:version /></command:details><maml:description><maml:para>The Set-NetFirewallPortFilter cmdlet modifies the protocol and port conditions using the Protocol, LocalPort, RemotePort, IcmpType, and DynamicTransport parameters associated with the input firewall or IPsec rules.</maml:para><maml:para>See the Get-NetFirewallPortFilter cmdlet for more information about the interface type filters.</maml:para><maml:para>To modify the port and protocol conditions, two methods can be used starting with the port filters returned by the Get-NetFirewallPortFilter cmdlet and optional additional querying. 
+                       
+ -- The network firewall port filter objects are piped into the Get-NetFirewallRule or Get-NetIPsecrule cmdlet. The Get-NetFirewallRule or Get-NetIPsecrule cmdlet returns the rules associated with the filters and pipes the rules into the Set-NetFirewallRule or Set-NetIPsecrule cmdlet which configures the interface properties. 
+                       
+ -- Alternatively, the network firewall port filter objects are piped directly to this cmdlet, which modifies the Protocol, LocalPort, RemotePort, IcmpType, and DynamicTransport parameters values of the rules.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Set-NetFirewallPortFilter</maml:name><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>AsJob</maml:name><maml:description><maml:para>Runs the cmdlet as a background job. Use this parameter to run commands that take a long time to complete. 
+ The cmdlet immediately returns an object that represents the job and then displays the command prompt. You can continue to work in the session while the job completes. To manage the job, use the *-Job cmdlets. To get the job results, use the <maml:navigationLink><maml:linkText>Receive-Job</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. 
+ For more information about Windows PowerShell® background jobs, see <maml:navigationLink><maml:linkText>about_Jobs</maml:linkText><maml:uri></maml:uri></maml:navigationLink>.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session"><maml:name>CimSession</maml:name><maml:description><maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimSession[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="DynamicTransport"><maml:name>DynamicTarget</maml:name><maml:description><maml:para>Specifies a dynamic transport. The cmdlet sets the protocol and port conditions for the input rules that have the dynamic transport that you specify.The acceptable values for this parameter are: 
+
+-- Any
+-- ProximityApps
+-- ProximitySharing
+-- WifiDirectPrinting
+-- WifiDirectDisplay
+-- WifiDirectDevices
+
+The default value is Any.</maml:para><maml:para>Some types of dynamic transports, such as proximity sharing, abstract the network layer details. This means that you cannot use standard network layer conditions, such as protocols and ports, to identify the dynamic transports. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">DynamicTransport</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>GPOSession</maml:name><maml:description><maml:para>Specifies the network GPO from which to retrieve the rules to be modified. 
+                         
+This parameter is used in the same way as the PolicyStore parameter. When modifying GPOs in Windows PowerShell®, each change to a GPO requires the entire GPO to be loaded, modified, and saved back. On a busy Domain Controller (DC), this can be a slow and resource-heavy operation. A GPO Session loads a domain GPO onto the local computer and makes all changes in a batch, before saving it back. This reduces the load on the DC and speeds up the Windows PowerShell cmdlets. To load a GPO Session, use the Open-NetGPO cmdlet. To save a GPO Session, use the Save-NetGPO cmdlet.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>IcmpType</maml:name><maml:description><maml:para>Specifies the Internet Control Message Protocol (ICMP) type codes. The key encoding is specified by running the Set-NetFirewallSetting cmdlet with the KeyEncoding parameter. 
+The acceptable values for this parameter are: 
+                         
+ -- ICMP type code: 0 through 255 
+                         
+ -- ICMP type code pairs: 3:4 
+                         
+ -- Keyword: Any. 
+Note: A rule can be queried for this condition, or modified by using the security filter object. See the Get-NetFirewallPortFilter cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>LocalPort</maml:name><maml:description><maml:para>Specifies that network packets with matching IP port numbers match this rule. This parameter value is the first end point of an IPsec rule. 
+                         
+The acceptable value is a port, range, or keyword and depends on the protocol. 
+                         
+If the Protocol parameter value is TCP or UDP, then the acceptable values for this parameter are: 
+                         
+ -- Port range: 0 through 65535. 
+                         
+ -- Port number: 80. 
+                         
+ -- Keyword: Any. 
+                         
+If the Protocol parameter value is ICMPv4 or ICMPv6, then the acceptable values for this parameter are: 
+                         
+ -- An ICMP type, code pair: 0, 8. 
+                         
+ -- Type and code: 0 through 255. 
+                         
+ -- Keyword: Any. 
+                         
+If the Protocol parameter is not specified, then the acceptable values for this parameter are: Any, RPC, RPC-EPMap, or IPHTTPS. 
+Note: IPHTTPS is only supported on Windows Server 2012. 
+Note: Querying for rules with this parameter can only be performed using filter objects. See the Get-NetFirewallPortFilter cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PassThru</maml:name><maml:description><maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PolicyStore</maml:name><maml:description><maml:para>Specifies the policy store from which to retrieve the rules to be modified. 
+                         
+A policy store is a container for firewall and IPsec policy. 
+The acceptable values for this parameter are: 
+                         
+ -- PersistentStore: Sometimes called static rules, this store contains the persistent policy for the local computer. This policy is not from GPOs, and has been created manually or programmatically (during application installation) on the computer. Rules created in this store are attached to the ActiveStore and activated on the computer immediately. 
+                         
+ -- ActiveStore: This store contains the currently active policy, which is the sum of all policy stores that apply to the computer. This is the resultant set of policy (RSOP) for the local computer (the sum of all GPOs that apply to the computer), and the local stores (the PersistentStore, the static Windows service hardening (WSH), and the configurable WSH). 
+                         
+ ---- GPOs are also policy stores. Computer GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore hostname. 
+                         
+ ---- Active Directory GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore domain.fqdn.com\GPO_Friendly_Name. 
+                         
+ ------ Such as the following. 
+                         
+ -------- -PolicyStore localhost
+                         
+ -------- -PolicyStore corp.contoso.com\FirewallPolicy
+                         
+ ---- Active Directory GPOs can be created using the New-GPO cmdlet or the Group Policy Management Console.
+                         
+                         
+ -- RSOP: This read-only store contains the sum of all GPOs applied to the local computer. 
+                         
+ -- SystemDefaults: This read-only store contains the default state of firewall rules that ship with Windows Server® 2012. 
+                         
+ -- StaticServiceStore: This read-only store contains all the service restrictions that ship with Windows Server 2012. Optional and product-dependent features are considered part of Windows Server 2012 for the purposes of WFAS. 
+                         
+ -- ConfigurableServiceStore: This read-write store contains all the service restrictions that are added for third-party services. In addition, network isolation rules that are created for Windows Store application containers will appear in this policy store. 
+                         
+The default value is PersistentStore. 
+Note: The Set-NetFirewallRule cmdlet cannot be used to add an object to a policy store. An object can only be added to a policy store at creation time with the Copy-NetFirewallRule cmdlet or with the New-NetFirewallRule cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>Protocol</maml:name><maml:description><maml:para>Specifies that network packets with matching IP addresses match this rule. This parameter specifies the protocol for an IPsec rule. 
+The acceptable values for this parameter are: 
+                         
+ -- Protocols by number: 0 to 255. 
+                         
+ -- Protocols by name: TCP, UDP, ICMPv4, or ICMPv6. 
+                         
+If a port number is identified by using port1 or port2, then this parameter must be set to TCP or UDP. 
+                         
+The values ICMPv4 and ICMPv6 create a rule that exempts ICMP network traffic from the IPsec requirements of another rule. 
+                         
+The default value is Any. 
+Note: Querying for rules with this parameter can only be performed using filter objects. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>RemotePort</maml:name><maml:description><maml:para>Specifies that network packets with matching IP port numbers match this rule. This parameter value is the second end point of an IPsec rule. The acceptable value is a port, range, or keyword and depends on the protocol. 
+                         
+If the protocol is TCP or UDP, then the acceptable values for this parameter are: 
+                         
+ -- Port range: 0 through 65535 
+                         
+ -- Port number: 80 
+                         
+ -- Keyword: Any 
+                         
+If the protocol is ICMPv4 or ICMPv6, then the acceptable values for this parameter are: 
+                         
+ -- An ICMP type, code pair: 0, 8 
+                         
+ -- Type and code: 0 through 255 
+                         
+ -- Keyword: Any. 
+                         
+If a protocol is not specified, then the acceptable values for this parameter are: Any, RPC, RPC-EPMap, or IPHTTPS. 
+Note: IPHTTPS is only supported on Windows Server 2012. 
+Note: Querying for rules with this parameter can only be performed using filter objects. See the Get-NetFirewallPortFilter cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>ThrottleLimit</maml:name><maml:description><maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">Int32</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named"><maml:name>Confirm</maml:name><maml:description><maml:para>Prompts you for confirmation before running the cmdlet.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named"><maml:name>WhatIf</maml:name><maml:description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para></maml:description></command:parameter></command:syntaxItem><command:syntaxItem><maml:name>Set-NetFirewallPortFilter</maml:name><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>AsJob</maml:name><maml:description><maml:para>Runs the cmdlet as a background job. Use this parameter to run commands that take a long time to complete. 
+ The cmdlet immediately returns an object that represents the job and then displays the command prompt. You can continue to work in the session while the job completes. To manage the job, use the *-Job cmdlets. To get the job results, use the <maml:navigationLink><maml:linkText>Receive-Job</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. 
+ For more information about Windows PowerShell® background jobs, see <maml:navigationLink><maml:linkText>about_Jobs</maml:linkText><maml:uri></maml:uri></maml:navigationLink>.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session"><maml:name>CimSession</maml:name><maml:description><maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimSession[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="DynamicTransport"><maml:name>DynamicTarget</maml:name><maml:description><maml:para>Specifies a dynamic transport. The cmdlet sets the protocol and port conditions for the input rules that have the dynamic transport that you specify.The acceptable values for this parameter are: 
+
+-- Any
+-- ProximityApps
+-- ProximitySharing
+-- WifiDirectPrinting
+-- WifiDirectDisplay
+-- WifiDirectDevices
+
+The default value is Any.</maml:para><maml:para>Some types of dynamic transports, such as proximity sharing, abstract the network layer details. This means that you cannot use standard network layer conditions, such as protocols and ports, to identify the dynamic transports. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">DynamicTransport</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>IcmpType</maml:name><maml:description><maml:para>Specifies the Internet Control Message Protocol (ICMP) type codes. The key encoding is specified by running the Set-NetFirewallSetting cmdlet with the KeyEncoding parameter. 
+The acceptable values for this parameter are: 
+                         
+ -- ICMP type code: 0 through 255 
+                         
+ -- ICMP type code pairs: 3:4 
+                         
+ -- Keyword: Any. 
+Note: A rule can be queried for this condition, or modified by using the security filter object. See the Get-NetFirewallPortFilter cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>LocalPort</maml:name><maml:description><maml:para>Specifies that network packets with matching IP port numbers match this rule. This parameter value is the first end point of an IPsec rule. 
+                         
+The acceptable value is a port, range, or keyword and depends on the protocol. 
+                         
+If the Protocol parameter value is TCP or UDP, then the acceptable values for this parameter are: 
+                         
+ -- Port range: 0 through 65535. 
+                         
+ -- Port number: 80. 
+                         
+ -- Keyword: Any. 
+                         
+If the Protocol parameter value is ICMPv4 or ICMPv6, then the acceptable values for this parameter are: 
+                         
+ -- An ICMP type, code pair: 0, 8. 
+                         
+ -- Type and code: 0 through 255. 
+                         
+ -- Keyword: Any. 
+                         
+If the Protocol parameter is not specified, then the acceptable values for this parameter are: Any, RPC, RPC-EPMap, or IPHTTPS. 
+Note: IPHTTPS is only supported on Windows Server 2012. 
+Note: Querying for rules with this parameter can only be performed using filter objects. See the Get-NetFirewallPortFilter cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PassThru</maml:name><maml:description><maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>Protocol</maml:name><maml:description><maml:para>Specifies that network packets with matching IP addresses match this rule. This parameter specifies the protocol for an IPsec rule. 
+The acceptable values for this parameter are: 
+                         
+ -- Protocols by number: 0 to 255. 
+                         
+ -- Protocols by name: TCP, UDP, ICMPv4, or ICMPv6. 
+                         
+If a port number is identified by using port1 or port2, then this parameter must be set to TCP or UDP. 
+                         
+The values ICMPv4 and ICMPv6 create a rule that exempts ICMP network traffic from the IPsec requirements of another rule. 
+                         
+The default value is Any. 
+Note: Querying for rules with this parameter can only be performed using filter objects. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>RemotePort</maml:name><maml:description><maml:para>Specifies that network packets with matching IP port numbers match this rule. This parameter value is the second end point of an IPsec rule. The acceptable value is a port, range, or keyword and depends on the protocol. 
+                         
+If the protocol is TCP or UDP, then the acceptable values for this parameter are: 
+                         
+ -- Port range: 0 through 65535 
+                         
+ -- Port number: 80 
+                         
+ -- Keyword: Any 
+                         
+If the protocol is ICMPv4 or ICMPv6, then the acceptable values for this parameter are: 
+                         
+ -- An ICMP type, code pair: 0, 8 
+                         
+ -- Type and code: 0 through 255 
+                         
+ -- Keyword: Any. 
+                         
+If a protocol is not specified, then the acceptable values for this parameter are: Any, RPC, RPC-EPMap, or IPHTTPS. 
+Note: IPHTTPS is only supported on Windows Server 2012. 
+Note: Querying for rules with this parameter can only be performed using filter objects. See the Get-NetFirewallPortFilter cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>ThrottleLimit</maml:name><maml:description><maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">Int32</command:parameterValue></command:parameter><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases=""><maml:name>InputObject</maml:name><maml:description><maml:para>Specifies the input to this cmdlet. You can use this parameter, or you can pipe the input to this cmdlet.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimInstance[]</command:parameterValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named"><maml:name>Confirm</maml:name><maml:description><maml:para>Prompts you for confirmation before running the cmdlet.</maml:para></maml:description></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named"><maml:name>WhatIf</maml:name><maml:description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para></maml:description></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>AsJob</maml:name><maml:description><maml:para>Runs the cmdlet as a background job. Use this parameter to run commands that take a long time to complete. 
+ The cmdlet immediately returns an object that represents the job and then displays the command prompt. You can continue to work in the session while the job completes. To manage the job, use the *-Job cmdlets. To get the job results, use the <maml:navigationLink><maml:linkText>Receive-Job</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. 
+ For more information about Windows PowerShell® background jobs, see <maml:navigationLink><maml:linkText>about_Jobs</maml:linkText><maml:uri></maml:uri></maml:navigationLink>.</maml:para></maml:description><command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue><dev:type><maml:name>SwitchParameter</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session"><maml:name>CimSession</maml:name><maml:description><maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimSession[]</command:parameterValue><dev:type><maml:name>CimSession[]</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="DynamicTransport"><maml:name>DynamicTarget</maml:name><maml:description><maml:para>Specifies a dynamic transport. The cmdlet sets the protocol and port conditions for the input rules that have the dynamic transport that you specify.The acceptable values for this parameter are: 
+
+-- Any
+-- ProximityApps
+-- ProximitySharing
+-- WifiDirectPrinting
+-- WifiDirectDisplay
+-- WifiDirectDevices
+
+The default value is Any.</maml:para><maml:para>Some types of dynamic transports, such as proximity sharing, abstract the network layer details. This means that you cannot use standard network layer conditions, such as protocols and ports, to identify the dynamic transports. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">DynamicTransport</command:parameterValue><dev:type><maml:name>DynamicTransport</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>GPOSession</maml:name><maml:description><maml:para>Specifies the network GPO from which to retrieve the rules to be modified. 
+                         
+This parameter is used in the same way as the PolicyStore parameter. When modifying GPOs in Windows PowerShell®, each change to a GPO requires the entire GPO to be loaded, modified, and saved back. On a busy Domain Controller (DC), this can be a slow and resource-heavy operation. A GPO Session loads a domain GPO onto the local computer and makes all changes in a batch, before saving it back. This reduces the load on the DC and speeds up the Windows PowerShell cmdlets. To load a GPO Session, use the Open-NetGPO cmdlet. To save a GPO Session, use the Save-NetGPO cmdlet.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>IcmpType</maml:name><maml:description><maml:para>Specifies the Internet Control Message Protocol (ICMP) type codes. The key encoding is specified by running the Set-NetFirewallSetting cmdlet with the KeyEncoding parameter. 
+The acceptable values for this parameter are: 
+                         
+ -- ICMP type code: 0 through 255 
+                         
+ -- ICMP type code pairs: 3:4 
+                         
+ -- Keyword: Any. 
+Note: A rule can be queried for this condition, or modified by using the security filter object. See the Get-NetFirewallPortFilter cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue><dev:type><maml:name>String[]</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases=""><maml:name>InputObject</maml:name><maml:description><maml:para>Specifies the input to this cmdlet. You can use this parameter, or you can pipe the input to this cmdlet.</maml:para></maml:description><command:parameterValue required="true" variableLength="true">CimInstance[]</command:parameterValue><dev:type><maml:name>CimInstance[]</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>LocalPort</maml:name><maml:description><maml:para>Specifies that network packets with matching IP port numbers match this rule. This parameter value is the first end point of an IPsec rule. 
+                         
+The acceptable value is a port, range, or keyword and depends on the protocol. 
+                         
+If the Protocol parameter value is TCP or UDP, then the acceptable values for this parameter are: 
+                         
+ -- Port range: 0 through 65535. 
+                         
+ -- Port number: 80. 
+                         
+ -- Keyword: Any. 
+                         
+If the Protocol parameter value is ICMPv4 or ICMPv6, then the acceptable values for this parameter are: 
+                         
+ -- An ICMP type, code pair: 0, 8. 
+                         
+ -- Type and code: 0 through 255. 
+                         
+ -- Keyword: Any. 
+                         
+If the Protocol parameter is not specified, then the acceptable values for this parameter are: Any, RPC, RPC-EPMap, or IPHTTPS. 
+Note: IPHTTPS is only supported on Windows Server 2012. 
+Note: Querying for rules with this parameter can only be performed using filter objects. See the Get-NetFirewallPortFilter cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue><dev:type><maml:name>String[]</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PassThru</maml:name><maml:description><maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para></maml:description><command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue><dev:type><maml:name>SwitchParameter</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>PolicyStore</maml:name><maml:description><maml:para>Specifies the policy store from which to retrieve the rules to be modified. 
+                         
+A policy store is a container for firewall and IPsec policy. 
+The acceptable values for this parameter are: 
+                         
+ -- PersistentStore: Sometimes called static rules, this store contains the persistent policy for the local computer. This policy is not from GPOs, and has been created manually or programmatically (during application installation) on the computer. Rules created in this store are attached to the ActiveStore and activated on the computer immediately. 
+                         
+ -- ActiveStore: This store contains the currently active policy, which is the sum of all policy stores that apply to the computer. This is the resultant set of policy (RSOP) for the local computer (the sum of all GPOs that apply to the computer), and the local stores (the PersistentStore, the static Windows service hardening (WSH), and the configurable WSH). 
+                         
+ ---- GPOs are also policy stores. Computer GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore hostname. 
+                         
+ ---- Active Directory GPOs can be specified as follows. 
+                         
+ ------ –PolicyStore domain.fqdn.com\GPO_Friendly_Name. 
+                         
+ ------ Such as the following. 
+                         
+ -------- -PolicyStore localhost
+                         
+ -------- -PolicyStore corp.contoso.com\FirewallPolicy
+                         
+ ---- Active Directory GPOs can be created using the New-GPO cmdlet or the Group Policy Management Console.
+                         
+                         
+ -- RSOP: This read-only store contains the sum of all GPOs applied to the local computer. 
+                         
+ -- SystemDefaults: This read-only store contains the default state of firewall rules that ship with Windows Server® 2012. 
+                         
+ -- StaticServiceStore: This read-only store contains all the service restrictions that ship with Windows Server 2012. Optional and product-dependent features are considered part of Windows Server 2012 for the purposes of WFAS. 
+                         
+ -- ConfigurableServiceStore: This read-write store contains all the service restrictions that are added for third-party services. In addition, network isolation rules that are created for Windows Store application containers will appear in this policy store. 
+                         
+The default value is PersistentStore. 
+Note: The Set-NetFirewallRule cmdlet cannot be used to add an object to a policy store. An object can only be added to a policy store at creation time with the Copy-NetFirewallRule cmdlet or with the New-NetFirewallRule cmdlet. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>Protocol</maml:name><maml:description><maml:para>Specifies that network packets with matching IP addresses match this rule. This parameter specifies the protocol for an IPsec rule. 
+The acceptable values for this parameter are: 
+                         
+ -- Protocols by number: 0 to 255. 
+                         
+ -- Protocols by name: TCP, UDP, ICMPv4, or ICMPv6. 
+                         
+If a port number is identified by using port1 or port2, then this parameter must be set to TCP or UDP. 
+                         
+The values ICMPv4 and ICMPv6 create a rule that exempts ICMP network traffic from the IPsec requirements of another rule. 
+                         
+The default value is Any. 
+Note: Querying for rules with this parameter can only be performed using filter objects. </maml:para></maml:description><command:parameterValue required="true" variableLength="false">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>RemotePort</maml:name><maml:description><maml:para>Specifies that network packets with matching IP port numbers match this rule. This parameter value is the second end point of an IPsec rule. The acceptable value is a port, range, or keyword and depends on the protocol. 
+                         
+If the protocol is TCP or UDP, then the acceptable values for this parameter are: 
+                         
+ -- Port range: 0 through 65535 
+                         
+ -- Port number: 80 
+                         
+ -- Keyword: Any 
+                         
+If the protocol is ICMPv4 or ICMPv6, then the acceptable values for this parameter are: 
+                         
+ -- An ICMP type, code pair: 0, 8 
+                         
+ -- Type and code: 0 through 255 
+                         
+ -- Keyword: Any. 
+                         
+If a protocol is not specified, then the acceptable values for this parameter are: Any, RPC, RPC-EPMap, or IPHTTPS. 
+Note: IPHTTPS is only supported on Windows Server 2012. 
+Note: Querying for rules with this parameter can only be performed using filter objects. See the Get-NetFirewallPortFilter cmdlet for more information. </maml:para></maml:description><command:parameterValue required="true" variableLength="true">String[]</command:parameterValue><dev:type><maml:name>String[]</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases=""><maml:name>ThrottleLimit</maml:name><maml:description><maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para></maml:description><command:parameterValue required="true" variableLength="false">Int32</command:parameterValue><dev:type><maml:name>Int32</maml:name><maml:uri /></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named"><maml:name>Confirm</maml:name><maml:description><maml:para>Prompts you for confirmation before running the cmdlet.</maml:para></maml:description><command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue><dev:type><maml:name>SwitchParameter</maml:name><maml:uri /></dev:type><dev:defaultValue>false</dev:defaultValue></command:parameter><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named"><maml:name>WhatIf</maml:name><maml:description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para></maml:description><command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue><dev:type><maml:name>SwitchParameter</maml:name><maml:uri /></dev:type><dev:defaultValue>false</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name>Microsoft.Management.Infrastructure.CimInstance#root\StandardCimv2\MSFT_NetProtocolPortFilter[]</maml:name><maml:uri></maml:uri><maml:description><maml:para /></maml:description></dev:type><maml:description><maml:para>The Microsoft.Management.Infrastructure.CimInstance object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (#) provides the namespace and class name for the underlying WMI object.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>Microsoft.Management.Infrastructure.CimInstance#root\StandardCimv2\MSFT_NetProtocolPortFilter[]</maml:name><maml:uri></maml:uri><maml:description><maml:para /></maml:description></dev:type><maml:description><maml:para>The Microsoft.Management.Infrastructure.CimInstance object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (#) provides the namespace and class name for the underlying WMI object.</maml:para></maml:description></command:returnValue></command:returnValues><command:terminatingErrors /><command:nonTerminatingErrors /><command:examples><command:example><maml:title>EXAMPLE 1</maml:title><maml:introduction><maml:para></maml:para></maml:introduction><dev:code>
+PS C:\&gt;$nfPortFilter = Get-FirewallRule –DisplayName "Play To streaming server" | Get-NetFirewallPortFilter
+
+
+
+PS C:\&gt;Set-NetFirewallPortFilter –LocalPort 10246 –InputObject $nfPortFilter
+
+
+This cmdlet can be run using only the pipeline.
+PS C:\&gt;Get-FirewallRule –DisplayName "Play To streaming server" | Get-NetFirewallPortFilter | Set-NetFirewallPortFilter –LocalPort 10246
+
+
+This cmdlet can be run without the pipeline.
+PS C:\&gt;Set-NetFirewallRule –DisplayName "Play To streaming server" –LocalPort 10246
+
+</dev:code><dev:remarks><maml:para>This example modifies the LocalPort parameter value of the specified firewall rule.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText /></command:commandLine></command:commandLines></command:example><command:example><maml:title>EXAMPLE 2</maml:title><maml:introduction><maml:para></maml:para></maml:introduction><dev:code>
+PS C:\&gt;$nfPortFilter = Get-NetFirewallPortFilter
+
+
+
+PS C:\&gt;$nfPortFilter10246 = Where-Object –FilterScript { $_.LocalPort -Eq "10246" } –InputObject $nfPortFilter
+
+
+
+PS C:\&gt;Set-NetFirewallPortFilter –LocalPort Any –InputObject $nfPortFilter10246
+
+
+This cmdlet can be run using only the pipeline.
+PS C:\&gt;Get-NetFirewallPortFilter | Where-Object –FilterScript { $_.LocalPort -Eq "10246" } | Set-NetFirewallPortFilter –LocalPort Any
+
+</dev:code><dev:remarks><maml:para>This example modifies all of the rules associated with a specific port.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText /></command:commandLine></command:commandLines></command:example><command:example><maml:title>EXAMPLE 3</maml:title><maml:introduction><maml:para></maml:para></maml:introduction><dev:code>
+PS C:\&gt;$nfPortFilter = Get-NetFirewallRule –DisplayGroup "File and Printer Sharing" | Get-NetFirewallPortFilter
+
+
+
+PS C:\&gt;$nfPortFilter137 = Where-Object –FilterScript { $_.RemotePort –Eq "137" } –InputObject $nfPortFilter
+
+
+
+PS C:\&gt;Set-NetFirewallPortFilter –LocalPort Any –InputObject $nfPortFilter137
+
+
+This cmdlet can be run using only the pipeline.
+PS C:\&gt;Get-NetFirewallRule –DisplayGroup "File and Printer Sharing" | Get-NetFirewallPortFilter | Where-Object –FilterScript { $_.RemotePort –Eq "137" } | Set-NetFirewallPortFilter –LocalPort Any
+
+</dev:code><dev:remarks><maml:para>This example modifies the interface type associated with all of the firewall rules in a specified group.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText /></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>Online Version:</maml:linkText><maml:uri>http://go.microsoft.com/fwlink/?LinkId=288214</maml:uri></maml:navigationLink><maml:navigationLink><maml:linkText>Where-Object</maml:linkText><maml:uri></maml:uri></maml:navigationLink><maml:navigationLink><maml:linkText>Copy-NetIPsecRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Get-NetFirewallPortFilter</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Get-NetFirewallRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Get-NetIPSecRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>New-NetFirewallRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>New-NetIPSecRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Set-NetFirewallRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Set-NetFirewallSetting</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>Set-NetIPSecRule</maml:linkText><maml:uri /></maml:navigationLink><maml:navigationLink><maml:linkText>New-GPO</maml:linkText><maml:uri /></maml:navigationLink></maml:relatedLinks></command:command>
+
+</helpItems>
+

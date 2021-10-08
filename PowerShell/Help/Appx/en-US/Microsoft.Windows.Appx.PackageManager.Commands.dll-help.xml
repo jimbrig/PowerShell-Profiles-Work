@@ -1,0 +1,2290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems xmlns="http://msh" schema="maml">
+
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Add-AppxPackage</command:name>
+<command:verb>Add</command:verb>
+<command:noun>AppxPackage</command:noun>
+<maml:description><maml:para>Adds a signed app package to a user account.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Add-AppxPackage cmdlet adds a signed app package to a user account. An app package has an .appx file name extension. Use the DependencyPath parameter to add all other packages that are required for the installation of the app package.
+</maml:para>
+<maml:para>You can use the Register parameter to install from a folder of unpackaged files during development of Windows® Store apps.
+</maml:para>
+<maml:para>To update an already installed package, the new package must have the same package family name.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Add-AppxPackage</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>DependencyPackages</maml:name>
+<maml:Description><maml:para>Specifies the dependency package full name or dependency package bundle full name to be registered.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package or its dependencies to shut down. If you specify this parameter, do not specify the ForceTargetApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceTargetApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package to shut down. If you specify this parameter, do not specify the ForceApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>InstallAllResources</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces the deployment of all resource packages specified from a bundle argument. This overrides the resource applicability check of the deployment engine and forces staging of all resource packages, registration of all resource packages, or staging and registration of all resource packages. This parameter can only be used when specifying a resource bundle or resource bundle manifest.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>MainPackage</maml:name>
+<maml:Description><maml:para>Specifies the main package full name or bundle full name to register.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Register</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet registers an application in development mode. You can use development mode to install applications from a folder of unpackaged files. You can use the current parameter to test your Windows® Store apps before you deploy them as app packages. To register an existing app package installation, you must specify the DisableDevelopmentMode parameter and the Register parameter. In order to specify dependency packages, specify the DependencyPath parameter and the DisableDevelopmentMode parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Add-AppxPackage</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>DependencyPackages</maml:name>
+<maml:Description><maml:para>Specifies the dependency package full name or dependency package bundle full name to be registered.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package or its dependencies to shut down. If you specify this parameter, do not specify the ForceTargetApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceTargetApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package to shut down. If you specify this parameter, do not specify the ForceApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>InstallAllResources</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces the deployment of all resource packages specified from a bundle argument. This overrides the resource applicability check of the deployment engine and forces staging of all resource packages, registration of all resource packages, or staging and registration of all resource packages. This parameter can only be used when specifying a resource bundle or resource bundle manifest.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>MainPackage</maml:name>
+<maml:Description><maml:para>Specifies the main package full name or bundle full name to register.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>OptionalPackages</maml:name>
+<maml:Description><maml:para>Specifies the PackageFamilyName of the optional packages that are in a related set that need to be installed along with the app. Unlike the external packages flag, you do not need to pass in a path to the optional package(s). It is an atomic operation which means that if the app or its optional packages fail to install, the deployment operation will be aborted
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>RegisterByFamilyName</maml:name>
+<maml:Description><maml:para>{{Fill RegisterByFamilyName Description}}
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Add-AppxPackage</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="PSPath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the file path of the app package. An app package has an .appx or .appxbundle file name extension.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>DependencyPath</maml:name>
+<maml:Description><maml:para>Specifies an array of file paths of dependency packages that  are required for the installation of the app package. The app package has an .appx or .appxbundle file name extension. You can specify the paths to more than one dependency package.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ExternalPackages</maml:name>
+<maml:Description><maml:para>Specifies an array of optional packages that must be installed along with the app package. It is an atomic operation which means that if the app or its optional packages fail to install, the deployment operation will be aborted
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package or its dependencies to shut down. If you specify this parameter, do not specify the ForceTargetApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceTargetApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package to shut down. If you specify this parameter, do not specify the ForceApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>InstallAllResources</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces the deployment of all resource packages specified from a bundle argument. This overrides the resource applicability check of the deployment engine and forces staging of all resource packages, registration of all resource packages, or staging and registration of all resource packages. This parameter can only be used when specifying a resource bundle or resource bundle manifest.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>OptionalPackages</maml:name>
+<maml:Description><maml:para>Specifies the PackageFamilyName of the optional packages that are in a related set that need to be installed along with the app. Unlike the external packages flag, you do not need to pass in a path to the optional package(s). It is an atomic operation which means that if the app or its optional packages fail to install, the deployment operation will be aborted
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>RequiredContentGroupOnly</maml:name>
+<maml:Description><maml:para>Specifies that only the required content group that is specified in the AppxContentGroupMap.xml must be installed. At this point the app can be launched. Calling add-appxpackage specifying the path to the app, triggers the rest of the app to be installed in the order defined in the AppxContentGroupMap.xml.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="named" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the AppxVolume object to which to stage the package. The volume also specifies the default location for user AppData .
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume</command:parameterValue>
+<dev:type><maml:name>AppxVolume</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Add-AppxPackage</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="PSPath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the file path of the app package. An app package has an .appx or .appxbundle file name extension.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>DependencyPath</maml:name>
+<maml:Description><maml:para>Specifies an array of file paths of dependency packages that  are required for the installation of the app package. The app package has an .appx or .appxbundle file name extension. You can specify the paths to more than one dependency package.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>DisableDevelopmentMode</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet registers an existing app package installation that has been disabled, did not register, or has become corrupted. Use the current parameter to specify that the manifest is from an existing installation, and not from a collection of files in development mode. You can also use this parameter to register an application that the Package Manager API (http://go.microsoft.com/fwlink/?LinkId=245447)has staged. Use the Register parameter to specify the location of the app package manifest .xml file from the installation location.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package or its dependencies to shut down. If you specify this parameter, do not specify the ForceTargetApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceTargetApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package to shut down. If you specify this parameter, do not specify the ForceApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>InstallAllResources</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces the deployment of all resource packages specified from a bundle argument. This overrides the resource applicability check of the deployment engine and forces staging of all resource packages, registration of all resource packages, or staging and registration of all resource packages. This parameter can only be used when specifying a resource bundle or resource bundle manifest.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Register</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet registers an application in development mode. You can use development mode to install applications from a folder of unpackaged files. You can use the current parameter to test your Windows® Store apps before you deploy them as app packages. To register an existing app package installation, you must specify the DisableDevelopmentMode parameter and the Register parameter. In order to specify dependency packages, specify the DependencyPath parameter and the DisableDevelopmentMode parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Add-AppxPackage</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="PSPath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the file path of the app package. An app package has an .appx or .appxbundle file name extension.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>DependencyPath</maml:name>
+<maml:Description><maml:para>Specifies an array of file paths of dependency packages that  are required for the installation of the app package. The app package has an .appx or .appxbundle file name extension. You can specify the paths to more than one dependency package.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package or its dependencies to shut down. If you specify this parameter, do not specify the ForceTargetApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceTargetApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package to shut down. If you specify this parameter, do not specify the ForceApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>InstallAllResources</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces the deployment of all resource packages specified from a bundle argument. This overrides the resource applicability check of the deployment engine and forces staging of all resource packages, registration of all resource packages, or staging and registration of all resource packages. This parameter can only be used when specifying a resource bundle or resource bundle manifest.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>RequiredContentGroupOnly</maml:name>
+<maml:Description><maml:para>Specifies that only the required content group that is specified in the AppxContentGroupMap.xml must be installed. At this point the app can be launched. Calling add-appxpackage specifying the path to the app, triggers the rest of the app to be installed in the order defined in the AppxContentGroupMap.xml.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Update</maml:name>
+<maml:Description><maml:para>Specifies that the package being added is a dependency package update. A dependency package is removed from the user account when the parent app is removed. If you do not use this parameter, the package being added is a primary package and is not removed from the user account if the parent app is removed. To update an already installed package, the new package must have the same package family name.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>DependencyPackages</maml:name>
+<maml:Description><maml:para>Specifies the dependency package full name or dependency package bundle full name to be registered.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>DependencyPath</maml:name>
+<maml:Description><maml:para>Specifies an array of file paths of dependency packages that  are required for the installation of the app package. The app package has an .appx or .appxbundle file name extension. You can specify the paths to more than one dependency package.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>DisableDevelopmentMode</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet registers an existing app package installation that has been disabled, did not register, or has become corrupted. Use the current parameter to specify that the manifest is from an existing installation, and not from a collection of files in development mode. You can also use this parameter to register an application that the Package Manager API (http://go.microsoft.com/fwlink/?LinkId=245447)has staged. Use the Register parameter to specify the location of the app package manifest .xml file from the installation location.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ExternalPackages</maml:name>
+<maml:Description><maml:para>Specifies an array of optional packages that must be installed along with the app package. It is an atomic operation which means that if the app or its optional packages fail to install, the deployment operation will be aborted
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package or its dependencies to shut down. If you specify this parameter, do not specify the ForceTargetApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ForceTargetApplicationShutdown</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces all active processes that are associated with the package to shut down. If you specify this parameter, do not specify the ForceApplicationShutdown parameter.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>InstallAllResources</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet forces the deployment of all resource packages specified from a bundle argument. This overrides the resource applicability check of the deployment engine and forces staging of all resource packages, registration of all resource packages, or staging and registration of all resource packages. This parameter can only be used when specifying a resource bundle or resource bundle manifest.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>MainPackage</maml:name>
+<maml:Description><maml:para>Specifies the main package full name or bundle full name to register.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>OptionalPackages</maml:name>
+<maml:Description><maml:para>Specifies the PackageFamilyName of the optional packages that are in a related set that need to be installed along with the app. Unlike the external packages flag, you do not need to pass in a path to the optional package(s). It is an atomic operation which means that if the app or its optional packages fail to install, the deployment operation will be aborted
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="PSPath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the file path of the app package. An app package has an .appx or .appxbundle file name extension.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Register</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet registers an application in development mode. You can use development mode to install applications from a folder of unpackaged files. You can use the current parameter to test your Windows® Store apps before you deploy them as app packages. To register an existing app package installation, you must specify the DisableDevelopmentMode parameter and the Register parameter. In order to specify dependency packages, specify the DependencyPath parameter and the DisableDevelopmentMode parameter.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>RegisterByFamilyName</maml:name>
+<maml:Description><maml:para>{{Fill RegisterByFamilyName Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>RequiredContentGroupOnly</maml:name>
+<maml:Description><maml:para>Specifies that only the required content group that is specified in the AppxContentGroupMap.xml must be installed. At this point the app can be launched. Calling add-appxpackage specifying the path to the app, triggers the rest of the app to be installed in the order defined in the AppxContentGroupMap.xml.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Update</maml:name>
+<maml:Description><maml:para>Specifies that the package being added is a dependency package update. A dependency package is removed from the user account when the parent app is removed. If you do not use this parameter, the package being added is a primary package and is not removed from the user account if the parent app is removed. To update an already installed package, the new package must have the same package family name.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="named" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the AppxVolume object to which to stage the package. The volume also specifies the default location for user AppData .
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume</command:parameterValue>
+<dev:type><maml:name>AppxVolume</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+<command:inputType><dev:type><maml:name>System.IO.FileInfo</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>None</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Add an app package</maml:title>
+<dev:code>PS C:\&gt; Add-AppxPackage -Path "C:\Users\user1\Desktop\MyApp.appx" -DependencyPath "C:\Users\user1\Desktop\winjs.appx"</dev:code>
+<dev:remarks><maml:para>This command adds an app package that the package contains.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Add a disabled app package in development mode</maml:title>
+<dev:code>PS C:\&gt; $ManifestPath = (Get-AppxPackage -Name "*WindowsCalculator*").InstallLocation + "\Appxmanifest.xml"
+PS C:\&gt; Add-AppxPackage -Path $ManifestPath -Register -DisableDevelopmentMode</dev:code>
+<dev:remarks><maml:para>This command gets the full path of the package manifest file of an installed Windows Store app, and then registers that package. You can use DisableDevelopmentMode to register an application that is staged by the StagePackageAsync API, has been disabled, or has become corrupted during testing.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 3: Add an app along with its optional packages</maml:title>
+<dev:code>PS C:\&gt; Add-AppxPackage -Path "C:\Users\user1\Desktop\MyApp.appxbundle" -ExternalPackages "C:\Users\user1\Desktop\optionalpackage1.appx","C:\Users\user1\Desktop\optionalpackage2.appxbundle"
+
+PS C:\&gt; Add-AppxPackage -Path "C:\Users\user1\Desktop\MyApp.appxbundle" -OptionalPackages "29270sandstorm.OptionalPackage1_gah1vdar1nn7a"</dev:code>
+<dev:remarks><maml:para>This command adds an app package along with its optional packages. It is an atomic operation which means that if the app or its optional packages fail to install, the deployment operation will be aborted
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 4: Install only the required section of a streaming app</maml:title>
+<dev:code>PS C:\&gt; Add-AppxPackage -Path "C:\Users\user1\Desktop\MyApp.appxbundle" -RequiredContentGroupOnly</dev:code>
+<dev:remarks><maml:para>This command adds an app package but only installs the required section of a streaming app. Calling this command again without the RequiredContentGroupOnly flag proceeds to install the rest of the application in the order defined by the AppxContentGroupMap.xml
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Package Manager API</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkId=245447</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>How to Add and Remove Apps</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkID=231020</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackageManifest</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Move-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Add-AppxVolume</command:name>
+<command:verb>Add</command:verb>
+<command:noun>AppxVolume</command:noun>
+<maml:description><maml:para>Adds an appx volume to the Package Manager.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Add-AppxVolume cmdlet adds an AppxVolume for the Package Manager to advertise. After you add a volume, appx deployment operations can use that volume as a target. This cmdlet returns the volume that it adds. Note, the Path parameter must be specified as a drive letter followed by "WindowsApps" as the directory. Not using the aforementioned format could lead to inconsistent behavior in the application model subsystems or the volume itself; for more information see the examples section.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Add-AppxVolume</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="PSPath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path of the mount point of the volume that this cmdlet adds.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="PSPath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path of the mount point of the volume that this cmdlet adds.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>Microsoft.Appx.PackageManager.Commands.AppxVolume</maml:name>
+</dev:type>
+<maml:description><maml:para>This cmdlet returns the AppxVolume object that it adds.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Add a volume</maml:title>
+<dev:code>PS C:\&gt; Add-AppxVolume -Path "E:\WindowsApps"</dev:code>
+<dev:remarks><maml:para>This command adds the volume E:\WindowsApps to Package Manager.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Dismount-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Mount-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Dismount-AppxVolume</command:name>
+<command:verb>Dismount</command:verb>
+<command:noun>AppxVolume</command:noun>
+<maml:description><maml:para>Dismounts an appx volume.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Dismount-AppxVolume cmdlet dismounts an AppxVolume . After you dismount a volume, all apps that are deployed to that target become inaccessible.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Dismount-AppxVolume</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the AppxVolume object to dismount.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume[]</command:parameterValue>
+<dev:type><maml:name>AppxVolume[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the AppxVolume object to dismount.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume[]</command:parameterValue>
+<dev:type><maml:name>AppxVolume[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues></command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Dismount a volume by using a path</maml:title>
+<dev:code>PS C:\&gt; Dismount-AppxVolume -Volume E:\</dev:code>
+<dev:remarks><maml:para>This command dismounts a volume at the path E:\.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Dismount a volume by using an ID</maml:title>
+<dev:code>PS C:\&gt; Dismount-AppxVolume -Volume {7e62a691-398e-4fbe-819a-64f1e407777a}</dev:code>
+<dev:remarks><maml:para>This command dismounts a volume that has the specified media ID.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Add-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Mount-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-AppxDefaultVolume</command:name>
+<command:verb>Get</command:verb>
+<command:noun>AppxDefaultVolume</command:noun>
+<maml:description><maml:para>Gets the default appx volume.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Get-AppxDefaultVolume cmdlet gets the default AppxVolume . The default AppxVolume is the default target for all deployment operations on the computer. You cannot remove the default AppxVolume from the list of volumes.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-AppxDefaultVolume</maml:name>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters></command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>Microsoft.Appx.PackageManager.Commands.AppxVolume</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Get the default volume</maml:title>
+<dev:code>PS C:\&gt; Get-AppxDefaultVolume</dev:code>
+<dev:remarks><maml:para>This command gets the current default deployment target.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Set-AppxDefaultVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-AppxLastError</command:name>
+<command:verb>Get</command:verb>
+<command:noun>AppxLastError</command:noun>
+<maml:description><maml:para>Get the last error reported in the app package installation logs.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Get-AppxLastError cmdlet gets the last error reported in the app package installation logs for the current Windows PowerShell® session. An app package has an .appx file name extension.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-AppxLastError</maml:name>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters></command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>None</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Diagnostics.Eventing.Reader.EventLogRecord</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Get the last error</maml:title>
+<dev:code>PS C:\&gt; Get-AppxLastError</dev:code>
+<dev:remarks><maml:para>This command gets the last error reported in the app installation logs.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Package Manager API</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkId=245447</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>How to Deploy App Packages</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkID=231020</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackageManifest</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxLog</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-AppxLog</command:name>
+<command:verb>Get</command:verb>
+<command:noun>AppxLog</command:noun>
+<maml:description><maml:para>Gets an app package installation log.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Get-AppxLog cmdlet gets the app package installation log created during the deployment of an app package. An app package has an .appx file name extension. The log contains errors, warnings, and additional information about the processes initiated by cmdlets in the Appx Windows PowerShell® module.
+</maml:para>
+<maml:para>When Add-AppxPackage or Remove-AppxPackage report a failure, they return the ActivityID to use with Get-AppxLog .
+</maml:para>
+<maml:para>For more information about common error codes, see Troubleshooting packaging, deployment, and query of Windows Store apps (http://go.microsoft.com/fwlink/?LinkId=271201).
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-AppxLog</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ActivityId</maml:name>
+<maml:Description><maml:para>Specifies an activity ID. This cmdlet uses the ID to get the log for a particular app package installation.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Get-AppxLog</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>All</maml:name>
+<maml:Description><maml:para>Indicates that the cmdlet gets all logs on the computer. You can get additional information when you run this cmdlets from Windows PowerShell as an administrator.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>ActivityId</maml:name>
+<maml:Description><maml:para>Specifies an activity ID. This cmdlet uses the ID to get the log for a particular app package installation.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>All</maml:name>
+<maml:Description><maml:para>Indicates that the cmdlet gets all logs on the computer. You can get additional information when you run this cmdlets from Windows PowerShell as an administrator.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Diagnostics.Eventing.Reader.EventLogRecord</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Get logs for the most recent deployment</maml:title>
+<dev:code>PS C:\&gt; Get-AppxLog</dev:code>
+<dev:remarks><maml:para>This command gets the logs associated with the most recent deployment operation.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Get logs for all logs</maml:title>
+<dev:code>PS C:\&gt; Get-AppxLog -All</dev:code>
+<dev:remarks><maml:para>This command gets all the app package installation logs on the computer.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Package Manager API</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkId=245447</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>How to Add and Remove Apps</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkID=231020</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Troubleshooting packaging, deployment, and query of Windows Store apps</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkId=271201</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackageManifest</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxLastError</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-AppxPackage</command:name>
+<command:verb>Get</command:verb>
+<command:noun>AppxPackage</command:noun>
+<maml:description><maml:para>Gets a list of the app packages that are installed in a user profile.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Get-AppxPackage cmdlet gets a list of the app packages that are installed in a user profile. An app package has an .appx file name extension. To get the list of packages for a user profile other than the profile for the current user, you must run this command by using administrator permissions.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-AppxPackage</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies the name of a particular package. If you specify this parameter, the cmdlet returns results for this package only. Wildcards are permitted.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none"><maml:name>Publisher</maml:name>
+<maml:Description><maml:para>Specifies the publisher of a particular package. If you specify this parameter, the cmdlet returns results only for this publisher. Wildcards are permitted.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="named" aliases="none"><maml:name>AllUsers</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet lists app packages for all user accounts on the computer. To use this parameter, you must run the command by using administrator permissions.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="named" aliases="none"><maml:name>PackageTypeFilter</maml:name>
+<maml:Description><maml:para>Specifies one or more comma-separated types of packages that the cmdlet gets from the package repository. Valid values are: 
+</maml:para>
+<maml:para>- Bundle
+</maml:para>
+<maml:para>- Framework
+</maml:para>
+<maml:para>- Main
+</maml:para>
+<maml:para>- Resource
+</maml:para>
+<maml:para>- None
+</maml:para>
+<maml:para>
+</maml:para>
+<maml:para>By default, this cmdlet returns only packages of types Main and Framework.
+</maml:para>
+</maml:Description>
+<command:parameterValueGroup><command:parameterValue required="false" variableLength="false">None</command:parameterValue>
+<command:parameterValue required="false" variableLength="false">Main</command:parameterValue>
+<command:parameterValue required="false" variableLength="false">Framework</command:parameterValue>
+<command:parameterValue required="false" variableLength="false">Resource</command:parameterValue>
+<command:parameterValue required="false" variableLength="false">Bundle</command:parameterValue>
+<command:parameterValue required="false" variableLength="false">Xap</command:parameterValue>
+</command:parameterValueGroup>
+<command:parameterValue required="true" variableLength="false">PackageTypes</command:parameterValue>
+<dev:type><maml:name>PackageTypes</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>User</maml:name>
+<maml:Description><maml:para>Specifies a user. If you specify this parameter, the cmdlet returns a list of app packages that are installed for only the user that this cmdlet specifies. To get the list of packages for a user profile other than the profile for the current user, you must run this command by using administrator permissions. The user name can be in one of these formats: 
+</maml:para>
+<maml:para>- domain\user_name
+</maml:para>
+<maml:para>- user_name@fqn.domain.tld
+</maml:para>
+<maml:para>- user_name
+</maml:para>
+<maml:para>- SID-string
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="named" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies an AppxVolume object. If you specify this parameter, this cmdlet returns only packages that are relative to volume that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume</command:parameterValue>
+<dev:type><maml:name>AppxVolume</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="named" aliases="none"><maml:name>AllUsers</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet lists app packages for all user accounts on the computer. To use this parameter, you must run the command by using administrator permissions.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies the name of a particular package. If you specify this parameter, the cmdlet returns results for this package only. Wildcards are permitted.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="named" aliases="none"><maml:name>PackageTypeFilter</maml:name>
+<maml:Description><maml:para>Specifies one or more comma-separated types of packages that the cmdlet gets from the package repository. Valid values are: 
+</maml:para>
+<maml:para>- Bundle
+</maml:para>
+<maml:para>- Framework
+</maml:para>
+<maml:para>- Main
+</maml:para>
+<maml:para>- Resource
+</maml:para>
+<maml:para>- None
+</maml:para>
+<maml:para>
+</maml:para>
+<maml:para>By default, this cmdlet returns only packages of types Main and Framework.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">PackageTypes</command:parameterValue>
+<dev:type><maml:name>PackageTypes</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none"><maml:name>Publisher</maml:name>
+<maml:Description><maml:para>Specifies the publisher of a particular package. If you specify this parameter, the cmdlet returns results only for this publisher. Wildcards are permitted.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>User</maml:name>
+<maml:Description><maml:para>Specifies a user. If you specify this parameter, the cmdlet returns a list of app packages that are installed for only the user that this cmdlet specifies. To get the list of packages for a user profile other than the profile for the current user, you must run this command by using administrator permissions. The user name can be in one of these formats: 
+</maml:para>
+<maml:para>- domain\user_name
+</maml:para>
+<maml:para>- user_name@fqn.domain.tld
+</maml:para>
+<maml:para>- user_name
+</maml:para>
+<maml:para>- SID-string
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="named" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies an AppxVolume object. If you specify this parameter, this cmdlet returns only packages that are relative to volume that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume</command:parameterValue>
+<dev:type><maml:name>AppxVolume</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>Microsoft.Windows.Appx.PackageManager.Commands.AppxPackage</maml:name>
+</dev:type>
+<maml:description><maml:para>This cmdlet returns an AppxPackage object that contains information, including the full name of the app package.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Get all app packages for every user account</maml:title>
+<dev:code>PS C:\&gt; Get-AppxPackage -AllUsers</dev:code>
+<dev:remarks><maml:para>This command lists the app packages that are installed for every user account on the computer.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Get an app package for a specific a user</maml:title>
+<dev:code>PS C:\&gt; Get-AppxPackage -Name "Package17" -User "Contoso\EvanNarvaez"</dev:code>
+<dev:remarks><maml:para>This command displays information about Package17 if it is installed in the specified user profile.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Package Manager API</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkId=245447</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>How to Add and Remove Apps</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkID=231020</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Add-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackageManifest</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Move-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-AppxPackageManifest</command:name>
+<command:verb>Get</command:verb>
+<command:noun>AppxPackageManifest</command:noun>
+<maml:description><maml:para>Gets the manifest of an app package.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Get-AppxPackageManifest cmdlet gets the manifest of an app package. An app package has an .appx file name extension. The manifest is an .xml document that contains information about the package, like the package ID.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-AppxPackageManifest</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Package</maml:name>
+<maml:Description><maml:para>Specifies an AppxPackage object or the full name of a package. To get the manifest of a package on the computer that is not installed for the current user, you must run this command by using administrator permissions. Wildcards are permitted.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none"><maml:name>User</maml:name>
+<maml:Description><maml:para>Specifies a user. This cmdlet gets the manifest of packages that are installed for the user that this parameter specifies. To get the list of packages for a user profile other than the profile for the current user, you must run this command by using administrator permissions. The user name can be in one of these formats: 
+</maml:para>
+<maml:para>- domain\user_name
+</maml:para>
+<maml:para>- user_name@fqn.domain.tld
+</maml:para>
+<maml:para>- user_name
+</maml:para>
+<maml:para>- SID-string
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Package</maml:name>
+<maml:Description><maml:para>Specifies an AppxPackage object or the full name of a package. To get the manifest of a package on the computer that is not installed for the current user, you must run this command by using administrator permissions. Wildcards are permitted.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none"><maml:name>User</maml:name>
+<maml:Description><maml:para>Specifies a user. This cmdlet gets the manifest of packages that are installed for the user that this parameter specifies. To get the list of packages for a user profile other than the profile for the current user, you must run this command by using administrator permissions. The user name can be in one of these formats: 
+</maml:para>
+<maml:para>- domain\user_name
+</maml:para>
+<maml:para>- user_name@fqn.domain.tld
+</maml:para>
+<maml:para>- user_name
+</maml:para>
+<maml:para>- SID-string
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>Microsoft.Windows.Appx.PackageManager.Commands.AppxPackage[]</maml:name>
+</dev:type>
+<maml:description><maml:para>This cmdlet accepts an array of AppxPackage objects that contain information, including the full name of the app package.
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.XML.XMLDocument</maml:name>
+</dev:type>
+<maml:description><maml:para>This cmdlet returns a read-only .xml document that contains information about the app package, like the package ID.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Get the manifest for an app package</maml:title>
+<dev:code>PS C:\&gt; Get-AppxPackageManifest -Package "package1_1.0.0.0_neutral__8wekyb3d8bbwe"</dev:code>
+<dev:remarks><maml:para>This command gets the manifest for an app package named package1_1.0.0.0_neutral__8wekyb3d8bbwe.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Get the application ID for an app package</maml:title>
+<dev:code>PS C:\&gt; (Get-AppxPackage -Name "*WinJS*" | Get-AppxPackageManifest).package.applications.application.id</dev:code>
+<dev:remarks><maml:para>This command gets the application ID for an app package that has the string WinJS in the name.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 3</maml:title>
+<dev:code>PS C:\&gt; (Get-AppxPackage -Name "*ZuneMusic*" | Get-AppxPackageManifest).Package.Capabilities</dev:code>
+<dev:remarks><maml:para>This command gets the capabilities for an app package that has the string ZuneMusic in the name.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Package Manager API</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkId=245447</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>How to Add and Remove Apps</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkID=231020</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Add-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-AppxVolume</command:name>
+<command:verb>Get</command:verb>
+<command:noun>AppxVolume</command:noun>
+<maml:description><maml:para>Gets appx volumes for the computer.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Get-AppxVolume cmdlet gets a list of AppxVolume objects known to the computer. Volumes can be added by the user or a device, for instance, by using Storage Sense.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-AppxVolume</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path of the mount point of a volume. This cmdlet gets a volume at the location that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Offline</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet returns only volumes that are currently dismounted.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Get-AppxVolume</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path of the mount point of a volume. This cmdlet gets a volume at the location that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Online</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet returns only volumes that are currently mounted.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Get-AppxVolume</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path of the mount point of a volume. This cmdlet gets a volume at the location that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Offline</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet returns only volumes that are currently dismounted.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Online</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet returns only volumes that are currently mounted.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path of the mount point of a volume. This cmdlet gets a volume at the location that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>Microsoft.Appx.PackageManager.Commands.AppxVolume</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Get all the volumes</maml:title>
+<dev:code>PS C:\&gt; Get-AppxVolume</dev:code>
+<dev:remarks><maml:para>The command gets all the AppxVolume objects on the computer.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Get the volume at a path</maml:title>
+<dev:code>PS C:\&gt; Get-AppxVolume -Path F:\</dev:code>
+<dev:remarks><maml:para>This command gets the AppxVolume at the path F:\.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 3: Get mounted volumes</maml:title>
+<dev:code>PS C:\&gt; Get-AppxVolume -Online</dev:code>
+<dev:remarks><maml:para>This command gets only AppxVolume objects that are currently mounted on the computer.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 4: Get volumes that are note mounted</maml:title>
+<dev:code>PS C:\&gt; Get-AppxVolume -Offline</dev:code>
+<dev:remarks><maml:para>This command gets the AppxVolume objects that not currently mounted on the computer.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Add-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Dismount-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Mount-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Invoke-CommandInDesktopPackage</command:name>
+<command:verb>Invoke</command:verb>
+<command:noun>CommandInDesktopPackage</command:noun>
+<maml:description><maml:para>{{Fill in the Synopsis}}
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>{{Fill in the Description}}
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Invoke-CommandInDesktopPackage</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>PackageFamilyName</maml:name>
+<maml:Description><maml:para>{{Fill PackageFamilyName Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="none"><maml:name>AppId</maml:name>
+<maml:Description><maml:para>{{Fill AppId Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="none"><maml:name>Command</maml:name>
+<maml:Description><maml:para>{{Fill Command Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="4" aliases="none"><maml:name>Args</maml:name>
+<maml:Description><maml:para>{{Fill Args Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="5" aliases="none"><maml:name>PreventBreakaway</maml:name>
+<maml:Description><maml:para>{{Fill PreventBreakaway Description}}
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="none"><maml:name>AppId</maml:name>
+<maml:Description><maml:para>{{Fill AppId Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="4" aliases="none"><maml:name>Args</maml:name>
+<maml:Description><maml:para>{{Fill Args Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="3" aliases="none"><maml:name>Command</maml:name>
+<maml:Description><maml:para>{{Fill Command Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>PackageFamilyName</maml:name>
+<maml:Description><maml:para>{{Fill PackageFamilyName Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="5" aliases="none"><maml:name>PreventBreakaway</maml:name>
+<maml:Description><maml:para>{{Fill PreventBreakaway Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String</maml:name>
+</dev:type>
+<maml:description><maml:para>System.Management.Automation.SwitchParameter
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>System.Object</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1</maml:title>
+<dev:code>PS C:\&gt; {{ Add example code here }}</dev:code>
+<dev:remarks><maml:para>{{ Add example description here }}
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Mount-AppxVolume</command:name>
+<command:verb>Mount</command:verb>
+<command:noun>AppxVolume</command:noun>
+<maml:description><maml:para>Mounts an appx volume.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Mount-AppxVolume cmdlet mounts an AppxVolume . After you mount a volume, all apps that are deployed to that target become accessible.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Mount-AppxVolume</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the AppxVolume object to mount.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume[]</command:parameterValue>
+<dev:type><maml:name>AppxVolume[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the AppxVolume object to mount.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume[]</command:parameterValue>
+<dev:type><maml:name>AppxVolume[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues></command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Mount a volume by using a path</maml:title>
+<dev:code>PS C:\&gt; Mount-AppxVolume -Volume E:\</dev:code>
+<dev:remarks><maml:para>This command mounts a volume at the path E:\.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Mount a volume by using an ID</maml:title>
+<dev:code>PS C:\&gt; Mount-AppxVolume -Volume {7e62a691-398e-4fbe-819a-64f1e407777a}</dev:code>
+<dev:remarks><maml:para>This command mounts a volume that has the specified media ID.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Add-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Dismount-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Move-AppxPackage</command:name>
+<command:verb>Move</command:verb>
+<command:noun>AppxPackage</command:noun>
+<maml:description><maml:para>Moves a package from its current location to another appx volume.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Move-AppxPackage cmdlet moves a package from its current location to another AppxVolume . The new location must be a volume that Package Manager knows about and that is mounted. This cmdlet also moves your application data to the specified volume.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Move-AppxPackage</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Package</maml:name>
+<maml:Description><maml:para>Specifies an AppxPackage object or the full name of a package. This cmdlet moves the package that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies an AppxVolume object. The cmdlet moves the package to the volume that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume</command:parameterValue>
+<dev:type><maml:name>AppxVolume</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Package</maml:name>
+<maml:Description><maml:para>Specifies an AppxPackage object or the full name of a package. This cmdlet moves the package that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+<dev:type><maml:name>String[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="2" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies an AppxVolume object. The cmdlet moves the package to the volume that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume</command:parameterValue>
+<dev:type><maml:name>AppxVolume</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues></command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Move a package to a volume specified by a path</maml:title>
+<dev:code>PS C:\&gt; Move-AppxPackage -Package "package1_1.0.0.0_neutral__8wekyb3d8bbwe" -Volume F:\</dev:code>
+<dev:remarks><maml:para>This command moves package that has the specified name to volume F:\. This cmdlet also moves your app data.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Move a package to a volume specified by an ID</maml:title>
+<dev:code>PS C:\&gt; Move-AppxPackage -Package "package1_1.0.0.0_neutral__8wekyb3d8bbwe" -Volume {d2a4d1f4-f45a-46f3-a419-160ab52af091}</dev:code>
+<dev:remarks><maml:para>This command moves package that has the specified name to the volume that has the specified media ID. This cmdlet also moves your app data.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Add-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Remove-AppxPackage</command:name>
+<command:verb>Remove</command:verb>
+<command:noun>AppxPackage</command:noun>
+<maml:description><maml:para>Removes an app package from a user account.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Remove-AppxPackage cmdlet removes an app package from a user account. An app package has an .appx file name extension.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Remove-AppxPackage</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Package</maml:name>
+<maml:Description><maml:para>Specifies an AppxPackage object or the full name of a package.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllUsers</maml:name>
+<maml:Description><maml:para>{{Fill AllUsers Description}}
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Remove-AppxPackage</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Package</maml:name>
+<maml:Description><maml:para>Specifies an AppxPackage object or the full name of a package.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>PreserveApplicationData</maml:name>
+<maml:Description><maml:para>Specifies that the cmdlet preserves the application data during the package removal. The application data is available for later use.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Remove-AppxPackage</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Package</maml:name>
+<maml:Description><maml:para>Specifies an AppxPackage object or the full name of a package.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>User</maml:name>
+<maml:Description><maml:para>{{Fill User Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllUsers</maml:name>
+<maml:Description><maml:para>{{Fill AllUsers Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Package</maml:name>
+<maml:Description><maml:para>Specifies an AppxPackage object or the full name of a package.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>PreserveApplicationData</maml:name>
+<maml:Description><maml:para>Specifies that the cmdlet preserves the application data during the package removal. The application data is available for later use.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>User</maml:name>
+<maml:Description><maml:para>{{Fill User Description}}
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>System.String[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+<command:inputType><dev:type><maml:name>Microsoft.Windows.Appx.PackageManager.Commands.AppxPackage</maml:name>
+</dev:type>
+<maml:description><maml:para>An AppxPackage object that contain information, including the full name of the app package.
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>None</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Remove an app package</maml:title>
+<dev:code>PS C:\&gt; Remove-AppxPackage -Package "package1_1.0.0.0_neutral__8wekyb3d8bbwe"</dev:code>
+<dev:remarks><maml:para>This command removes an app package named package1_1.0.0.0_neutral__8wekyb3d8bbwe from the account of the current user.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Package Manager API</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkId=245447</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>How to Add and Remove Apps</maml:linkText>
+<maml:uri>http://go.microsoft.com/fwlink/?LinkID=231020</maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxPackageManifest</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Add-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Move-AppxPackage</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxLog</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxLastError</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Remove-AppxVolume</command:name>
+<command:verb>Remove</command:verb>
+<command:noun>AppxVolume</command:noun>
+<maml:description><maml:para>Removes an appx volume.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Remove-AppxVolume cmdlet removes an AppxVolume . You can only remove a volume after there are no apps staged to it for any user. After you remove a volume, apps can no longer be added to it.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Remove-AppxVolume</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the AppxVolume object to remove.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume[]</command:parameterValue>
+<dev:type><maml:name>AppxVolume[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the AppxVolume object to remove.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume[]</command:parameterValue>
+<dev:type><maml:name>AppxVolume[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues></command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Remove a volume by using an ID</maml:title>
+<dev:code>PS C:\&gt; Remove-AppxVolume -Volume {984786d3-0cae-49de-a68f-8bedb0ca260b}</dev:code>
+<dev:remarks><maml:para>This command removes a volume that has the specified media ID.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Remove a volume by using a path</maml:title>
+<dev:code>PS C:\&gt; Remove-AppxVolume -Volume E:\</dev:code>
+<dev:remarks><maml:para>This command removes a volume at the path E:\.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Add-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Dismount-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Mount-AppxVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Set-AppxDefaultVolume</command:name>
+<command:verb>Set</command:verb>
+<command:noun>AppxDefaultVolume</command:noun>
+<maml:description><maml:para>Specifies a default appx volume.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Set-AppxDefaultVolume cmdlet specifies a default AppxVolume . The default AppxVolume is the default target for all deployment operations on the computer. Deployment operations can specify a different non-default target volume.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Set-AppxDefaultVolume</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the path a volume. This cmdlet sets the volume that this parameter specifies to be the default deployment target for the computer.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume</command:parameterValue>
+<dev:type><maml:name>AppxVolume</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Volume</maml:name>
+<maml:Description><maml:para>Specifies the path a volume. This cmdlet sets the volume that this parameter specifies to be the default deployment target for the computer.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">AppxVolume</command:parameterValue>
+<dev:type><maml:name>AppxVolume</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues></command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Set a default volume by using a path</maml:title>
+<dev:code>PS C:\&gt; Set-AppxDefaultVolume -Volume F:\</dev:code>
+<dev:remarks><maml:para>This command sets the default volume to be the volume F:\.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Set a default volume by using an ID</maml:title>
+<dev:code>PS C:\&gt; Set-AppxDefaultVolume -Volume {ef23c8d6-b13c-4c4c-ae3b-7d5a162de9b9}</dev:code>
+<dev:remarks><maml:para>This command sets the default volume to be the one that has the specified media ID.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Get-AppxDefaultVolume</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+</helpItems>

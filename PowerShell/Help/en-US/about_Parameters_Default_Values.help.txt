@@ -1,0 +1,355 @@
+
+
+ABOUT_PARAMETERS_DEFAULT_VALUES
+
+
+Short description
+
+Describes how to set custom default values for cmdlet parameters and
+advanced functions.
+
+
+Long description
+
+The $PSDefaultParameterValues preference variable lets you specify custom
+default values for any cmdlet or advanced function. Cmdlets and advanced
+functions use the custom default value unless you specify another value in
+the command.
+
+The authors of cmdlets and advanced functions set standard default values
+for their parameters. Typically, the standard default values are useful,
+but they might not be appropriate for all environments.
+
+This feature is especially useful when you must specify the same alternate
+parameter value nearly every time you use the command or when a particular
+parameter value is difficult to remember, such as an email server name or
+project GUID.
+
+If the desired default value varies predictably, you can specify a script
+block that provides different default values for a parameter under
+different conditions.
+
+$PSDefaultParameterValues was introduced in PowerShell 3.0.
+
+
+Syntax
+
+The $PSDefaultParameterValues variable is a hash table that validates the
+format of keys as an object type of
+SYSTEM.MANAGEMENT.AUTOMATION.DEFAULTPARAMETERDICTIONARY. The hash table
+contains KEY/VALUE pairs. A KEY is in the format CmdletName:ParameterName.
+A VALUE is the DEFAULTVALUE or SCRIPTBLOCK assigned to the key.
+
+The syntax of the $PSDefaultParameterValues preference variable is as
+follows:
+
+    $PSDefaultParameterValues=@{"CmdletName:ParameterName"="DefaultValue"}
+
+    $PSDefaultParameterValues=@{ "CmdletName:ParameterName"={{ScriptBlock}} }
+
+    $PSDefaultParameterValues["Disabled"]=$True | $False
+
+Wildcard characters are permitted in the CMDLETNAME and PARAMETERNAME
+values.
+
+To set, change, add, or remove a specific KEY/VALUE pair from
+$PSDefaultParameterValues, use the methods to edit a standard hash table.
+For example, the ADD and REMOVE methods. These methods don't overwrite
+other values in the hash table.
+
+There's another syntax that doesn't overwrite an existing
+$PSDefaultParameterValues hash table. To add or change a specific KEY/VALUE
+pair, use the following syntax:
+
+    $PSDefaultParameterValues["CmdletName:ParameterName"]="DefaultValue"
+
+The CMDLETNAME must be the name of a cmdlet or the name of an advanced
+function that uses the CMDLETBINDING attribute. You can't use
+$PSDefaultParameterValues to specify default values for scripts or simple
+functions.
+
+The DEFAULTVALUE can be an object or a script block. If the value is a
+script block, PowerShell evaluates the script block and uses the result as
+the parameter value. When the specified parameter accepts a script block
+value, enclose the script block value in a second set of braces, such as:
+
+    $PSDefaultParameterValues=@{ "Invoke-Command:ScriptBlock"={{Get-Process}} }
+
+For more information, see the following documents:
+
+-   about_Hash_Tables
+-   about_Script_Blocks
+-   about_Preference_Variables
+
+
+Examples
+
+How to set $PSDefaultParameterValues
+
+$PSDefaultParameterValues is a preference variable, so it exists only in
+the session in which it's set. It has no default value.
+
+To set $PSDefaultParameterValues, type the variable name and one or more
+KEY/VALUE pairs. If you run another $PSDefaultParameterValues command, it
+overwrites the existing hash table.
+
+For examples about how to change KEY/VALUE pairs without overwriting
+existing hash table values, see How to add values to
+$PSDefaultParameterValues or How to change values in
+$PSDefaultParameterValues.
+
+To save $PSDefaultParameterValues for future sessions, add a
+$PSDefaultParameterValues command to your PowerShell profile. For more
+information, see about_Profiles.
+
+Set a custom default value
+
+The KEY/VALUE pair sets the Send-MailMessage:SmtpServer key to a custom
+default value of SERVER123.
+
+    $PSDefaultParameterValues = @{
+      "Send-MailMessage:SmtpServer"="Server123"
+    }
+
+Set default values for multiple parameters
+
+To set default values for multiple parameters, separate each KEY/VALUE pair
+with a semicolon (;). The Send-MailMessage:SmtpServer and
+Get-WinEvent:LogName keys are set to custom default values.
+
+    $PSDefaultParameterValues = @{
+      "Send-MailMessage:SmtpServer"="Server123";
+      "Get-WinEvent:LogName"="Microsoft-Windows-PrintService/Operational"
+    }
+
+Use wildcards and switch parameters
+
+The cmdlet and parameter names can contain wildcard characters. Use $True
+and $False to set values for switch parameters, such as VERBOSE. The common
+parameter's VERBOSE parameter is set to $True for all commands.
+
+    $PSDefaultParameterValues = @{"*:Verbose"=$True}
+
+Use an array for the default value
+
+If a parameter can accept multiple values, an array, you can set multiple
+values as the default values. The default value of the
+Invoke-Command:ComputerName key is set to an array value of SERVER01 and
+SERVER02.
+
+    $PSDefaultParameterValues = @{
+      "Invoke-Command:ComputerName"="Server01","Server02"
+    }
+
+Use a script block
+
+You can use a script block to specify different default values for a
+parameter under different conditions. PowerShell evaluates the script block
+and uses the result as the default parameter value.
+
+The Format-Table:AutoSize key sets that switch parameter to a default value
+of TRUE. The If statement contains a condition that the $host.Name must be
+the PowerShell console, CONSOLEHOST.
+
+    $PSDefaultParameterValues=@{
+      "Format-Table:AutoSize"={if ($host.Name -eq "ConsoleHost"){$True}}
+    }
+
+If a parameter accepts a script block value, enclose the script block in an
+extra set of braces. When PowerShell evaluates the outer script block, the
+result is the inner script block, and that is set as the default parameter
+value.
+
+The Invoke-Command:ScriptBlock key set to a default value of the SYSTEM
+EVENT LOG because the script block is enclosed in a second set of braces.
+The result of the script block is passed to the Invoke-Command cmdlet.
+
+    $PSDefaultParameterValues=@{
+      "Invoke-Command:ScriptBlock"={{Get-EventLog -Log System}}
+    }
+
+How to get $PSDefaultParameterValues
+
+The hash table values are displayed by entering $PSDefaultParameterValues
+at the PowerShell prompt.
+
+A $PSDefaultParameterValues hash table is set with three KEY/VALUE pairs.
+This hash table is used in the following examples that describe how to add,
+change, and remove values from $PSDefaultParameterValues.
+
+    PS> $PSDefaultParameterValues = @{
+      "Send-MailMessage:SmtpServer"="Server123"
+      "Get-WinEvent:LogName"="Microsoft-Windows-PrintService/Operational"
+      "Get-*:Verbose"=$True
+    }
+
+    PS> $PSDefaultParameterValues
+
+    Name                           Value
+    ----                           -----
+    Get-WinEvent:LogName           Microsoft-Windows-PrintService/Operational
+    Get-*:Verbose                  True
+    Send-MailMessage:SmtpServer    Server123
+
+To get the value of a specific CmdletName:ParameterName key, use the
+following syntax:
+
+    $PSDefaultParameterValues["CmdletName:ParameterName"]
+
+For example, to get the value for the Send-MailMessage:SmtpServer key.
+
+    PS> $PSDefaultParameterValues["Send-MailMessage:SmtpServer"]
+    Server123
+
+How to add values to $PSDefaultParameterValues
+
+To add a value to $PSDefaultParameterValues, use the ADD method. Adding a
+value doesn't affect the hash table's existing values.
+
+Use a comma (,) to separate the KEY from the VALUE. The following syntax
+shows how to use the ADD method for $PSDefaultParameterValues.
+
+    PS> $PSDefaultParameterValues.Add("CmdletName:ParameterName", "DefaultValue")
+
+The hash table created in the prior example is updated with a new KEY/VALUE
+pair. The ADD method sets the Get-Process:Name key to the value POWERSHELL.
+
+    $PSDefaultParameterValues.Add("Get-Process:Name", "PowerShell")
+
+The following syntax accomplishes the same result.
+
+    $PSDefaultParameterValues["Get-Process:Name"]="PowerShell"
+
+The $PSDefaultParameterValues variable displays the updated hash table. The
+Get-Process:Name key was added.
+
+    PS> $PSDefaultParameterValues
+
+    Name                           Value
+    ----                           -----
+    Get-Process:Name               PowerShell
+    Get-WinEvent:LogName           Microsoft-Windows-PrintService/Operational
+    Get-*:Verbose                  True
+    Send-MailMessage:SmtpServer    Server123
+
+How to remove values from $PSDefaultParameterValues
+
+To remove a value from $PSDefaultParameterValues, use the REMOVE method of
+hash tables. Removing a value doesn't affect the hash table's existing
+values.
+
+The following syntax shows how to use the REMOVE method on
+$PSDefaultParameterValues.
+
+    PS> $PSDefaultParameterValues.Remove("CmdletName:ParameterName")
+
+In this example, the hash table created in the prior example is updated to
+remove a KEY/VALUE pair. The REMOVE method removes the Get-Process:Name
+key.
+
+    $PSDefaultParameterValues.Remove("Get-Process:Name")
+
+The $PSDefaultParameterValues variable displays the updated hash table. The
+Get-Process:Name key was removed.
+
+    PS> $PSDefaultParameterValues
+
+    Name                           Value
+    ----                           -----
+    Get-WinEvent:LogName           Microsoft-Windows-PrintService/Operational
+    Get-*:Verbose                  True
+    Send-MailMessage:SmtpServer    Server123
+
+How to change values in $PSDefaultParameterValues
+
+Changes to a specific value don't affect existing hash table values. To
+change a specific KEY/VALUE pair in $PSDefaultParameterValues, use the
+following syntax:
+
+    PS> $PSDefaultParameterValues["CmdletName:ParameterName"]="DefaultValue"
+
+In this example, the hash table created in the prior example is updated to
+change a KEY/VALUE pair. The following command changes the
+Send-MailMessage:SmtpServer key to a new value of SERVERXYZ.
+
+    $PSDefaultParameterValues["Send-MailMessage:SmtpServer"]="ServerXYZ"
+
+The $PSDefaultParameterValues variable displays the updated hash table. The
+Send-MailMessage:SmtpServer key was changed to a new value.
+
+    PS> $PSDefaultParameterValues
+
+    Name                           Value
+    ----                           -----
+    Get-WinEvent:LogName           Microsoft-Windows-PrintService/Operational
+    Get-*:Verbose                  True
+    Send-MailMessage:SmtpServer    ServerXYZ
+
+How to disable and re-enable $PSDefaultParameterValues
+
+You can temporarily disable and then re-enable $PSDefaultParameterValues.
+Disabling $PSDefaultParameterValues is useful if you're running scripts
+that need different default parameter values.
+
+To disable $PSDefaultParameterValues, add a key of Disabled with a value of
+TRUE. The values in $PSDefaultParameterValues are preserved, but aren't
+effective.
+
+    PS> $PSDefaultParameterValues.Add("Disabled", $True)
+
+The following syntax accomplishes the same result.
+
+    PS> $PSDefaultParameterValues["Disabled"]=$True
+
+The $PSDefaultParameterValues variable displays the updated hash table with
+the value for the Disabled key.
+
+    PS> $PSDefaultParameterValues
+
+    Name                           Value
+    ----                           -----
+    Disabled                       True
+    Get-WinEvent:LogName           Microsoft-Windows-PrintService/Operational
+    Get-*:Verbose                  True
+    Send-MailMessage:SmtpServer    ServerXYZ
+
+To re-enable $PSDefaultParameterValues, remove the DISABLED key or change
+the value of the DISABLED key to $False. The previous value of
+$PSDefaultParameterValues is effective again.
+
+    PS> $PSDefaultParameterValues.Remove("Disabled")
+
+The following syntax accomplishes the same result.
+
+    PS> $PSDefaultParameterValues["Disabled"]=$False
+
+The $PSDefaultParameterValues variable displays the updated hash table.
+When the REMOVE method is used, the Disabled key is removed from the
+output. If the alternate syntax was used to re-enable
+$PSDefaultParameterValues, the Disabled key is displayed as FALSE.
+
+    PS> $PSDefaultParameterValues
+
+    Name                           Value
+    ----                           -----
+    Disabled                       False
+    Get-WinEvent:LogName           Microsoft-Windows-PrintService/Operational
+    Get-*:Verbose                  True
+    Send-MailMessage:SmtpServer    ServerXYZ
+
+
+See also
+
+about_CommonParameters
+
+about_Functions_Advanced
+
+about_Functions_CmdletBindingAttribute
+
+about_Hash_Tables
+
+about_Preference_Variables
+
+about_Profiles
+
+about_Script_Blocks

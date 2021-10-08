@@ -1,0 +1,112 @@
+
+
+ABOUT_OUTPUT_STREAMS
+
+
+Short description
+
+Explains the availability and purpose of output streams in PowerShell.
+
+
+Long description
+
+PowerShell provides multiple output streams. The streams provide channels
+for different types of messages. You can write to these streams using the
+associated cmdlet or redirection. For more information, see
+about_Redirection.
+
+PowerShell supports the following output streams.
+
+  Stream #   Description          Introduced in    Write Cmdlet
+  ---------- -------------------- ---------------- -------------------
+  1          SUCCESS stream       PowerShell 2.0   Write-Output
+  2          ERROR stream         PowerShell 2.0   Write-Error
+  3          WARNING stream       PowerShell 3.0   Write-Warning
+  4          VERBOSE stream       PowerShell 3.0   Write-Verbose
+  5          DEBUG stream         PowerShell 3.0   Write-Debug
+  6          INFORMATION stream   PowerShell 5.0   Write-Information
+  n/a        PROGRESS stream      PowerShell 3.0   Write-Progress
+
+  [!NOTE] The PROGRESS stream does not support redirection.
+
+
+Success stream
+
+The SUCCESS stream is the default stream for normal, successful results.
+Use the Write-Output cmdlet to explicitly write objects to this stream.
+This stream is used for passing objects through the PowerShell pipeline.
+The SUCCESS stream is connected to the STDOUT stream for native
+applications.
+
+
+Error stream
+
+The ERROR stream is the default stream for error results. Use the
+Write-Error cmdlet to explicitly write to this stream. The ERROR stream is
+connected to the STDERR stream for native applications. Under most
+conditions, these errors can terminate the execution pipeline. Errors
+written to this stream are also added the the $Error automatic variable.
+For more information, see about_Automatic_Variables.
+
+
+Warning stream
+
+The WARNING stream is intended for error conditions that are less severe
+than errors written to the ERROR stream. Under normal conditions, these
+warnings do not terminate execution. Warnings are not written to the $Error
+automatic variable. Use the Write-Warning cmdlet to explicitly write to
+this stream.
+
+
+Verbose stream
+
+The VERBOSE stream is intended for messages that help users troubleshoot
+commands as they are run interactively or from a script. Use the
+Write-Verbose cmdlet to explicitly write messages to this stream. Many
+cmdlets provide verbose output that is useful for understanding the
+internal workings of the cmdlet. The verbose messages are output only when
+you use the -Verbose common parameter. For more information, see
+about_CommonParameters.
+
+
+Debug stream
+
+The DEBUG stream is used for messages that help scripters understand why
+their code is failing. Use the Write-Debug cmdlet to explicitly write to
+this stream. The debug messages are output only when you use the -Debug
+common parameter. For more information, see about_CommonParameters.
+
+Debug messages are intended for script and cmdlet developers more than end
+users. These debug messages can contain internal details necessary for deep
+troubleshooting.
+
+
+Information stream
+
+The INFORMATION stream is intended to provide message that help a user
+understand what a script is doing. It can also be used by developers as an
+additional stream used to pass information through PowerShell. The
+developer can tag stream data and have specific handling for that stream.
+Use the Write-Information cmdlet to explicitly write to this stream.
+
+
+Progress stream
+
+The PROGRESS stream is used for messages that communicate progress in
+longer running commands and scripts. Use the Write-Progress cmdlet to
+explicitly write messages to this stream. The PROGRESS stream does not
+support redirection.
+
+
+See also
+
+-   Write-Debug
+-   Write-Error
+-   Write-Host
+-   Write-Information
+-   Write-Output
+-   Write-Progress
+-   Write-Verbose
+-   Write-Warning
+-   about_CommonParameters
+-   about_Redirection

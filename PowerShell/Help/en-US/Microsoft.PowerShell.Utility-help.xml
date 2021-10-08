@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>ConvertFrom-SddlString</command:name>
+      <command:verb>ConvertFrom</command:verb>
+      <command:noun>SddlString</command:noun>
+      <maml:description>
+        <maml:para>Converts a SDDL string to a custom object.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>&gt; This cmdlet is only available on the Windows platform. The `ConvertFrom-SddlString` cmdlet converts a Security Descriptor Definition Language string to a custom PSCustomObject object with the following properties: Owner, Group, DiscretionaryAcl, SystemAcl and RawDescriptor.</maml:para>
+      <maml:para>Owner, Group, DiscretionaryAcl and SystemAcl properties contain a readable text representation of the access rights specified in a SDDL string.</maml:para>
+      <maml:para>This cmdlet was introduced in PowerShell 5.0.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>ConvertFrom-SddlString</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+          <maml:name>Sddl</maml:name>
+          <maml:description>
+            <maml:para>Specifies the string representing the security descriptor in SDDL syntax.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+          <dev:type>
+            <maml:name>System.String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Type</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of rights that SDDL string represents.</maml:para>
+            <maml:para>The acceptable values for this parameter are:</maml:para>
+            <maml:para>- FileSystemRights</maml:para>
+            <maml:para>- RegistryRights</maml:para>
+            <maml:para>- ActiveDirectoryRights</maml:para>
+            <maml:para>- MutexRights</maml:para>
+            <maml:para>- SemaphoreRights</maml:para>
+            <maml:para>- CryptoKeyRights</maml:para>
+            <maml:para>- EventWaitHandleRights</maml:para>
+            <maml:para></maml:para>
+            <maml:para>By default cmdlet uses file system rights.</maml:para>
+            <maml:para>CryptoKeyRights and ActiveDirectoryRights are not supported in PowerShell Core.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">FileSystemRights</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">RegistryRights</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">ActiveDirectoryRights</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">MutexRights</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SemaphoreRights</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">CryptoKeyRights</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">EventWaitHandleRights</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ConvertFromSddlStringCommand+AccessRightTypeNames</command:parameterValue>
+          <dev:type>
+            <maml:name>Microsoft.PowerShell.Commands.ConvertFromSddlStringCommand+AccessRightTypeNames</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+        <maml:name>Sddl</maml:name>
+        <maml:description>
+          <maml:para>Specifies the string representing the security descriptor in SDDL syntax.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Type</maml:name>
+        <maml:description>
+          <maml:para>Specifies the type of rights that SDDL string represents.</maml:para>
+          <maml:para>The acceptable values for this parameter are:</maml:para>
+          <maml:para>- FileSystemRights</maml:para>
+          <maml:para>- RegistryRights</maml:para>
+          <maml:para>- ActiveDirectoryRights</maml:para>
+          <maml:para>- MutexRights</maml:para>
+          <maml:para>- SemaphoreRights</maml:para>
+          <maml:para>- CryptoKeyRights</maml:para>
+          <maml:para>- EventWaitHandleRights</maml:para>
+          <maml:para></maml:para>
+          <maml:para>By default cmdlet uses file system rights.</maml:para>
+          <maml:para>CryptoKeyRights and ActiveDirectoryRights are not supported in PowerShell Core.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ConvertFromSddlStringCommand+AccessRightTypeNames</command:parameterValue>
+        <dev:type>
+          <maml:name>Microsoft.PowerShell.Commands.ConvertFromSddlStringCommand+AccessRightTypeNames</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>You can pipe a SDDL string to `ConvertFrom-SddlString`.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>This cmdlet is only available on Windows platforms.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Convert file system access rights SDDL to a PSCustomObject</maml:title>
+        <dev:code>$acl = Get-Acl -Path C:\Windows
+ConvertFrom-SddlString -Sddl $acl.Sddl</dev:code>
+        <dev:remarks>
+          <maml:para>The first command uses the `Get-Acl` cmdlet to get the security descriptor for the C:\Windows folder and saves it in the variable.</maml:para>
+          <maml:para>The second command uses the `ConvertFrom-SddlString` cmdlet to get the text representation of the SDDL string, contained in the Sddl property of the object representing the security descriptor.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Convert registry access rights SDDL to a PSCustomObject</maml:title>
+        <dev:code>$acl = Get-Acl HKLM:\SOFTWARE\Microsoft\
+ConvertFrom-SddlString -Sddl $acl.Sddl -Type RegistryRights</dev:code>
+        <dev:remarks>
+          <maml:para>The first command uses the `Get-Acl` cmdlet to get the security descriptor for the HKLM:\SOFTWARE\Microsoft\ key and saves it in the variable.</maml:para>
+          <maml:para>The second command uses the `ConvertFrom-SddlString` cmdlet to get the text representation of the SDDL string, contained in the Sddl property of the object representing the security descriptor.</maml:para>
+          <maml:para>It uses the `-Type` parameter to specify that SDDL string represents a registry security descriptor.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Convert registry access rights SDDL to a PSCustomObject by using ConvertFrom-SddlString with and without the `-Type` parameter</maml:title>
+        <dev:code>$acl = Get-Acl -Path HKLM:\SOFTWARE\Microsoft\
+
+ConvertFrom-SddlString -Sddl $acl.Sddl | Foreach-Object {$_.DiscretionaryAcl[0]}
+
+BUILTIN\Administrators: AccessAllowed (ChangePermissions, CreateDirectories, Delete, ExecuteKey, FullControl, GenericExecute, GenericWrite, ListDirectory, ReadExtendedAttributes, ReadPermissions, TakeOwnership, Traverse, WriteData, WriteExtendedAttributes, WriteKey)
+
+ConvertFrom-SddlString -Sddl $acl.Sddl -Type RegistryRights | Foreach-Object {$_.DiscretionaryAcl[0]}
+
+BUILTIN\Administrators: AccessAllowed (ChangePermissions, CreateLink, CreateSubKey, Delete, EnumerateSubKeys, ExecuteKey, FullControl, GenericExecute, GenericWrite, Notify, QueryValues, ReadPermissions, SetValue, TakeOwnership, WriteKey)</dev:code>
+        <dev:remarks>
+          <maml:para>The first command uses the `Get-Acl` cmdlet to get the security descriptor for the HKLM:\SOFTWARE\Microsoft\ key and saves it in the variable.</maml:para>
+          <maml:para>The second command uses the `ConvertFrom-SddlString` cmdlet to get the text representation of the SDDL string, contained in the Sddl property of the object representing the security descriptor.</maml:para>
+          <maml:para>It doesn't use the `-Type` parameter, so the access rights shown are for file system.</maml:para>
+          <maml:para>The third command uses the `ConvertFrom-SddlString` cmdlet with the `-Type` parameter, so the access rights returned are for registry.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-sddlstring?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Security Descriptor Definition Language</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>

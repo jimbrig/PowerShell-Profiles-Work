@@ -1,0 +1,245 @@
+
+
+ABOUT_PIPELINE_CHAIN_OPERATORS
+
+
+Short description
+
+Describes chaining pipelines with the && and || operators in PowerShell.
+
+
+Long description
+
+Beginning in PowerShell 7, PowerShell implements the && and || operators to
+conditionally chain pipelines. These operators are known in PowerShell as
+_pipeline chain operators_, and are similar to AND-OR lists in POSIX shells
+like bash, zsh and sh, as well as conditional processing symbols in the
+Windows Command Shell (cmd.exe).
+
+The && operator executes the right-hand pipeline, if the left-hand pipeline
+succeeded. Conversely, the || operator executes the right-hand pipeline if
+the left-hand pipeline failed.
+
+These operators use the $? and $LASTEXITCODE variables to determine if a
+pipeline failed. This allows you to use them with native commands and not
+just with cmdlets or functions. For example:
+
+    # Create an SSH key pair - if successful copy the public key to clipboard
+    ssh-keygen -t rsa -b 2048 && Get-Content -Raw ~\.ssh\id_rsa.pub | clip
+
+Examples
+
+Two successful commands
+
+    Write-Output 'First' && Write-Output 'Second'
+
+    First
+    Second
+
+First command fails, causing second not to be executed
+
+    Write-Error 'Bad' && Write-Output 'Second'
+
+    Write-Error: Bad
+
+First command succeeds, so the second command is not executed
+
+    Write-Output 'First' || Write-Output 'Second'
+
+    First
+
+First command fails, so the second command is executed
+
+    Write-Error 'Bad' || Write-Output 'Second'
+
+    Write-Error: Bad
+    Second
+
+Pipeline success is defined by the value of the $? variable, which
+PowerShell automatically sets after executing a pipeline based on its
+execution status. This means that pipeline chain operators have the
+following equivalence:
+
+    Test-Command '1' && Test-Command '2'
+
+works the same as
+
+    Test-Command '1'; if ($?) { Test-Command '2' }
+
+and
+
+    Test-Command '1' || Test-Command '2'
+
+works the same as
+
+    Test-Command '1'; if (-not $?) { Test-Command '2' }
+
+Assignment from pipeline chains
+
+Assigning a variable from a pipeline chain takes the concatenation of all
+the pipelines in the chain:
+
+    $result = Write-Output '1' && Write-Output '2'
+    $result
+
+    1
+    2
+
+If a script-terminating error occurs during assignment from a pipeline
+chain, the assignment does not succeed:
+
+    try
+    {
+        $result = Write-Output 'Value' && $(throw 'Bad')
+    }
+    catch
+    {
+        # Do nothing, just squash the error
+    }
+
+    "Result: $result"
+
+    Result:
+
+Operator syntax and precedence
+
+Unlike other operators, && and || operate on pipelines, rather than on
+expressions like + or -and, for example.
+
+&& and || have a lower precedence than piping (|) or redirection (>), but a
+higher precedence than job operators (&), assignment (=) or semicolons (;).
+This means that pipelines within a pipeline chain can be individually
+redirected, and that entire pipeline chains can be backgrounded, assigned
+to variables, or separated as statements.
+
+To use lower precedence syntax within a pipeline chain, consider the use of
+parentheses (...). Similarly, to embed a statement within a pipeline chain,
+a subexpression $(...) can be used. This can be useful for combining native
+commands with control flow:
+
+    foreach ($file in 'file1','file2','file3')
+    {
+        # When find succeeds, the loop breaks
+        find $file && Write-Output "Found $file" && $(break)
+    }
+
+    find: file1: No such file or directory
+    file2
+    Found file2
+
+As of PowerShell 7, the behaviour of these syntaxes has been changed so
+that $? is set as expected when a command succeeds or fails within
+parentheses or a subexpression.
+
+Like most other operators in PowerShell, && and || are also
+_left-associative_, meaning they group from the left. For example:
+
+    Get-ChildItem -Path ./file.txt || Write-Error "file.txt does not exist" && Get-Content -Raw ./file.txt
+
+will group as:
+
+    [Get-ChildItem -Path ./file.txt || Write-Error "file.txt does not exist"] && Get-Content -Raw ./file.txt
+
+being equivalent to:
+
+    Get-ChildItem -Path ./file.txt
+
+    if (-not $?) { Write-Error "file.txt does not exist" }
+
+    if ($?) { Get-Content -Raw ./file.txt }
+
+Error interaction
+
+Pipeline chain operators do not absorb errors. When a statement in a
+pipeline chain throws a script-terminating error, the pipeline chain is
+terminated.
+
+For example:
+
+    $(throw 'Bad') || Write-Output '2'
+
+    Exception: Bad
+
+Even when the error is caught, the pipeline chain is still terminated:
+
+    try
+    {
+        $(throw 'Bad') || Write-Output '2'
+    }
+    catch
+    {
+        Write-Output "Caught: $_"
+    }
+    Write-Output 'Done'
+
+    Caught: Bad
+    Done
+
+If an error is non-terminating, or only terminates a pipeline, the pipeline
+chain continues, respecting the value of $?:
+
+    function Test-NonTerminatingError
+    {
+        [CmdletBinding()]
+        param()
+
+        $exception = [System.Exception]::new('BAD')
+        $errorId = 'BAD'
+        $errorCategory = 'NotSpecified'
+
+        $errorRecord = [System.Management.Automation.ErrorRecord]::new($exception, $errorId, $errorCategory, $null)
+
+        $PSCmdlet.WriteError($errorRecord)
+    }
+
+    Test-NonTerminatingError || Write-Output 'Second'
+
+    Test-NonTerminatingError: BAD
+    Second
+
+Chaining pipelines rather than commands
+
+Pipeline chain operators, by their name, can be used to chain pipelines,
+rather than just commands. This matches the behavior of other shells, but
+can make _success_ harder to determine:
+
+    function Test-NotTwo
+    {
+        [CmdletBinding()]
+        param(
+          [Parameter(ValueFromPipeline)]
+          $Input
+        )
+
+        process
+        {
+            if ($Input -ne 2)
+            {
+                return $Input
+            }
+
+            $exception = [System.Exception]::new('Input is 2')
+            $errorId = 'InputTwo'
+            $errorCategory = 'InvalidData'
+
+            $errorRecord = [System.Management.Automation.ErrorRecord]::new($exception, $errorId, $errorCategory, $null)
+
+            $PSCmdlet.WriteError($errorRecord)
+        }
+    }
+
+    1,2,3 | Test-NotTwo && Write-Output 'All done!'
+
+    1
+    Test-NotTwo : Input is 2
+    3
+
+Note that Write-Output 'All done!' is not executed, since Test-NotTwo is
+deemed to have failed after generating the non-terminating error.
+
+
+See also
+
+-   about_Operators
+-   about_Automatic_Variables
+-   about_pipelines

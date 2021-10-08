@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems xmlns="http://msh" schema="maml">
+
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Get-HgsAttestationBaselinePolicy</command:name>
+<command:verb>Get</command:verb>
+<command:noun>HgsAttestationBaselinePolicy</command:noun>
+<maml:description><maml:para>Generates an attestation baseline policy.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Get-HgsAttestationBaselinePolicy cmdlet generates an attestation baseline policy. You can use the policy to configure the attestation service.
+</maml:para>
+<maml:para>This cmdlet gets a byte array that represents the attestation baseline policy from the raw data of the last full boot from the Trusted Computing Group log of the Trusted Platform Module (TPM).
+</maml:para>
+<maml:para>Be sure to run this cmdlet on a host that is known to have good configuration.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Get-HgsAttestationBaselinePolicy</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Console</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet operates in console mode.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SkipValidation</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet skips validation.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Get-HgsAttestationBaselinePolicy</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Force</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet overwrites an existing file that the Output object specifies.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="FilePath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies a file path. This cmdlet writes the policy to the file that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SkipValidation</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet skips validation.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Console</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet operates in console mode.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Force</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet overwrites an existing file that the Output object specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="FilePath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies a file path. This cmdlet writes the policy to the file that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SkipValidation</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet skips validation.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>Byte[]</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Generate a baseline policy</maml:title>
+<dev:code>PS C:\&gt; Get-HgsAttestationBaselinePolicy -Path "C:\Logs\AttestationBaselinePolicy001" -Force</dev:code>
+<dev:remarks><maml:para>This command generates a byte array that represents the baseline policy in the file C:\Logs\AttestationBaselinePolicy001.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+</helpItems>

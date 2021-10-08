@@ -1,0 +1,81 @@
+
+
+ABOUT_DO
+
+
+Short description
+
+Runs a statement list one or more times, subject to a While or Until
+condition.
+
+
+Long description
+
+The Do keyword works with the While keyword or the Until keyword to run the
+statements in a script block, subject to a condition. Unlike the related
+While loop, the script block in a Do loop always runs at least once.
+
+A DO-WHILE loop is a variety of the While loop. In a DO-WHILE loop, the
+condition is evaluated after the script block has run. As in a While loop,
+the script block is repeated as long as the condition evaluates to true.
+
+Like a DO-WHILE loop, a DO-UNTIL loop always runs at least once before the
+condition is evaluated. However, the script block runs only while the
+condition is false.
+
+The Continue and Break flow control keywords can be used in a DO-WHILE loop
+or in a DO-UNTIL loop.
+
+Syntax
+
+The following shows the syntax of the DO-WHILE statement:
+
+    do {<statement list>} while (<condition>)
+
+The following shows the syntax of the DO-UNTIL statement:
+
+    do {<statement list>} until (<condition>)
+
+The statement list contains one or more statements that run each time the
+loop is entered or repeated.
+
+The condition portion of the statement resolves to true or false. For more
+information about how booleans are evaluated, see about_Booleans.
+
+Example
+
+The following example of a Do statement counts the items in an array until
+it reaches an item with a value of 0.
+
+    PS> $x = 1,2,78,0
+    PS> do { $count++; $a++; } while ($x[$a] -ne 0)
+    PS> $count
+    3
+
+The following example uses the Until keyword. Notice that the not equal to
+operator (-ne) is replaced by the equal to operator (-eq).
+
+    PS> $x = 1,2,78,0
+    PS> do { $count++; $a++; } until ($x[$a] -eq 0)
+    PS> $count
+    3
+
+The following example writes all the values of an array, skipping any value
+that is less than zero.
+
+    do {
+      if ($x[$a] -lt 0) { continue }
+      Write-Host $x[$a]
+    }
+    while (++$a -lt 10)
+
+
+See also
+
+-   about_While
+-   about_Operators
+-   about_Assignment_Operators
+-   about_Comparison_Operators
+-   about_Break
+-   about_Continue
+-   about_Booleans

@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems xmlns="http://msh" schema="maml">
+  <!-- Updatable Help Version 5.0.0.0 -->
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-NetConnectionProfile</command:name>
+      <maml:description>
+        <maml:para>Gets a connection profile.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Get</command:verb>
+      <command:noun>NetConnectionProfile</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-NetConnectionProfile cmdlet gets a connection profile associated with one or more physical network adapters. A connection profile represents a network connection.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-NetConnectionProfile</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>InterfaceAlias</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of names of network adapters.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>InterfaceIndex</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of numerical index values associated with the network adapters.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">UInt32[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>IPv4Connectivity</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of IPv4 protocol connectivity status values. The acceptable values for this parameter are:
+
+-- Disconnected
+-- NoTraffic
+-- Subnet
+-- LocalNetwork
+-- Internet</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">IPv4Connectivity[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>IPv6Connectivity</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of IPv6 protocol connectivity status values. The acceptable values for this parameter are:
+
+-- Disconnected
+-- NoTraffic
+-- Subnet
+-- LocalNetwork
+-- Internet</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">IPv6Connectivity[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of names of networks with which the connection is currently established.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>NetworkCategory</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of category types of a network. The acceptable values for this parameter are:
+
+-- Public
+-- Private
+-- DomainAuthenticated</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">NetworkCategory[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>InterfaceAlias</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of names of network adapters.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>InterfaceIndex</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of numerical index values associated with the network adapters.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">UInt32[]</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>IPv4Connectivity</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of IPv4 protocol connectivity status values. The acceptable values for this parameter are:
+
+-- Disconnected
+-- NoTraffic
+-- Subnet
+-- LocalNetwork
+-- Internet</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">IPv4Connectivity[]</command:parameterValue>
+        <dev:type>
+          <maml:name>IPv4Connectivity[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>IPv6Connectivity</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of IPv6 protocol connectivity status values. The acceptable values for this parameter are:
+
+-- Disconnected
+-- NoTraffic
+-- Subnet
+-- LocalNetwork
+-- Internet</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">IPv6Connectivity[]</command:parameterValue>
+        <dev:type>
+          <maml:name>IPv6Connectivity[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of names of networks with which the connection is currently established.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>NetworkCategory</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of category types of a network. The acceptable values for this parameter are:
+
+-- Public
+-- Private
+-- DomainAuthenticated</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">NetworkCategory[]</command:parameterValue>
+        <dev:type>
+          <maml:name>NetworkCategory[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Get a connection profile</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-NetConnectionProfile -InterfaceAlias "Ethernet1" | Set-NetConnectionProfile -NetworkCategory Public
+</dev:code>
+        <dev:remarks>
+          <maml:para>This first part of this command gets the connection profile for the network adapter named Ethernet1. The command passes the results to the Set-NetConnectionProfile cmdlet by using the pipe operator. The second part of the command changes the value of the network category for the connection profile.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Set-NetConnectionProfile</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-NetConnectionProfile</command:name>
+      <maml:description>
+        <maml:para>Changes the network category of a connection profile.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Set</command:verb>
+      <command:noun>NetConnectionProfile</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Set-NetConnectionProfile cmdlet changes the network category setting of a connection profile. A connection profile represents a network connection.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-NetConnectionProfile</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>InterfaceAlias</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of names of network adapters.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>InterfaceIndex</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of numerical index values associated with the network adapters.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">UInt32[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>IPv4Connectivity</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of IPv4 protocol connectivity status values. The acceptable values for this parameter are:
+
+-- Disconnected
+-- NoTraffic
+-- Subnet
+-- LocalNetwork
+-- Internet</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">IPv4Connectivity[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>IPv6Connectivity</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of IPv6 protocol connectivity status values. The acceptable values for this parameter are:
+
+-- Disconnected
+-- NoTraffic
+-- Subnet
+-- LocalNetwork
+-- Internet</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">IPv6Connectivity[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of names of networks with which the connection is currently established.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>NetworkCategory</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of category types of a network. You cannot set the DomainAuthenticated type by using this cmdlet. The server automatically sets the value of DomainAuthenticated when the network is authenticated to a domain controller. The acceptable values for this parameter are:
+
+-- Public
+-- Private</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">Public</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Private</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">DomainAuthenticated</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-NetConnectionProfile</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>NetworkCategory</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of category types of a network. You cannot set the DomainAuthenticated type by using this cmdlet. The server automatically sets the value of DomainAuthenticated when the network is authenticated to a domain controller. The acceptable values for this parameter are:
+
+-- Public
+-- Private</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">Public</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Private</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">DomainAuthenticated</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a <maml:navigationLink><maml:linkText>New-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> or <maml:navigationLink><maml:linkText>Get-CimSession</maml:linkText><maml:uri></maml:uri></maml:navigationLink> cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>InterfaceAlias</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of names of network adapters.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>InterfaceIndex</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of numerical index values associated with the network adapters.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">UInt32[]</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>IPv4Connectivity</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of IPv4 protocol connectivity status values. The acceptable values for this parameter are:
+
+-- Disconnected
+-- NoTraffic
+-- Subnet
+-- LocalNetwork
+-- Internet</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">IPv4Connectivity[]</command:parameterValue>
+        <dev:type>
+          <maml:name>IPv4Connectivity[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>IPv6Connectivity</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of IPv6 protocol connectivity status values. The acceptable values for this parameter are:
+
+-- Disconnected
+-- NoTraffic
+-- Subnet
+-- LocalNetwork
+-- Internet</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">IPv6Connectivity[]</command:parameterValue>
+        <dev:type>
+          <maml:name>IPv6Connectivity[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of names of networks with which the connection is currently established.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>NetworkCategory</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of category types of a network. You cannot set the DomainAuthenticated type by using this cmdlet. The server automatically sets the value of DomainAuthenticated when the network is authenticated to a domain controller. The acceptable values for this parameter are:
+
+-- Public
+-- Private</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">NetworkCategory</command:parameterValue>
+        <dev:type>
+          <maml:name>NetworkCategory</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of 0 is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Change the network category of a connection profile</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>This first command gets the connection profile for the network adapter named Ethernet1. The command stores the results in the $Profile variable.
+PS C:\&gt;$Profile = Get-NetConnectionProfile -InterfaceAlias Ethernet1
+
+This second command assigns the value of Public to the NetworkCategory property of the connection profile stored in the $Profile variable.
+PS C:\&gt;$Profile.NetworkCategory = Public
+
+This third command sets the network category of the connection profile stored in the $Profile variable.
+PS C:\&gt;Set-NetConnectionProfile -InputObject $Profile
+</dev:code>
+        <dev:remarks>
+          <maml:para>This example changes the network category of a connection profile.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Get-NetConnectionProfile</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+
+</helpItems>

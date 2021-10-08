@@ -1,0 +1,1347 @@
+
+
+ABOUT_PREFERENCE_VARIABLES
+
+
+Short description
+
+Variables that customize the behavior of PowerShell.
+
+
+Long description
+
+PowerShell includes a set of variables that enable you to customize its
+behavior. These preference variables work like the options in GUI-based
+systems.
+
+The preference variables affect the PowerShell operating environment and
+all commands run in the environment. In many cases, the cmdlets have
+parameters that you can use to override the preference behavior for a
+specific command.
+
+The following table lists the preference variables and their default
+values.
+
+  Variable                         Default Value
+  -------------------------------- ----------------------------------------------------------------
+  $ConfirmPreference               High
+  $DebugPreference                 SilentlyContinue
+  $ErrorActionPreference           Continue
+  $ErrorView                       ConciseView
+  $FormatEnumerationLimit          4
+  $InformationPreference           SilentlyContinue
+  $LogCommandHealthEvent           $False (not logged)
+  $LogCommandLifecycleEvent        $False (not logged)
+  $LogEngineHealthEvent            $True (logged)
+  $LogEngineLifecycleEvent         $True (logged)
+  $LogProviderLifecycleEvent       $True (logged)
+  $LogProviderHealthEvent          $True (logged)
+  $MaximumHistoryCount             4096
+  $OFS                             Space character (" ")
+  $OutputEncoding                  UTF8Encoding object
+  $ProgressPreference              Continue
+  $PSDefaultParameterValues        @{} (empty hash table)
+  $PSEmailServer                   $Null (none)
+  $PSModuleAutoLoadingPreference   All
+  $PSSessionApplicationName        'wsman'
+  $PSSessionConfigurationName      'http://schemas.microsoft.com/powershell/Microsoft.PowerShell'
+  $PSSessionOption                 PSSessionOption object
+  $Transcript                      $Null (none)
+  $VerbosePreference               SilentlyContinue
+  $WarningPreference               Continue
+  $WhatIfPreference                $False
+
+PowerShell includes the following environment variables that store user
+preferences. For more information about these environment variables, see
+about_Environment_Variables.
+
+-   env:PSExecutionPolicyPreference
+-   $env:PSModulePath
+
+  [!NOTE] Changes to preference variable only take effect in scripts and
+  functions if those scripts or functions are defined in the same scope as
+  the scope in which preference was used. For more information, see
+  about_Scopes.
+
+
+Working with preference variables
+
+This document describes each of the preference variables.
+
+To display the current value of a specific preference variable, type the
+variable's name. For example, the following command displays the
+$ConfirmPreference variable's value.
+
+     $ConfirmPreference
+
+    High
+
+To change a variable's value, use an assignment statement. For example, the
+following statement changes the $ConfirmPreference parameter's value to
+MEDIUM.
+
+    $ConfirmPreference = "Medium"
+
+The values that you set are specific to the current PowerShell session. To
+make variables effective in all PowerShell sessions, add them to your
+PowerShell profile. For more information, see about_Profiles.
+
+
+Working remotely
+
+When you run commands on a remote computer, the remote commands are only
+subject to the preferences set in the remote computer's PowerShell client.
+For example, when you run a remote command, the value of the remote
+computer's $DebugPreference variable determines how PowerShell responds to
+debugging messages.
+
+For more information about remote commands, see about_Remote.
+
+$ConfirmPreference
+
+Determines whether PowerShell automatically prompts you for confirmation
+before running a cmdlet or function.
+
+The $ConfirmPreference variable takes one of the ConfirmImpact enumeration
+values: HIGH, MEDIUM, LOW, or NONE.
+
+Cmdlets and functions are assigned a risk of HIGH, MEDIUM, or LOW. When the
+value of the $ConfirmPreference variable is less than or equal to the risk
+assigned to a cmdlet or function, PowerShell automatically prompts you for
+confirmation before running the cmdlet or function.
+
+If the value of the $ConfirmPreference variable is NONE, PowerShell never
+automatically prompts you before running a cmdlet or function.
+
+To change the confirming behavior for all cmdlets and functions in the
+session, change $ConfirmPreference variable's value.
+
+To override the $ConfirmPreference for a single command, use a cmdlet's or
+function's CONFIRM parameter. To request confirmation, use -Confirm. To
+suppress confirmation, use -Confirm:$false.
+
+Valid values of $ConfirmPreference:
+
+-   NONE: PowerShell doesn't prompt automatically. To request confirmation
+    of a particular command, use the CONFIRM parameter of the cmdlet or
+    function.
+-   LOW: PowerShell prompts for confirmation before running cmdlets or
+    functions with a low, medium, or high risk.
+-   MEDIUM: PowerShell prompts for confirmation before running cmdlets or
+    functions with a medium, or high risk.
+-   HIGH: PowerShell prompts for confirmation before running cmdlets or
+    functions with a high risk.
+
+Detailed explanation
+
+PowerShell can automatically prompt you for confirmation before doing an
+action. For example, when cmdlet or function significantly affects the
+system to delete data or use a significant amount of system resources.
+
+    Remove-Item -Path C:\file.txt
+
+    Confirm
+    Are you sure you want to perform this action?
+    Performing operation "Remove File" on Target "C:\file.txt".
+    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [?] Help (default is "Y"):
+
+The estimate of the risk is an attribute of the cmdlet or function known as
+its CONFIRMIMPACT. Users can't change it.
+
+Cmdlets and functions that might pose a risk to the system have a CONFIRM
+parameter that you can use to request or suppress confirmation for a single
+command.
+
+Because most cmdlets and functions use the default risk value,
+CONFIRMIMPACT, of MEDIUM, and the default value of $ConfirmPreference is
+HIGH, automatic confirmation rarely occurs. However, you can activate
+automatic confirmation by changing the value of $ConfirmPreference to
+MEDIUM or LOW.
+
+Examples
+
+This example shows the effect of the $ConfirmPreference variable's default
+value, HIGH. The HIGH value only confirms high-risk cmdlets and functions.
+Since most cmdlets and functions are medium risk, they aren't automatically
+confirmed and Remove-Item deletes the file. Adding -Confirm to the command
+prompts the user for confirmation.
+
+    $ConfirmPreference
+
+    High
+
+    Remove-Item -Path C:\temp1.txt
+
+Use -Confirm to request confirmation.
+
+    Remove-Item -Path C:\temp2.txt -Confirm
+
+    Confirm
+    Are you sure you want to perform this action?
+    Performing operation "Remove File" on Target "C:\temp2.txt".
+    [Y] Yes  [A] Yes to All  [N] No  [L] No to All
+    [?] Help (default is "Y"):
+
+The following example shows the effect of changing the value of
+$ConfirmPreference to MEDIUM. Because most cmdlets and function are medium
+risk, they're automatically confirmed. To suppress the confirmation prompt
+for a single command, use the CONFIRM parameter with a value of $false.
+
+    $ConfirmPreference = "Medium"
+    Remove-Item -Path C:\temp2.txt
+
+    Confirm
+    Are you sure you want to perform this action?
+    Performing operation "Remove File" on Target "C:\temp2.txt".
+    [Y] Yes  [A] Yes to All  [N] No  [L] No to All
+    [?] Help (default is "Y"):
+
+    Remove-Item -Path C:\temp3.txt -Confirm:$false
+
+$DebugPreference
+
+Determines how PowerShell responds to debugging messages generated by a
+script, cmdlet or provider, or by a Write-Debug command at the command
+line.
+
+The $DebugPreference variable takes one of the ActionPreference enumeration
+values: SILENTLYCONTINUE, STOP, CONTINUE, INQUIRE, IGNORE, SUSPEND, or
+BREAK.
+
+Some cmdlets display debugging messages, which are typically technical
+messages designed for programmers and technical support professionals. By
+default, debugging messages aren't displayed, but you can display debugging
+messages by changing the value of $DebugPreference.
+
+You can use the DEBUG common parameter of a cmdlet to display or hide the
+debugging messages for a specific command. For more information, see
+about_CommonParameters.
+
+The valid values are as follows:
+
+-   STOP: Displays the debug message and stops executing. Writes an error
+    to the console.
+-   INQUIRE: Displays the debug message and asks you whether you want to
+    continue. Adding the DEBUG common parameter to a command, when the
+    command is configured to generate a debugging message, changes the
+    value of the $DebugPreference variable to INQUIRE.
+-   CONTINUE: Displays the debug message and continues with execution.
+-   SILENTLYCONTINUE: (Default) No effect. The debug message isn't
+    displayed and execution continues without interruption.
+
+Examples
+
+The following examples show the effect of changing the values of
+$DebugPreference when a Write-Debug command is entered at the command line.
+The change affects all debugging messages, including messages generated by
+cmdlets and scripts. The examples show the DEBUG parameter, which displays
+or hides the debugging messages related to a single command.
+
+This example shows the effect of the $DebugPreference variable's default
+value, SILENTLYCONTINUE. By default, the Write-Debug cmdlet's debug message
+isn't displayed and processing continues. When the DEBUG parameter is used,
+it overrides the preference for a single command. The debug message is
+displayed.
+
+    $DebugPreference
+
+    SilentlyContinue
+
+    Write-Debug -Message "Hello, World"
+
+    Write-Debug -Message "Hello, World" -Debug
+
+    DEBUG: Hello, World
+
+This example shows the effect of $DebugPreference with the CONTINUE value.
+The debug message is displayed and the command continues to process.
+
+    $DebugPreference = "Continue"
+    Write-Debug -Message "Hello, World"
+
+    DEBUG: Hello, World
+
+This example uses the DEBUG parameter with a value of $false to suppress
+the message for a single command. The debug message isn't displayed.
+
+    Write-Debug -Message "Hello, World" -Debug:$false
+
+This example shows the effect of $DebugPreference being set to the STOP
+value. The debug message is displayed and the command is stopped.
+
+    $DebugPreference = "Stop"
+    Write-Debug -Message "Hello, World"
+
+    DEBUG: Hello, World
+    Write-Debug : The running command stopped because the preference variable
+     "DebugPreference" or common parameter is set to Stop: Hello, World
+    At line:1 char:1
+    + Write-Debug -Message "Hello, World"
+
+This example uses the DEBUG parameter with a value of $false to suppress
+the message for a single command. The debug message isn't displayed and
+processing isn't stopped.
+
+    Write-Debug -Message "Hello, World" -Debug:$false
+
+This example shows the effect of $DebugPreference being set to the INQUIRE
+value. The debug message is displayed and the user is prompted for
+confirmation.
+
+    $DebugPreference = "Inquire"
+    Write-Debug -Message "Hello, World"
+
+    DEBUG: Hello, World
+
+    Confirm
+    Continue with this operation?
+    [Y] Yes  [A] Yes to All  [H] Halt Command  [?] Help (default is "Y"):
+
+This example uses the DEBUG parameter with a value of $false to suppress
+the message for a single command. The debug message isn't displayed and
+processing continues.
+
+    Write-Debug -Message "Hello, World" -Debug:$false
+
+$ErrorActionPreference
+
+Determines how PowerShell responds to a non-terminating error, an error
+that doesn't stop the cmdlet processing. For example, at the command line
+or in a script, cmdlet, or provider, such as the errors generated by the
+Write-Error cmdlet.
+
+The $ErrorActionPreference variable takes one of the ActionPreference
+enumeration values: SILENTLYCONTINUE, STOP, CONTINUE, INQUIRE, IGNORE,
+SUSPEND, or BREAK.
+
+You can use a cmdlet's ERRORACTION common parameter to override the
+preference for a specific command.
+
+The valid values are as follows:
+
+-   BREAK - Enter the debugger when an error occurs or when an exception is
+    raised.
+-   CONTINUE: (Default) Displays the error message and continues executing.
+-   IGNORE: Suppresses the error message and continues to execute the
+    command. The IGNORE value is intended for per-command use, not for use
+    as saved preference. IGNORE isn't a valid value for the
+    $ErrorActionPreference variable.
+-   INQUIRE: Displays the error message and asks you whether you want to
+    continue.
+-   SILENTLYCONTINUE: No effect. The error message isn't displayed and
+    execution continues without interruption.
+-   STOP: Displays the error message and stops executing. In addition to
+    the error generated, the STOP value generates an
+    ActionPreferenceStopException object to the error stream. stream
+-   SUSPEND: Automatically suspends a workflow job to allow for further
+    investigation. After investigation, the workflow can be resumed. The
+    SUSPEND value is intended for per-command use, not for use as saved
+    preference. SUSPEND isn't a valid value for the $ErrorActionPreference
+    variable.
+
+$ErrorActionPreference and the ERRORACTION parameter don't affect how
+PowerShell responds to terminating errors that stop cmdlet processing. For
+more information about the ERRORACTION common parameter, see
+about_CommonParameters.
+
+Examples
+
+These examples show the effect of the different values of the
+$ErrorActionPreference variable. The ERRORACTION parameter is used to
+override the $ErrorActionPreference value.
+
+This example shows the $ErrorActionPreference default value, CONTINUE. A
+non-terminating error is generated. The message is displayed and processing
+continues.
+
+    # Change the ErrorActionPreference to 'Continue'
+    $ErrorActionPreference = 'Continue'
+    # Generate a non-terminating error and continue processing the script.
+    Write-Error -Message  'Test Error' ; Write-Host 'Hello World'
+
+    Write-Error: Test Error
+    Hello World
+
+This example shows the $ErrorActionPreference default value, INQUIRE. An
+error is generated and a prompt for action is shown.
+
+    # Change the ErrorActionPreference to 'Inquire'
+    $ErrorActionPreference = 'Inquire'
+    Write-Error -Message 'Test Error' ; Write-Host 'Hello World'
+
+    Confirm
+    Test Error
+    [Y] Yes  [A] Yes to All  [H] Halt Command  [S] Suspend  [?] Help (default is "Y"):
+
+This example shows the $ErrorActionPreference set to SILENTLYCONTINUE. The
+error message is suppressed.
+
+    # Change the ErrorActionPreference to 'SilentlyContinue'
+    $ErrorActionPreference = 'SilentlyContinue'
+    # Generate an error message
+    Write-Error -Message 'Test Error' ; Write-Host 'Hello World'
+    # Error message is suppressed and script continues processing
+
+    Hello World
+
+This example shows the $ErrorActionPreference set to STOP. It also shows
+the extra object generated to the $Error variable.
+
+    # Change the ErrorActionPreference to 'Stop'
+    $ErrorActionPreference = 'Stop'
+    # Error message is is generated and script stops processing
+    Write-Error -Message 'Test Error' ; Write-Host 'Hello World'
+
+    # Show the ActionPreferenceStopException and the error generated
+    $Error[0]
+    $Error[1]
+
+    Write-Error: Test Error
+
+    ErrorRecord                 : Test Error
+    WasThrownFromThrowStatement : False
+    TargetSite                  : System.Collections.ObjectModel.Collection`1[System.Management.Automation.PSObject]
+                                  Invoke(System.Collections.IEnumerable)
+    StackTrace                  :    at System.Management.Automation.Runspaces.PipelineBase.Invoke(IEnumerable input)
+                                     at Microsoft.PowerShell.Executor.ExecuteCommandHelper(Pipeline tempPipeline,
+                                  Exception& exceptionThrown, ExecutionOptions options)
+    Message                     : The running command stopped because the preference variable "ErrorActionPreference" or
+                                  common parameter is set to Stop: Test Error
+    Data                        : {System.Management.Automation.Interpreter.InterpretedFrameInfo}
+    InnerException              :
+    HelpLink                    :
+    Source                      : System.Management.Automation
+    HResult                     : -2146233087
+
+    Write-Error: Test Error
+
+$ErrorView
+
+Determines the display format of error messages in PowerShell.
+
+The $ErrorView variable takes one of the ErrorView enumeration values:
+NORMALVIEW, CATEGORYVIEW, or CONCISEVIEW.
+
+The valid values are as follows:
+
+-   CONCISEVIEW: (Default) Provides a concise error message and a
+    refactored view for advanced module builders. If the error is from
+    command line it's a single line error message. Otherwise, you receive a
+    multiline error message that contains the error and a pointer to the
+    error showing where it occurs in that line. If the terminal supports
+    Virtual Terminal, then ANSI color codes are used to provide color
+    accent. The Accent color can be changed at
+    $Host.PrivateData.ErrorAccentColor. Use Get-Error cmdlet for a
+    comprehensive detailed view of the fully qualified error, including
+    inner exceptions.
+
+    CONCISEVIEW was added in PowerShell 7.
+
+-   NORMALVIEW: A detailed view designed for most users. Consists of a
+    description of the error and the name of the object involved in the
+    error.
+
+-   CATEGORYVIEW: A succinct, structured view designed for production
+    environments. The format is as follows:
+
+    {Category}: ({TargetName}:{TargetType}):[{Activity}], {Reason}
+
+For more information about the fields in CATEGORYVIEW, see
+ErrorCategoryInfo class.
+
+Examples
+
+This example shows how an error appears when the value of $ErrorView is the
+default, CONCISEVIEW. Get-ChildItem is used to find a non-existent
+directory.
+
+    Get-ChildItem -path 'C:\NoRealDirectory'
+
+    Get-ChildItem: Cannot find path 'C:\NoRealDirectory' because it does not exist.
+
+This example shows how an error appears when the value of $ErrorView is the
+default, CONCISEVIEW. Script.ps1 is run and throws an error from Get-Item
+statement.
+
+    ./Script.ps1
+
+    Get-Item: C:\Script.ps1
+    Line |
+      11 | Get-Item -Path .\stuff
+         | ^ Cannot find path 'C:\demo\stuff' because it does not exist.
+
+This example shows how an error appears when the value of $ErrorView is
+changed to NORMALVIEW. Get-ChildItem is used to find a non-existent file.
+
+    Get-ChildItem -Path C:\nofile.txt
+
+    Get-ChildItem : Cannot find path 'C:\nofile.txt' because it does not exist.
+    At line:1 char:1
+    + Get-ChildItem -Path C:\nofile.txt
+
+This example shows how the same error appears when the value of $ErrorView
+is changed to CATEGORYVIEW.
+
+    $ErrorView = "CategoryView"
+    Get-ChildItem -Path C:\nofile.txt
+
+    ObjectNotFound: (C:\nofile.txt:String) [Get-ChildItem], ItemNotFoundException
+
+This example demonstrates that the value of $ErrorView only affects the
+error display. It doesn't change the structure of the error object that is
+stored in the $Error automatic variable. For information about the $Error
+automatic variable, see about_automatic_variables.
+
+The following command takes the ERRORRECORD object associated with the most
+recent error in the error array, ELEMENT 0, and formats all the error
+object's properties in a list.
+
+    $Error[0] | Format-List -Property * -Force
+
+    PSMessageDetails      :
+    Exception             : System.Management.Automation.ItemNotFoundException:
+                              Cannot find path 'C:\nofile.txt' because it does
+                              not exist.
+                            at System.Management.Automation.SessionStateInternal.
+                              GetChildItems(String path, Boolean recurse, UInt32
+                              depth, CmdletProviderContext context)
+                            at System.Management.Automation.ChildItemCmdlet
+                              ProviderIntrinsics.Get(String path, Boolean
+                              recurse, UInt32 depth, CmdletProviderContext context)
+                            at Microsoft.PowerShell.Commands.GetChildItemCommand.
+                              ProcessRecord()
+    TargetObject          : C:\nofile.txt
+    CategoryInfo          : ObjectNotFound: (C:\nofile.txt:String) [Get-ChildItem],
+                              ItemNotFoundException
+    FullyQualifiedErrorId : PathNotFound,
+                              Microsoft.PowerShell.Commands.GetChildItemCommand
+    ErrorDetails          :
+    InvocationInfo        : System.Management.Automation.InvocationInfo
+    ScriptStackTrace      : at <ScriptBlock>, <No file>: line 1
+    PipelineIterationInfo : {0, 1}
+
+$FormatEnumerationLimit
+
+Determines how many enumerated items are included in a display. This
+variable doesn't affect the underlying objects, only the display. When the
+value of $FormatEnumerationLimit is fewer than the number of enumerated
+items, PowerShell adds an ellipsis (...) to indicate items not shown.
+
+VALID VALUES: Integers (Int32)
+
+DEFAULT VALUE: 4
+
+Examples
+
+This example shows how to use the $FormatEnumerationLimit variable to
+improve the display of enumerated items.
+
+The command in this example generates a table that lists all the services
+running on the computer in two groups: one for RUNNING services and one for
+STOPPED services. It uses a Get-Service command to get all the services,
+and then sends the results through the pipeline to the Group-Object cmdlet,
+which groups the results by the service status.
+
+The result is a table that lists the status in the NAME column, and the
+processes in the GROUP column. To change the column labels, use a hash
+table, see about_Hash_Tables. For more information, see the examples in
+Format-Table.
+
+Find the current value of $FormatEnumerationLimit.
+
+    $FormatEnumerationLimit
+
+    4
+
+List all services grouped by STATUS. There are a maximum of four services
+listed in the GROUP column for each status because $FormatEnumerationLimit
+has a value of 4.
+
+    Get-Service | Group-Object -Property Status
+
+    Count  Name       Group
+    -----  ----       -----
+    60     Running    {AdtAgent, ALG, Ati HotKey Poller, AudioSrv...}
+    41     Stopped    {Alerter, AppMgmt, aspnet_state, ATI Smart...}
+
+To increase the number of items listed, increase the value of
+$FormatEnumerationLimit to 1000. Use Get-Service and Group-Object to
+display the services.
+
+    $FormatEnumerationLimit = 1000
+    Get-Service | Group-Object -Property Status
+
+    Count  Name       Group
+    -----  ----       -----
+    60     Running    {AdtAgent, ALG, Ati HotKey Poller, AudioSrv, BITS, CcmExec...
+    41     Stopped    {Alerter, AppMgmt, aspnet_state, ATI Smart, Browser, CiSvc...
+
+Use Format-Table with the WRAP parameter to display the list of services.
+
+    Get-Service | Group-Object -Property Status | Format-Table -Wrap
+
+    Count  Name       Group
+    -----  ----       -----
+    60     Running    {AdtAgent, ALG, Ati HotKey Poller, AudioSrv, BITS, CcmExec,
+                      Client for NFS, CryptSvc, DcomLaunch, Dhcp, dmserver,
+                      Dnscache, ERSvc, Eventlog, EventSystem, FwcAgent, helpsvc,
+                      HidServ, IISADMIN, InoRPC, InoRT, InoTask, lanmanserver,
+                      lanmanworkstation, LmHosts, MDM, Netlogon, Netman, Nla,
+                      NtLmSsp, PlugPlay, PolicyAgent, ProtectedStorage, RasMan,
+                      RemoteRegistry, RpcSs, SamSs, Schedule, seclogon, SENS,
+                      SharedAccess, ShellHWDetection, SMT PSVC, Spooler,
+                      srservice, SSDPSRV, stisvc, TapiSrv, TermService, Themes,
+                      TrkWks, UMWdf, W32Time, W3SVC, WebClient, winmgmt, wscsvc,
+                      wuauserv, WZCSVC, zzInterix}
+
+    41     Stopped    {Alerter, AppMgmt, aspnet_state, ATI Smart, Browser, CiSvc,
+                      ClipSrv, clr_optimization_v2.0.50727_32, COMSysApp,
+                      CronService, dmadmin, FastUserSwitchingCompatibility,
+                      HTTPFilter, ImapiService, Mapsvc, Messenger, mnmsrvc,
+                      MSDTC, MSIServer, msvsmon80, NetDDE, NetDDEdsdm, NtmsSvc,
+                      NVSvc, ose, RasAuto, RDSessMgr, RemoteAccess, RpcLocator,
+                      SCardSvr, SwPrv, SysmonLog, TlntSvr, upnphost, UPS, VSS,
+                      WmdmPmSN, Wmi, WmiApSrv, xmlprov}
+
+$InformationPreference
+
+The $InformationPreference variable lets you set information stream
+preferences that you want displayed to users. Specifically, informational
+messages that you added to commands or scripts by adding the
+Write-Information cmdlet. If the INFORMATIONACTION parameter is used, its
+value overrides the value of the $InformationPreference variable.
+Write-Information was introduced in PowerShell 5.0.
+
+The $InformationPreference variable takes one of the ActionPreference
+enumeration values: SILENTLYCONTINUE, STOP, CONTINUE, INQUIRE, IGNORE,
+SUSPEND, or BREAK.
+
+The valid values are as follows:
+
+-   STOP: Stops a command or script at an occurrence of the
+    Write-Information command.
+-   INQUIRE: Displays the informational message that you specify in a
+    Write-Information command, then asks whether you want to continue.
+-   CONTINUE: Displays the informational message, and continues running.
+-   SUSPEND is only available for workflows which aren't supported in
+    PowerShell 6 and beyond.
+-   SILENTLYCONTINUE: (Default) No effect. The informational messages
+    aren't displayed, and the script continues without interruption.
+
+$Log*Event
+
+The LOG*EVENT preference variables determine which types of events are
+written to the PowerShell event log in Event Viewer. By default, only
+engine and provider events are logged. But, you can use the LOG*EVENT
+preference variables to customize your log, such as logging events about
+commands.
+
+The LOG*EVENT preference variables are as follows:
+
+-   $LogCommandHealthEvent: Logs errors and exceptions in command
+    initialization and processing. The default is $false (not logged).
+-   $LogCommandLifecycleEvent: Logs the starting and stopping of commands
+    and command pipelines and security exceptions in command discovery. The
+    default is $false (not logged).
+-   $LogEngineHealthEvent: Logs errors and failures of sessions. The
+    default is $true (logged).
+-   $LogEngineLifecycleEvent: Logs the opening and closing of sessions. The
+    default is $true (logged).
+-   $LogProviderHealthEvent: Logs provider errors, such as read and write
+    errors, lookup errors, and invocation errors. The default is $true
+    (logged).
+-   $LogProviderLifecycleEvent: Logs adding and removing of PowerShell
+    providers. The default is $true (logged). For information about
+    PowerShell providers, see about_Providers.
+
+To enable a LOG*EVENT, type the variable with a value of $true, for
+example:
+
+    $LogCommandLifeCycleEvent = $true
+
+To disable an event type, type the variable with a value of $false, for
+example:
+
+    $LogCommandLifeCycleEvent = $false
+
+The events that you enable are effective only for the current PowerShell
+console. To apply the configuration to all consoles, save the variable
+settings in your PowerShell profile. For more information, see
+about_Profiles.
+
+$MaximumHistoryCount
+
+Determines how many commands are saved in the command history for the
+current session.
+
+VALID VALUES: 1 - 32768 (Int32)
+
+DEFAULT: 4096
+
+To determine the number of commands current saved in the command history,
+type:
+
+    (Get-History).Count
+
+To see the commands saved in your session history, use the Get-History
+cmdlet. For more information, see about_History.
+
+$OFS
+
+The Output Field Separator (OFS) specifies the character that separates the
+elements of an array that is converted to a string.
+
+VALID VALUES: Any string.
+
+DEFAULT: Space
+
+By default, the $OFS variable doesn't exist and the output file separator
+is a space, but you can add this variable and set it to any string. You can
+change the value of $OFS in your session, by typing $OFS="<value>".
+
+  [!NOTE] If you're expecting the default value of a space (" ") in your
+  script, module, or configuration output, be careful that the $OFS default
+  value hasn't been changed elsewhere in your code.
+
+Examples
+
+This example shows that a space is used to separate the values when an
+array is converted to a string. In this case, an array of integers is
+stored in a variable and then the variable is cast as a string.
+
+    $array = 1,2,3,4
+    [string]$array
+
+    1 2 3 4
+
+To change the separator, add the $OFS variable by assigning a value to it.
+The variable must be named $OFS.
+
+    $OFS = "+"
+    [string]$array
+
+    1+2+3+4
+
+To restore the default behavior, you can assign a space (" ") to the value
+of $OFS or delete the variable. The following commands delete the variable
+and then verify that the separator is a space.
+
+    Remove-Variable OFS
+    [string]$array
+
+    1 2 3 4
+
+$OutputEncoding
+
+Determines the character encoding method that PowerShell uses when it sends
+text to other applications.
+
+For example, if an application returns Unicode strings to PowerShell, you
+might need to change the value to UNICODEENCODING to send the characters
+correctly.
+
+The valid values are as follows: Objects derived from an Encoding class,
+such as ASCIIENCODING, UTF7ENCODING, UTF8ENCODING, UTF32ENCODING, and
+UNICODEENCODING.
+
+DEFAULT: UTF8Encoding object.
+
+Examples
+
+This example shows how to make the Windows FINDSTR.EXE command work in
+PowerShell on a computer that is localized for a language that uses Unicode
+characters, such as Chinese.
+
+The first command finds the value of $OutputEncoding. Because the value is
+an encoding object, display only its ENCODINGNAME property.
+
+    $OutputEncoding.EncodingName
+
+In this example, a FINDSTR.EXE command is used to search for two Chinese
+characters that are present in the Test.txt file. When this FINDSTR.EXE
+command is run in the Windows Command Prompt (CMD.EXE), FINDSTR.EXE finds
+the characters in the text file. However, when you run the same FINDSTR.EXE
+command in PowerShell, the characters aren't found because the PowerShell
+sends them to FINDSTR.EXE in ASCII text, instead of in Unicode text.
+
+    findstr <Unicode-characters>
+
+To make the command work in PowerShell, set the value of $OutputEncoding to
+the value of the OUTPUTENCODING property of the console, that is based on
+the locale selected for Windows. Because OUTPUTENCODING is a static
+property of the console, use double-colons (::) in the command.
+
+    $OutputEncoding = [console]::OutputEncoding
+    $OutputEncoding.EncodingName
+
+    OEM United States
+
+After the encoding change, the FINDSTR.EXE command finds the Unicode
+characters.
+
+    findstr <Unicode-characters>
+
+    test.txt:         <Unicode-characters>
+
+$ProgressPreference
+
+Determines how PowerShell responds to progress updates generated by a
+script, cmdlet, or provider, such as the progress bars generated by the
+Write-Progress cmdlet. The Write-Progress cmdlet creates progress bars that
+show a command's status.
+
+The $ProgressPreference variable takes one of the ActionPreference
+enumeration values: SILENTLYCONTINUE, STOP, CONTINUE, INQUIRE, IGNORE,
+SUSPEND, or BREAK.
+
+The valid values are as follows:
+
+-   STOP: Doesn't display the progress bar. Instead, it displays an error
+    message and stops executing.
+-   INQUIRE: Doesn't display the progress bar. Prompts for permission to
+    continue. If you reply with Y or A, it displays the progress bar.
+-   CONTINUE: (Default) Displays the progress bar and continues with
+    execution.
+-   SILENTLYCONTINUE: Executes the command, but doesn't display the
+    progress bar.
+
+$PSDefaultParameterValues
+
+Specifies default values for the parameters of cmdlets and advanced
+functions. The value of $PSDefaultParameterValues is a hash table where the
+key consists of the cmdlet name and parameter name separated by a colon
+(:). The value is a custom default value that you specify.
+
+$PSDefaultParameterValues was introduced in PowerShell 3.0.
+
+For more information about this preference variable, see
+about_Parameters_Default_Values.
+
+$PSEmailServer
+
+Specifies the default e-mail server that is used to send email messages.
+This preference variable is used by cmdlets that send email, such as the
+Send-MailMessage cmdlet.
+
+$PSModuleAutoloadingPreference
+
+Enables and disables automatic importing of modules in the session. ALL is
+the default. Regardless of the variable's value, you can use Import-Module
+to import a module.
+
+The $PSModuleAutoloadingPreference variable takes one of the
+PSModuleAutoLoadingPreference enumeration values: NONE, MODULEQUALIFIED, or
+ALL.
+
+Valid values are:
+
+-   ALL: Modules are imported automatically on first-use. To import a
+    module, get or use any command in the module. For example, use
+    Get-Command.
+-   MODULEQUALIFIED: Modules are imported automatically only when a user
+    uses the module-qualified name of a command in the module. For example,
+    if the user types MyModule\MyCommand, PowerShell imports the MYMODULE
+    module.
+-   NONE: Automatic importing of modules is disabled in the session. To
+    import a module, use the Import-Module cmdlet.
+
+For more information about automatic importing of modules, see
+about_Modules.
+
+$PSSessionApplicationName
+
+Specifies the default application name for a remote command that uses Web
+Services for Management (WS-Management) technology. For more information,
+see About Windows Remote Management.
+
+The system default application name is WSMAN, but you can use this
+preference variable to change the default.
+
+The application name is the last node in a connection URI. For example, the
+application name in the following sample URI is WSMAN.
+
+http://Server01:8080/WSMAN
+
+The default application name is used when the remote command doesn't
+specify a connection URI or an application name.
+
+The WINRM service uses the application name to select a listener to service
+the connection request. The parameter's value should match the value of the
+URLPREFIX property of a listener on the remote computer.
+
+To override the system default and the value of this variable, and select a
+different application name for a particular session, use the CONNECTIONURI
+or APPLICATIONNAME parameters of the New-PSSession, Enter-PSSession, or
+Invoke-Command cmdlets.
+
+The $PSSessionApplicationName preference variable is set on the local
+computer, but it specifies a listener on the remote computer. If the
+application name that you specify doesn't exist on the remote computer, the
+command to establish the session fails.
+
+$PSSessionConfigurationName
+
+Specifies the default session configuration that is used for PSSESSIONS
+created in the current session.
+
+This preference variable is set on the local computer, but it specifies a
+session configuration that's located on the remote computer.
+
+The value of the $PSSessionConfigurationName variable is a fully qualified
+resource URI.
+
+The default value
+http://schemas.microsoft.com/PowerShell/microsoft.PowerShell indicates the
+MICROSOFT.POWERSHELL session configuration on the remote computer.
+
+If you specify only a configuration name, the following schema URI is
+prepended:
+
+http://schemas.microsoft.com/PowerShell/
+
+You can override the default and select a different session configuration
+for a particular session by using the CONFIGURATIONNAME parameter of the
+New-PSSession, Enter-PSSession, or Invoke-Command cmdlets.
+
+You can change the value of this variable at any time. When you do,
+remember that the session configuration that you select must exist on the
+remote computer. If it doesn't, the command to create a session that uses
+the session configuration fails.
+
+This preference variable doesn't determine which local session
+configurations are used when remote users create a session that connects to
+this computer. However, you can use the permissions for the local session
+configurations to determine which users may use them.
+
+$PSSessionOption
+
+Establishes the default values for advanced user options in a remote
+session. These option preferences override the system default values for
+session options.
+
+The $PSSessionOption variable contains a PSSESSIONOPTION object. For more
+information, see System.Management.Automation.Remoting.PSSessionOption.
+Each property of the object represents a session option. For example, the
+NOCOMPRESSION property turns of data compression during the session.
+
+By default, the $PSSessionOption variable contains a PSSESSIONOPTION object
+with the default values for all options, as shown below.
+
+    MaximumConnectionRedirectionCount : 5
+    NoCompression                     : False
+    NoMachineProfile                  : False
+    ProxyAccessType                   : None
+    ProxyAuthentication               : Negotiate
+    ProxyCredential                   :
+    SkipCACheck                       : False
+    SkipCNCheck                       : False
+    SkipRevocationCheck               : False
+    OperationTimeout                  : 00:03:00
+    NoEncryption                      : False
+    UseUTF16                          : False
+    IncludePortInSPN                  : False
+    OutputBufferingMode               : None
+    Culture                           :
+    UICulture                         :
+    MaximumReceivedDataSizePerCommand :
+    MaximumReceivedObjectSize         : 209715200
+    ApplicationArguments              :
+    OpenTimeout                       : 00:03:00
+    CancelTimeout                     : 00:01:00
+    IdleTimeout                       : -00:00:00.0010000
+
+For descriptions of these options and more information, see
+New-PSSessionOption. For more information about remote commands and
+sessions, see about_Remote and about_PSSessions.
+
+To change the value of the $PSSessionOption preference variable, use the
+New-PSSessionOption cmdlet to create a PSSESSIONOPTION object with the
+option values you prefer. Save the output in a variable called
+$PSSessionOption.
+
+    $PSSessionOption = New-PSSessionOption -NoCompression
+
+To use the $PSSessionOption preference variable in every PowerShell
+session, add a New-PSSessionOption command that creates the
+$PSSessionOption variable to your PowerShell profile. For more information,
+see about_Profiles.
+
+You can set custom options for a particular remote session. The options
+that you set take precedence over the system defaults and the value of the
+$PSSessionOption preference variable.
+
+To set custom session options, use the New-PSSessionOption cmdlet to create
+a PSSESSIONOPTION object. Then, use the PSSESSIONOPTION object as the value
+of the SESSIONOPTION parameter in cmdlets that create a session, such as
+New-PSSession, Enter-PSSession, and Invoke-Command.
+
+$Transcript
+
+Used by Start-Transcript to specify the name and location of the transcript
+file. If you do not specify a value for the PATH parameter,
+Start-Transcript uses the path in the value of the $Transcript global
+variable. If you have not created this variable, Start-Transcript stores
+the transcripts in the $Home\My Documents directory as
+\PowerShell_transcript.<time-stamp>.txt files.
+
+$VerbosePreference
+
+Determines how PowerShell responds to verbose messages generated by a
+script, cmdlet, or provider, such as the messages generated by the
+Write-Verbose cmdlet. Verbose messages describe the actions performed to
+execute a command.
+
+By default, verbose messages aren't displayed, but you can change this
+behavior by changing the value of $VerbosePreference.
+
+The $VerbosePreference variable takes one of the ActionPreference
+enumeration values: SILENTLYCONTINUE, STOP, CONTINUE, INQUIRE, IGNORE,
+SUSPEND, or BREAK.
+
+The valid values are as follows:
+
+-   STOP: Displays the verbose message and an error message and then stops
+    executing.
+-   INQUIRE: Displays the verbose message and then displays a prompt that
+    asks you whether you want to continue.
+-   CONTINUE: Displays the verbose message and then continues with
+    execution.
+-   SILENTLYCONTINUE: (Default) Doesn't display the verbose message.
+    Continues executing.
+
+You can use the VERBOSE common parameter of a cmdlet to display or hide the
+verbose messages for a specific command. For more information, see
+about_CommonParameters.
+
+Examples
+
+These examples show the effect of the different values of
+$VerbosePreference and the VERBOSE parameter to override the preference
+value.
+
+This example shows the effect of the SILENTLYCONTINUE value, that is the
+default. The command uses the MESSAGE parameter, but doesn't write a
+message to the PowerShell console.
+
+    Write-Verbose -Message "Verbose message test."
+
+When the VERBOSE parameter is used, the message is written.
+
+    Write-Verbose -Message "Verbose message test." -Verbose
+
+    VERBOSE: Verbose message test.
+
+This example shows the effect of the CONTINUE value. The $VerbosePreference
+variable is set to CONTINUE and the message is displayed.
+
+    $VerbosePreference = "Continue"
+    Write-Verbose -Message "Verbose message test."
+
+    VERBOSE: Verbose message test.
+
+This example uses the VERBOSE parameter with a value of $false that
+overrides the CONTINUE value. The message isn't displayed.
+
+    Write-Verbose -Message "Verbose message test." -Verbose:$false
+
+This example shows the effect of the STOP value. The $VerbosePreference
+variable is set to STOP and the message is displayed. The command is
+stopped.
+
+    $VerbosePreference = "Stop"
+    Write-Verbose -Message "Verbose message test."
+
+    VERBOSE: Verbose message test.
+    Write-Verbose : The running command stopped because the preference variable
+      "VerbosePreference" or common parameter is set to Stop: Verbose message test.
+    At line:1 char:1
+    + Write-Verbose -Message "Verbose message test."
+
+This example uses the VERBOSE parameter with a value of $false that
+overrides the STOP value. The message isn't displayed.
+
+    Write-Verbose -Message "Verbose message test." -Verbose:$false
+
+This example shows the effect of the INQUIRE value. The $VerbosePreference
+variable is set to INQUIRE. The message is displayed and the user is
+prompted for confirmation.
+
+    $VerbosePreference = "Inquire"
+    Write-Verbose -Message "Verbose message test."
+
+    VERBOSE: Verbose message test.
+
+    Confirm
+    Continue with this operation?
+    [Y] Yes  [A] Yes to All  [H] Halt Command  [?] Help (default is "Y"):
+
+This example uses the VERBOSE parameter with a value of $false that
+overrides the INQUIRE value. The user isn't prompted and the message isn't
+displayed.
+
+    Write-Verbose -Message "Verbose message test." -Verbose:$false
+
+$WarningPreference
+
+Determines how PowerShell responds to warning messages generated by a
+script, cmdlet, or provider, such as the messages generated by the
+Write-Warning cmdlet.
+
+By default, warning messages are displayed and execution continues, but you
+can change this behavior by changing the value of $WarningPreference.
+
+The $WarningPreference variable takes one of the ActionPreference
+enumeration values: SILENTLYCONTINUE, STOP, CONTINUE, INQUIRE, IGNORE,
+SUSPEND, or BREAK.
+
+The valid values are as follows:
+
+-   STOP: Displays the warning message and an error message and then stops
+    executing.
+-   INQUIRE: Displays the warning message and then prompts for permission
+    to continue.
+-   CONTINUE: (Default) Displays the warning message and then continues
+    executing.
+-   SILENTLYCONTINUE: Doesn't display the warning message. Continues
+    executing.
+
+You can use the WARNINGACTION common parameter of a cmdlet to determine how
+PowerShell responds to warnings from a particular command. For more
+information, see about_CommonParameters.
+
+Examples
+
+These examples show the effect of the different values of
+$WarningPreference. The WARNINGACTION parameter overrides the preference
+value.
+
+This example shows the effect of the default value, CONTINUE.
+
+    $m = "This action can delete data."
+    Write-Warning -Message $m
+
+    WARNING: This action can delete data.
+
+This example uses the WARNINGACTION parameter with the value
+SILENTLYCONTINUE to suppress the warning. The message isn't displayed.
+
+    $m = "This action can delete data."
+    Write-Warning -Message $m -WarningAction SilentlyContinue
+
+This example changes the $WarningPreference variable to the
+SILENTLYCONTINUE value. The message isn't displayed.
+
+    $WarningPreference = "SilentlyContinue"
+    $m = "This action can delete data."
+    Write-Warning -Message $m
+
+This example uses the WARNINGACTION parameter to stop when a warning is
+generated.
+
+    $m = "This action can delete data."
+    Write-Warning -Message $m -WarningAction Stop
+
+    WARNING: This action can delete data.
+    Write-Warning : The running command stopped because the preference variable
+      "WarningPreference" or common parameter is set to Stop:
+        This action can delete data.
+    At line:1 char:1
+    + Write-Warning -Message $m -WarningAction Stop
+
+This example changes the $WarningPreference variable to the INQUIRE value.
+The user is prompted for confirmation.
+
+    $WarningPreference = "Inquire"
+    $m = "This action can delete data."
+    Write-Warning -Message $m
+
+    WARNING: This action can delete data.
+
+    Confirm
+    Continue with this operation?
+    [Y] Yes  [A] Yes to All  [H] Halt Command  [?] Help (default is "Y"):
+
+This example uses the WARNINGACTION parameter with the value
+SILENTLYCONTINUE. The command continues to execute and no message is
+displayed.
+
+    $m = "This action can delete data."
+    Write-Warning -Message $m -WarningAction SilentlyContinue
+
+This example changes the $WarningPreference value to STOP.
+
+    $WarningPreference = "Stop"
+    $m = "This action can delete data."
+    Write-Warning -Message $m
+
+    WARNING: This action can delete data.
+    Write-Warning : The running command stopped because the preference variable
+      "WarningPreference" or common parameter is set to Stop:
+        This action can delete data.
+    At line:1 char:1
+    + Write-Warning -Message $m
+
+This example uses the WARNINGACTION with the INQUIRE value. The user is
+prompted when a warning occurs.
+
+    $m = "This action can delete data."
+    Write-Warning -Message $m -WarningAction Inquire
+
+    WARNING: This action can delete data.
+
+    Confirm
+    Continue with this operation?
+    [Y] Yes  [A] Yes to All  [H] Halt Command  [?] Help (default is "Y"):
+
+$WhatIfPreference
+
+Determines whether WHATIF is automatically enabled for every command that
+supports it. When WHATIF is enabled, the cmdlet reports the expected effect
+of the command, but doesn't execute the command.
+
+The valid values are as follows:
+
+-   FALSE (0, not enabled): (Default) WHATIF isn't automatically enabled.
+    To enable it manually, use the cmdlet's WHATIF parameter.
+-   TRUE (1, enabled): WHATIF is automatically enabled on any command that
+    supports it. Users can use the WHATIF parameter with a value of FALSE
+    to disable it manually, such as -WhatIf:$false.
+
+Examples
+
+These examples show the effect of the different values of
+$WhatIfPreference. They show how to use the WHATIF parameter to override
+the preference value for a specific command.
+
+This example shows the effect of the $WhatIfPreference variable set to the
+default value, FALSE. Use Get-ChildItem to verify that the file exists.
+Remove-Item deletes the file. After the file is deleted, you can verify the
+deletion with Get-ChildItem.
+
+    Get-ChildItem -Path .\test.txt
+    Remove-Item -Path ./test.txt
+
+        Directory: C:\Test
+
+    Mode                 LastWriteTime         Length Name
+    ----                 -------------         ------ ----
+    -a---           9/13/2019    10:53             10 test.txt
+
+    Get-ChildItem -Path .\test.txt
+
+    Get-ChildItem : Cannot find path 'C:\Test\test.txt' because it does not exist.
+    At line:1 char:1
+    + Get-ChildItem -File test.txt
+
+This example shows the effect of using the WHATIF parameter when the value
+of $WhatIfPreference is FALSE.
+
+Verify that the file exists.
+
+    Get-ChildItem -Path .\test2.txt
+
+        Directory: C:\Test
+
+    Mode                 LastWriteTime         Length Name
+    ----                 -------------         ------ ----
+    -a---           2/28/2019    17:06             12 test2.txt
+
+Use the WHATIF parameter to determine the result of attempting to delete
+the file.
+
+    Remove-Item -Path .\test2.txt -WhatIf
+
+    What if: Performing the operation "Remove File" on target "C:\Test\test2.txt".
+
+Verify that the file wasn't deleted.
+
+    Get-ChildItem -Path .\test2.txt
+
+        Directory: C:\Test
+
+    Mode                 LastWriteTime         Length Name
+    ----                 -------------         ------ ----
+    -a---           2/28/2019    17:06             12 test2.txt
+
+This example shows the effect of the $WhatIfPreference variable set to the
+value, TRUE. When you use Remove-Item to delete a file, the file's path is
+displayed, but the file isn't deleted.
+
+Attempt to delete a file. A message is displayed about what would happen if
+Remove-Item was run, but the file isn't deleted.
+
+    $WhatIfPreference = "True"
+    Remove-Item -Path .\test2.txt
+
+    What if: Performing the operation "Remove File" on target "C:\Test\test2.txt".
+
+Use Get-ChildItem to verify that the file wasn't deleted.
+
+    Get-ChildItem -Path .\test2.txt
+
+        Directory: C:\Test
+
+    Mode                 LastWriteTime         Length Name
+    ----                 -------------         ------ ----
+    -a---           2/28/2019    17:06             12 test2.txt
+
+This example shows how to delete a file when the value of $WhatIfPreference
+is TRUE. It uses the WHATIF parameter with a value of $false. Use
+Get-ChildItem to verify the file was deleted.
+
+    Remove-Item -Path .\test2.txt -WhatIf:$false
+    Get-ChildItem -Path .\test2.txt
+
+    Get-ChildItem : Cannot find path 'C:\Test\test2.txt' because it does not exist.
+    At line:1 char:1
+    + Get-ChildItem -Path .\test2.txt
+
+The following are examples of the Get-Process cmdlet that doesn't support
+WHATIF and Stop-Process that does support WHATIF. The $WhatIfPreference
+variable's value is TRUE.
+
+Get-Process doesn't support WHATIF. When the command is executed, it
+displays the WINWORD process.
+
+    Get-Process -Name Winword
+
+     NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+     ------    -----      -----     ------      --  -- -----------
+        130   119.84     173.38       8.39   15024   4 WINWORD
+
+Stop-Process does support WHATIF. The WINWORD process isn't stopped.
+
+    Stop-Process -Name Winword
+
+    What if: Performing the operation "Stop-Process" on target "WINWORD (15024)".
+
+You can override the Stop-Process WHATIF behavior by using the WHATIF
+parameter with a value of $false. The WINWORD process is stopped.
+
+    Stop-Process -Name Winword -WhatIf:$false
+
+To verify that the WINWORD process was stopped, use Get-Process.
+
+    Get-Process -Name Winword
+
+    Get-Process : Cannot find a process with the name "Winword".
+      Verify the process name and call the cmdlet again.
+    At line:1 char:1
+    + Get-Process -Name Winword
+
+
+See also
+
+about_Automatic_Variables
+
+about_CommonParameters
+
+about_Environment_Variables
+
+about_Profiles
+
+about_Remote
+
+about_Scopes
+
+about_Variables

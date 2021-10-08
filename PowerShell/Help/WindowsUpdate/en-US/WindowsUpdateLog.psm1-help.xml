@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpItems xmlns="http://msh" schema="maml">
+  <!-- Updatable Help Version 5.0.0.0 -->
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-WindowsUpdateLog</command:name>
+      <maml:description>
+        <maml:para>Merges Windows Update .etl files into a single log file. </maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Get</command:verb>
+      <command:noun>WindowsUpdateLog</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-WindowsUpdateLog cmdlet merges and converts Windows Update .etl files into a single readable WindowsUpdate.log file. Windows Update Agent uses Event Tracing for Windows (ETW) to generate diagnostic logs. Windows Update no longer directly produces a WindowsUpdate.log file. Instead, it produces .etl files that are not immediately readable as written.</maml:para>
+      <maml:para>This cmdlet requires access to a Microsoft symbol server.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-WindowsUpdateLog</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="true(ByValue,ByPropertyName)" position="1" aliases="PsPath">
+          <maml:name>ETLPath</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of paths of Windows Update .etl files to convert into WindowsUpdate.log. The default value for this parameter is the Windows Update trace file directory for the current device. The acceptable values for this parameter are:
+
+-- The full path of a directory that contains one or more .etl files.
+-- The full path of a single .etl file.
+-- A comma-separated list of full paths of .etl files.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
+          <maml:name>LogPath</maml:name>
+          <maml:description>
+            <maml:para>Specifies the full path to which Get-WindowsUpdateLog writes WindowsUpdate.log. The default value is WindowsUpdate.log in the Desktop folder of the current user.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="3" aliases="none">
+          <maml:name>SymbolServer</maml:name>
+          <maml:description>
+            <maml:para>Specifies the URL of Microsoft Symbol Server. By default, this value is the Microsoft public symbol server.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ForceFlush</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet forces the Windows Update Agent on the current device to flush all of its traces to .etl files. This process stops the Update Orchestrator and Windows Update services. Running this cmdlet with this parameter requires administrative credentials. You can start Windows PowerShell with administrative credentials by using the Run as administrator command.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+          <maml:name>InformationAction</maml:name>
+          <maml:description>
+            <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are:
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">SilentlyContinue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Stop</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Continue</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Inquire</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Ignore</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">Suspend</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+          <maml:name>InformationVariable</maml:name>
+          <maml:description>
+            <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>ProcessingType</maml:name>
+          <maml:description>
+            <maml:para>Specifies the file type that Get-WindowsUpdateLog uses for temporary files that are created during intermediate processing. The acceptable values for this parameter are:
+
+-- CSV (comma-separated values)
+-- XML</maml:para>
+            <maml:para>By default, the value is CSV. The temporary files are in $env:TEMP\WindowsUpdateLog.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" variableLength="false">CSV</command:parameterValue>
+            <command:parameterValue required="false" variableLength="false">XML</command:parameterValue>
+          </command:parameterValueGroup>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="true(ByValue,ByPropertyName)" position="1" aliases="PsPath">
+        <maml:name>ETLPath</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of paths of Windows Update .etl files to convert into WindowsUpdate.log. The default value for this parameter is the Windows Update trace file directory for the current device. The acceptable values for this parameter are:
+
+-- The full path of a directory that contains one or more .etl files.
+-- The full path of a single .etl file.
+-- A comma-separated list of full paths of .etl files.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="true">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>ForceFlush</maml:name>
+        <maml:description>
+          <maml:para>Indicates that this cmdlet forces the Windows Update Agent on the current device to flush all of its traces to .etl files. This process stops the Update Orchestrator and Windows Update services. Running this cmdlet with this parameter requires administrative credentials. You can start Windows PowerShell with administrative credentials by using the Run as administrator command.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="infa">
+        <maml:name>InformationAction</maml:name>
+        <maml:description>
+          <maml:para>Specifies how this cmdlet responds to an information event. The acceptable values for this parameter are:
+
+-- SilentlyContinue
+-- Stop
+-- Continue
+-- Inquire
+-- Ignore
+-- Suspend</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">ActionPreference</command:parameterValue>
+        <dev:type>
+          <maml:name>ActionPreference</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="iv">
+        <maml:name>InformationVariable</maml:name>
+        <maml:description>
+          <maml:para>Specifies a variable in which to store an information event message.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
+        <maml:name>LogPath</maml:name>
+        <maml:description>
+          <maml:para>Specifies the full path to which Get-WindowsUpdateLog writes WindowsUpdate.log. The default value is WindowsUpdate.log in the Desktop folder of the current user.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>ProcessingType</maml:name>
+        <maml:description>
+          <maml:para>Specifies the file type that Get-WindowsUpdateLog uses for temporary files that are created during intermediate processing. The acceptable values for this parameter are:
+
+-- CSV (comma-separated values)
+-- XML</maml:para>
+          <maml:para>By default, the value is CSV. The temporary files are in $env:TEMP\WindowsUpdateLog.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="3" aliases="none">
+        <maml:name>SymbolServer</maml:name>
+        <maml:description>
+          <maml:para>Specifies the URL of Microsoft Symbol Server. By default, this value is the Microsoft public symbol server.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Merge and convert Windows Update trace files</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-WindowsUpdateLog
+Converting C:\Windows\logs\WindowsUpdate into C:\Users\Admin\Desktop\WindowsUpdate.log 
+
+
+
+
+    Directory: C:\Users\admin\AppData\Local\Temp\WindowsUpdateLog
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        5/30/2015  10:02 PM                SymCache
+
+Input
+----------------
+File(s): 
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.112451.395.1.etl
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.112502.723.1.etl
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.112524.191.1.etl
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.121921.075.1.etl
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.122031.684.1.etl
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.122432.434.1.etl
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.122432.434.2.etl
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.122432.434.3.etl
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.122432.434.4.etl
+     C:\Windows\logs\WindowsUpdate\WindowsUpdate.20150529.122432.434.5.etl
+
+0.00%8.33%16.67%25.00%33.33%41.67%50.00%58.33%66.67%75.00%83.33%91.67%100.00%
+
+Output
+----------------
+DumpFile:           C:\Users\admin\AppData\Local\Temp\WindowsUpdateLog\wuetl.CSV.tmp.0
+
+The command completed successfully. 
+
+WindowsUpdate.log written to C:\Users\admin\Desktop\WindowsUpdate.log
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command merges and converts Windows Update trace files (.etl files) into a single readable WindowsUpdate.log file.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>WindowsUpdate_Cmdlets</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Windows PowerShell® is a task-based command-line shell and scripting language designed especially for system administration. This reference topic for the information technology (IT) professional provides assistance in utilizing the Windows PowerShell cmdlets to script and automate tasks.</maml:para>Windows Update Cmdlets<maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">This reference provides the cmdlet description and syntax for the Windows Update cmdlet.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Name</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Description</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Get-WindowsUpdateLog</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Merges Windows Update .etl files into a single log file.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">To list all the cmdlets that are available, use the Get-Command –Module WindowsUpdate cmdlet.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">For more information about, or for the syntax of, any of the cmdlets, use the Get-Help &lt;cmdlet name&gt; cmdlet, where &lt;cmdlet name&gt; is the name of the cmdlet that you want to research. For more detailed information, you can run any of the following cmdlets:   ? Get-Help &lt;cmdlet name&gt; -Detailed  ? Get-Help &lt;cmdlet name&gt; -Examples  ? Get-Help &lt;cmdlet name&gt; -Full </maml:para></helpItems>

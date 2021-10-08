@@ -1,0 +1,1433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems xmlns="http://msh" schema="maml">
+
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Export-HgsGuardian</command:name>
+<command:verb>Export</command:verb>
+<command:noun>HgsGuardian</command:noun>
+<maml:description><maml:para>Exports a guardian that contains public keys.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Export-HgsGuardian cmdlet exports a guardian that contains public keys to an .xml file.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Export-HgsGuardian</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="Guardian"><maml:name>InputObject</maml:name>
+<maml:Description><maml:para>Specifies the input to this cmdlet.  You can use this parameter, or you can pipe the input to this cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="FilePath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path to the file to write an XML representation of the guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="Guardian"><maml:name>InputObject</maml:name>
+<maml:Description><maml:para>Specifies the input to this cmdlet.  You can use this parameter, or you can pipe the input to this cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="FilePath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path to the file to write an XML representation of the guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues></command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Export a guardian</maml:title>
+<dev:code>PS C:\&gt; Get-HgsGuardian -Name "Guardian11" | Export-HGsGuardian -Path "C:\LocalHGSFiles\Guardian11.xml"</dev:code>
+<dev:remarks><maml:para>This command uses the Get-HgsGuardian cmdlet to get the guardian named Guardian11, and then passes the object to the current cmdlet by using the pipeline operator. That cmdlet exports the guardian to the specified file.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Get-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Import-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>New-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Grant-HgsKeyProtectorAccess</command:name>
+<command:verb>Grant</command:verb>
+<command:noun>HgsKeyProtectorAccess</command:noun>
+<maml:description><maml:para>Grants access to a guardian for a key protector.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Grant-HgsKeyProtectorAccess cmdlet grants a Host Guardian Service guardian access to a key protector. This operation requires the private signing key of the owner of the key protector.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Grant-HgsKeyProtectorAccess</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can grant permissions to a guardian that contains certificates that are expired.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can grant permissions to a guardian that uses self-signed certificates.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>Guardian</maml:name>
+<maml:Description><maml:para>Specifies a guardian to which to grant access to the key.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>KeyProtector</maml:name>
+<maml:Description><maml:para>Specifies the key protector to which to grant access.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Grant-HgsKeyProtectorAccess</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can grant permissions to a guardian that contains certificates that are expired.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can grant permissions to a guardian that uses self-signed certificates.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>GuardianFriendlyName</maml:name>
+<maml:Description><maml:para>Specifies a freindly name for the guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>KeyProtector</maml:name>
+<maml:Description><maml:para>Specifies the key protector to which to grant access.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can grant permissions to a guardian that contains certificates that are expired.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can grant permissions to a guardian that uses self-signed certificates.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>Guardian</maml:name>
+<maml:Description><maml:para>Specifies a guardian to which to grant access to the key.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>GuardianFriendlyName</maml:name>
+<maml:Description><maml:para>Specifies a freindly name for the guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>KeyProtector</maml:name>
+<maml:Description><maml:para>Specifies the key protector to which to grant access.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>CimInstance#MSFT_HgsKeyProtector</maml:name>
+</dev:type>
+<maml:description><maml:para>The `Microsoft.Management.Infrastructure.CimInstance` object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (`#`) provides the namespace and class name for the underlying WMI object.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Grant access to a guardian</maml:title>
+<dev:code>PS C:\&gt; $Owner = Get-HgsGuardian -Name "Guardian06"
+PS C:\&gt; $Guardian01 = Get-HgsGuardian -Name "Guardian11"
+PS C:\&gt; $KeyProtector = New-HgsKeyProtector -Owner $Owner 
+PS C:\&gt; Grant-HgsKeyProtectorAccess -KeyProtector $KeyProtector -Guardian $Guardian01</dev:code>
+<dev:remarks><maml:para>The first command gets the guardian object named Guardian06 by using the Get-HgsGuardian cmdlet, and then stores that object in the $Owner variable.
+</maml:para>
+<maml:para>The second commands get the guardian object named Guardian11, and then stores it in the $Guardian01 variable.
+</maml:para>
+<maml:para>The third command creates a key protector. The command defines Guardian06, stored in $Owner , as the Owner .
+</maml:para>
+<maml:para>The final command grants access to the guardian stored in $Guardian01 for the key protector.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>New-HgsKeyProtector</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Revoke-HgsKeyProtectorAccess</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Import-HgsGuardian</command:name>
+<command:verb>Import</command:verb>
+<command:noun>HgsGuardian</command:noun>
+<maml:description><maml:para>Creates a guardian object from an .xml file.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Import-HgsGuardian cmdlet creates a Host Guardian Service guardian object from an .xml file. If you specify a name for the guardian, this cmdlet also persists that object in the local guardian store.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Import-HgsGuardian</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="FilePath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path to an XML file containing the Guardian information.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates whether to allow guardian creation with certificates that are expired.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates whether to allow a guardian to be created using self-signed certificates.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies the name to associate with this guardian when it is persisted to the local guardian store.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates whether to allow guardian creation with certificates that are expired.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates whether to allow a guardian to be created using self-signed certificates.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies the name to associate with this guardian when it is persisted to the local guardian store.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="FilePath"><maml:name>Path</maml:name>
+<maml:Description><maml:para>Specifies the path to an XML file containing the Guardian information.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>CimInstance#MSFT_HgsGuardian</maml:name>
+</dev:type>
+<maml:description><maml:para>The `Microsoft.Management.Infrastructure.CimInstance` object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (`#`) provides the namespace and class name for the underlying WMI object.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Import a guardian</maml:title>
+<dev:code>PS C:\&gt; Import-HgsGuardian -Path "C:\MyDirectory\Guardian11.xml" -Name "Guardian11"</dev:code>
+<dev:remarks><maml:para>This command imports a guardian from the specified .xml file.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Export-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>New-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>New-HgsGuardian</command:name>
+<command:verb>New</command:verb>
+<command:noun>HgsGuardian</command:noun>
+<maml:description><maml:para>Creates a Host Guardian Service guardian.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The New-HgsGuardian cmdlet creates a cryptographic entity called a Host Guardian Service guardian. A guardian is a principal that you can grant access to the key that is contained in a key protector.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>New-HgsGuardian</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies a name for the new guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a guardian by using certificates that are expired.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a guardian by using self-signed certificates.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>EncryptionCertificate</maml:name>
+<maml:Description><maml:para>Specifies the path of a .pfx file that contains a password protected encryption certificate for the guardian. This .pfx file contains the public and private keys.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>EncryptionCertificatePassword</maml:name>
+<maml:Description><maml:para>Specifies the password to decrypt the .pfx file that contains the encryption certificate.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SigningCertificate</maml:name>
+<maml:Description><maml:para>Specifies the path of a .pfx file that contains a password protected signing certificate for the guardian. This .pfx file contains the public and private keys.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SigningCertificatePassword</maml:name>
+<maml:Description><maml:para>Specifies the password necessary to decrypt the signing certificate .pfx file.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>New-HgsGuardian</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies a name for the new guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a guardian by using certificates that are expired.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a guardian by using self-signed certificates.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>EncryptionCertificateThumbprint</maml:name>
+<maml:Description><maml:para>Specifies the encryption certificate thumbprint.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SigningCertificateThumbprint</maml:name>
+<maml:Description><maml:para>Specifies the thumbprint of a signing certificate located in the local computer certificate store.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>New-HgsGuardian</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies a name for the new guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>GenerateCertificates</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet generates self-signed signing and encryption certificates for the guardian. The certificates contain the public and private keys.
+</maml:para>
+<maml:para>If you specify this parameter, the new guardian does not have a trusted root. Therefore, you must also specify the AllowUntrustedRoot parameter.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a guardian by using certificates that are expired.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a guardian by using self-signed certificates.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>EncryptionCertificate</maml:name>
+<maml:Description><maml:para>Specifies the path of a .pfx file that contains a password protected encryption certificate for the guardian. This .pfx file contains the public and private keys.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>EncryptionCertificatePassword</maml:name>
+<maml:Description><maml:para>Specifies the password to decrypt the .pfx file that contains the encryption certificate.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>EncryptionCertificateThumbprint</maml:name>
+<maml:Description><maml:para>Specifies the encryption certificate thumbprint.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>GenerateCertificates</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet generates self-signed signing and encryption certificates for the guardian. The certificates contain the public and private keys.
+</maml:para>
+<maml:para>If you specify this parameter, the new guardian does not have a trusted root. Therefore, you must also specify the AllowUntrustedRoot parameter.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies a name for the new guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SigningCertificate</maml:name>
+<maml:Description><maml:para>Specifies the path of a .pfx file that contains a password protected signing certificate for the guardian. This .pfx file contains the public and private keys.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SigningCertificatePassword</maml:name>
+<maml:Description><maml:para>Specifies the password necessary to decrypt the signing certificate .pfx file.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+<dev:type><maml:name>SecureString</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>SigningCertificateThumbprint</maml:name>
+<maml:Description><maml:para>Specifies the thumbprint of a signing certificate located in the local computer certificate store.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>CimInstance#MSFT_HgsGuardian</maml:name>
+</dev:type>
+<maml:description><maml:para>The `Microsoft.Management.Infrastructure.CimInstance` object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (`#`) provides the namespace and class name for the underlying WMI object.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Create a guardian</maml:title>
+<dev:code>PS C:\&gt; New-HgsGuardian -Name "Guardian11" -GenerateCertificates</dev:code>
+<dev:remarks><maml:para>This command creates a Host Guardian Service guardian named Guardian11. This guardian can act as owner for a key protector. Because this command specifies the GenerateCertificates parameter, it generates signing and encryption certificates.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Create a guardian by using existing certificates</maml:title>
+<dev:code>PS C:\&gt; $SecureStringPassword01 = ConvertTo-SecureString "&lt;Password01&gt;" -AsPlainText -Force
+PS C:\&gt; $SecureStringPassword02 = ConvertTo-SecureString "&lt;Password02&gt;" -AsPlainText -Force
+PS C:\&gt; New-HgsGuardian -Name "Guardian21" -SigningCertificate "C:\Keys\SigningCertificate.pfx" -SigningCertificatePassword $SecureStringPassword01 -EncryptionCertificate "C:\Keys\EncryptionCertificate.pfx" -EncryptionCertificatePassword $SecureStringPassword02</dev:code>
+<dev:remarks><maml:para>The first two commands create passwords, as secure strings, by using the ConvertTo-SecureString cmdlet. For more information, type `Get-Help ConvertTo-SecureString`. The commands store the passwords in two variables.
+</maml:para>
+<maml:para>The final command creates a guardian named Guardian21. The command specifies the necessary signing and encryption certificates as password protected .pfx files. The passwords stored in the $SecureStringPassword01 and $SecureStringPassword02 must match the passwords used to generate the .pfx files.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Export-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Import-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Remove-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>New-HgsKeyProtector</command:name>
+<command:verb>New</command:verb>
+<command:noun>HgsKeyProtector</command:noun>
+<maml:description><maml:para>Creates a key protector.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The New-HgsKeyProtector cmdlet creates a key protector. This cmdlet generates a key and wraps it for the specified guardian owner. You cannot change the owner for this key protector. You can grant or revoke access to the key for other guardians by using the Grant-HgsKeyProtectorAccess and Revoke-HgsKeyProtectorAccess cmdlets.
+</maml:para>
+<maml:para>This cmdlet can create a key protector based on the raw byte stream of an existing key protector.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>New-HgsKeyProtector</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Owner</maml:name>
+<maml:Description><maml:para>Specifies a guardian for the new key protector. The cmdlet grants access to this guardian. This guardian cannot be changed for this key protector.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none"><maml:name>Guardian</maml:name>
+<maml:Description><maml:para>Specifies an array of guardians to grant access to the key in addition to the guardian specified by the Owner parameter.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance[]</command:parameterValue>
+<dev:type><maml:name>CimInstance[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a key protector by using certificates that are expired.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a key protector by using self-signed certificates.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowExpired</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a key protector by using certificates that are expired.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>AllowUntrustedRoot</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet can create a key protector by using self-signed certificates.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="2" aliases="none"><maml:name>Guardian</maml:name>
+<maml:Description><maml:para>Specifies an array of guardians to grant access to the key in addition to the guardian specified by the Owner parameter.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance[]</command:parameterValue>
+<dev:type><maml:name>CimInstance[]</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none"><maml:name>Owner</maml:name>
+<maml:Description><maml:para>Specifies a guardian for the new key protector. The cmdlet grants access to this guardian. This guardian cannot be changed for this key protector.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>CimInstance#MSFT_HgsKeyProtector</maml:name>
+</dev:type>
+<maml:description><maml:para>The `Microsoft.Management.Infrastructure.CimInstance` object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (`#`) provides the namespace and class name for the underlying WMI object.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Create a key protector</maml:title>
+<dev:code>PS C:\&gt; $Owner = Get-HgsGuardian -Name "Guardian11"
+PS C:\&gt; $GuardianA = Get-HgsGuardian -Name "GuardianA" 
+PS C:\&gt; $GuardianB = Get-HgsGuardian -Name "GuardianB"
+PS C:\&gt; New-HgsKeyProtector -Owner $Owner -Guardians @($GuardianA, $GuardianB)</dev:code>
+<dev:remarks><maml:para>The first command gets the guardian object named Guardian11 by using the Get-HgsGuardian cmdlet, and then stores that object in the $Owner variable.
+</maml:para>
+<maml:para>The second and third commands get two guardians named GuardianA and GuardianB. These commands store the guardians in the $GuardianA and $GuardianB variables.
+</maml:para>
+<maml:para>The final command creates a key protector. The command defines Guardian11 as the Owner . The command also grants access to the guardians stored in $GuardianA and $GuardianB .
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Grant-HgsKeyProtectorAccess</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Revoke-HgsKeyProtectorAccess</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Remove-HgsGuardian</command:name>
+<command:verb>Remove</command:verb>
+<command:noun>HgsGuardian</command:noun>
+<maml:description><maml:para>Removes a guardian from the guardian store.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Remove-HgsGuardian cmdlet removes a Host Guardian Service guardian object from the guardian store.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Remove-HgsGuardian</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="Guardian"><maml:name>InputObject</maml:name>
+<maml:Description><maml:para>The HGS guardian object to remove.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Remove-HgsGuardian</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies the name of the guardian to remove.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="Guardian"><maml:name>InputObject</maml:name>
+<maml:Description><maml:para>The HGS guardian object to remove.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none"><maml:name>Name</maml:name>
+<maml:Description><maml:para>Specifies the name of the guardian to remove.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues></command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Remove a guardian</maml:title>
+<dev:code>PS C:\&gt; Remove-HgsGuardian -Name "Guardian11"</dev:code>
+<dev:remarks><maml:para>This command removes the guardian named Guardian11 from the local store.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Export-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Import-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>New-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Revoke-HgsKeyProtectorAccess</command:name>
+<command:verb>Revoke</command:verb>
+<command:noun>HgsKeyProtectorAccess</command:noun>
+<maml:description><maml:para>Revokes access for a guardian to a key protector.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Revoke-HgsKeyProtectorAccess cmdlet revokes access for a Host Guardian Service guardian to a key protector. This operation requires access to private signing key of the owner.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Revoke-HgsKeyProtectorAccess</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>Guardian</maml:name>
+<maml:Description><maml:para>Specifies a guardian from which to revoke access to the key.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>KeyProtector</maml:name>
+<maml:Description><maml:para>Specifies the key protector for which to revoke access.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Revoke-HgsKeyProtectorAccess</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>GuardianFriendlyName</maml:name>
+<maml:Description><maml:para>Specifies a freindly name for a guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>KeyProtector</maml:name>
+<maml:Description><maml:para>Specifies the key protector for which to revoke access.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>Guardian</maml:name>
+<maml:Description><maml:para>Specifies a guardian from which to revoke access to the key.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>GuardianFriendlyName</maml:name>
+<maml:Description><maml:para>Specifies a freindly name for a guardian.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none"><maml:name>KeyProtector</maml:name>
+<maml:Description><maml:para>Specifies the key protector for which to revoke access.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">CimInstance</command:parameterValue>
+<dev:type><maml:name>CimInstance</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>CimInstance#MSFT_HgsKeyProtector</maml:name>
+</dev:type>
+<maml:description><maml:para>The `Microsoft.Management.Infrastructure.CimInstance` object is a wrapper class that displays Windows Management Instrumentation (WMI) objects. The path after the pound sign (`#`) provides the namespace and class name for the underlying WMI object.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Revoke access for a guardian</maml:title>
+<dev:code>PS C:\&gt; $Owner = Get-HgsGuardian -Name "Guardian11" 
+PS C:\&gt; $GuardianA = Get-HgsGuardian -Name "GuardianA" 
+PS C:\&gt; $GuardianB = Get-HgsGuardian -Name "GuardianB"
+PS C:\&gt; New-HgsKeyProtector -Owner $Owner -Guardians @($GuardianA, $GuardianB)
+PS C:\&gt; $Guardian04 = Get-HgsGuardian -Name "GuardianA"
+PS C:\&gt; Revoke-HgsKeyProtectorAccess -KeyProtector $KeyProtector -Guardian $Guardian04</dev:code>
+<dev:remarks><maml:para>The first command gets the guardian object named Guardian11 by using the Get-HgsGuardian cmdlet, and then stores that object in the $Owner variable.
+</maml:para>
+<maml:para>The second and third commands get two guardians named GuardianA and GuardianB. These commands store the guardians in the $GuardianA and $GuardianB variables.
+</maml:para>
+<maml:para>The fifth command gets the guardian object named GuardianA, and then stores that object in the $Guardian04 variable.
+</maml:para>
+<maml:para>The final command revokes access for the guardian stored in $Guardian04 for the key protector.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Grant-HgsKeyProtectorAccess</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>New-HgsKeyProtector</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+<maml:navigationLink><maml:linkText>Get-HgsGuardian</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Set-HgsClientConfiguration</command:name>
+<command:verb>Set</command:verb>
+<command:noun>HgsClientConfiguration</command:noun>
+<maml:description><maml:para>Modifies the configuration of a Host Guardian Service client.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Set-HgsClientConfiguration cmdlet modifies the configuration of a Host Guardian Service client. You can configure the client in either local mode or Host Guardian Service mode. In local mode, there is no attestation and the client keeps key material.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Set-HgsClientConfiguration</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>AttestationServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of an attestation server. A Host Guardian Service client in Secure Hosting Service mode uses the server that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FallbackAttestationServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of an attestation server to use if the primary attestation server cannot be reached.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FallbackKeyProtectionServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of a key protection server to use if the primary attestation server cannot be reached.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>KeyProtectionServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of a key protection server. A Host Guardian Service client in Secure Hosting Service mode uses the server that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Set-HgsClientConfiguration</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>AttestationServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of an attestation server. A Host Guardian Service client in Secure Hosting Service mode uses the server that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>KeyProtectionServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of a key protection server. A Host Guardian Service client in Secure Hosting Service mode uses the server that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Set-HgsClientConfiguration</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>EnableLocalMode</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet changes the mode of client from Host Guardian Service to Local mode. A change in mode to Local resets the attestation server and key protection server URLs.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>AttestationServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of an attestation server. A Host Guardian Service client in Secure Hosting Service mode uses the server that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>EnableLocalMode</maml:name>
+<maml:Description><maml:para>Indicates that this cmdlet changes the mode of client from Host Guardian Service to Local mode. A change in mode to Local resets the attestation server and key protection server URLs.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FallbackAttestationServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of an attestation server to use if the primary attestation server cannot be reached.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>FallbackKeyProtectionServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of a key protection server to use if the primary attestation server cannot be reached.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none"><maml:name>KeyProtectionServerUrl</maml:name>
+<maml:Description><maml:para>Specifies the URL of a key protection server. A Host Guardian Service client in Secure Hosting Service mode uses the server that this parameter specifies.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+<dev:type><maml:name>String</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>None</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf"><maml:name>Confirm</maml:name>
+<maml:Description><maml:para>Prompts you for confirmation before running the cmdlet.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi"><maml:name>WhatIf</maml:name>
+<maml:Description><maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes></command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>CimInstance#MSFT_HgsClientConfiguration</maml:name>
+</dev:type>
+<maml:description><maml:para>An HGS client configuration object containing information about the operating mode, configured URLs, and result of the most recent attestation attempt, if applicable.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1: Set an attestation and key protection servers</maml:title>
+<dev:code>PS C:\&gt; Set-HgsClientConfiguration -AttestationServerUrl "https://DemoHgs.Contoso.com/Attestation" -KeyProtectionServerUrl "https://DemoHgs.Contoso.com/KeyProtection"</dev:code>
+<dev:remarks><maml:para>This command configures the URLs used by the attestation client and the key protection client. Use this command to configure the local host to run in Host Guardian Service mode.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2: Change the mode to Local</maml:title>
+<dev:code>PS C:\&gt; Set-HgsClientConfiguration -EnableLocalMode</dev:code>
+<dev:remarks><maml:para>This command changes the Host Guardian Service client from Host Guardian Service mode to Local mode. This command resets the attestation server URL and the key protection server URL.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks><maml:navigationLink><maml:linkText>Get-HgsClientConfiguration</maml:linkText>
+<maml:uri></maml:uri>
+</maml:navigationLink>
+</command:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+<command:details><command:name>Test-HgsClientConfiguration</command:name>
+<command:verb>Test</command:verb>
+<command:noun>HgsClientConfiguration</command:noun>
+<maml:description><maml:para>Forces the HGS client to attest against the configured attestation servers.
+</maml:para>
+</maml:description>
+</command:details>
+<maml:description><maml:para>The Test-HgsClientConfiguration cmdlet forces the HGS client to attest against an HGS server and report back on the attestation attempt. Any cached attestation health certificates from recent attestation attempts will be ignored.
+</maml:para>
+</maml:description>
+<command:syntax><command:syntaxItem><maml:name>Test-HgsClientConfiguration</maml:name>
+<command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UseFallback</maml:name>
+<maml:Description><maml:para>Specifies that the HGS client should only attest against the fallback attestation server.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+<command:syntaxItem><maml:name>Test-HgsClientConfiguration</maml:name>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UsePrimary</maml:name>
+<maml:Description><maml:para>Specifies that the HGS client should only attest against the primary attestation server.
+</maml:para>
+</maml:Description>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters><command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UseFallback</maml:name>
+<maml:Description><maml:para>Specifies that the HGS client should only attest against the fallback attestation server.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+<command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none"><maml:name>UsePrimary</maml:name>
+<maml:Description><maml:para>Specifies that the HGS client should only attest against the primary attestation server.
+</maml:para>
+</maml:Description>
+<command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+<dev:type><maml:name>SwitchParameter</maml:name>
+<maml:uri /></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter>
+</command:parameters>
+<command:inputTypes><command:inputType><dev:type><maml:name>None</maml:name>
+</dev:type>
+<maml:description><maml:para>
+</maml:para>
+</maml:description>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues><command:returnValue><dev:type><maml:name>Microsoft.Management.Infrastructure.CimInstance</maml:name>
+</dev:type>
+<maml:description><maml:para>An object containing the attestation server URL used and the results of the attestation attempt.
+</maml:para>
+</maml:description>
+</command:returnValue>
+</command:returnValues>
+<maml:alertSet><maml:alert><maml:para>
+</maml:para>
+</maml:alert>
+</maml:alertSet>
+<command:examples><command:example><maml:title>Example 1</maml:title>
+<dev:code>PS C:\&gt; Test-HgsClientConfiguration</dev:code>
+<dev:remarks><maml:para>Performs an attestation attempt using the primary HGS server. If the primary HGS server cannot be reached and fallback URLs are configured, the fallback HGS server will be used.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 2</maml:title>
+<dev:code>PS C:\&gt; Test-HgsClientConfiguration -UsePrimary</dev:code>
+<dev:remarks><maml:para>Performs an attestation attempt using the primary HGS server. If the primary HGS server cannot be reached, the cmdlet will fail.
+</maml:para>
+</dev:remarks>
+</command:example>
+<command:example><maml:title>Example 3</maml:title>
+<dev:code>PS C:\&gt; Test-HgsClientConfiguration -UseFallback</dev:code>
+<dev:remarks><maml:para>Performs an attestation attempt using the fallback HGS server.
+</maml:para>
+</dev:remarks>
+</command:example>
+</command:examples>
+<command:relatedLinks></command:relatedLinks>
+</command:command>
+</helpItems>

@@ -1,0 +1,149 @@
+
+
+ABOUT_PSCUSTOMOBJECT
+
+
+Short description
+
+Explains the differences between PSOBJECT and PSCUSTOMOBJECT.
+
+
+Long description
+
+The [pscustomobject] type accelerator was added in PowerShell 4.0.
+
+Prior to adding this type accelerator, creating an object with member
+properties and values was more complicated. Originally, you had to use
+New-Object to create the object and Add-Member to add properties. For
+example:
+
+    PS> $object1 = New-Object -TypeName psobject
+    PS> Add-Member -InputObject $object1 -MemberType NoteProperty -Name one -Value 1
+    PS> Add-Member -InputObject $object1 -MemberType NoteProperty -Name two -Value 2
+    PS> $object1 | Get-Member
+
+       TypeName: System.Management.Automation.PSCustomObject
+
+    Name        MemberType   Definition
+    ----        ----------   ----------
+    Equals      Method       bool Equals(System.Object obj)
+    GetHashCode Method       int GetHashCode()
+    GetType     Method       type GetType()
+    ToString    Method       string ToString()
+    one         NoteProperty int one=1
+    two         NoteProperty int two=2
+
+    PS> $object1
+
+    one two
+    --- ---
+      1   2
+
+Later, you could use the PROPERTY parameter of New-Object to pass a
+HASHTABLE containing the members and values. For example:
+
+    PS> $object2 = New-Object -TypeName psobject -Property @{one=1; two=2}
+    PS> $object2 | Get-Member
+
+       TypeName: System.Management.Automation.PSCustomObject
+
+    Name        MemberType   Definition
+    ----        ----------   ----------
+    Equals      Method       bool Equals(System.Object obj)
+    GetHashCode Method       int GetHashCode()
+    GetType     Method       type GetType()
+    ToString    Method       string ToString()
+    one         NoteProperty int one=1
+    two         NoteProperty int two=2
+
+    PS> $object2
+
+    one two
+    --- ---
+      1   2
+
+Since PowerShell 3.0, casting a HASHTABLE to [pscustomobject] achieves the
+same result.
+
+    PS> $object3 = [pscustomobject]@{one=1; two=2}
+    PS> $object3 | Get-Member
+
+       TypeName: System.Management.Automation.PSCustomObject
+
+    Name        MemberType   Definition
+    ----        ----------   ----------
+    Equals      Method       bool Equals(System.Object obj)
+    GetHashCode Method       int GetHashCode()
+    GetType     Method       type GetType()
+    ToString    Method       string ToString()
+    one         NoteProperty int one=1
+    two         NoteProperty int two=2
+
+    PS> $object3
+
+    one two
+    --- ---
+      1   2
+
+
+Understanding the type accelerators
+
+[psobject] and [pscustomobject] are type accelerators.
+
+For more information, see about_Type_Accelerators.
+
+Even though you might think that [pscustomobject] should map to
+SYSTEM.MANAGEMENT.AUTOMATION.PSCUSTOMOBJECT, the types are different.
+
+    PS> [pscustomobject] -eq [System.Management.Automation.PSCustomObject]
+    False
+
+Both type accelerators are mapped to the same class, PSOBJECT:
+
+    PS> [pscustomobject]
+
+    IsPublic IsSerial Name                                     BaseType
+    -------- -------- ----                                     --------
+    True     True     PSObject                                 System.Object
+
+    PS> [psobject]
+
+    IsPublic IsSerial Name                                     BaseType
+    -------- -------- ----                                     --------
+    True     True     PSObject                                 System.Object
+
+When the [pscustomobject] type accelerator was added, it included extra
+code to handle conversion of HASHTABLE objects. This extra code is only
+invoked when a new object is being created. Therefore, you can't use
+[pscustomobject] for type coercion or type comparison, because all objects
+are treated as a PSOBJECT types.
+
+For example, using the -is operator to check that an object returned by a
+cmdlet is a [pscustomobject] is the same as comparing it to [psobject].
+
+    PS> (Get-Item /) -is [pscustomobject]
+    True
+
+    PS> (Get-Item /) -is [psobject]
+    True
+
+When you cast any object to [psobject] you get the type of the original
+object. Therefore, casting anything other than a HASHTABLE to
+[pscustomobject] results in the same type.
+
+    PS> ([PSObject]@{Property = 'Value'}).GetType().FullName
+    System.Collections.Hashtable
+
+    PS> ([pscustomobject]123).GetType().Name
+    Int32
+
+    PS> ([PSCustomObject]@{Property = 'Value'}).GetType().FullName
+    System.Management.Automation.PSCustomObject
+
+
+See also
+
+-   about_Object_Creation
+-   about_Objects
+-   System.Management.Automation.PSObject
+-   System.Management.Automation.PSCustomObject
