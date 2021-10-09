@@ -46,17 +46,18 @@ ${function:Update-Environment} = {
 
 # Clean System
 ${function:Clean-System} = {
-  Write-Verbose -Message 'Emptying Recycle Bin'
- (New-Object -ComObject Shell.Application).Namespace(0xA).items() | ForEach-Object { Remove-Item $_.path -Recurse -Confirm:$false }
-  Write-Verbose 'Removing Windows %TEMP% files'
+  Write-Host -Message 'Emptying Recycle Bin' -ForegroundColor Yellow
+  (New-Object -ComObject Shell.Application).Namespace(0xA).items() | ForEach-Object { Remove-Item $_.path -Recurse -Confirm:$false }
+  Write-Host 'Removing Windows %TEMP% files' -ForegroundColor Yellow
   Remove-Item c:\Windows\Temp\* -Recurse -Force -ErrorAction SilentlyContinue
-  Write-Verbose 'Removing User %TEMP% files'
+  Write-Host 'Removing User %TEMP% files' -ForegroundColor Yellow
   Remove-Item “C:\Users\*\Appdata\Local\Temp\*” -Recurse -Force -ErrorAction SilentlyContinue
-  Write-Verbose 'Removing Custome %TEMP% files (C:/Temp and C:/tmp)'
+  Write-Host 'Removing Custome %TEMP% files (C:/Temp and C:/tmp)' -ForegroundColor Yellow
   Remove-Item c:\Temp\* -Recurse -Force -ErrorAction SilentlyContinue
   Remove-Item c:\Tmp\* -Recurse -Force -ErrorAction SilentlyContinue
-  Write-Verbose 'Launchin cleanmgr'
-  cleanmgr /sagerun:1 | out-Null
+  Write-Host 'Launchin cleanmgr' -ForegroundColor Yellow
+  cleanmgr /sagerun:1 | Out-Null
+  Write-Host '✔️ Done.' -ForegroundColor Green
 }
 
 # New File
@@ -101,11 +102,6 @@ Function Invoke-ForceDelete ( $path ) {
 # ------------------
 # Network Utilities
 # ------------------
-
-# Speed Test
-If (Get-Command speed-test -ErrorAction SilentlyContinue) {
-  ${function:Speed-Test} = { & speed-test } # NOTE: must have speedtest installed
-}
 
 # Get Public IP
 ${function:Get-PublicIP} = {
