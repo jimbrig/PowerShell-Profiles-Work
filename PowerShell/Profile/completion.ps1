@@ -1,20 +1,10 @@
+# Shell Completion Modules
+Import-Module Microsoft.PowerShell.Utility
+Import-Module DockerCompletion
+Import-Module scoop-completion
+
 $psdir = (Split-Path -parent $profile)
+$completionpath = "$HOME\Documents\PowerShell\Profile\completions"
+$files = (Get-ChildItem -Path $completionpath).Name
 
-# Chocolatey
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-}
-
-# Winget
-
-# Scoop
-
-# Docker
-
-# npm
-
-# git
-
-# Git Cliff
-. $psdir\Profile\completions\git-cliff.ps1
+ForEach ($file in $files) { . $psdir\Profile\completions\$file }
