@@ -22,10 +22,15 @@ Set-Alias -Name gcalw -Value Get-CalendarWeek
 Set-Alias -Name gcalnew -Value New-CalendarEvent
 
 # Ensure `R` is for launching an R Terminal:
-if (Get-Command R.exe -ErrorAction SilentlyContinue | Test-Path) {
-  Remove-Item Alias:r -ErrorAction SilentlyContinue
-  ${function:r} = { R.exe @args }
-}
+Remove-Alias r
+${function:r} = { R.exe @args }
 
 # Ensure GPG Points to GnuPG:
 set-alias gpg 'C:\Program Files (x86)\gnupg\bin\gpg.exe'
+
+# Apply 'ls' alias from WieldingLs Module
+If (Get-Command Get-DirectoryContents) {
+    Set-Alias -Name ls -Value Get-DirectoryContents
+    ${function:lsl} = { Get-DirectoryContents -DisplayFormat Long $args }
+    ${function:lsa} = { Get-DirectoryContents -ShowLong -ShowHidden }
+}

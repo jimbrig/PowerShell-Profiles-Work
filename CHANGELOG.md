@@ -5,8 +5,31 @@ All notable changes to this project will be documented in this file.
 
 ### Documentation
 
+- Update CHANGELOG.md for added modules
+
+### Features
+
+- Enhance Profile/aliases.ps1 and Profile/functions.ps1
+- New Update-ProfileModules.ps1 utility function
+
+### Bug
+
+- Adjust R alias
+
+### Config
+
+- Ignore remote desktops
+- Updated modules configurations
+- Updated modules configurations
+
+## [1.0.0] - 2021-10-11
+
+### Documentation
+
 - Add all Update-Help XMLs
 - Add CHANGELOG via git-cliff
+- Update changelog with git cliff
+- Update README.md
 
 ### Features
 

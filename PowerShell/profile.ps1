@@ -15,6 +15,7 @@ Import-Module Terminal-Icons
 Import-Module WslInterop
 Import-Module PSWindowsUpdate
 Import-Module PSWriteColor
+Import-Module WieldingLs
 
 # Enable Posh-Git
 $env:POSH_GIT_ENABLED = $true
