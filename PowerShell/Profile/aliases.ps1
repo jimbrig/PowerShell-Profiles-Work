@@ -27,3 +27,10 @@ ${function:r} = { R.exe @args }
 
 # Ensure GPG Points to GnuPG:
 set-alias gpg 'C:\Program Files (x86)\gnupg\bin\gpg.exe'
+
+# Apply 'ls' alias from WieldingLs Module
+If (Get-Command Get-DirectoryContents) {
+    Set-Alias -Name ls -Value Get-DirectoryContents
+    ${function:lsl} = { Get-DirectoryContents -DisplayFormat Long $args }
+    ${function:lsa} = { Get-DirectoryContents -ShowLong -ShowHidden }
+}
