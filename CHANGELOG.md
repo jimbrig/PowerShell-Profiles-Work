@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 
 - Enhance Profile/aliases.ps1 and Profile/functions.ps1
 - New Update-ProfileModules.ps1 utility function
+- Add Archive
 
 ### Bug
 
@@ -21,6 +22,7 @@ All notable changes to this project will be documented in this file.
 - Ignore remote desktops
 - Updated modules configurations
 - Updated modules configurations
+- Updated module configuration
 
 ## [1.0.0] - 2021-10-11
 
