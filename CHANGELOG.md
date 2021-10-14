@@ -1,21 +1,24 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [1.1.0] - 2021-10-14
 
 ### Documentation
 
 - Update CHANGELOG.md for added modules
+- Changelog
 
 ### Features
 
 - Enhance Profile/aliases.ps1 and Profile/functions.ps1
 - New Update-ProfileModules.ps1 utility function
 - Add Archive
+- Remove modules imports for fast loadtime (except z)
 
 ### Bug
 
 - Adjust R alias
+- Fix issues with Update-ProfileModules working directory
 
 ### Config
 
