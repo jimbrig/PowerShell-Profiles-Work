@@ -86,6 +86,9 @@ Import-Module ZLocation
 Write-Host -Foreground Green "`n[ZLocation] knows about $((Get-ZLocation).Keys.Count) locations.`n"
 ```
    
+  </p>
+ </details> 
+   
 Optional:
 
 - Import WSL Linux/BASH Interop Commands (ls, awk, tree, etc.)
