@@ -1,6 +1,8 @@
 # PowerShell Profiles - Work
 
-My customized powershell (core and windows) profiles: `~/Documents/PowerShell` and `~/Documents/WindowsPowerShell`
+My Customized Powershell Profiles for Work: 
+- `~/Documents/PowerShell` (Core)
+- `~/Documents/WindowsPowerShell` (Windows)
 
 See the [Changelog](CHANGELOG.md) for details on this repository's development over time.
 
