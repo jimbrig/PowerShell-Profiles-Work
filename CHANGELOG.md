@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### Features
+
+- Add beta PSReadLine Options for List View and History in C:\Users\jbriggs010\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+
 ## [1.1.0] - 2021-10-14
 
 ### Documentation
