@@ -17,9 +17,6 @@ if (-not($galleryinfo.InstallationPolicy.Equals("Trusted"))) { Set-PSRepository 
 # Import-Module PSWriteColor
 # Import-Module WieldingLs
 
-# Enable Posh-Git
-$env:POSH_GIT_ENABLED = $true
-
 # Prompt
 Set-PoshPrompt -Theme wopian
 
