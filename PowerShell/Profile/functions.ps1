@@ -53,6 +53,12 @@ If (Get-Command lsd -ErrorAction SilentlyContinue) {
 # System Utilities
 # ----------------------
 
+# WSLPATH from WSL
+Function wslpath { wsl -e $args }
+
+# Use WSL's `which` instead of provided Git `which.exe`:
+Function which { wsl -e which $args }
+
 # Check Disk
 ${function:Check-Disk} = { & chkdsk C: /f /r /x }
 
