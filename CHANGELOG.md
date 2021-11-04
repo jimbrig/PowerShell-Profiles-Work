@@ -3,9 +3,20 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Documentation
+
+- Update CHANGELOG.md
+
 ### Features
 
 - Add beta PSReadLine Options for List View and History in C:\Users\jbriggs010\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+- Add custom VSCode Profile
+- Add new functions for WSLPATH and WHICH
+- Silence errors/warnings and load modules.ps1
+
+### Config
+
+- Cleaned up unnecessary modules and environments from core profile
 
 ## [1.1.0] - 2021-10-14
 
