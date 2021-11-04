@@ -18,7 +18,7 @@ if (-not($galleryinfo.InstallationPolicy.Equals("Trusted"))) { Set-PSRepository 
 # Import-Module WieldingLs
 
 # Prompt
-Set-PoshPrompt -Theme wopian
+Set-PoshPrompt -Theme wopian -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
 
 # ZLocation must be after all prompt changes:
 Import-Module ZLocation
