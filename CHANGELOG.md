@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 ### Documentation
 
 - Update CHANGELOG.md
+- Update CHANGELOG.md
+- Cleanup
 
 ### Features
 
@@ -13,10 +15,13 @@ All notable changes to this project will be documented in this file.
 - Add custom VSCode Profile
 - Add new functions for WSLPATH and WHICH
 - Silence errors/warnings and load modules.ps1
+- Update/backup and sync modules
+- Add new completion scripts
 
 ### Config
 
 - Cleaned up unnecessary modules and environments from core profile
+- Format JSON
 
 ## [1.1.0] - 2021-10-14
 
