@@ -8,15 +8,6 @@
 $galleryinfo = Get-PSRepository | Where-Object { $_.Name -eq "PSGallery" }
 if (-not($galleryinfo.InstallationPolicy.Equals("Trusted"))) { Set-PSRepository -Name PSGallery -InstallationPolicy Trusted }
 
-# Import Modules
-# Import-Module posh-git
-# Import-Module oh-my-posh
-# Import-Module Terminal-Icons
-# Import-Module WslInterop
-# Import-Module PSWindowsUpdate
-# Import-Module PSWriteColor
-# Import-Module WieldingLs
-
 # Prompt
 Set-PoshPrompt -Theme wopian -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
 
