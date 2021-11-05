@@ -1,0 +1,19 @@
+[
+  "7Zip4Powershell",
+  "AWS.Tools.Common",
+  "BurntToast",
+  "oh-my-posh",
+  "posh-git",
+  "powershell-yaml",
+  "ps2exe",
+  "PSReadLine",
+  "PSScriptTools",
+  "PSWinSetup",
+  "PSWriteColor",
+  "scoop-completion",
+  "Terminal-Icons",
+  "WieldingAnsi",
+  "WieldingLs",
+  "WslInterop",
+  "ZLocation"
+]
