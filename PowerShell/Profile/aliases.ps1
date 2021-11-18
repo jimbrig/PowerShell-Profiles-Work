@@ -22,7 +22,7 @@ Set-Alias -Name gcalw -Value Get-CalendarWeek
 Set-Alias -Name gcalnew -Value New-CalendarEvent
 
 # Ensure `R` is for launching an R Terminal:
-Remove-Alias r
+If (Get-Alias r) { Remove-Alias r }
 ${function:r} = { R.exe @args }
 
 # Ensure GPG Points to GnuPG:
