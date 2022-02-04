@@ -1,0 +1,1184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems xmlns="http://msh" schema="maml">
+  <!-- Updatable Help Version 5.0.0.0 -->
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Disable-TlsCipherSuite</command:name>
+      <maml:description>
+        <maml:para>Disables a TLS cipher suite.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Disable</command:verb>
+      <command:noun>TlsCipherSuite</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Disable-TlsCipherSuite cmdlet disables a cipher suite. This cmdlet removes the cipher suite from the list of Transport Layer Security (TLS) protocol cipher suites for the computer.</maml:para>
+      <maml:para>For more information about the TLS cipher suites, see the documentation for the Enable-TlsCipherSuite cmdlet or type Get-Help Enable-TlsCipherSuite. </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Disable-TlsCipherSuite</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="true(ByValue,ByPropertyName)" position="1" aliases="none">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of the TLS cipher suite to disable.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="true(ByValue,ByPropertyName)" position="1" aliases="none">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of the TLS cipher suite to disable.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Disable a cipher suite</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Disable-TlsCipherSuite -Name "TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command disables the cipher suite named TLS_RSA_WITH_3DES_EDE_CBC_SHA. The command removes the cipher suite from the list of TLS protocol cipher suites.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Enable-TlsCipherSuite</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-TlsCipherSuite</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Disable-TlsSessionTicketKey</command:name>
+      <maml:description>
+        <maml:para>Disables a TLS session ticket key.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Disable</command:verb>
+      <command:noun>TlsSessionTicketKey</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Disable-TlsSessionTicketKey cmdlet disables an administrator managed Transport Layer Security (TLS) session ticket key for the service account. The cmdlet disables the key for the TLS session by deleting the key and the corresponding rule that uses the key. </maml:para>
+      <maml:para>When you disable a TLS session ticket key for the service account, the service account cannot decrypt existing TLS session tickets. Disabling the TLS session ticket key can affect the performance of the TLS server. The TLS server cannot create new session tickets and must negotiate session information between the client and the server every time the client connects to the TLS server.</maml:para>
+      <maml:para>TLS creates a session ticket by using the TLS Session Resumption without Server-Side State mechanism. For more information, see New-TlsSessionTicketKey or type Get-Help New-TlsSessionTicketKey. </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Disable-TlsSessionTicketKey</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
+          <maml:name>ServiceAccountName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of a service account. The cmdlet disables the TLS session ticket key for the service account. Only System, LocalService, NetworkService, and SID of virtual accounts are supported.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">NTAccount</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
+        <maml:name>ServiceAccountName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of a service account. The cmdlet disables the TLS session ticket key for the service account. Only System, LocalService, NetworkService, and SID of virtual accounts are supported.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">NTAccount</command:parameterValue>
+        <dev:type>
+          <maml:name>NTAccount</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Disable a TLS session ticket key.</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt; Disable-TlsSessionTicketKey -ServiceAccountName "NetworkService"
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command disables the TLS session ticket key for the service account named NetworkService.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://go.microsoft.com/fwlink/?LinkId=294408</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Enable-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Export-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Enable-TlsCipherSuite</command:name>
+      <maml:description>
+        <maml:para>Enables a TLS cipher suite.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Enable</command:verb>
+      <command:noun>TlsCipherSuite</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Enable-TlsCipherSuite cmdlet enables a cipher suite. This cmdlet adds the cipher suite to the list of Transport Layer Security (TLS) protocol cipher suites for the computer. If you do not specify a position in the list, this cmdlet adds it at the lowest position.</maml:para>
+      <maml:para>If a cipher suite is not enabled for TLS based secure channel (Schannel) registry settings, then the cipher suite is not used.</maml:para>
+      <maml:para>This cmdlet is based on Cryptography Next Generation (CNG) Cryptographic Configuration. Schannel registry settings and settings specified by means of Security Support Provider Interface (SSPI) by each app can override CNG Cryptographic Configuration. Other settings under HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL can also configure cipher suites. These settings can impact whether a cipher suite can be used. For example, disabling of SHA hashes supported by TLS disables the corresponding cipher suites. Additionally, applications can limit the algorithms using SSPI. For more information about TLS settings, see <maml:navigationLink><maml:linkText>How to restrict the use of certain cryptographic algorithms and protocols in Schannel.dll</maml:linkText><maml:uri></maml:uri></maml:navigationLink>.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Enable-TlsCipherSuite</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="true(ByValue,ByPropertyName)" position="1" aliases="none">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of the TLS cipher suite to enable.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
+          <maml:name>Position</maml:name>
+          <maml:description>
+            <maml:para>Specifies the position at which to insert the cipher suite in the ordered list of TLS cipher suites. The cmdlet inserts the cipher suite at the position that this parameter specifies, ahead of any existing cipher suites. </maml:para>
+            <maml:para>Specify a value of 0 or CRYPT_PRIORITY_TOP to insert the function at the top of the list. Specify a value of 4294967295 or 0xFFFFFFFF or CRYPT_PRIORITY_BOTTOM to insert the function at the end of the list.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">UInt32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="true(ByValue,ByPropertyName)" position="1" aliases="none">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of the TLS cipher suite to enable.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
+        <maml:name>Position</maml:name>
+        <maml:description>
+          <maml:para>Specifies the position at which to insert the cipher suite in the ordered list of TLS cipher suites. The cmdlet inserts the cipher suite at the position that this parameter specifies, ahead of any existing cipher suites. </maml:para>
+          <maml:para>Specify a value of 0 or CRYPT_PRIORITY_TOP to insert the function at the top of the list. Specify a value of 4294967295 or 0xFFFFFFFF or CRYPT_PRIORITY_BOTTOM to insert the function at the end of the list.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Enable a cipher suite</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Enable-TlsCipherSuite -Name "TLS_DHE_DSS_WITH_AES_256_CBC_SHA" 
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command enables cipher suite named TLS_DHE_DSS_WITH_AES_256_CBC_SHA. This command adds the cipher suite the TLS cipher suite list as the lowest priority.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Enable a cipher suite as the lowest priority</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Enable-TlsCipherSuite -Name "TLS_DHE_DSS_WITH_AES_256_CBC_SHA" -Position 4294967295
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command enables cipher suite named TLS_DHE_DSS_WITH_AES_256_CBC_SHA. This command adds the cipher suite the TLS cipher suite list as the lowest priority. Unlike the first example, this command explicitly specifies position number 4294967295, which is the value of CRYPT_PRIORITY_BOTTOM.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Enable a cipher suite as the highest priority </maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Enable-TlsCipherSuite -Name "TLS_DHE_DSS_WITH_AES_256_CBC_SHA" -Position 0
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command enables cipher suite named TLS_DHE_DSS_WITH_AES_256_CBC_SHA. This command adds the cipher suite the TLS cipher suite list at position 0, which is the highest priority. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Disable-TlsCipherSuite</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-TlsCipherSuite</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Enable-TlsSessionTicketKey</command:name>
+      <maml:description>
+        <maml:para>Configures a TLS server with a TLS session ticket key.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Enable</command:verb>
+      <command:noun>TlsSessionTicketKey</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Enable-TlsSessionTicketKey cmdlet configures a Transport Layer Security (TLS) server with an administrator-managed TLS session ticket key, created with New-TlsSessionTicketKey, and configures the rule that uses the key for the application service account. For example, Internet Information Services (IIS) runs under System account so the ServiceAccountName parameter should be System.</maml:para>
+      <maml:para>TLS creates a session ticket by using the TLS Session Resumption without Server-Side State mechanism. For more information, see New-TlsSessionTicketKey or type Get-Help New-TlsSessionTicketKey. </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Enable-TlsSessionTicketKey</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue, ByPropertyName)" position="1" aliases="none">
+          <maml:name>Password</maml:name>
+          <maml:description>
+            <maml:para>Specifies the password, as a secure string, for the configuration file of the TLS server.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="FullName">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>Specifies the path of the configuration file for the TLS server.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="3" aliases="none">
+          <maml:name>ServiceAccountName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of a service account. The cmdlet configures the TLS session ticket key for the service account. Only System, LocalService, NetworkService, and SID of virtual accounts are supported.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">NTAccount</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+          <maml:name>Force</maml:name>
+          <maml:description>
+            <maml:para>Forces the command to run without asking for user confirmation.</maml:para>
+            <maml:para>If you specify this parameter, the cmdlet overwrites the existing session ticket key and configuration.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named" aliases="none">
+        <maml:name>Force</maml:name>
+        <maml:description>
+          <maml:para>Forces the command to run without asking for user confirmation.</maml:para>
+          <maml:para>If you specify this parameter, the cmdlet overwrites the existing session ticket key and configuration.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue, ByPropertyName)" position="1" aliases="none">
+        <maml:name>Password</maml:name>
+        <maml:description>
+          <maml:para>Specifies the password, as a secure string, for the configuration file of the TLS server.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        <dev:type>
+          <maml:name>SecureString</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="FullName">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>Specifies the path of the configuration file for the TLS server.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="3" aliases="none">
+        <maml:name>ServiceAccountName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of a service account. The cmdlet configures the TLS session ticket key for the service account. Only System, LocalService, NetworkService, and SID of virtual accounts are supported.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">NTAccount</command:parameterValue>
+        <dev:type>
+          <maml:name>NTAccount</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Configure a TLS server with a TLS session ticket key for the NetworkService account</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;$Password = Read-Host -AsSecureString
+PS C:\&gt; Enable-TlsSessionTicketKey -Password $Password -Path "C:\KeyConfig\TlsSessionTicketKey.config" -ServiceAccountName "NetworkService"
+</dev:code>
+        <dev:remarks>
+          <maml:para>The second command configures the session ticket key for the TLS server. The command specifies the path for the configuration file on the TLS server, and specifies that the TLS session use the password stored in $Password to access the configuration file and configure the key for the specified service account.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Configure a TLS server with a TLS session ticket key for System account</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;$Password = Read-Host -AsSecureString
+PS C:\&gt; Enable-TlsSessionTicketKey -Password $Password -Path "C:\KeyConfig\TlsSessionTicketKey.config" -ServiceAccountName "System"
+</dev:code>
+        <dev:remarks>
+          <maml:para>The second command configures the session ticket key for the TLS server. The command specifies the path for the configuration file on the TLS server, and specifies that the TLS session use the password stored in $Password to access the configuration file and configure the key for the specified service account.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://go.microsoft.com/fwlink/?LinkId=294407</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Export-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Disable-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Export-TlsSessionTicketKey</command:name>
+      <maml:description>
+        <maml:para>Exports a TLS session ticket key.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Export</command:verb>
+      <command:noun>TlsSessionTicketKey</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Export-TlsSessionTicketKey cmdlet exports the administrator managed Transport Layer Security (TLS) session ticket key for a service account.</maml:para>
+      <maml:para>TLS creates a session ticket by using the TLS Session Resumption without Server-Side State mechanism. For more information, see New-TlsSessionTicketKey or type Get-Help New-TlsSessionTicketKey. </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Export-TlsSessionTicketKey</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue, ByPropertyName)" position="1" aliases="none">
+          <maml:name>Password</maml:name>
+          <maml:description>
+            <maml:para>Specifies the password, as a secure string, for the key.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="FullName">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>Specifies the path of the configuration file for the TLS server.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="3" aliases="none">
+          <maml:name>ServiceAccountName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of a service account. The cmdlet exports the configuration of the TLS session ticket key for the service account. Only System, LocalService, NetworkService, and SID of virtual accounts are supported.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">NTAccount</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue, ByPropertyName)" position="1" aliases="none">
+        <maml:name>Password</maml:name>
+        <maml:description>
+          <maml:para>Specifies the password, as a secure string, for the key.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        <dev:type>
+          <maml:name>SecureString</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="FullName">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>Specifies the path of the configuration file for the TLS server.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="3" aliases="none">
+        <maml:name>ServiceAccountName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of a service account. The cmdlet exports the configuration of the TLS session ticket key for the service account. Only System, LocalService, NetworkService, and SID of virtual accounts are supported.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">NTAccount</command:parameterValue>
+        <dev:type>
+          <maml:name>NTAccount</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="false" position="named">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>false</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Export a TLS session ticket key</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;$Password = Read-Host -AsSecureString
+PS C:\&gt; Export-TlsSessionTicketKey -Password $Password -Path "C:\KeyConfig\TlsSessionTicketKey.config" -ServiceAccountName "NetworkService"
+</dev:code>
+        <dev:remarks>
+          <maml:para>The first command prompts the user to enter a password by using the Read-Host cmdlet. The command masks the password that the user types at the prompt. For more information, type Get-Help Read-Host. The command stores the password in the $Password variable.</maml:para>
+          <maml:para>The second command exports the session ticket key for the service account named NetworkService from the configuration file on the TLS server. The command specifies the path for the configuration file on the TLS server, and specifies that the TLS session use the password stored in $Password to access the configuration file.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://go.microsoft.com/fwlink/?LinkId=294409</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Enable-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Disable-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-TlsCipherSuite</command:name>
+      <maml:description>
+        <maml:para>Gets the list of cipher suites for TLS for a computer. </maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Get</command:verb>
+      <command:noun>TlsCipherSuite</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-TlsCipherSuite cmdlet gets the ordered list of cipher suites for a computer that Transport Layer Security (TLS) can use. </maml:para>
+      <maml:para>For more information about the TLS cipher suites, see the documentation for the Enable-TlsCipherSuite cmdlet or type Get-Help Enable-TlsCipherSuite. </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-TlsCipherSuite</maml:name>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByValue, ByPropertyName)" position="1" aliases="none">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of the TLS cipher suite to get. The cmdlet gets cipher suites that match the string that this cmdlet specifies, so you can specify a partial name.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByValue, ByPropertyName)" position="1" aliases="none">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of the TLS cipher suite to get. The cmdlet gets cipher suites that match the string that this cmdlet specifies, so you can specify a partial name.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Get all cipher suites</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-TlsCipherSuite
+KeyType               : 0
+Certificate           : RSA
+MaximumExchangeLength : 65536
+MinimumExchangeLength : 0
+Exchange              : ECDH
+HashLength            : 0
+Hash                  : 
+CipherBlockLength     : 16
+CipherLength          : 256
+BaseCipherSuite       : 49200
+CipherSuite           : 49200
+Cipher                : AES
+Name                  : TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+Protocols             : {771}
+
+
+KeyType               : 0
+Certificate           : RSA
+MaximumExchangeLength : 65536
+MinimumExchangeLength : 0
+Exchange              : ECDH
+HashLength            : 0
+Hash                  : 
+CipherBlockLength     : 16
+CipherLength          : 128
+BaseCipherSuite       : 49199
+CipherSuite           : 49199
+Cipher                : AES
+Name                  : TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+Protocols             : {771}                        
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all TLS cipher suites for the computer. </maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Get the cipher suites that match a string</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt;Get-TlsCipherSuite -Name "SSL"
+KeyType               : 0
+Certificate           : RSA
+MaximumExchangeLength : 16384
+MinimumExchangeLength : 512
+Exchange              : RSA
+HashLength            : 128
+Hash                  : MD5
+CipherBlockLength     : 1
+CipherLength          : 128
+BaseCipherSuite       : 65664
+CipherSuite           : 65664
+Cipher                : RC4
+Name                  : SSL_CK_RC4_128_WITH_MD5
+Protocols             : {2}
+
+KeyType               : 0
+Certificate           : 
+MaximumExchangeLength : 0
+MinimumExchangeLength : 0
+Exchange              : 
+HashLength            : 0
+Hash                  : 
+CipherBlockLength     : 0
+CipherLength          : 0
+BaseCipherSuite       : 0
+CipherSuite           : 0
+Cipher                : 
+Name                  : SSL_CK_DES_192_EDE3_CBC_WITH_MD5
+Protocols             : {}                        
+</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all the cipher suites that have names that contain the string SSL.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Disable-TlsCipherSuite</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Enable-TlsCipherSuite</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-TlsSessionTicketKey</command:name>
+      <maml:description>
+        <maml:para>Creates a TLS session ticket key configuration file.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>New</command:verb>
+      <command:noun>TlsSessionTicketKey</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>The New-TlsSessionTicketKey cmdlet creates a password protected Transport Layer Security (TLS) Session Ticket key configuration file.</maml:para>
+      <maml:para>TLS creates a session ticket by using the TLS Session Resumption without Server-Side State mechanism. This mechanism helps to improve the performance of TLS. The TLS server uses this mechanism to create a key to encrypt a session ticket. The client can later use the encrypted session ticket to resume communication with the TLS server. Otherwise, the client must restart the communication by acquiring of new session ticket. For more information, see RFC 5077, <maml:navigationLink><maml:linkText>Transport Layer Security (TLS) Session Resumption without Server-Side State</maml:linkText><maml:uri></maml:uri></maml:navigationLink>. </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-TlsSessionTicketKey</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue, ByPropertyName)" position="1" aliases="none">
+          <maml:name>Password</maml:name>
+          <maml:description>
+            <maml:para>Specifies the password, as a secure string, for the configuration file of the TLS server.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="FullName">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>Specifies the path of the configuration file for the TLS server. The cmdlet outputs the generated configuration file to this path. </maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (ByValue, ByPropertyName)" position="1" aliases="none">
+        <maml:name>Password</maml:name>
+        <maml:description>
+          <maml:para>Specifies the password, as a secure string, for the configuration file of the TLS server.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        <dev:type>
+          <maml:name>SecureString</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="FullName">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>Specifies the path of the configuration file for the TLS server. The cmdlet outputs the generated configuration file to this path. </maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>none</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Create a TLS session ticket key</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>PS C:\&gt; $Password = Read-Host -AsSecureString
+PS C:\&gt; New-TlsSessionTicketKey -Password $Password -Path "C:\KeyConfig\TlsSessionTicketKey.config"
+</dev:code>
+        <dev:remarks>
+          <maml:para>The first command prompts the user to enter a password by using the Read-Host cmdlet. The command masks the password that the user types at the prompt. For more information, type Get-Help Read-Host. The command stores the password in the $Password variable.</maml:para>
+          <maml:para>The second command creates the session ticket key configuration file which can be used to enable the TLS session ticket for a service account. The command specifies the path for the output configuration file on the TLS server, and specifies that the TLS session use the password stored in $Password to access the configuration file.</maml:para>
+          <maml:para />
+          <maml:para />
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://go.microsoft.com/fwlink/?LinkId=294410</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Enable-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Export-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Disable-TlsSessionTicketKey</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Windows PowerShell® is a task-based command-line shell and scripting language designed especially for system administration. This reference topic for the information technology (IT) professional provides assistance in utilizing the Windows PowerShell cmdlets to script and automate tasks.</maml:para>Transport Layer Security Cmdlets<maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">This reference provides cmdlet descriptions and syntax for all Transport Layer Security (TLS) cmdlets. It lists the cmdlets in alphabetical order based on the verb at the beginning of the cmdlet.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Cmdlet</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Description</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Disable-TlsCipherSuite</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Disables a TLS cipher suite.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Disable-TlsSessionTicketKey</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Disables a TLS session ticket key.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Enable-TlsCipherSuite</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Enables a TLS cipher suite.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Enable-TlsSessionTicketKey</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Configures a TLS server with a TLS session ticket key.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Export-TlsSessionTicketKey</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Exports a TLS session ticket key.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Get-TlsCipherSuite</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Gets the list of cipher suites for TLS for a computer.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">New-TlsSessionTicketKey</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Creates a TLS session ticket key configuration file.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">To list all the cmdlets that are available, use the Get-Command –Module TLS cmdlet.</maml:para><maml:para xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">For more information about, or for the syntax of, any of the cmdlets, use the Get-Help &lt;cmdlet name&gt; cmdlet, where &lt;cmdlet name&gt; is the name of the cmdlet that you want to research. For more detailed information, you can run any of the following cmdlets:   ● Get-Help &lt;cmdlet name&gt; -Detailed  ● Get-Help &lt;cmdlet name&gt; -Examples  ● Get-Help &lt;cmdlet name&gt; -Full </maml:para></helpItems>
