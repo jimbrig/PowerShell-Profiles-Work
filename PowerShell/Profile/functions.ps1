@@ -2,6 +2,18 @@
 # PowerShell Core Profile Functions
 # ---------------------------------
 
+# ----------
+# Launchers
+# ----------
+
+Function Open-Todoist { start-process -PassThru 'C:\Users\jimmy\AppData\Local\Programs\todoist\Todoist.exe' }
+
+Function Open-GitHub { start-process -PassThru 'https://github.com/' }
+
+Function Open-Docker { start-process -PassThru 'C:\Program Files\Docker\Docker\frontend\Docker Desktop.exe' }
+
+Function Open-RProject { Rscript -e 'jimstools::open_project()' }
+
 Function Update-ProfileModules {
 
   $modpath = ($env:PSModulePath -split ";")[0]
