@@ -20,9 +20,11 @@ Set-Alias -Name agenda -Value Get-Agenda
 Set-Alias -Name gcalm -Value Get-CalendarMonth
 Set-Alias -Name gcalw -Value Get-CalendarWeek
 Set-Alias -Name gcalnew -Value New-CalendarEvent
+Set-Alias -Name expl -Value explorer.exe
+Set-Alias -Name np -Value notepad.exe
 
 # Ensure `R` is for launching an R Terminal:
-Remove-Alias r
+If (Get-Alias r) { Remove-Alias r }
 ${function:r} = { R.exe @args }
 
 # Ensure GPG Points to GnuPG:

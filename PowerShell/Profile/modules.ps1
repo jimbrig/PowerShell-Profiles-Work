@@ -2,6 +2,7 @@
 # Modules and Helper Functions
 # -----------------------------
 
+Import-Module PSReadLine
 # Import-Module posh-git
 # Import-Module oh-my-posh
 # Import-Module Terminal-Icons
