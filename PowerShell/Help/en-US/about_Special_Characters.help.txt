@@ -41,10 +41,11 @@ PowerShell also has a special token to mark where you want parsing to stop.
 All characters that follow this token are used as literal values that
 aren't interpreted.
 
-Special parsing token:
+Special parsing tokens:
 
   Sequence   Description
-  ---------- ------------------------------------
+  ---------- --------------------------------------------------------
+  --         Treat the remaining values as arguments not parameters
   --%        Stop parsing anything that follows
 
 
@@ -195,6 +196,21 @@ advances to the next line and writes the remaining output at that point.
                            between the words.
 
 
+The end-of-parameters token (--)
+
+The end-of-parameters token (--) indicates that all arguments following it
+are to be passed in their actual form as though double quotes were placed
+around them. For example, using -- you can output the string -InputObject
+without using quotes or having it interpreted as a parameter:
+
+    Write-Output -- -InputObject
+
+    -InputObject
+
+This is a convention specified in the POSIX Shell and Utilities
+specification.
+
+
 Stop-parsing token (--%)
 
 The stop-parsing (--%) token prevents PowerShell from interpreting strings
@@ -234,4 +250,4 @@ For more information about the stop-parsing token, see about_Parsing.
 
 See also
 
-about_Quoting_Rules
+-   about_Quoting_Rules

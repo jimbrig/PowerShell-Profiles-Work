@@ -191,7 +191,7 @@ in a file system drive.
 You can also create a parameter that appears only when another parameter is
 used in the function command or when another parameter has a certain value.
 
-Dynamic parameters can be useful, but use them only when necessary because
+Dynamic parameters can be useful, but use them only when necessary, because
 they can be difficult for users to discover. To find a dynamic parameter,
 the user must be in the provider path, use the ARGUMENTLIST parameter of
 the Get-Command cmdlet, or use the PATH parameter of Get-Help.
@@ -454,7 +454,7 @@ and accepts input from the object's COMPUTERNAME property that's passed to
 the function through the pipeline.
 
     Param(
-        [Parameter(Mandatory=,
+        [Parameter(Mandatory,
         ValueFromPipelineByPropertyName)]
         [string[]]
         $ComputerName
@@ -573,7 +573,7 @@ attribute is similar to VALIDATESET. Both attributes take a list of values
 to be presented when the user presses Tab after the parameter name.
 However, unlike VALIDATESET, the values are not validated.
 
-This attribute was introduced in PowerShell Core 6.0
+This attribute was introduced in PowerShell 6.0.
 
 For more information, see about_Functions_Argument_Completion.
 
@@ -947,14 +947,9 @@ not intended for external usage.
 
 See also
 
-about_Automatic_Variables
-
-about_Functions
-
-about_Functions_Advanced
-
-about_Functions_Advanced_Methods
-
-about_Functions_CmdletBindingAttribute
-
-about_Functions_OutputTypeAttribute
+-   about_Automatic_Variables
+-   about_Functions
+-   about_Functions_Advanced
+-   about_Functions_Advanced_Methods
+-   about_Functions_CmdletBindingAttribute
+-   about_Functions_OutputTypeAttribute

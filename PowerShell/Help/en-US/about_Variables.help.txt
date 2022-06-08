@@ -419,16 +419,10 @@ To get help for a specific cmdlet, type:
 
 See also
 
-about_Automatic_Variables
-
-about_Environment_Variables
-
-about_Preference_Variables
-
-about_Profiles
-
-about_Quoting_Rules
-
-about_Scopes
-
-about_Remote_Variables
+-   about_Automatic_Variables
+-   about_Environment_Variables
+-   about_Preference_Variables
+-   about_Profiles
+-   about_Quoting_Rules
+-   about_Remote_Variables
+-   about_Scopes

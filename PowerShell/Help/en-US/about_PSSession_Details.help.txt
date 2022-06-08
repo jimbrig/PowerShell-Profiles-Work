@@ -148,19 +148,20 @@ that you created.
 
 Can I Connect to a PSSession From a Different Computer?
 
-Beginning in Windows PowerShell 3.0, PSSessions are independent of the
-sessions in which they were created. Active PSSessions are maintained on
-the computer at the remote or "server-side" of a connection.
+Beginning in Windows PowerShell 3.0, PSSessions on Windows computers are
+independent of the sessions in which they were created. Active PSSessions
+are maintained on the computer at the remote or "server-side" of a
+connection.
 
-You can use the Disconnect-PSSession cmdlet to disconnect from a PSSession.
-The PSSession is disconnected from the local session, but is maintained on
-the remote computer. Commands continue to run in the disconnected
-PSSession. You can close PowerShell and shut down the originating computer
-without interrupting the PSSession.
+On a Windows computer, you can use the Disconnect-PSSession cmdlet to
+disconnect from a PSSession. The PSSession is disconnected from the local
+session, but is maintained on the remote computer. Commands continue to run
+in the disconnected PSSession. You can close PowerShell and shut down the
+originating computer without interrupting the PSSession.
 
 Then, even hours later, you can use the Get-PSSession cmdlet to get the
 PSSession and the Connect-PSSession cmdlet to connect to the PSSession from
-a new session on a different computer.
+a new session on a different Windows computer.
 
 For more information, see about_Remote_Disconnected_Sessions.
 
@@ -259,24 +260,14 @@ another, it might be because the session is restricted.
 
 See also
 
-about_Jobs
-
-about_PSSessions
-
-about_Remote
-
-about_Remote_Disconnected_Sessions
-
-about_Remote_Requirements
-
-Invoke-Command
-
-Enter-PSSession
-
-Exit-PSSession
-
-Get-PSSession
-
-New-PSSession
-
-Remove-PSSession
+-   about_Jobs
+-   about_PSSessions
+-   about_Remote
+-   about_Remote_Disconnected_Sessions
+-   about_Remote_Requirements
+-   Invoke-Command
+-   Enter-PSSession
+-   Exit-PSSession
+-   Get-PSSession
+-   New-PSSession
+-   Remove-PSSession

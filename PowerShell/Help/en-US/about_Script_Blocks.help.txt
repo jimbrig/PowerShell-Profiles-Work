@@ -157,8 +157,6 @@ Notes on DELAY-BIND script blocks as parameters:
 
 See also
 
-about_Functions
-
-about_Functions_Advanced
-
-about_Operators
+-   about_Functions
+-   about_Functions_Advanced
+-   about_Operators

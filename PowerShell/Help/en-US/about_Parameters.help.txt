@@ -212,14 +212,9 @@ information about common parameters, see about_CommonParameters.
 
 See also
 
-about_Command_syntax
-
-about_Comment_Based_Help
-
-about_Functions_Advanced
-
-about_Parameters_Default_Values
-
-about_Pipelines
-
-about_Wildcards
+-   about_Command_syntax
+-   about_Comment_Based_Help
+-   about_Functions_Advanced
+-   about_Parameters_Default_Values
+-   about_Pipelines
+-   about_Wildcards

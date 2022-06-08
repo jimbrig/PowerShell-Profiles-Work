@@ -318,15 +318,15 @@ To get scheduled jobs, use the Get-ScheduledJob cmdlet.
 See also
 
 -   about_Jobs
+-   about_Remote
 -   about_Remote_Jobs
 -   about_Thread_Jobs
--   about_Remote
 -   Invoke-Command
--   Start-Job
 -   Get-Job
--   Wait-Job
--   Stop-Job
 -   Remove-Job
--   New-PSSession
+-   Start-Job
+-   Stop-Job
+-   Wait-Job
 -   Enter-PSSession
 -   Exit-PSSession
+-   New-PSSession

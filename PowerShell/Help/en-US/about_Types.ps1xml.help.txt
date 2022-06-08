@@ -511,16 +511,10 @@ digital signature. For more information, see about_Signing.
 
 See also
 
-about_Signing
-
-Copy-Item
-
-Copy-ItemProperty
-
-Get-Member
-
-Get-TypeData
-
-Remove-TypeData
-
-Update-TypeData
+-   about_Signing
+-   Copy-Item
+-   Copy-ItemProperty
+-   Get-Member
+-   Get-TypeData
+-   Remove-TypeData
+-   Update-TypeData

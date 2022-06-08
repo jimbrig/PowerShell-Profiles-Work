@@ -188,16 +188,10 @@ are interspersed.
 
 See also
 
-about_Remote
-
-about_Remote_Variables
-
-Format-Table
-
-Get-Process
-
-Get-Service
-
-Invoke-Command
-
-Select-Object
+-   about_Remote
+-   about_Remote_Variables
+-   Invoke-Command
+-   Select-Object
+-   Get-Process
+-   Get-Service
+-   Format-Table

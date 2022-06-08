@@ -421,10 +421,7 @@ depending on the value of a variable.
 
 See also
 
-Split-Path
-
-about_Operators
-
-about_Comparison_Operators
-
-about_Join
+-   Split-Path
+-   about_Operators
+-   about_Comparison_Operators
+-   about_Join

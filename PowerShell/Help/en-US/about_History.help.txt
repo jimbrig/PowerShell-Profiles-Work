@@ -106,5 +106,5 @@ See also
 -   about_Line_Editing
 -   about_Preference_Variables
 -   about_Profiles
--   about_Variables
 -   about_PSReadLine
+-   about_Variables

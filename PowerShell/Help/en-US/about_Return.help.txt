@@ -193,14 +193,9 @@ to the pipeline, use one of the following two methods:
 
 See also
 
-about_Language_Keywords
-
-about_Functions
-
-about_Scopes
-
-about_Classes
-
-Write-Information
-
-about_Script_Blocks
+-   about_Classes
+-   about_Functions
+-   about_Language_Keywords
+-   about_Scopes
+-   about_Script_Blocks
+-   Write-Information

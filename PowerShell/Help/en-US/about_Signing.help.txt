@@ -11,6 +11,8 @@ execution policies.
 
 Long description
 
+  This information only applies to PowerShell running on Windows.
+
 The Restricted execution policy does not permit any scripts to run. The
 ALLSIGNED and REMOTESIGNED execution policies prevent PowerShell from
 running scripts that do not have a digital signature.
@@ -208,9 +210,9 @@ The following sample script, Add-Signature.ps1, signs a script. However, if
 you are using the ALLSIGNED execution policy, you must sign the
 Add-Signature.ps1 script before you run it.
 
-  [!IMPORTANT] The script must be saved using ASCII or UTF8NoBOM encoding.
-  You can sign a script file that uses a different encoding. But the script
-  fails to run or the module containing the script fails to import.
+  [!IMPORTANT] Prior to PowerShell 7.2, the script must be saved using
+  ASCII or UTF8NoBOM encoding. PowerShell 7.2 and higher supports signed
+  scripts for any encoding format.
 
 To use this script, copy the following text into a text file, and name it
 Add-Signature.ps1.
@@ -241,16 +243,16 @@ write, treat the file as you would treat any unsigned script. Review the
 code to determine whether you can trust the script.
 
 
-Enable strong private key protection for your certificate
+Enable strong protection for your private key
 
-If you have a private certificate on your computer, malicious programs
-might be able to sign scripts on your behalf, which authorizes PowerShell
-to run them.
+If you have a private key and certificate on your computer, malicious
+programs might be able to sign scripts on your behalf, which authorizes
+PowerShell to run them.
 
 To prevent automated signing on your behalf, use Certificate Manager
-Certmgr.exe to export your signing certificate to a .pfx file. Certificate
-Manager is included in the Microsoft .NET SDK, the Microsoft Windows SDK,
-and in internet Explorer.
+Certmgr.exe to export your signing key and certificate to a .pfx file.
+Certificate Manager is included in the Microsoft .NET SDK, the Microsoft
+Windows SDK, and in Internet Explorer.
 
 To export the certificate:
 
@@ -288,14 +290,9 @@ stamp server ensures that users can use your script for many years to come.
 
 See also
 
-about_Execution_Policies
-
-about_Profiles
-
-Get-ExecutionPolicy
-
-Set-ExecutionPolicy
-
-Set-AuthenticodeSignature
-
-Introduction to Code Signing
+-   about_Execution_Policies
+-   about_Profiles
+-   Set-AuthenticodeSignature
+-   Get-ExecutionPolicy
+-   Set-ExecutionPolicy
+-   Introduction to Code Signing

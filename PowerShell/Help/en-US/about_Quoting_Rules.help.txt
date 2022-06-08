@@ -55,7 +55,7 @@ enclosed in a subexpression. For example:
 
     "PS version: $($PSVersionTable.PSVersion)"
 
-    PS version: 7.1.4
+    PS version: 7.2.0
 
 To separate a variable name from subsequent characters in the string,
 enclose it in braces ({}). This is especially important if the variable
@@ -76,12 +76,12 @@ value. For example:
 
 The output of this command is:
 
-    The value $i is 5.
+    The value of $i is 5.
 
 
 Single-quoted strings
 
-A string enclosed in single-quotation marks is a _verbatim_ string. The
+A string enclosed in single quotation marks is a _verbatim_ string. The
 string is passed to the command exactly as you type it. No substitution is
 performed. For example:
 
@@ -93,7 +93,7 @@ The output of this command is:
     The value $i is $i.
 
 Similarly, expressions in single-quoted strings are not evaluated. They are
-interpreted as literals. For example:
+interpreted as string literals. For example:
 
     'The value of $(2+3) is 5.'
 
@@ -158,10 +158,16 @@ Here-strings
 
 The quotation rules for here-strings are slightly different.
 
-A here-string is a single-quoted or double-quoted string in which quotation
-marks are interpreted literally. A here-string can span multiple lines. All
-the lines in a here-string are interpreted as strings even though they are
-not enclosed in quotation marks.
+A here-string is a single-quoted or double-quoted string surrounded by at
+signs (@). Quotation marks within a here-string are interpreted literally.
+
+A here-string:
+
+-   spans multiple lines
+-   begins with the opening mark followed by a newline
+-   ends with a newline followed by the closing mark
+-   includes every line between the opening and closing marks as part of a
+    single string
 
 Like regular strings, variables are replaced by their values in
 double-quoted here-strings. In single-quoted here-strings, variables are
@@ -171,7 +177,7 @@ You can use here-strings for any text, but they are particularly useful for
 the following kinds of text:
 
 -   Text that contains literal quotation marks
--   Multiple lines of text, such as the text in an HTML or XML
+-   Multiple lines of text, such as the text in an HTML or XML block
 -   The Help text for a script or function document
 
 A here-string can have either of the following formats, where <Enter>
@@ -190,11 +196,11 @@ Single-quotes:
     <string> [string] ...<Enter>
     '@
 
-In either format, the closing quotation mark must be the first character in
-the line.
+  [!NOTE] The final newline character is part of the closing mark. It is
+  not added to the here-string.
 
-A here-string contains all the text between the two hidden characters. In
-the here-string, all quotation marks are interpreted literally. For
+A here-string contains all the text between the opening and closing marks.
+In the here-string, all quotation marks are interpreted literally. For
 example:
 
     @"
@@ -270,6 +276,10 @@ Here-strings are also a convenient format for input to the
 ConvertFrom-StringData cmdlet, which converts here-strings to hash tables.
 For more information, see ConvertFrom-StringData.
 
+  [!NOTE] PowerShell allows double- or single-quoted strings to span
+  multiple lines without using the @ syntax of here-strings. However, full
+  here-string syntax is the preferred usage.
+
 
 Interpretation of expandable strings
 
@@ -312,8 +322,6 @@ For more information about this behavior, see the about_Parsing article.
 
 See also
 
-about_Parsing
-
-about_Special_Characters
-
-ConvertFrom-StringData
+-   about_Parsing
+-   about_Special_Characters
+-   ConvertFrom-StringData

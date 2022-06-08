@@ -214,13 +214,13 @@ For more information about the PowerShell Alias provider, type:
 
 See also
 
--   New-Alias
--   Get-Alias
--   Set-Alias
+-   about_Functions
+-   about_Profiles
+-   about_Providers
 -   Export-Alias
+-   Get-Alias
 -   Import-Alias
--   Get-PSProvider
+-   New-Alias
+-   Set-Alias
 -   Get-PSDrive
--   about_functions
--   about_profiles
--   about_providers
+-   Get-PSProvider

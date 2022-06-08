@@ -193,6 +193,50 @@ For example:
     1
 
 
+Iterating over keys and values
+
+You can iterate over the keys in a hash table to process the values in
+several ways. Each of the examples in this section has identical output.
+They iterate over the $hash variable defined here:
+
+    $hash = [ordered]@{ Number = 1; Shape = "Square"; Color = "Blue"}
+
+  [!NOTE] In these examples, $hash is defined as an ordered dictionary to
+  ensure the output is always in the same order. These examples work the
+  same for normal hash tables, but the order of the output is not
+  predictable.
+
+Each example returns a message for every key and its value:
+
+    The value of 'Number' is: 1
+    The value of 'Shape' is: Square
+    The value of 'Color' is: Blue
+
+This example uses a FOREACH block to iterate over the keys.
+
+    foreach ($Key in $hash.Keys) {
+        "The value of '$Key' is: $($hash[$Key])"
+    }
+
+This example uses ForEach-Object to iterate over the keys.
+
+    $hash.Keys | ForEach-Object {
+        "The value of '$_' is: $($hash[$_])"
+    }
+
+This example uses the GETENUMERATOR method to send each key-value pair
+through the pipeline to ForEach-Object.
+
+    $hash.GetEnumerator() | ForEach-Object {
+        "The value of '$($_.Key)' is: $($_.Value)"
+    }
+
+This example uses the GETENUMERATOR and FOREACH methods to iterate over
+each key-value pair.
+
+    $hash.GetEnumerator().ForEach({"The value of '$($_.Key)' is: $($_.Value)"})
+
+
 Adding and Removing Keys and Values
 
 To add keys and values to a hash table, use the following command format.
@@ -429,16 +473,10 @@ For more information about here-strings, see about_Quoting_Rules.
 
 See also
 
-about_Arrays
-
-about_Object_Creation
-
-about_Quoting_Rules
-
-about_Script_Internationalization
-
-ConvertFrom-StringData
-
-Import-LocalizedData
-
-System.Collections.Hashtable
+-   about_Arrays
+-   about_Object_Creation
+-   about_Quoting_Rules
+-   about_Script_Internationalization
+-   Import-LocalizedData
+-   ConvertFrom-StringData
+-   System.Collections.Hashtable

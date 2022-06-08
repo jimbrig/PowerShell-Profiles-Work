@@ -41,6 +41,9 @@ Functions can also act like cmdlets. You can create a function that works
 just like a cmdlet without using C# programming. For more information, see
 about_Functions_Advanced.
 
+  [!IMPORTANT] Within script files and script-based modules, functions must
+  be defined before they can be called.
+
 
 Syntax
 
@@ -528,26 +531,15 @@ methods:
 
 See also
 
-about_Automatic_Variables
-
-about_Comment_Based_Help
-
-about_Functions_Advanced
-
-about_Functions_Advanced_Methods
-
-about_Functions_Advanced_Parameters
-
-about_Functions_CmdletBindingAttribute
-
-about_Functions_OutputTypeAttribute
-
-about_Parameters
-
-about_Profiles
-
-about_Scopes
-
-about_Script_Blocks
-
-about_Function_provider
+-   about_Automatic_Variables
+-   about_Comment_Based_Help
+-   about_Function_Provider
+-   about_Functions_Advanced
+-   about_Functions_Advanced_Methods
+-   about_Functions_Advanced_Parameters
+-   about_Functions_CmdletBindingAttribute
+-   about_Functions_OutputTypeAttribute
+-   about_Parameters
+-   about_Profiles
+-   about_Scopes
+-   about_Script_Blocks

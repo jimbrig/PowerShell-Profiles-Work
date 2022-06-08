@@ -69,8 +69,6 @@ scroll through a list of values, press the Tab key again.
 
 See also
 
-about_Command_Syntax
-
-about_Path_Syntax
-
-about_PSReadline
+-   about_Command_Syntax
+-   about_Path_Syntax
+-   about_PSReadline

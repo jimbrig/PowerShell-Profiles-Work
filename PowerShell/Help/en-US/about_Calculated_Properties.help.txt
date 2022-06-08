@@ -466,26 +466,15 @@ Notes
 
 See also
 
-about_Hash_Tables
-
-Compare-Object
-
-ConvertTo-Html
-
-Format-Custom
-
-Format-List
-
-Format-Table
-
-Format-Wide
-
-Group-Object
-
-Measure-Object
-
-Select-Object
-
-Sort-Object
-
-Format types in .NET
+-   about_Hash_Tables
+-   ConvertTo-Html
+-   Format-Custom
+-   Format-List
+-   Format-Table
+-   Format-Wide
+-   Compare-Object
+-   Group-Object
+-   Measure-Object
+-   Select-Object
+-   Sort-Object
+-   Format types in .NET

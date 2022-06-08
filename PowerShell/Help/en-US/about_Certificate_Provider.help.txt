@@ -25,6 +25,8 @@ Provides access to X.509 certificate stores and certificates in PowerShell.
 
 Detailed description
 
+  This information only applies to PowerShell running on Windows.
+
 The PowerShell CERTIFICATE provider lets you get, add, change, clear, and
 delete certificates and certificate stores in PowerShell.
 
@@ -53,15 +55,13 @@ Types exposed by this provider
 
 The Certificate drive exposes the following types.
 
--   Store locations (Microsoft.PowerShell.Commands.X509StoreLocation),
+-   Store locations (MICROSOFT.POWERSHELL.COMMANDS.X509STORELOCATION),
     which are high-level containers that group the certificates for the
     current user and for all users. Each system has a CurrentUser and
     LocalMachine (all users) store location.
-
 -   Certificates stores
-    (System.Security.Cryptography.X509Certificates.X509Store), which are
+    (SYSTEM.SECURITY.CRYPTOGRAPHY.X509CERTIFICATES.X509STORE), which are
     physical stores in which certificates are saved and managed.
-
 -   X.509 SYSTEM.SECURITY.CRYPTOGRAPHY.X509CERTIFICATES.X509CERTIFICATE2
     certificates, each of which represent an X.509 certificate on the
     computer. Certificates are identified by their thumbprints.
@@ -155,8 +155,8 @@ Combining filters to find a specific set of certificates
 This command gets all certificates in the LocalMachine store location that
 have the following attributes:
 
--   "fabrikam" in their DNS name
--   "Client Authentication" in their EKU
+-   fabrikam in their DNS name
+-   Client Authentication in their EKU
 -   a value of $true for the SENDASTRUSTEDISSUER property
 -   do not expire within the next 30 days.
 
@@ -214,7 +214,7 @@ but it does not move private keys.
 
 This command uses the SSLSERVERAUTHENTICATION parameter of the
 Get-ChildItem cmdlet to get SSL server authentication certificates in the
-MY certificate store.
+My certificate store.
 
 The returned certificates are piped to the Move-Item cmdlet, which moves
 the certificates to the WebHosting store.
@@ -226,7 +226,7 @@ the certificates to the WebHosting store.
 Deleting Certificates and Private Keys
 
 The Remove-Item cmdlet will remove certificates that you specify. The
--DeleteKey dynamic parameter deletes the private key.
+DELETEKEY dynamic parameter deletes the private key.
 
 Delete a Certificate from the CA store
 
@@ -241,8 +241,8 @@ PATH, WHATIF, and CONFIRM parameters. All other parameters are ignored.
 Delete a Certificate using a wildcards in the DNS name
 
 This command deletes all certificates that have a DNS name that contains
-"Fabrikam". It uses the DNSNAME parameter of the Get-ChildItem cmdlet to
-get the certificates and the Remove-Item cmdlet to delete them.
+Fabrikam. It uses the DNSNAME parameter of the Get-ChildItem cmdlet to get
+the certificates and the Remove-Item cmdlet to delete them.
 
     Get-ChildItem -Path cert:\LocalMachine -DnsName *Fabrikam* | Remove-Item
 
@@ -269,7 +269,7 @@ CredSSP attribute for the WinRM service.
 
     Set-Item -Path WSMan:\S1\Service\Auth\CredSSP -Value $true
 
-Start a remote session on the s1 computer using the New-PSSession cmdlet,
+Start a remote session on the S1 computer using the New-PSSession cmdlet,
 and specify CredSSP authentication. Saves the session in the $s variable.
 
     $s  = New-PSSession S1 -Authentication CredSSP -Credential Domain01\Admin01
@@ -312,14 +312,14 @@ CONFIRM parameters. All other parameters are ignored. The command returns a
 SYSTEM.SECURITY.CRYPTOGRAPHY.X509CERTIFICATES.X509STORE that represents the
 new certificate store.
 
-This command creates a new certificate store named "CustomStore" in the
+This command creates a new certificate store named CustomStore in the
 LocalMachine store location.
 
     New-Item -Path cert:\LocalMachine\CustomStore
 
 Create a new certificate store on a remote computer
 
-This command creates a new certificate store named "HostingStore" in the
+This command creates a new certificate store named HostingStore in the
 LocalMachine store location on the Server01 computer.
 
 The command uses the Invoke-Command cmdlet to run a New-Item command on the
@@ -335,8 +335,8 @@ Creating Client Certificates for WS-Man
 
 This command creates CLIENTCERTIFICATE entry that can be used by the
 WS-MANAGEMENT client. The new CLIENTCERTIFICATE will show up under the
-CLIENTCERTIFICATE directory as "ClientCertificate_1234567890". All of the
-parameters are mandatory. The ISSUER needs to be thumbprint of the issuers
+CLIENTCERTIFICATE directory as ClientCertificate_1234567890. All of the
+parameters are mandatory. The ISSUER needs to be thumbprint of the issuer's
 certificate.
 
     $cred = Get-Credential
@@ -363,31 +363,30 @@ Dynamic parameters
 Dynamic parameters are cmdlet parameters that are added by a PowerShell
 provider and are available only when the cmdlet is being used in the
 provider-enabled drive. These parameters are valid in all subdirectories of
-the Certificate provider, but are effective only on certificates.
+the CERTIFICATE provider, but are effective only on certificates.
 
   [!NOTE] Parameters that perform filtering against the
-  EnhancedKeyUsageList property also return items with an empty
-  EnhancedKeyUsageList property value. Certificates that have an empty
+  ENHANCEDKEYUSAGELIST property also return items with an empty
+  ENHANCEDKEYUSAGELIST property value. Certificates that have an empty
   ENHANCEDKEYUSAGELIST can be used for all purposes.
 
 The following Certificate provider parameters were reintroduced in
 PowerShell 7.1.
 
--   DNSName
--   DocumentEncryptionCert
+-   DNSNAME
+-   DOCUMENTENCRYPTIONCERT
 -   EKU
--   ExpiringInDays
--   SSLServerAuthentication
+-   EXPIRINGINDAYS
+-   SSLSERVERAUTHENTICATION
 
 CodeSigningCert <System.Management.Automation.SwitchParameter>
 
 Cmdlets supported
 
 -   Get-Item
-
 -   Get-ChildItem
 
-This parameter gets certificates that have "Code Signing" in their
+This parameter gets certificates that have Code Signing in their
 ENHANCEDKEYUSAGELIST property value.
 
 DeleteKey <System.Management.Automation.SwitchParameter>
@@ -416,7 +415,7 @@ Cmdlets supported
 
 This parameter gets certificates that have the specified domain name or
 name pattern in the DNSNAMELIST property of the certificate. The value of
-this parameter can either be "Unicode" or "ASCII". Punycode values are
+this parameter can either be Unicode or ASCII. Punycode values are
 converted to Unicode. Wildcard characters (*) are permitted.
 
 This parameter was reintroduced in PowerShell 7.1
@@ -426,10 +425,9 @@ DocumentEncryptionCert <System.Management.Automation.SwitchParameter>
 Cmdlets supported
 
 -   Get-Item
-
 -   Get-ChildItem
 
-This parameter gets certificates that have "Document Encryption" in their
+This parameter gets certificates that have Document Encryption in their
 ENHANCEDKEYUSAGELIST property value.
 
 EKU <System.String>
@@ -439,8 +437,8 @@ Cmdlets supported
 -   Get-ChildItem
 
 This parameter gets certificates that have the specified text or text
-pattern in the EnhancedKeyUsageList property of the certificate. Wildcard
-characters (*) are permitted. The EnhancedKeyUsageList property contains
+pattern in the ENHANCEDKEYUSAGELIST property of the certificate. Wildcard
+characters (*) are permitted. The ENHANCEDKEYUSAGELIST property contains
 the friendly name and the OID fields of the EKU.
 
 This parameter was reintroduced in PowerShell 7.1
@@ -452,12 +450,12 @@ Cmdlets supported
 -   Get-ChildItem
 
 This parameter gets certificates that are expiring in or before the
-specified number of days. A value of 0 (zero) gets certificates that have
+specified number of days. A value of zero (0) gets certificates that have
 expired.
 
 This parameter was reintroduced in PowerShell 7.1
 
-ItemType <String>
+ItemType <System.String>
 
 This parameter allows you to specify the type of item created by New-Item.
 
@@ -479,8 +477,8 @@ Cmdlets supported
 -   Get-ChildItem
 
 Gets only server certificates for SSL web hosting. This parameter gets
-certificates that have "Server Authentication" in their
-EnhancedKeyUsageList property value.
+certificates that have Server Authentication in their ENHANCEDKEYUSAGELIST
+property value.
 
 This parameter was reintroduced in PowerShell 7.1
 
@@ -491,19 +489,17 @@ New script properties have been added to the X509CERTIFICATE2 object that
 represents the certificates to make it easy to search and manage the
 certificates.
 
--   DnsNameList: To populate the DnsNameList property, the Certificate
+-   DNSNAMELIST: To populate the DNSNAMELIST property, the Certificate
     provider copies the content from the DNSName entry in the
     SubjectAlternativeName (SAN) extension. If the SAN extension is empty,
     the property is populated with content from the Subject field of the
     certificate.
-
--   EnhancedKeyUsageList: To populate the EnhancedKeyUsageList property,
+-   ENHANCEDKEYUSAGELIST: To populate the ENHANCEDKEYUSAGELIST property,
     the Certificate provider copies the OID properties of the
     EnhancedKeyUsage (EKU) field in the certificate and creates a friendly
     name for it.
-
--   SendAsTrustedIssuer: To populate the SendAsTrustedIssuer property, the
-    Certificate provider copies the SendAsTrustedIssuer property from the
+-   SENDASTRUSTEDISSUER: To populate the SENDASTRUSTEDISSUER property, the
+    Certificate provider copies the SENDASTRUSTEDISSUER property from the
     certificate. For more information see Management of trusted issuers for
     client authentication.
 
@@ -515,7 +511,7 @@ certificates by the value of their Enhanced Key Usage (EKU) properties.
 Using the pipeline
 
 Provider cmdlets accept pipeline input. You can use the pipeline to
-simplify task by sending provider data from one cmdlet to another provider
+simplify tasks by sending provider data from one cmdlet to another provider
 cmdlet. To read more about how to use the pipeline with provider cmdlets,
 see the cmdlet references provided throughout this article.
 
@@ -537,12 +533,8 @@ Get-Help to specify a file system drive.
 
 See also
 
-about_Providers
-
-about_Signing
-
-Get-AuthenticodeSignature
-
-Set-AuthenticodeSignature
-
-Get-PfxCertificate
+-   about_Providers
+-   about_Signing
+-   Get-AuthenticodeSignature
+-   Set-AuthenticodeSignature
+-   Get-PfxCertificate

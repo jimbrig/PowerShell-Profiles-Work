@@ -44,24 +44,24 @@ null should be treated as the same as having the value Desktop.
 
 Edition in $PSVersionTable
 
-The $PSVersionTable automatic variable also has edition information in
+The $PSVersionTable automatic variable also has PSEDITION property in
 PowerShell 5.1 and above:
 
     $PSVersionTable
 
     Name                           Value
     ----                           -----
-    PSVersion                      6.2.0-rc.1
-    PSEdition                      Core           # <-- Edition information
-    GitCommitId                    6.2.0-rc.1
-    OS                             Microsoft Windows 10.0.18865
+    PSVersion                      7.2.2
+    PSEdition                      Core
+    GitCommitId                    7.2.2
+    OS                             Microsoft Windows 10.0.22000
     Platform                       Win32NT
     PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
     PSRemotingProtocolVersion      2.3
     SerializationVersion           1.1.0.1
     WSManStackVersion              3.0
 
-The PSEdition field will have the same value as the $PSEdition automatic
+The PSEDITION field has the same value as the $PSEdition automatic
 variable.
 
 
@@ -199,10 +199,9 @@ compatibility.
 Generally, scripts that work in PowerShell 6.1 and above will work with
 Windows PowerShell 5.1, but there are some exceptions.
 
-Version 1.18.0 PSScriptAnalyzer module has rules like
-PSUseCompatibleCommands and PSUseCompatibleTypes that are able to detect
-possibly incompatible usage of commands and .NET APIs in PowerShell
-scripts.
+PSScriptAnalyzer version 1.18+ has rules like PSUseCompatibleCommands and
+PSUseCompatibleTypes that are able to detect possibly incompatible usage of
+commands and .NET APIs in PowerShell scripts.
 
 .NET assemblies
 
@@ -219,6 +218,6 @@ editions. For this you must still write tests.
 See also
 
 -   about_Automatic_Variables
--   Import-Module
 -   Get-Module
+-   Import-Module
 -   Modules with compatible PowerShell Editions

@@ -352,26 +352,15 @@ are working with an empty session.
 
 See also
 
-about_Session_Configurations
-
-New-PSSession
-
-Disable-PSSessionConfiguration
-
-Enable-PSSessionConfiguration
-
-Get-PSSessionConfiguration
-
-New-PSSessionConfigurationFile
-
-Register-PSSessionConfiguration
-
-Set-PSSessionConfiguration
-
-Test-PSSessionConfigurationFile
-
-Unregister-PSSessionConfiguration
-
-Get-PSSessionCapability
-
-New-PSRoleCapabilityFile
+-   about_Session_Configurations
+-   New-PSRoleCapabilityFile
+-   New-PSSession
+-   Get-PSSessionCapability
+-   Disable-PSSessionConfiguration
+-   Enable-PSSessionConfiguration
+-   Get-PSSessionConfiguration
+-   Register-PSSessionConfiguration
+-   Set-PSSessionConfiguration
+-   Unregister-PSSessionConfiguration
+-   New-PSSessionConfigurationFile
+-   Test-PSSessionConfigurationFile

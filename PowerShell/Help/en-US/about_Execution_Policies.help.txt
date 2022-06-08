@@ -378,18 +378,11 @@ check which avoids the problem.
 
 See also
 
-about_Environment_Variables
-
-about_Group_Policy_Settings
-
-about_Signing
-
-Get-ExecutionPolicy
-
-Get-Item
-
-about_Pwsh
-
-Set-ExecutionPolicy
-
-Unblock-File
+-   about_Environment_Variables
+-   about_Group_Policy_Settings
+-   about_Pwsh
+-   about_Signing
+-   Get-ExecutionPolicy
+-   Set-ExecutionPolicy
+-   Get-Item
+-   Unblock-File

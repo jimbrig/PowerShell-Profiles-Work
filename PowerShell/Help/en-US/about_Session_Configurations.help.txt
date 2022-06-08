@@ -34,13 +34,12 @@ of a session configuration. To create a session configuration file, use the
 New-PSSessionConfiguration cmdlet. For more information about session
 configuration files, see about_Session_Configuration_Files.
 
-Session configurations are a feature of Web Services for Management
-(WS-Management) based PowerShell remoting. They are used only when you use
-the New-PSSession, Invoke-Command, or Enter-PSSession cmdlets to connect to
-a remote computer.
+Session configurations are a feature of WSMAN-based PowerShell remoting.
+They are used only when you use the New-PSSession, Invoke-Command, or
+Enter-PSSession cmdlets to connect to a remote Windows computer.
 
-Note: To manage the session configurations, start PowerShell with the "Run
-as administrator" option.
+To manage the session configurations on a Windows computer, start
+PowerShell with the RUN AS ADMINISTRATOR option.
 
 About Session Configurations
 
@@ -309,28 +308,16 @@ about_Endpoints about_SessionConfigurations
 
 See also
 
-about_Preference_Variables
-
-about_PSSessions
-
-about_Remote
-
-about_Session_Configuration_Files
-
-New-PSSession
-
-Disable-PSSessionConfiguration
-
-Enable-PSSessionConfiguration
-
-Get-PSSessionConfiguration
-
-New-PSSessionConfigurationFile
-
-Register-PSSessionConfiguration
-
-Set-PSSessionConfiguration
-
-Test-PSSessionConfigurationFile
-
-Unregister-PSSessionConfiguration
+-   about_Preference_Variables
+-   about_PSSessions
+-   about_Remote
+-   about_Session_Configuration_Files
+-   New-PSSession
+-   Disable-PSSessionConfiguration
+-   Enable-PSSessionConfiguration
+-   Get-PSSessionConfiguration
+-   Register-PSSessionConfiguration
+-   Set-PSSessionConfiguration
+-   Unregister-PSSessionConfiguration
+-   New-PSSessionConfigurationFile
+-   Test-PSSessionConfigurationFile

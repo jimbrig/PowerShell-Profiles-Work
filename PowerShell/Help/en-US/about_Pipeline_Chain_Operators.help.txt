@@ -240,6 +240,6 @@ deemed to have failed after generating the non-terminating error.
 
 See also
 
--   about_Operators
 -   about_Automatic_Variables
--   about_pipelines
+-   about_Operators
+-   about_Pipelines
