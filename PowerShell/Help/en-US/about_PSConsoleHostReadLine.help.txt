@@ -45,6 +45,7 @@ function named PSConsoleHostReadline in the PowerShell console host,
 PowerShell calls that function instead of the "Cooked Mode" input
 mechanism.
 
-SEE ALSO
 
-about_Prompts
+See Also
+
+-   about_Prompts

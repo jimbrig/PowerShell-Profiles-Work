@@ -1,19 +1,17 @@
 [
-  "7Zip4Powershell",
-  "AWS.Tools.Common",
-  "BurntToast",
+  "CredentialManager",
   "oh-my-posh",
+  "platyPS",
   "posh-git",
   "powershell-yaml",
+  "PowerShellGet",
   "ps2exe",
   "PSReadLine",
   "PSScriptTools",
-  "PSWinSetup",
   "PSWriteColor",
   "scoop-completion",
   "Terminal-Icons",
   "WieldingAnsi",
-  "WieldingLs",
-  "WslInterop",
+  "WieldingLs"
   "ZLocation"
 ]

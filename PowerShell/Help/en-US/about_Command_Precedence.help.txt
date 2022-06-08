@@ -145,6 +145,7 @@ Also, if you type a function at the command line and then import a function
 with the same name, the original function is replaced and is no longer
 accessible.
 
+
 Finding hidden commands
 
 The ALL parameter of the Get-Command cmdlet gets all commands with the
@@ -180,7 +181,7 @@ distinguish the command from other commands that might have the same name.
 You can use this method to run any command, but it is especially useful for
 running hidden commands.
 
-Qualified names
+Using qualified names
 
 Using the module-qualified name of a cmdlet allows you to run commands
 hidden by an item with the same name. For example, you can run the Get-Date
@@ -213,7 +214,7 @@ For example, to find the source of the Get-Date cmdlet, type:
 
   [!NOTE] You cannot qualify variables or aliases.
 
-Call operator
+Using the call operator
 
 You can also use the Call operator & to run hidden commands by combining it
 with a call to Get-ChildItem (the alias is "dir"), Get-Command or
@@ -240,6 +241,7 @@ variable and then uses the Call operator to run it.
     $myMap = (Get-Command -Name map -CommandType function)
     &($myMap)
 
+
 Replaced items
 
 A "replaced" item is one that you can no longer access. You can replace
@@ -253,6 +255,7 @@ Variables and aliases cannot be hidden because you cannot use a call
 operator or a qualified name to run them. When you import variables and
 aliases from a module or snap-in, they replace variables in the session
 with the same name.
+
 
 Avoiding name conflicts
 
@@ -272,14 +275,35 @@ DateFunctions module.
 
     Import-Module -Name DateFunctions -Prefix ZZ
 
-For more information, see Import-Module and Import-PSSession below.
+
+Running external executables
+
+PowerShell treats the file extensions listed in the $env:PATHEXT
+environment variable as executable files. Windows executable files are
+files with .COM, .CPL, or .EXE file extensions. Windows executables and any
+other files with extensions listed in $env:PATHEXT are executed in the
+current console session.
+
+Files that are not Windows executables are handed to Windows to process.
+Windows looks up the file association and executes the default Windows
+Shell verb for the extension. For Windows to support the execution by file
+extension, the association must be registered with the system.
+
+You can register the executable engine for a file extension using the ftype
+and assoc commands of the CMD command shell. PowerShell has no direct
+method to register the file handler. For more information, see the
+documentation for the ftype command.
+
+For PowerShell to see a file extension as executable in the current
+session, you must add the extension to the $env:PATHEXT environment
+variable.
 
 
 See also
 
--   about_Path_Syntax
 -   about_Aliases
 -   about_Functions
+-   about_Path_Syntax
 -   Alias-Provider
 -   Function-Provider
 -   Get-Command

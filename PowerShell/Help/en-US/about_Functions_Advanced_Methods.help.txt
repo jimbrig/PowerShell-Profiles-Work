@@ -200,16 +200,10 @@ the function is run.
 
 See also
 
-about_Automatic_Variables
-
-about_Functions
-
-about_Functions_Advanced
-
-about_Functions_Advanced_Parameters
-
-about_Functions_CmdletBindingAttribute
-
-about_Functions_OutputTypeAttribute
-
-about_Preference_Variables
+-   about_Automatic_Variables
+-   about_Functions
+-   about_Functions_Advanced
+-   about_Functions_Advanced_Parameters
+-   about_Functions_CmdletBindingAttribute
+-   about_Functions_OutputTypeAttribute
+-   about_Preference_Variables

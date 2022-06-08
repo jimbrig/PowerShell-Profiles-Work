@@ -42,6 +42,7 @@ specified and the only valid values are:
 -   Show means to show this experimental feature if the feature is enabled
 -   Hide means to hide this experimental feature if the feature is enabled
 
+
 Declaring Experimental Features in Modules Written in C#
 
 Module authors who want to use the Experimental Feature flags can declare a
@@ -50,6 +51,7 @@ cmdlet as experimental by using the Experimental attribute.
     [Experimental("MyWebCmdlets.PSWebCmdletV2", ExperimentAction.Show)]
     [Cmdlet(Verbs.Invoke, "WebRequest")]
     public class InvokeWebRequestCommandV2 : WebCmdletBaseV2 { ... }
+
 
 Declaring Experimental Features in Modules written in PowerShell
 
@@ -62,6 +64,30 @@ declare experimental cmdlets:
         param()
         ...
     }
+
+Metadata about an experimental feature is kept in the module manifest. Use
+the PrivateData.PSData.ExperimentalFeatures property of a module manifest
+to expose the experimental features from the module. The
+ExperimentalFeatures property is an array of hashtables containing the name
+and description of the feature.
+
+For example:
+
+    PrivateData = @{
+      PSData = @{
+        ExperimentalFeatures = @(
+          @{
+              Name = "PSWebCmdletV2"
+              Description = "Rewrite the web cmdlets for better performance"
+          },
+          @{
+              Name = "PSRestCmdletV2"
+              Description = "Rewrite the REST API cmdlets for better performance"
+          }
+        )
+      }
+    }
+
 
 Mutually Exclusive Experimental Features
 
@@ -94,6 +120,7 @@ InvokeWebRequestCommandV2 provides the implementation of Invoke-WebRequest.
 
 This allows users to try out the new cmdlet and provide feedback then
 revert to the non-experimental version when needed.
+
 
 Experimental Parameters in Cmdlets
 
@@ -146,8 +173,6 @@ Here is an example in PowerShell script:
 
 See also
 
-Enable-ExperimentalFeature
-
-Disable-ExperimentalFeature
-
-Get-ExperimentalFeature
+-   Disable-ExperimentalFeature
+-   Enable-ExperimentalFeature
+-   Get-ExperimentalFeature

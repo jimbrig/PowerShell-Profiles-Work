@@ -14,35 +14,48 @@ Long description
 Comparison operators let you compare values or finding values that match
 specified patterns. PowerShell includes the following comparison operators:
 
-  Type          Operator       Comparison test
-  ------------- -------------- -------------------------------------------
-  Equality      -eq            equals
-                -ne            not equals
-                -gt            greater than
-                -ge            greater than or equal
-                -lt            less than
-                -le            less than or equal
-  Matching      -like          string matches wildcard pattern
-                -notlike       string does not match wildcard pattern
-                -match         string matches regex pattern
-                -notmatch      string does not match regex pattern
-  Replacement   -replace       replaces strings matching a regex pattern
-  Containment   -contains      collection contains a value
-                -notcontains   collection does not contain a value
-                -in            value is in a collection
-                -notin         value is not in a collection
-  Type          -is            both objects are the same type
-                -isnot         the objects are not the same type
+EQUALITY
+
+-   -eq, -ieq, -ceq - equals
+-   -ne, -ine, -cne - not equals
+-   -gt, -igt, -igt - greater than
+-   -ge, -ige, -cge - greater than or equal
+-   -lt, -ilt, -clt - less than
+-   -le, -ile, -cle - less than or equal
+
+MATCHING
+
+-   -like, -ilike, -clike - string matches wildcard pattern
+-   -notlike, -inotlike, -cnotlike - string does not match wildcard pattern
+-   -match, -imatch, -cmatch - string matches regex pattern
+-   -notmatch, -inotmatch, -cnotmatch - string does not match regex pattern
+
+REPLACEMENT
+
+-   -replace, -ireplace, -creplace - replaces strings matching a regex
+    pattern
+
+CONTAINMENT
+
+-   -contains, -icontains, -ccontains - collection contains a value
+-   -notcontains, -inotcontains, -cnotcontains - collection does not
+    contain a value
+-   -in - value is in a collection
+-   -notin - value is not in a collection
+
+TYPE
+
+-   -is - both objects are the same type
+-   -isnot - the objects are not the same type
 
 
 Common features
 
-By default, string comparisons are case-insensitive. The equality operators
-have explicit case-sensitive and case-insensitive forms. To make a
-comparison operator case-sensitive, add a c after the -. For example, -ceq
-is the case-sensitive version of -eq. To make the case-insensitivity
-explicit, add an i after -. For example, -ieq is the explicitly
-case-insensitive version of -eq.
+String comparisons are case-insensitive unless you use the explicit
+case-sensitive operator. To make a comparison operator case-sensitive, add
+a c after the -. For example, -ceq is the case-sensitive version of -eq. To
+make the case-insensitivity explicit, add an i after -. For example, -ieq
+is the explicitly case-insensitive version of -eq.
 
 When the input of an operator is a scalar value, the operator returns a
 BOOLEAN value. When the input is a collection, the operator returns the
@@ -98,6 +111,23 @@ These operators process all elements of the collection. Example:
 
     zzz
     zzz
+
+The equality operator can compare objects of different types. It is
+important to understand that the value is on the right-hand side of the
+comparison can be converted to the type of the left-hand side value for
+comparison.
+
+For example, the string '1.0' is converted to an integer to be compared to
+the value 1. This example returns True.
+
+    PS> 1 -eq '1.0'
+    True
+
+In this example, the value 1 is converted to a string to be compared to
+string '1.0'. This example returns False.
+
+    PS> '1.0' -eq 1
+    False
 
 The equality operators accept any two objects, not just a scalar or
 collection. But the comparison result is not guaranteed to be meaningful
@@ -334,6 +364,9 @@ HASHTABLE that always has a key named '0', which stores the entire match.
 If the regular expression contains capture groups, the $Matches contains
 additional keys for each group.
 
+It is important to note that the $Matches hashtable contains only the first
+occurrence of any matching pattern.
+
 Example:
 
     $string = 'The last logged on user was CONTOSO\jsmith'
@@ -366,7 +399,7 @@ the input is a collection, the $Matches automatic variable is not
 overwritten. Consequently, it will contain the previously set value, or
 $null if the variable has not been set. When referencing $Matches after
 invoking one of these operators, consider verifying that the variable was
-set by the current operator invocation by using a condition statement.
+set by the current operator invocation using a condition statement.
 
 Example:
 
@@ -421,7 +454,7 @@ form of DomainName\Username and converts to the Username@DomainName format:
     $SearchExp = '^(?<DomainName>[\w-.]+)\\(?<Username>[\w-.]+)$'
     $ReplaceExp = '${Username}@${DomainName}'
 
-    'Contoso.local\John.Doe' -replace $SearchExp,$ReplaceExp
+    'Contoso.local\John.Doe' -replace $SearchExp, $ReplaceExp
 
     John.Doe@Contoso.local
 
@@ -430,8 +463,8 @@ form of DomainName\Username and converts to the Username@DomainName format:
 
   -   In PowerShell, between double quotation marks, it designates
       variables and acts as a subexpression operator.
-  -   In Regex search strings, it denotes end of the line
-  -   In Regex substitution strings, it denotes captured groups.Be sure to
+  -   In Regex search strings, it denotes end of the line.
+  -   In Regex substitution strings, it denotes captured groups. Be sure to
       either put your regular expressions between single quotation marks or
       insert a backtick (`) character before them.
 
@@ -592,10 +625,10 @@ Example:
 
 See also
 
+-   about_Booleans
 -   about_Operators
 -   about_Regular_Expressions
 -   about_Wildcards
 -   Compare-Object
 -   Foreach-Object
 -   Where-Object
--   about_Booleans

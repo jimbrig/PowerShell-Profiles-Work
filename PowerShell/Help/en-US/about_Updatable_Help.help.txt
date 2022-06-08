@@ -397,8 +397,6 @@ Preinstallation Environment (Windows PE).
 
 See also
 
-Get-Help
-
-Save-Help
-
-Update-Help
+-   Get-Help
+-   Save-Help
+-   Update-Help

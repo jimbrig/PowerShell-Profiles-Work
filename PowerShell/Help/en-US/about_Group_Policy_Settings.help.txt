@@ -171,7 +171,7 @@ is Restricted.
 For more information, see about_Execution_Policies.
 
 
-Turn on powershell transcription
+Turn on PowerShell transcription
 
 The TURN ON POWERSHELL TRANSCRIPTION policy setting lets you capture the
 input and output of PowerShell Core commands into text-based transcripts.
@@ -238,18 +238,11 @@ about_Group_Policies about_GroupPolicy
 
 See also
 
-about_Execution_Policies
-
-about_Modules
-
-about_Updatable_Help
-
-Get-ExecutionPolicy
-
-Set-ExecutionPolicy
-
-Get-Module
-
-Update-Help
-
-Save-Help
+-   about_Execution_Policies
+-   about_Modules
+-   about_Updatable_Help
+-   Get-ExecutionPolicy
+-   Set-ExecutionPolicy
+-   Update-Help
+-   Save-Help
+-   Get-Module

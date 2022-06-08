@@ -224,6 +224,5 @@ Get-Help to specify a file system drive.
 
 See also
 
-about_Functions
-
-about_Providers
+-   about_Functions
+-   about_Providers

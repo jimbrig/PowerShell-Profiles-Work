@@ -195,24 +195,19 @@ property of the System.DateTime class.
 
     [System.DateTime]::UtcNow
 
-Properties of scalar objects and collections
 
-The properties of one ("scalar") object of a particular type are often
-different from the properties of a collection of objects of the same type.
-For example, every service has as DISPLAYNAME property, but a collection of
-services does not have a DISPLAYNAME property.
+Member-access enumeration
 
-The following command gets the value of the DISPLAYNAME property of the
-'Audiosrv' service.
+Starting in PowerShell 3.0, when you use the member-access operator (.) to
+access a property that does not exist on a list collection, PowerShell
+automatically enumerates the items in the collection and returns the value
+of the property on each item. For more information, see
+about_Member-Access_Enumeration.
 
-    (Get-Service Audiosrv).DisplayName
+Examples
 
-    Windows Audio
-
-Beginning in PowerShell 3.0, PowerShell tries to prevent scripting errors
-that result from the differing properties of scalar objects and
-collections. The same command returns the value of the DISPLAYNAME property
-of every service that Get-Service returns.
+This command returns the value of the DISPLAYNAME property of every service
+that Get-Service returns.
 
     (Get-Service).DisplayName
 
@@ -223,10 +218,6 @@ of every service that Get-Service returns.
     Application Information
     ...
 
-When you submit a collection, but request a property that exists only on
-single ("scalar") objects, PowerShell returns the value of that property
-for every object in the collection.
-
 All collections have a COUNT property that returns how many objects are in
 the collection.
 
@@ -234,7 +225,7 @@ the collection.
 
     176
 
-Beginning in PowerShell 3.0, if you request the Count or Length property of
+Starting in PowerShell 3.0, if you request the COUNT or LENGTH property of
 zero objects or one object, PowerShell returns the correct value.
 
     (Get-Service Audiosrv).Count
@@ -253,18 +244,12 @@ the collection's property is returned.
 
     2
 
-This feature also works on methods of scalar objects and collections. For
-more information, see about_Methods.
-
 
 See also
 
-about_Methods
-
-about_Objects
-
-Get-Member
-
-Select-Object
-
-Format-List
+-   about_Objects
+-   about_Member-Access_Enumeration
+-   about_Methods
+-   Format-List
+-   Get-Member
+-   Select-Object

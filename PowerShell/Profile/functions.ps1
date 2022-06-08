@@ -2,21 +2,30 @@
 # PowerShell Core Profile Functions
 # ---------------------------------
 
+. "$PSScriptRoot\functions\Remove-OldModules.ps1"
+. "$PSScriptRoot\functions\Optimize-PSReadLineHistory.ps1"
+
+Function Get-PSGalleryReport {
+
+  Start-Process -PassThru 'https://github.com/jdhitsolutions/PSGalleryReport/blob/main/psgallery-filtered.md'
+
+}
+
 # ----------
 # Launchers
 # ----------
 
-Function Open-Todoist { start-process -PassThru 'C:\Users\jimmy\AppData\Local\Programs\todoist\Todoist.exe' }
+Function Open-Todoist { Start-Process -PassThru 'C:\Users\jimmy\AppData\Local\Programs\todoist\Todoist.exe' }
 
-Function Open-GitHub { start-process -PassThru 'https://github.com/' }
+Function Open-GitHub { Start-Process -PassThru 'https://github.com/' }
 
-Function Open-Docker { start-process -PassThru 'C:\Program Files\Docker\Docker\frontend\Docker Desktop.exe' }
+Function Open-Docker { Start-Process -PassThru 'C:\Program Files\Docker\Docker\frontend\Docker Desktop.exe' }
 
 Function Open-RProject { Rscript -e 'jimstools::open_project()' }
 
 Function Update-ProfileModules {
 
-  $modpath = ($env:PSModulePath -split ";")[0]
+  $modpath = ($env:PSModulePath -split ';')[0]
   $ymlpath = "$modpath\modules.yml"
   $mods = (Get-ChildItem $modpath -Directory).Name
   ConvertTo-Yaml -Data $mods -OutFile $ymlpath -Force
@@ -52,6 +61,21 @@ If (Get-Command gcalcli -ErrorAction SilentlyContinue) {
   ${function:Get-CalendarMonth} = { & gcalcli calm }
   ${function:Get-CalendarWeek} = { & gcalcli calw }
   ${function:New-CalendarEvent} = { & gcalcli add }
+
+  Function gcalpwc { gcalcli --config-folder ~/.config/gcalcli/pwc $args }
+  Function gcalpersonal { gcalcli --config-folder ~/.config/gcalcli/personal $args }
+
+  # Personal Refresh
+  # gcalcli --noincluderc --config-folder ~/.config/gcalcli/personal --refresh agenda
+
+  # PwC Refresh
+  # gcalcli --noincluderc --config-folder ~/.config/gcalcli/pwc --refresh agenda
+
+  # gcalpersonal --help
+  # gcalpwc --help
+  # gcalpersonal agenda
+  # gcalpwc agenda
+
 }
 
 # -----
@@ -76,8 +100,8 @@ ${function:Check-Disk} = { & chkdsk C: /f /r /x }
 
 # Update Environment
 ${function:Update-Environment} = {
-  $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
-  Write-Host -ForegroundColor Green "Sucessfully Refreshed Environment Variables For powershell.exe"
+  $env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path', 'User')
+  Write-Host -ForegroundColor Green 'Sucessfully Refreshed Environment Variables For powershell.exe'
 }
 
 # Clean System
@@ -87,7 +111,7 @@ ${function:Clean-System} = {
   Write-Host 'Removing Windows %TEMP% files' -ForegroundColor Yellow
   Remove-Item c:\Windows\Temp\* -Recurse -Force -ErrorAction SilentlyContinue
   Write-Host 'Removing User %TEMP% files' -ForegroundColor Yellow
-  Remove-Item “C:\Users\*\Appdata\Local\Temp\*” -Recurse -Force -ErrorAction SilentlyContinue
+  Remove-Item 'C:\Users\*\Appdata\Local\Temp\*' -Recurse -Force -ErrorAction SilentlyContinue
   Write-Host 'Removing Custome %TEMP% files (C:/Temp and C:/tmp)' -ForegroundColor Yellow
   Remove-Item c:\Temp\* -Recurse -Force -ErrorAction SilentlyContinue
   Remove-Item c:\Tmp\* -Recurse -Force -ErrorAction SilentlyContinue
@@ -150,25 +174,25 @@ ${function:Get-PublicIP} = {
 # -----------------------
 
 # Docker
-${function:Start-Docker} = { Start-Process "C:\Program Files\Docker\Docker\Docker Desktop.exe" }
-${function:Stop-Docker} = { foreach ($dock in (get-process *docker*).ProcessName) { sudo stop-process -name $dock } }
+${function:Start-Docker} = { Start-Process 'C:\Program Files\Docker\Docker\Docker Desktop.exe' }
+${function:Stop-Docker} = { foreach ($dock in (Get-Process *docker*).ProcessName) { sudo stop-process -name $dock } }
 
 # Open GitKraken in Current Repo
 ${function:krak} = {
-  $curpath = (get-location).ProviderPath
+  $curpath = (Get-Location).ProviderPath
   If (!(Test-Path "$curpath\.git")) { Write-Error "Not a git repository. Run 'git init' or select a git tracked directory to open. Exiting.."; return }
   $logf = "$env:temp\krakstart.log"
   $newestExe = Resolve-Path "$env:localappdata\gitkraken\app-*\gitkraken.exe"
   If ($newestExe.Length -gt 1) { $newestExe = $newestExe[1] }
-  Start-Process -filepath $newestExe -ArgumentList "--path $curpath" -redirectstandardoutput $logf
+  Start-Process -FilePath $newestExe -ArgumentList "--path $curpath" -RedirectStandardOutput $logf
 }
 
 # Open RStudio in Current Repo
 ${function:rstudio} = {
-  $curpath = (get-location).ProviderPath
+  $curpath = (Get-Location).ProviderPath
   $logf = "$env:temp\rstudiostart.log"
   $exepath = "$env:programfiles\RStudio\bin\rstudio.exe"
-  start-process -filepath $exepath -ArgumentList "--path $curpath" -redirectstandardoutput $logf
+  Start-Process -FilePath $exepath -ArgumentList "--path $curpath" -RedirectStandardOutput $logf
 }
 
 # --------------------------
@@ -235,7 +259,7 @@ ${function:chocosearch} = { & choco search $args }
 # R and RStudio
 # ---------------
 
-${function:rvanilla} = { & "C:\Program Files\R\R-4.1.1\bin\R.exe" --vanilla }
-${function:radianvanilla} = { & "C:\Python39\Scripts\radian.exe" --vanilla }
+${function:rvanilla} = { & 'C:\Program Files\R\R-4.1.1\bin\R.exe' --vanilla }
+${function:radianvanilla} = { & 'C:\Python39\Scripts\radian.exe' --vanilla }
 ${function:openrproj} = { & C:\bin\openrproject.bat }
-${function:pakk} = { Rscript.exe "C:\bin\pakk.R" $args }
+${function:pakk} = { Rscript.exe 'C:\bin\pakk.R' $args }

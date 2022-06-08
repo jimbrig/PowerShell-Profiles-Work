@@ -36,6 +36,7 @@ shown above has a different way to force case sensitivity.
   switch statement   use the -casesensitive option
   operators          prefix with 'C' (-cmatch, -csplit, or -creplace)
 
+
 Character literals
 
 A regular expression can be a literal character or a string. The expression
@@ -44,10 +45,12 @@ causes the engine to match the text specified exactly.
     # This statement returns true because book contains the string "oo"
     'book' -match 'oo'
 
+
 Character classes
 
 While character literals work if you know the exact pattern, character
 classes allow you to be less specific.
+
 
 Character groups
 
@@ -107,6 +110,7 @@ used.
     # The pattern uses both methods to match the space.
     ' - ' -match '\s- '
 
+
 Quantifiers
 
 Quantifiers control how many instances of each element should be present in
@@ -151,6 +155,7 @@ optional.
     # This returns true if it matches any phone number.
     '111-222-3333' -match '\d{3}-\d{3}-\d{4}'
 
+
 Anchors
 
 Anchors allow you to cause a match to succeed or fail based on the matches
@@ -180,6 +185,7 @@ between SINGLELINE and MULTILINE regular expression options.
 
 To read more about these options and how to use them, visit the Regular
 Expression Language - Quick Reference.
+
 
 Escaping characters
 
@@ -218,6 +224,7 @@ The following are a few commonly used character escapes:
   \n                 Matches a newline
   \r                 Matches a carriage return
 
+
 Groups, Captures, and Substitutions
 
 Grouping constructs separate an input string into substrings that can be
@@ -227,14 +234,16 @@ assign names to them as well.
 
 A grouping construct is a regular expression surrounded by parentheses. Any
 text matched by the enclosed regular expression is captured. The following
-example will break the input text into two capturing groups.
+example breaks the input text into two capturing groups.
 
     'The last logged on user was CONTOSO\jsmith' -match '(.+was )(.+)'
 
     True
 
 Use the $Matches HASHTABLE automatic variable to retrieve captured text.
-The text representing the entire match is stored at key 0.
+The text representing the entire match is stored at key 0. It is important
+to note that the $Matches hashtable contains only the first occurrence of
+any matching pattern.
 
     $Matches.0
 
@@ -377,6 +386,5 @@ For more information, see Substitutions in Regular Expressions.
 
 See also
 
-about_Comparison_Operators
-
-about_Operators
+-   about_Operators
+-   about_Comparison_Operators

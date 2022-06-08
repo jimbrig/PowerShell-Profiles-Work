@@ -106,8 +106,6 @@ working location).
 
 See also
 
-Set-Location
-
-about_Providers
-
-about_Path_Syntax
+-   about_Path_Syntax
+-   about_Providers
+-   Set-Location

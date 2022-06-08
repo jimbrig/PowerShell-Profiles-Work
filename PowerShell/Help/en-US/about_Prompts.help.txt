@@ -115,8 +115,8 @@ For example:
     PS C:\ps-test>
 
 If you are in a nested prompt, the function adds two angle brackets (>>) to
-the prompt. (You are in a nested prompt if the value of the
-$NestedPromptLevel automatic variable is greater than 1.)
+the prompt. You are in a nested prompt if the value of the
+$NestedPromptLevel automatic variable is greater than 0.
 
 For example, when you are debugging in a nested prompt, the prompt
 resembles the following prompt:
@@ -229,22 +229,13 @@ profiles. For more information about profiles, see about_Profiles.
 
 See also
 
-Get-Location
-
-Enter-PSSession
-
-Get-History
-
-Get-Random
-
-Write-Host
-
-about_Profiles
-
-about_Functions
-
-about_Scopes
-
-about_Debuggers
-
-about_Automatic_Variables
+-   about_Automatic_Variables
+-   about_Debuggers
+-   about_Functions
+-   about_Profiles
+-   about_Scopes
+-   Get-History
+-   Write-Host
+-   Get-Location
+-   Enter-PSSession
+-   Get-Random

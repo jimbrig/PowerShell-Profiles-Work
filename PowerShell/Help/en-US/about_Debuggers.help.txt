@@ -659,11 +659,11 @@ features that you can use to debug scripts and functions.
 
 See also
 
--   Disable-PsBreakpoint
--   Enable-PsBreakpoint
--   Get-PsBreakpoint
--   Get-PsCallStack
--   Remove-PsBreakpoint
+-   Disable-PSBreakpoint
+-   Enable-PSBreakpoint
+-   Get-PSBreakpoint
+-   Remove-PSBreakpoint
 -   Set-PSBreakpoint
+-   Get-PSCallStack
 -   Write-Debug
 -   Write-Verbose

@@ -67,12 +67,8 @@ Format-List, which displays the file objects in a list.
 
 See also
 
-about_Methods
-
-about_Object_Creation
-
-about_Properties
-
-about_Pipelines
-
-Get-Member
+-   about_Methods
+-   about_Object_Creation
+-   about_Pipelines
+-   about_Properties
+-   Get-Member

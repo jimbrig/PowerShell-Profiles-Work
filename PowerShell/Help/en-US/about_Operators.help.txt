@@ -306,10 +306,7 @@ Cast operator [ ]
 Converts or limits objects to the specified type. If the objects cannot be
 converted, PowerShell generates an error.
 
-    [DateTime]"2/20/88" - [DateTime]"1/20/88"
-    [Int] (7/2)
-    [String] 1 + 0
-    [Int] '1' + 0
+    [DateTime] '2/20/88' - [DateTime] '1/20/88' -eq [TimeSpan] '31'
 
 A cast can also be performed when a variable is assigned to using cast
 notation.
@@ -369,15 +366,22 @@ Formatting.
 Index operator [ ]
 
 Selects objects from indexed collections, such as arrays and hash tables.
-Array indexes are zero-based, so the first object is indexed as [0]. For
-arrays (only), you can also use negative indexes to get the last values.
-Hash tables are indexed by key value.
+Array indexes are zero-based, so the first object is indexed as [0]. You
+can also use negative indexes to get the last values. Hash tables are
+indexed by key value.
+
+Given a list of indices, the index operator returns a list of members
+corresponding to those indices.
 
     PS> $a = 1, 2, 3
     PS> $a[0]
     1
     PS> $a[-1]
     3
+    PS> $a[2, 1, 0]
+    3
+    2
+    1
 
     (Get-HotFix | Sort-Object installedOn)[-1]
 
@@ -392,6 +396,19 @@ Hash tables are indexed by key value.
     intro
     -----
     Once upon a time...
+
+When an object is not an indexed collection, using the index operator to
+access the first element returns the object itself. Index values beyond the
+first element return $null.
+
+    PS> (2)[0]
+    2
+    PS> (2)[-1]
+    2
+    PS> (2)[1] -eq $null
+    True
+    PS> (2)[0,0] -eq $null
+    True
 
 Pipeline operator |
 
@@ -450,7 +467,7 @@ To create a range of characters, enclose the boundary characters in quotes.
     B
     A
 
-Member access operator .
+Member-access operator .
 
 Accesses the properties and methods of an object. The member name may be an
 expression.
@@ -458,6 +475,11 @@ expression.
     $myProcess.peakWorkingSet
     (Get-Process PowerShell).kill()
     'OS', 'Platform' | Foreach-Object { $PSVersionTable. $_ }
+
+Starting PowerShell 3.0, when you use the operator on a list collection
+object that does not have the member, PowerShell automatically enumerates
+the items in that collection and uses the operator on each of them. For
+more information, see about_Member-Access_Enumeration.
 
 Static member operator ::
 
@@ -566,22 +588,13 @@ returned.
 
 See also
 
-about_Arithmetic_Operators
-
-about_Assignment_Operators
-
-about_Comparison_Operators
-
-about_Logical_Operators
-
-about_Operator_Precedence
-
-about_Type_Operators
-
-about_Pipeline_Chain_Operators
-
-about_Split
-
-about_Join
-
-about_Redirection
+-   about_Arithmetic_Operators
+-   about_Assignment_Operators
+-   about_Comparison_Operators
+-   about_Logical_Operators
+-   about_Operator_Precedence
+-   about_Member-Access_Enumeration
+-   about_Type_Operators
+-   about_Split
+-   about_Join
+-   about_Redirection

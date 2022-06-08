@@ -39,7 +39,7 @@ Syntax
 
 Classes are declared using the following syntax:
 
-    class <class-name> [: [<base-class>][,<interface-list]] {
+    class <class-name> [: [<base-class>][,<interface-list>]] {
         [[<attribute>] [hidden] [static] <property-definition> ...]
         [<class-name>([<constructor-argument-list>])
           {<constructor-statement-list>} ...]
@@ -814,8 +814,8 @@ For more information about the [ref] type, see PSReference Class.
 
 See also
 
--   About_hidden
 -   about_Enum
+-   About_Hidden
 -   about_Language_Keywords
 -   about_Methods
 -   about_Using

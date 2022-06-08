@@ -210,20 +210,12 @@ not only exits the pipeline, it potentially terminates the entire runspace.
 
 See also
 
-about_Comparison_Operators
-
-about_Continue
-
-about_For
-
-about_Foreach
-
-about_Switch
-
-about_Throw
-
-about_Trap
-
-about_Try_Catch_Finally
-
-about_While
+-   about_Comparison_Operators
+-   about_Continue
+-   about_For
+-   about_Foreach
+-   about_Switch
+-   about_Throw
+-   about_Trap
+-   about_Try_Catch_Finally
+-   about_While

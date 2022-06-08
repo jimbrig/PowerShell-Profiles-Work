@@ -204,6 +204,5 @@ The For loop can also be written on one line as in the following example.
 
 See also
 
-about_Comparison_Operators
-
-about_Foreach
+-   about_Comparison_Operators
+-   about_Foreach

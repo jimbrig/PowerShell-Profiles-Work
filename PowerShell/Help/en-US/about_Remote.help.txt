@@ -215,20 +215,12 @@ about_Remoting
 
 See also
 
-about_PSSessions
-
-about_Remote_Disconnected_Sessions
-
-about_Remote_Requirements
-
-PowerShell Remoting FAQ
-
-about_Remote_TroubleShooting
-
-about_Remote_Variables
-
-Enter-PSSession
-
-Invoke-Command
-
-New-PSSession
+-   about_PSSessions
+-   about_Remote_Disconnected_Sessions
+-   about_Remote_Requirements
+-   about_Remote_TroubleShooting
+-   about_Remote_Variables
+-   Invoke-Command
+-   Enter-PSSession
+-   New-PSSession
+-   PowerShell Remoting FAQ

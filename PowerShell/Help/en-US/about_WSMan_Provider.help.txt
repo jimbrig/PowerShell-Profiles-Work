@@ -21,6 +21,8 @@ configuration information.
 
 Detailed description
 
+  This information only applies to PowerShell running on Windows.
+
 The WSMAN provider for PowerShell lets you add, change, clear, and delete
 WS-Management configuration data on local or remote computers.
 
@@ -575,4 +577,4 @@ Get-Help to specify a file system drive.
 
 See also
 
-about_Providers
+-   about_Providers

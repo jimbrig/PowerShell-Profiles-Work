@@ -56,6 +56,9 @@ Restricted language (RestrictedLanguage)
 In RESTRICTEDLANGUAGE mode, users may run commands (cmdlets, functions, CIM
 commands, and workflows) but are not permitted to use script blocks.
 
+Beginning in PowerShell 7.2, the New-Object cmdlet is disabled in
+RESTRICTEDLANGUAGE mode when system lockdown is configured.
+
 By default, only the following variables are permitted in
 RestrictedLanguage mode:
 
@@ -205,8 +208,14 @@ the language mode by getting the value of the LanguageMode property.
     FullLanguage
 
 On other session configurations, you can find the language mode indirectly
-by finding the language mode of a session that is created by using the
-session configuration.
+by finding the language mode of a session that is created with the session
+configuration.
+
+  [!NOTE] Session configurations are a feature of WSMan-based PowerShell
+  remoting. They are used only when you use the New-PSSession,
+  Invoke-Command, or Enter-PSSession cmdlets to connect to a remote Windows
+  computer. The Get-PSSessionConfiguration cmdlet is only available on
+  Windows computers.
 
 Finding the language mode of a session
 

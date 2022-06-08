@@ -11,7 +11,7 @@ discovery, and speeds up input entry of argument values.
 
 Long description
 
-This article describe the different ways you can implement argument
+This article describes the different ways you can implement argument
 completers for PowerShell functions. Argument completers provide the
 possible values for a parameter. The available values are calculated at
 runtime when the user presses the Tab key after the parameter name. There
@@ -132,7 +132,7 @@ The syntax is as follows:
 Each of the parameters is provided a list of options to the
 ARGUMENTCOMPLETIONS attribute to enable tab completion.
 
-This attribute was introduced in PowerShell Core 6.0
+This attribute was introduced in PowerShell 6.0.
 
 
 ArgumentCompleter attribute
@@ -197,7 +197,7 @@ following command and uses Tab completion, only APPLE is returned.
 Test-ArgumentCompleter -Type Fruits -Value A
 
     function MyArgumentCompleter{
-        param ( $commaName,
+        param ( $commandName,
                 $parameterName,
                 $wordToComplete,
                 $commandAst,
@@ -231,6 +231,89 @@ Test-ArgumentCompleter -Type Fruits -Value A
     }
 
 
+Class-based argument completers
+
+Beginning in PowerShell 7.2, a new feature was added that allows you to
+define more generic implementations of parameterized argument completers.
+
+By deriving from ArgumentCompleterAttribute, it's possible to create
+generic completers that can be reused, for example:
+
+    [DirectoryCompleter(ContainingFile="pswh.exe", Depth=2)]
+
+    [DateCompleter(WeekDay='Monday', From="LastYear")]
+
+    [GitCommits(Branch='release')]
+
+The derived attributes must implement the IArgumentCompleterFactory
+interface and use property values to create a specialized completer.
+
+    using namespace System.Collections
+    using namespace System.Collections.Generic
+    using namespace System.Management.Automation
+    using namespace System.Management.Automation.Language
+
+    class NumberCompleter : IArgumentCompleter {
+
+        [int] $From
+        [int] $To
+        [int] $Step
+
+        NumberCompleter([int] $from, [int] $to, [int] $step) {
+            if ($from -gt $to) {
+                throw [ArgumentOutOfRangeException]::new("from")
+            }
+            $this.From = $from
+            $this.To = $to
+            $this.Step = $step -lt 1 ? 1 : $step
+        }
+
+        [IEnumerable[CompletionResult]] CompleteArgument(
+            [string] $CommandName,
+            [string] $parameterName,
+            [string] $wordToComplete,
+            [CommandAst] $commandAst,
+            [IDictionary] $fakeBoundParameters) {
+
+            $resultList = [List[CompletionResult]]::new()
+            $local:to = $this.To
+            $local:step = $this.Step
+            for ($i = $this.From; $i -lt $to; $i += $step) {
+                $resultList.Add([CompletionResult]::new($i.ToString()))
+            }
+
+            return $resultList
+        }
+    }
+
+    class NumberCompletionsAttribute : ArgumentCompleterAttribute, IArgumentCompleterFactory {
+        [int] $From
+        [int] $To
+        [int] $Step
+
+        NumberCompletionsAttribute([int] $from, [int] $to, [int] $step) {
+            $this.From = $from
+            $this.To = $to
+            $this.Step = $step
+        }
+
+        [IArgumentCompleter] Create() { return [NumberCompleter]::new($this.From, $this.To, $this.Step) }
+    }
+
+Usage from PowerShell would then be:
+
+    function Add{
+        param(
+           [NumberCompletions(0, 100, 5)]
+           [int] $X,
+
+           [NumberCompletions(0, 100, 5)]
+           [int] $Y
+        )
+        $X + $Y
+    }
+
+
 Register-ArgumentCompleter
 
 The Register-ArgumentCompleter cmdlet registers a custom argument
@@ -243,5 +326,5 @@ For more information, see Register-ArgumentCompleter.
 See also
 
 -   about_Functions_Advanced_Parameters
--   Register-ArgumentCompleter
 -   about_Tab_Expansion
+-   Register-ArgumentCompleter

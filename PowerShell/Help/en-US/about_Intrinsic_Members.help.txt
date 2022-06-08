@@ -91,3 +91,34 @@ The COUNT and LENGTH properties are available to all PowerShell objects.
 These are similar to each other but may work differently depending on the
 data type. For more information about these properties, see
 about_Properties.
+
+
+Array indexing scalar types
+
+When an object is not an indexed collection, using the index operator to
+access the first element returns the object itself. Index values beyond the
+first element return $null.
+
+    PS> (2)[0]
+    2
+    PS> (2)[-1]
+    2
+    PS> (2)[1] -eq $null
+    True
+    PS> (2)[0,0] -eq $null
+    True
+
+For more information, see about_Operators.
+
+
+New() method for types
+
+Beginning in PowerShell 5.0, PowerShell adds a static New() method for all
+.NET types. The following examples produce the same result.
+
+    $expression = New-Object -TypeName regex -ArgumentList 'pattern'
+    $expression = [regex]::new('pattern')
+
+Using the new() method performs better than using New-Object.
+
+For more information, see about_Classes.

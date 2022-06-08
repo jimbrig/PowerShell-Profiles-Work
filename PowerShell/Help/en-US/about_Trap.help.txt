@@ -377,12 +377,8 @@ statement. For more information, see about_Try_Catch_Finally.
 
 See also
 
-about_Break
-
-about_Continue
-
-about_Scopes
-
-about_Throw
-
-about_Try_Catch_Finally
+-   about_Break
+-   about_Continue
+-   about_Scopes
+-   about_Throw
+-   about_Try_Catch_Finally

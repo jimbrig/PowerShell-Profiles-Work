@@ -22,9 +22,10 @@ The following are the basic rules of scope:
     nested scopes are child scopes of that parent.
 
 -   An item is visible in the scope in which it was created and in any
-    child scopes, unless you explicitly make it private. You can place
-    variables, aliases, functions, or PowerShell drives in one or more
-    scopes.
+    child scopes, unless you explicitly make it private.
+
+-   You can declare variables, aliases, functions, and PowerShell drives in
+    a scope outside of the current scope.
 
 -   An item that you created within a scope can be changed only in the
     scope in which it was created, unless you explicitly specify a
@@ -121,7 +122,7 @@ optional scope modifiers:
     running scripts via cmdlets like Start-Job and Invoke-Command.
 
 -   workflow: - Specifies that the name exists within a workflow. Note:
-    Workflows are not supported in PowerShell Core.
+    Workflows are not supported in PowerShell v6 and higher.
 
 -   <variable-namespace> - A modifier created by a PowerShell PSDrive
     provider. For example:
@@ -587,12 +588,8 @@ following command format.
 
 See also
 
-about_Variables
-
-about_Environment_Variables
-
-about_Functions
-
-about_Script_Blocks
-
-Start-ThreadJob
+-   about_Variables
+-   about_Environment_Variables
+-   about_Functions
+-   about_Script_Blocks
+-   Start-ThreadJob

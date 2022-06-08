@@ -275,14 +275,9 @@ The following illustrates using NEGOTIATE with New-PSSession:
 
 See also
 
-about_Remote
-
-about_Remote_Variables
-
-about_PSSessions
-
-Invoke-Command
-
-Enter-PSSession
-
-New-PSSession
+-   about_Remote
+-   about_Remote_Variables
+-   about_PSSessions
+-   Invoke-Command
+-   Enter-PSSession
+-   New-PSSession
