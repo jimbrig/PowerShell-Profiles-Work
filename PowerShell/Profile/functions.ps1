@@ -4,6 +4,7 @@
 
 . "$PSScriptRoot\functions\Remove-OldModules.ps1"
 . "$PSScriptRoot\functions\Optimize-PSReadLineHistory.ps1"
+. "$PSScriptRoot\functions\Set-FolderIcon.ps1"
 
 Function Get-PSGalleryReport {
 
