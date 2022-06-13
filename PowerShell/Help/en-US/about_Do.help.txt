@@ -72,10 +72,10 @@ that is less than zero.
 
 See also
 
--   about_While
+-   about_Booleans
+-   about_Break
+-   about_Continue
 -   about_Operators
 -   about_Assignment_Operators
 -   about_Comparison_Operators
--   about_Break
--   about_Continue
--   about_Booleans
+-   about_While

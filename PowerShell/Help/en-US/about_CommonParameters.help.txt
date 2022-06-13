@@ -233,8 +233,8 @@ continue.
 -InformationAction:Continue displays the informational message, and
 continues running.
 
--InformationAction:Suspend isn't supported on PowerShell Core as it is only
-available for workflows.
+-InformationAction:Suspend isn't supported on PowerShell 6 and higher as it
+is only available for workflows.
 
 -InformationAction:SilentlyContinue no effect as the informational message
 aren't (Default) displayed, and the script continues without interruption.
@@ -340,8 +340,19 @@ The following command displays the contents of the $out variable:
 
 -PipelineVariable
 
-PIPELINEVARIABLE stores the value of the current pipeline element as a
-variable, for any named command as it flows through the pipeline.
+PIPELINEVARIABLE allows access to the most recent value passed into the
+next pipeline segment by the command that uses this parameter. Any command
+in the pipeline can access the value using the named PIPELINEVARIABLE. The
+value is assigned to the variable when it is passed into the next pipeline
+segment. This makes the PIPELINEVARIABLE easier to use than a specific
+temporary variable, which might need to be assigned in multiple locations.
+
+Unlike $_ or $PSItem, using a PIPELINEVARIABLE allows any pipeline command
+to access pipeline values passed (and saved) by commands other than the
+immediately preceding command. Pipeline commands can access the last value
+piped from while processing the next item passing through the pipeline.
+This allows a command to _feed back_ its output to a previous command (or
+itself).
 
   [!NOTE] Advanced functions can have up to three script blocks: begin,
   process, and end. When using the PIPELINEVARIABLE parameter with advanced
@@ -360,34 +371,62 @@ variable, for any named command as it flows through the pipeline.
 
 Valid values are strings, the same as for any variable names.
 
+  [!CAUTION] The PIPELINEVARIABLE is scoped to the pipeline in which it is
+  invoked. Variables outside the pipeline, which use same name, are removed
+  before the pipeline is executed. The PIPELINEVARIABLE goes out of scope
+  when the pipeline terminates. If multiple commands within the pipeline
+  specify the same PIPELINEVARIABLE then there is only one shared variable.
+  That variable is updated with the most recent piped output from the
+  command that specifies the variable.
+
+  Some _blocking_ commands collect all the pipeline items before producing
+  any output, for example Sort-Object or Select-Object -Last. Any
+  PIPELINEVARIABLE assigned in a command before such a blocking command
+  always contains the final piped item from the preceding command when used
+  in a command after the blocking command.
+
 The following is an example of how PIPELINEVARIABLE works. In this example,
 the PIPELINEVARIABLE parameter is added to a Foreach-Object command to
-store the results of the command in variables. A range of numbers, 1 to 10,
+store the results of the command in variables. A range of numbers, 1 to 5,
 are piped into the first Foreach-Object command, the results of which are
-stored in a variable named LEFT.
+stored in a variable named $temp.
 
 The results of the first Foreach-Object command are piped into a second
-Foreach-Object command, which filters the objects returned by the first
-Foreach-Object command. The results of the second command are stored in a
-variable named RIGHT.
+Foreach-Object command, which displays the current values of $temp and $_.
 
-In the third Foreach-Object command, the results of the first two
-Foreach-Object piped commands, represented by the variables LEFT and RIGHT,
-are processed by using a multiplication operator. The command instructs
-objects stored in the LEFT and RIGHT variables to be multiplied, and
-specifies that the results should be displayed as "Left range member *
-Right range member = product".
+    # Create a variable named $temp
+    $temp=8
+    Get-Variable temp
+    # Note that the variable just created is not available on the
+    # pipeline when -PipelineVariable creates the same variable name
+    1..5 | ForEach-Object -PipelineVariable temp -Begin {
+        Write-Host "Step1[BEGIN]:`$temp=$temp"
+    } -Process {
+      Write-Host "Step1[PROCESS]:`$temp=$temp - `$_=$_"
+      Write-Output $_
+    } | ForEach-Object {
+      Write-Host "`tStep2[PROCESS]:`$temp=$temp - `$_=$_"
+    }
+    # The $temp variable is deleted when the pipeline finishes
+    Get-Variable temp
 
-    1..10 | Foreach-Object -PipelineVariable Left -Process { $_ } |
-      Foreach-Object -PV Right -Process { 1..10 } |
-      Foreach-Object -Process { "$Left * $Right = " + ($Left*$Right) }
+    Name                           Value
+    ----                           -----
+    temp                           8
 
-    1 * 1 = 1
-    1 * 2 = 2
-    1 * 3 = 3
-    1 * 4 = 4
-    1 * 5 = 5
-    ...
+    Step1[BEGIN]:$temp=
+    Step1[PROCESS]:$temp= - $_=1
+            Step2[PROCESS]:$temp=1 - $_=1
+    Step1[PROCESS]:$temp=1 - $_=2
+            Step2[PROCESS]:$temp=2 - $_=2
+    Step1[PROCESS]:$temp=2 - $_=3
+            Step2[PROCESS]:$temp=3 - $_=3
+    Step1[PROCESS]:$temp=3 - $_=4
+            Step2[PROCESS]:$temp=4 - $_=4
+    Step1[PROCESS]:$temp=4 - $_=5
+            Step2[PROCESS]:$temp=5 - $_=5
+
+    Get-Variable: Cannot find a variable with the name 'temp'.
 
 -Verbose
 
@@ -642,12 +681,8 @@ about_Common_Parameters
 
 See also
 
-about_Preference_Variables
-
-Write-Debug
-
-Write-Warning
-
-Write-Error
-
-Write-Verbose
+-   about_Preference_Variables
+-   Write-Debug
+-   Write-Error
+-   Write-Verbose
+-   Write-Warning

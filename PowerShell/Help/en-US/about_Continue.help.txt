@@ -121,14 +121,9 @@ not only exits the pipeline, it potentially terminates the entire runspace.
 
 See also
 
-about_Break
-
-about_For
-
-about_Comparison_Operators
-
-about_Throw
-
-about_Trap
-
-about_Try_Catch_Finally
+-   about_Break
+-   about_Comparison_Operators
+-   about_For
+-   about_Throw
+-   about_Trap
+-   about_Try_Catch_Finally

@@ -60,10 +60,7 @@ use these statements in the same way that you would use the If statement.
 
 See also
 
-about_Operators
-
-Compare-Object
-
-about_Comparison_operators
-
-about_If
+-   about_Operators
+-   about_Comparison_operators
+-   about_If
+-   Compare-Object

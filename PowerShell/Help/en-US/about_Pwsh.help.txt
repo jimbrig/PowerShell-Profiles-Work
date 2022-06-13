@@ -86,6 +86,12 @@ execution directory: pwsh -File %~dp0test.ps1 -TestParam %windir%. If you
 instead used .\test.ps1, PowerShell would throw an error because it cannot
 find the literal path .\test.ps1
 
+  [!NOTE] The FILE parameter cannot support scripts using a parameter that
+  expects an array of argument values. This, unfortunately, is a limitation
+  of how a native command gets argument values. When you call a native
+  executable (such as powershell or pwsh), it does not know what to do with
+  an array, so it's passed as a string.
+
 When the script file terminates with an exit command, the process exit code
 is set to the numeric argument used with the exit command. With normal
 termination, the exit code is always 0.
@@ -93,6 +99,11 @@ termination, the exit code is always 0.
 Similar to -Command, when a script-terminating error occurs, the exit code
 is set to 1. However, unlike with -Command, when the execution is
 interrupted with Ctrl-C the exit code is 0.
+
+  [!NOTE] As of PowerShell 7.2, the FILE parameter only accepts .ps1 files
+  on Windows. If another file type is provided an error is thrown. This
+  behavior is Windows specific. On other platforms, PowerShell attempts to
+  run other file types.
 
 -Command | -c
 
@@ -305,7 +316,7 @@ intended or supported for any other use.
 -STA
 
 Start PowerShell using a single-threaded apartment. This is the default.
-This switch is only available on Windows.
+This switch is only available on the Windows platform.
 
 -Version | -v
 

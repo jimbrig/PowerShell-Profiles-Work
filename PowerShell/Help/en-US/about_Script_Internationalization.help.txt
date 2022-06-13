@@ -225,5 +225,5 @@ See also
 -   about_Automatic_Variables
 -   about_Hash_Tables
 -   about_Quoting_Rules
--   ConvertFrom-StringData
 -   Import-LocalizedData
+-   ConvertFrom-StringData

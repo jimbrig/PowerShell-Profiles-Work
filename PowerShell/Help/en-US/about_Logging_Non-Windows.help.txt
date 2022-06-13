@@ -246,11 +246,8 @@ indicate the default value when no value is provided in the file.
 
 See also
 
-For Linux SYSLOG and RSYSLOG.CONF information, refer to the Linux
-computer's local man pages.
-
-For macOS OS_LOG information, see os_log developer documentation.
-
-about_Logging_Windows
-
-Generic SIEM integration
+-   For Linux SYSLOG and RSYSLOG.CONF information, refer to the Linux
+    computer's local man pages.
+-   For macOS OS_LOG information, see os_log developer documentation.
+-   about_Logging_Windows
+-   Generic SIEM integration

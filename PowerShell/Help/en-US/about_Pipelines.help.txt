@@ -338,6 +338,20 @@ It's important to remember that objects sent down the pipeline are
 delivered one at a time.
 
 
+Using native commands in the pipeline
+
+PowerShell allows you to include native external commands in the pipeline.
+However, it is important to note that PowerShell's pipeline is
+object-oriented and does not support raw byte data.
+
+Piping or redirecting output from a native program that outputs raw byte
+data converts the output to .NET strings. This conversion can cause
+corruption of the raw data output.
+
+As a workaround, call the native commands using cmd.exe /c or sh -c and use
+of the | and > operators provided by the native shell.
+
+
 Investigating pipeline errors
 
 When PowerShell can't associate the piped objects with a parameter of the
@@ -492,12 +506,8 @@ could use this new functionality.
 
 See also
 
-about_PSReadLine
-
-about_Objects
-
-about_Parameters
-
-about_Command_Syntax
-
-about_ForEach
+-   about_PSReadLine
+-   about_Objects
+-   about_Parameters
+-   about_Command_Syntax
+-   about_ForEach

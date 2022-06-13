@@ -286,6 +286,5 @@ Get-Help to specify a file system drive.
 
 See also
 
-about_Aliases
-
-about_Providers
+-   about_Aliases
+-   about_Providers

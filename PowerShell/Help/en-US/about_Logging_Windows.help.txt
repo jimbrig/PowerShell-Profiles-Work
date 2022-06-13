@@ -166,8 +166,6 @@ private key:
 
 See also
 
-about_Logging_Non-Windows
-
-PowerShell the Blue Team
-
-Generic SIEM integration
+-   about_Logging_Non-Windows
+-   PowerShell the Blue Team
+-   Generic SIEM integration

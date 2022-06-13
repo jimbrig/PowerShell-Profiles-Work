@@ -141,8 +141,36 @@ When you hit the Tab key, you would get the following result:
     $flavor = 'Chocolate'
 
 
+Tab completions for comment-based keywords
+
+Beginning in PowerShell 7.2, support was added for tab completion of the
+#requires parameters and the keywords for comment-based help.
+
+Example for #requires statement
+
+    #requires -<Ctrl-Space>
+
+Menu expansion show the following parameter options:
+
+    #requires -<Ctrl-Space>
+    Modules             PSEdition           RunAsAdministrator  Version
+
+Example for comment-based help
+
+    <#
+        .<Ctrl-Space>
+
+Menu expansion shows the following keyword options:
+
+     <#
+        .COMPONENT
+    COMPONENT              EXTERNALHELP           FUNCTIONALITY          NOTES                  REMOTEHELPRUNSPACE
+    DESCRIPTION            FORWARDHELPCATEGORY    INPUTS                 OUTPUTS                ROLE
+    EXAMPLE                FORWARDHELPTARGETNAME  LINK                   PARAMETER              SYNOPSIS
+
+
 See also
 
+-   about_Comment_Based_Help
 -   about_Functions_Argument_Completion
 -   about_Requires
--   about_Comment_Based_Help

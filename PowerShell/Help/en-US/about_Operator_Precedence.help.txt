@@ -160,20 +160,12 @@ intentions clear to people who are reading and maintaining your scripts.
 
 See also
 
-about_Operators
-
-about_Assignment_Operators
-
-about_Comparison_Operators
-
-about_Arithmetic_Operators
-
-about_Join
-
-about_Redirection
-
-about_Scopes
-
-about_Split
-
-about_Type_Operators
+-   about_Operators
+-   about_Arithmetic_Operators
+-   about_Assignment_Operators
+-   about_Comparison_Operators
+-   about_Type_Operators
+-   about_Join
+-   about_Redirection
+-   about_Scopes
+-   about_Split

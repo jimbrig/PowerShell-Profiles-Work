@@ -257,14 +257,14 @@ in the process.
 
 See also
 
+-   about_Job_Details
 -   about_Remote_Jobs
 -   about_Thread_Jobs
--   about_Job_Details
--   about_Remote
 -   about_PSSessions
--   Start-Job
+-   about_Remote
 -   Get-Job
 -   Receive-Job
+-   Remove-Job
+-   Start-Job
 -   Stop-Job
 -   Wait-Job
--   Remove-Job

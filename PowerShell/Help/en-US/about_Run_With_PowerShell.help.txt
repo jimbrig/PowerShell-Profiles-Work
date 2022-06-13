@@ -50,8 +50,6 @@ confirm the execution policy change.
 
 See also
 
-about_Execution_Policies
-
-about_Group_Policy_Settings
-
-about_Scripts
+-   about_Execution_Policies
+-   about_Group_Policy_Settings
+-   about_Scripts

@@ -25,13 +25,15 @@ expression mode and argument mode.
   [!NOTE] As PowerShell parses command input it tries to resolve the
   command names to cmdlets or native executables. If a command name does
   not have an exact match, PowerShell prepends Get- to the command as a
-  default verb. For example, PowerShell parses Process as Get-Process. It's
+  default verb. For example, PowerShell parses Service as Get-Service. It's
   not recommended to use this feature for the following reasons:
 
   -   It's inefficient. This causes PowerShell to search multiple times.
   -   External programs with the same name are resolved first, so you may
-      not execute intended cmdlet.
+      not execute the intended cmdlet.
   -   Get-Help and Get-Command don't recognize verb-less names.
+  -   The command name may be a reserved word or a language keyword.
+      Process is both, and will not resolve to Get-Process.
 
 
 Expression mode
@@ -90,10 +92,10 @@ it uses one of the following syntaxes:
         $HOME, are considered part of the same argument. Enclose the
         variable name in braces ({}) to separate it from subsequent
         characters. For example, ${HOME}.
-    -   When the variable reference include member access, the first of any
-        additional characters is considered the start of a new argument.
-        For example $HOME.Length-more results in two arguments: the value
-        of $HOME.Length and string literal -more.
+    -   When the variable reference includes member access, the first of
+        any additional characters is considered the start of a new
+        argument. For example $HOME.Length-more results in two arguments:
+        the value of $HOME.Length and string literal -more.
 
 -   Quotation marks (' and ") begin strings
 
@@ -196,8 +198,8 @@ prevent PowerShell from misinterpreting the parentheses.
 
 The stop-parsing token
 
-Beginning in PowerShell 3.0, you can use the stop-parsing token (--%) to
-stop PowerShell from interpreting input asPowerShell commands or
+Beginning in PowerShell 3.0, you can use the _stop-parsing_ (--%) token to
+stop PowerShell from interpreting input as PowerShell commands or
 expressions.
 
   [!NOTE] The stop-parsing token is only intended for use on Windows
@@ -247,7 +249,7 @@ must be escaped using extra quotes or backslash (\) characters.
 For more information about the escape requirements, see the documentation
 for ProcessStartInfo.Arguments.
 
-The following examples using the TestExe.exe tool. This tool is used by the
+The following examples use the TestExe.exe tool. This tool is used by the
 Pester tests in the PowerShell source repo. The goal of these examples is
 to pass the directory path "C:\Program Files (x86)\Microsoft\" to a native
 command so that it received the path as a quoted string.
@@ -270,6 +272,54 @@ The output is the same for all examples:
 You can build TestExe from the source code. See TestExe.
 
 
+Passing arguments to PowerShell commands
+
+Beginning in PowerShell 3.0, you can use the _end-of-parameters_ token (--)
+to stop PowerShell from interpreting input as PowerShell parameters. This
+is a convention specified in the POSIX Shell and Utilities specification.
+
+The end-of-parameters token (--) indicates that all arguments following it
+are to be passed in their actual form as though double quotes were placed
+around them. For example, using -- you can output the string -InputObject
+without using quotes or having it interpreted as a parameter:
+
+    Write-Output -- -InputObject
+
+    -InputObject
+
+Unlike the stop-parsing (--%) token, any values following the -- token can
+be interpreted as expressions by PowerShell.
+
+    Write-Output -- -InputObject $env:PROCESSOR_ARCHITECTURE
+
+    -InputObject
+    AMD64
+
+This behavior only applies to PowerShell commands. If you use the -- token
+when calling an external command, the -- string is passed as an argument to
+that command.
+
+    TestExe -echoargs -a -b -- -c
+
+The output shows that -- is passed as an argument to TestExe.
+
+    Arg 0 is <-a>
+    Arg 1 is <-b>
+    Arg 2 is <-->
+    Arg 3 is <-c>
+
+
+Experimental feature
+
+Powershell 7.2 includes the PSNATIVECOMMANDARGUMENTPASSING experimental
+feature. When this experimental feature is enabled PowerShell uses the
+ARGUMENTLIST property of the StartProcessInfo object rather than our
+current mechanism of reconstructing a string when invoking a native
+executable.
+
+For more information, see PSNativeCommandArgumentPassing.
+
+
 See also
 
-about_Command_Syntax
+-   about_Command_Syntax

@@ -21,11 +21,11 @@ PowerShell supports the following output streams.
   ---------- -------------------- ---------------- -------------------
   1          SUCCESS stream       PowerShell 2.0   Write-Output
   2          ERROR stream         PowerShell 2.0   Write-Error
-  3          WARNING stream       PowerShell 3.0   Write-Warning
-  4          VERBOSE stream       PowerShell 3.0   Write-Verbose
-  5          DEBUG stream         PowerShell 3.0   Write-Debug
+  3          WARNING stream       PowerShell 2.0   Write-Warning
+  4          VERBOSE stream       PowerShell 2.0   Write-Verbose
+  5          DEBUG stream         PowerShell 2.0   Write-Debug
   6          INFORMATION stream   PowerShell 5.0   Write-Information
-  n/a        PROGRESS stream      PowerShell 3.0   Write-Progress
+  n/a        PROGRESS stream      PowerShell 2.0   Write-Progress
 
   [!NOTE] The PROGRESS stream does not support redirection.
 
@@ -100,6 +100,8 @@ support redirection.
 
 See also
 
+-   about_CommonParameters
+-   about_Redirection
 -   Write-Debug
 -   Write-Error
 -   Write-Host
@@ -108,5 +110,3 @@ See also
 -   Write-Progress
 -   Write-Verbose
 -   Write-Warning
--   about_CommonParameters
--   about_Redirection

@@ -212,7 +212,7 @@ ConvertFrom-SecureString -SecureString $secureString -AsPlainText # 'Example'</d
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/convertfrom-securestring?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/convertfrom-securestring?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>ConvertTo-SecureString</maml:linkText>
@@ -256,7 +256,7 @@ ConvertFrom-SecureString -SecureString $secureString -AsPlainText # 'Example'</d
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>AsPlainText</maml:name>
           <maml:description>
-            <maml:para>Specifies a plain text string to convert to a secure string. The secure string cmdlets help protect confidential text. The text is encrypted for privacy and is deleted from computer memory after it is used. If you use this parameter to provide plain text as input, the system cannot protect that input in this manner. To use this parameter, you must also specify the Force parameter.</maml:para>
+            <maml:para>Specifies a plain text string to convert to a secure string. The secure string cmdlets help protect confidential text. The text is encrypted for privacy and is deleted from computer memory after it is used. If you use this parameter to provide plain text as input, the system cannot protect that input in this manner.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -267,7 +267,7 @@ ConvertFrom-SecureString -SecureString $secureString -AsPlainText # 'Example'</d
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>Force</maml:name>
           <maml:description>
-            <maml:para>Confirms that you understand the implications of using the AsPlainText parameter and still want to use it.</maml:para>
+            <maml:para>Beginning in PowerShell 7, The Force parameter is no longer required when using the AsPlainText parameter. While the parameter is not used, it was not removed to provide compatibility with earlier versions of PowerShell.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -335,7 +335,7 @@ ConvertFrom-SecureString -SecureString $secureString -AsPlainText # 'Example'</d
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
         <maml:name>AsPlainText</maml:name>
         <maml:description>
-          <maml:para>Specifies a plain text string to convert to a secure string. The secure string cmdlets help protect confidential text. The text is encrypted for privacy and is deleted from computer memory after it is used. If you use this parameter to provide plain text as input, the system cannot protect that input in this manner. To use this parameter, you must also specify the Force parameter.</maml:para>
+          <maml:para>Specifies a plain text string to convert to a secure string. The secure string cmdlets help protect confidential text. The text is encrypted for privacy and is deleted from computer memory after it is used. If you use this parameter to provide plain text as input, the system cannot protect that input in this manner.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
         <dev:type>
@@ -347,7 +347,7 @@ ConvertFrom-SecureString -SecureString $secureString -AsPlainText # 'Example'</d
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
         <maml:name>Force</maml:name>
         <maml:description>
-          <maml:para>Confirms that you understand the implications of using the AsPlainText parameter and still want to use it.</maml:para>
+          <maml:para>Beginning in PowerShell 7, The Force parameter is no longer required when using the AsPlainText parameter. While the parameter is not used, it was not removed to provide compatibility with earlier versions of PowerShell.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
         <dev:type>
@@ -465,7 +465,7 @@ $Secure2 = Get-Content Encrypted.txt | ConvertTo-SecureString -Key (1..16)</dev:
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>ConvertFrom-SecureString</maml:linkText>
@@ -843,7 +843,7 @@ $Secure2 = Get-Content Encrypted.txt | ConvertTo-SecureString -Key (1..16)</dev:
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Set-Acl</maml:linkText>
@@ -1034,7 +1034,7 @@ $Secure2 = Get-Content Encrypted.txt | ConvertTo-SecureString -Key (1..16)</dev:
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-authenticodesignature?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-authenticodesignature?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-ExecutionPolicy</maml:linkText>
@@ -1200,7 +1200,7 @@ Try the new Break All command</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-cmsmessage?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-cmsmessage?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Providers</maml:linkText>
@@ -1450,7 +1450,7 @@ Password           : System.Security.SecureString</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>PromptForCredential</maml:linkText>
@@ -1655,7 +1655,7 @@ Task 1:</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-executionpolicy?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-executionpolicy?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Execution_Policies</maml:linkText>
@@ -1876,7 +1876,7 @@ Path:                    C:\windows\system32\zap.pfx</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-pfxcertificate?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-pfxcertificate?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-AuthenticodeSignature</maml:linkText>
@@ -2067,7 +2067,7 @@ Mode                LastWriteTime         Length Name
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/new-filecatalog?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/new-filecatalog?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Test-FileCatalog</maml:linkText>
@@ -2357,7 +2357,7 @@ PS Cert:\CurrentUser\My&gt; Get-ChildItem -DocumentEncryptionCert</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/protect-cmsmessage?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/protect-cmsmessage?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Providers</maml:linkText>
@@ -2917,9 +2917,10 @@ $preserveInheritance = $true
 $NewAcl.SetAccessRuleProtection($isProtected, $preserveInheritance)
 Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
         <dev:remarks>
-          <maml:para>These commands is will disable access inheritance from parent folders, while still preserving the existing inherited access rules.</maml:para>
+          <maml:para>These commands disable access inheritance from parent folders, while still preserving the existing inherited access rules.</maml:para>
           <maml:para>The first command uses the `Get-Acl` cmdlet to get the security descriptor of the Dog.txt file.</maml:para>
-          <maml:para>Next, variables are created to convert the inherited access rules to explicit access rules. To protect the access rules associated with this from inheritance, set the `$isProtected` variable to `$true`.to allow inheritance, set `$isProtected` to `$false`. For more information, see set access rule protection (/dotnet/api/system.security.accesscontrol.objectsecurity.setaccessruleprotection). The `$preserveInheritance` variable set to `$true` to preserve inherited access rules; false to remove inherited access rules. Then the access rule protection is updated using the SetAccessRuleProtection() method.</maml:para>
+          <maml:para>Next, variables are created to convert the inherited access rules to explicit access rules. To protect the access rules associated with this from inheritance, set the `$isProtected` variable to `$true`. To allow inheritance, set `$isProtected` to `$false`. For more information, see set access rule protection (/dotnet/api/system.security.accesscontrol.objectsecurity.setaccessruleprotection).</maml:para>
+          <maml:para>Set the `$preserveInheritance` variable to `$true` to preserve inherited access rules or `$false` to remove inherited access rules. Then the access rule protection is updated using the SetAccessRuleProtection() method.</maml:para>
           <maml:para>The last command uses `Set-Acl` to apply the security descriptor of to Dog.txt. When the command completes, the ACLs of the Dog.txt that were inherited from the Pets folder will be applied directly to Dog.txt, and new access policies added to Pets will not change the access to Dog.txt.</maml:para>
         </dev:remarks>
       </command:example>
@@ -2947,7 +2948,7 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Acl</maml:linkText>
@@ -3505,7 +3506,7 @@ Set-AuthenticodeSignature -FilePath ServerProps.ps1 -Certificate $cert</dev:code
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-authenticodesignature?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-authenticodesignature?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-AuthenticodeSignature</maml:linkText>
@@ -3866,7 +3867,7 @@ Task 1:</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Execution_Policies</maml:linkText>
@@ -4134,7 +4135,7 @@ Signature     : System.Management.Automation.Signature</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/test-filecatalog?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/test-filecatalog?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>New-FileCatalog</maml:linkText>
@@ -4458,7 +4459,7 @@ Try the new Break All command</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/unprotect-cmsmessage?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.security/unprotect-cmsmessage?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Providers</maml:linkText>

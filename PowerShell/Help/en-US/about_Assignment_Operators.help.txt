@@ -664,14 +664,9 @@ uses Set-Variable to assign an array of 1, 2, 3 to the $a variable.
 
 See also
 
-about_Arrays
-
-about_Hash_Tables
-
-about_Variables
-
-Clear-Variable
-
-Remove-Variable
-
-Set-Variable
+-   about_Arrays
+-   about_Hash_Tables
+-   about_Variables
+-   Clear-Variable
+-   Remove-Variable
+-   Set-Variable

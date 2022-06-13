@@ -140,6 +140,5 @@ about_Windows_PowerShell_Compatibility
 
 See also
 
-about_Modules
-
-Import-Module
+-   about_Modules
+-   Import-Module

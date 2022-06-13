@@ -12,7 +12,7 @@
     <maml:description>
       <maml:para>The `Start-Transcript` cmdlet creates a record of all or part of a PowerShell session to a text file. The transcript includes all command that the user types and all output that appears on the console.</maml:para>
       <maml:para>Starting in Windows PowerShell 5.0, `Start-Transcript` includes the hostname in the generated file name of all transcripts. This is especially useful when your enterprise's logging is centralized. Files that are created by the `Start-Transcript` cmdlet include random characters in names to prevent potential overwrites or duplication when two or more transcripts are started simultaneously. This also prevents unauthorized discovery of transcripts that are stored in a centralized file share.</maml:para>
-      <maml:para>When using the Append parameter, if the target file doesn't have a Byte Order Mark (BOM) `Start-Transcript` defaults to `ASCII` encoding in the target file. This behavior can result in improper encoding of mulitbyte characters in the transcript.</maml:para>
+      <maml:para>If the target file doesn't have a Byte Order Mark (BOM), `Start-Transcript` defaults to `Utf8NoBom` encoding in the target file.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -463,7 +463,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.host/start-transcript?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Stop-Transcript</maml:linkText>
@@ -527,7 +527,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.host/stop-transcript?view=powershell-7.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.host/stop-transcript?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Start-Transcript</maml:linkText>

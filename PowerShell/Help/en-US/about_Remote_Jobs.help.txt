@@ -365,11 +365,11 @@ See also
 -   about_Remote
 -   about_Remote_Variables
 -   Invoke-Command
--   Start-Job
 -   Get-Job
--   Wait-Job
--   Stop-Job
 -   Remove-Job
--   New-PSSession
+-   Start-Job
+-   Stop-Job
+-   Wait-Job
 -   Enter-PSSession
 -   Exit-PSSession
+-   New-PSSession

@@ -340,16 +340,10 @@ $PSDefaultParameterValues, the Disabled key is displayed as FALSE.
 
 See also
 
-about_CommonParameters
-
-about_Functions_Advanced
-
-about_Functions_CmdletBindingAttribute
-
-about_Hash_Tables
-
-about_Preference_Variables
-
-about_Profiles
-
-about_Script_Blocks
+-   about_CommonParameters
+-   about_Functions_Advanced
+-   about_Functions_CmdletBindingAttribute
+-   about_Hash_Tables
+-   about_Preference_Variables
+-   about_Profiles
+-   about_Script_Blocks

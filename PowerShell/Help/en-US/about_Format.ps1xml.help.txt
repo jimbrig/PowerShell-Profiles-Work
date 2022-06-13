@@ -264,10 +264,15 @@ WideControl tag
 
 The <WideControl> tag typically contains a <WideEntries> tag. The
 <WideEntries> tag contains one or more <WideEntry> tags. A <WideEntry> tag
-typically contains a <PropertyName> tag that specifies the property to be
-displayed at the specified location in the view. The <PropertyName> tag can
-contain a <FormatString> tag that specifies how the property is to be
-displayed.
+contains one <WideItem> tag.
+
+A <WideItem> tag must include either a <PropertyName> tag or a
+<ScriptBlock> tag. A <PropertyName> tag specifies the property to display
+at the specified location in the view. A <ScriptBlock> tag specifies a
+script to evaluate and display at the specified location in the view.
+
+A <WideItem> tag can contain a <FormatString> tag that specifies how to
+display the property.
 
 CustomControl tag
 
@@ -403,16 +408,10 @@ specific PowerShell version.
 
 See also
 
-Export-FormatData
-
-Get-FormatData
-
-Get-TraceSource
-
-Format Schema XML Reference
-
-Trace-Command
-
-Update-FormatData
-
-Writing a PowerShell Formatting File
+-   Trace-Command
+-   Export-FormatData
+-   Get-FormatData
+-   Update-FormatData
+-   Get-TraceSource
+-   Format Schema XML Reference
+-   Writing a PowerShell Formatting File

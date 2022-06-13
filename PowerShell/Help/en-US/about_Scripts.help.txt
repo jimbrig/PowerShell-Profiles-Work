@@ -398,26 +398,15 @@ PowerShell has many useful features that you can use in scripts.
 
 See also
 
-about_Command_Precedence
-
-about_Comment_Based_Help
-
-about_Execution_Policies
-
-about_Functions
-
-about_Modules
-
-about_Profiles
-
-about_Requires
-
-about_Run_With_PowerShell
-
-about_Scopes
-
-about_Script_Blocks
-
-about_Signing
-
-Invoke-Command
+-   about_Command_Precedence
+-   about_Comment_Based_Help
+-   about_Execution_Policies
+-   about_Functions
+-   about_Modules
+-   about_Profiles
+-   about_Requires
+-   about_Run_With_PowerShell
+-   about_Scopes
+-   about_Script_Blocks
+-   about_Signing
+-   Invoke-Command

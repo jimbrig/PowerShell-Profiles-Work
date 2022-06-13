@@ -809,10 +809,7 @@ The following command uses this feature:
 
 See also
 
-about_Functions
-
-about_Functions_Advanced_Parameters
-
-about_Scripts
-
-How to Write Cmdlet Help
+-   about_Functions
+-   about_Functions_Advanced_Parameters
+-   about_Scripts
+-   How to Write Cmdlet Help

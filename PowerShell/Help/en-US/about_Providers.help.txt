@@ -50,6 +50,9 @@ your session, type:
 
     Get-PSProvider
 
+  [!NOTE] The CERTIFICATE, REGISTRY, and WSMAN providers are only available
+  on the Windows platform.
+
 
 Installing and removing providers
 
@@ -314,6 +317,5 @@ For a list of Help topics about the providers, type:
 
 See also
 
-about_Locations
-
-about_Path_Syntax
+-   about_Locations
+-   about_Path_Syntax

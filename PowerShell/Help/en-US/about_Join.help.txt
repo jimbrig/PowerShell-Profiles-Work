@@ -89,8 +89,6 @@ the strings in an XML file that has been saved in a here-string:
 
 See also
 
-about_Operators
-
-about_Comparison_Operators
-
-about_Split
+-   about_Operators
+-   about_Comparison_Operators
+-   about_Split

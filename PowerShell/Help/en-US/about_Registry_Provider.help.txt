@@ -25,6 +25,8 @@ Provides access to the registry keys, entries, and values in PowerShell.
 
 Detailed description
 
+  This information only applies to PowerShell running on Windows.
+
 The PowerShell REGISTRY provider lets you get, add, change, clear, and
 delete registry keys, entries, and values in PowerShell.
 
@@ -461,18 +463,18 @@ available on the Set-Item cmdlet in the registry drives, but it has no
 effect.
 
   Value          Description
-  -------------- --------------------------------------------------------------
-  String         Specifies a null-terminated string. Equivalent to REG_SZ.
+  -------------- ----------------------------------------------------------------
+  String         Specifies a null-terminated string. Used for REG_SZ values.
   ExpandString   Specifies a null-terminated string that contains unexpanded
                  references to environment variables that are expanded when
-                 the value is retrieved. Equivalent to REG_EXPAND_SZ.
-  Binary         Specifies binary data in any form. Equivalent to REG_BINARY.
-  DWord          Specifies a 32-bit binary number. Equivalent to REG_DWORD.
+                 the value is retrieved. Used for REG_EXPAND_SZ values.
+  Binary         Specifies binary data in any form. Used for REG_BINARY values.
+  DWord          Specifies a 32-bit binary number. Used for REG_DWORD values.
   MultiString    Specifies an array of null-terminated strings terminated by
-                 two null characters. Equivalent to REG_MULTI_SZ.
-  QWord          Specifies a 64-bit binary number. Equivalent to REG_QWORD.
+                 two null characters. Used for REG_MULTI_SZ values.
+  QWord          Specifies a 64-bit binary number. Used for REG_QWORD values.
   Unknown        Indicates an unsupported registry data type, such as
-                 REG_RESOURCE_LIST.
+                 REG_RESOURCE_LIST values.
 
 Cmdlets supported
 
@@ -505,4 +507,4 @@ specify a file system drive.
 
 See also
 
-about_Providers
+-   about_Providers

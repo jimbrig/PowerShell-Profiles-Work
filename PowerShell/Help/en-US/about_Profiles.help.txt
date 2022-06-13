@@ -299,18 +299,11 @@ session are available in $s.
 
 See also
 
-about_Automatic_Variables
-
-about_Functions
-
-about_Prompts
-
-about_Execution_Policies
-
-about_Signing
-
-about_Remote
-
-about_Scopes
-
-Set-ExecutionPolicy
+-   about_Automatic_Variables
+-   about_Execution_Policies
+-   about_Functions
+-   about_Prompts
+-   about_Remote
+-   about_Scopes
+-   about_Signing
+-   Set-ExecutionPolicy

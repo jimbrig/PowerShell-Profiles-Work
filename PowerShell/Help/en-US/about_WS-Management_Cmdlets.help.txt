@@ -164,28 +164,17 @@ Remote Hardware Management
 Events
 
 
-SEE ALSO
+See also
 
-Connect-WSMan
-
-Disable-WSManCredSSP
-
-Disconnect-WSMan
-
-Enable-WSManCredSSP
-
-Get-WSManCredSSP
-
-Get-WSManInstance
-
-Invoke-WSManAction
-
-New-WSManInstance
-
-Remove-WSManInstance
-
-Set-WSManInstance
-
-Set-WSManQuickConfig
-
-Test-WSMan
+-   Connect-WSMan
+-   Test-WSMan
+-   Invoke-WSManAction
+-   Disconnect-WSMan
+-   Disable-WSManCredSSP
+-   Enable-WSManCredSSP
+-   Get-WSManCredSSP
+-   Get-WSManInstance
+-   New-WSManInstance
+-   Remove-WSManInstance
+-   Set-WSManInstance
+-   Set-WSManQuickConfig

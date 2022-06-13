@@ -258,12 +258,8 @@ For more information on Generics, see Generics in .NET.
 
 See also
 
-about_Objects
-
-about_Methods
-
-about_Properties
-
-about_Pipelines
-
-about_Types.ps1xml
+-   about_Methods
+-   about_Objects
+-   about_Pipelines
+-   about_Properties
+-   about_Types.ps1xml

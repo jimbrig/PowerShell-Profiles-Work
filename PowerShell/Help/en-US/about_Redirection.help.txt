@@ -212,7 +212,7 @@ is truncated to 80 characters:
 
     Name                         Value
     ----                         -----
-    Path                         C:\Program Files\PowerShell\7-preview;C:\WINDOWS…
+    Path                         C:\Program Files\PowerShell\7;C:\WINDOWS…
 
 Considering that the console width may be set arbitrarily on systems where
 your script is run, you may prefer that PowerShell format table output to
@@ -284,6 +284,10 @@ about_Comparison_Operators.
 
 See also
 
+-   about_Command_Syntax
+-   about_Operators
+-   about_Output_Streams
+-   about_Path_Syntax
 -   Out-File
 -   Tee-Object
 -   Write-Debug
@@ -294,7 +298,3 @@ See also
 -   Write-Progress
 -   Write-Verbose
 -   Write-Warning
--   about_Output_Streams
--   about_Operators
--   about_Command_Syntax
--   about_Path_Syntax

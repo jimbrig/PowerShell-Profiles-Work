@@ -22,7 +22,7 @@ PowerShell console. It provides:
 -   Many configuration options
 -   Bash style completion (optional in Cmd mode, default in Emacs mode)
 -   Emacs yank/kill-ring
--   PowerShell token based "word" movement and delete
+-   PowerShell token based "word" movement and deletion
 
 PSReadLine requires PowerShell 3.0, or newer. PSReadLine works with default
 console host, Visual Studio Code, and Window Terminal. It does not work in
@@ -682,6 +682,11 @@ configurable set of characters.
 -   Vi insert mode: <Ctrl+LeftArrow>
 -   Vi command mode: <Ctrl+LeftArrow>
 
+The characters that define word boundaries are configured in the
+WordDelimiters property of the PSCONSOLEREADLINEOPTIONS object. To view or
+change the WORDDELIMITERS property, see Get-PSReadLineOption and
+Set-PSReadLineOption.
+
 BeginningOfLine
 
 If the input has multiple lines, move to the start of the current line, or
@@ -720,6 +725,11 @@ words, to the end of the next word. Word boundaries are defined by a
 configurable set of characters.
 
 -   Emacs: <Alt+f>, <Escape,f>
+
+The characters that define word boundaries are configured in the
+WordDelimiters property of the PSCONSOLEREADLINEOPTIONS object. To view or
+change the WORDDELIMITERS property, see Get-PSReadLineOption and
+Set-PSReadLineOption.
 
 GotoBrace
 
@@ -762,6 +772,11 @@ defined by a configurable set of characters.
 -   Vi insert mode: <Ctrl+RightArrow>
 -   Vi command mode: <Ctrl+RightArrow>
 
+The characters that define word boundaries are configured in the
+WordDelimiters property of the PSCONSOLEREADLINEOPTIONS object. To view or
+change the WORDDELIMITERS property, see Get-PSReadLineOption and
+Set-PSReadLineOption.
+
 NextWordEnd
 
 Move the cursor forward to the end of the current word, or if between
@@ -769,6 +784,11 @@ words, to the end of the next word. Word boundaries are defined by a
 configurable set of characters.
 
 -   Vi command mode: <e>
+
+The characters that define word boundaries are configured in the
+WordDelimiters property of the PSCONSOLEREADLINEOPTIONS object. To view or
+change the WORDDELIMITERS property, see Get-PSReadLineOption and
+Set-PSReadLineOption.
 
 PreviousLine
 
@@ -815,6 +835,11 @@ configurable set of characters.
 
 -   Vi command mode: <b>
 
+The characters that define word boundaries are configured in the
+WordDelimiters property of the PSCONSOLEREADLINEOPTIONS object. To view or
+change the WORDDELIMITERS property, see Get-PSReadLineOption and
+Set-PSReadLineOption.
+
 ViForwardChar
 
 Move the cursor one character to the right in the Vi edit mode. This may
@@ -855,6 +880,11 @@ Move the cursor forward to the start of the next word. Word boundaries are
 defined by a configurable set of characters.
 
 -   Vi command mode: <w>
+
+The characters that define word boundaries are configured in the
+WordDelimiters property of the PSCONSOLEREADLINEOPTIONS object. To view or
+change the WORDDELIMITERS property, see Get-PSReadLineOption and
+Set-PSReadLineOption.
 
 
 History functions
@@ -1021,7 +1051,12 @@ Clear the screen and draw the current line at the top of the screen.
 
 DigitArgument
 
-Start a new digit argument to pass to other functions.
+Start a new digit argument to pass to other functions. You can use this as
+a multiplier for the next function that is invoked by a keypress. For
+example, pressing <Alt+1> <Alt+0> sets the DIGIT-ARGUMENT value to 10.
+Then, pressing the # key sends 10 # characters (##########) to the input
+line. Similarly, you can use this with other operations, like <Delete> or
+Left-Arrow.
 
 -   Cmd: <Alt+0>, <Alt+1>, <Alt+2>, <Alt+3>, <Alt+4>, <Alt+5>, <Alt+6>,
     <Alt+7>, <Alt+8>, <Alt+9>, <Alt+->
@@ -1488,15 +1523,22 @@ Notes
 Command History
 
 PSReadLine maintains a history file containing all the commands and data
-you have entered from the command line. This may contain sensitive data
-including passwords. For example, if you use the ConvertTo-SecureString
-cmdlet the password is logged in the history file as plain text. The
-history files is a file named $($host.Name)_history.txt. On Windows systems
-the history file is stored at
+you have entered from the command line. The history files is a file named
+$($host.Name)_history.txt. On Windows systems the history file is stored at
 $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine. On non-Windows
 systems, the history files is stored at
 $env:XDG_DATA_HOME/powershell/PSReadLine or
 $env:HOME/.local/share/powershell/PSReadLine.
+
+The history can contain sensitive data including passwords. PSReadLine
+attempts to filter out sensitive information. Any command lines containing
+the following strings are not written to the history file.
+
+-   password
+-   asplaintext
+-   token
+-   apikey
+-   secret
 
 Feedback & Contributing To PSReadLine
 
@@ -1507,4 +1549,4 @@ Feel free to submit a pull request or submit feedback on the GitHub page.
 
 See Also
 
-PSReadLine is heavily influenced by the GNU readline library.
+-   PSReadLine is heavily influenced by the GNU readline library.

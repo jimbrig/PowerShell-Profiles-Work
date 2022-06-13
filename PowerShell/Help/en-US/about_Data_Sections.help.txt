@@ -183,20 +183,12 @@ A data section that includes a user-written cmdlet that generates data:
 
 See also
 
-about_Automatic_Variables
-
-about_Comparison_Operators
-
-about_Hash_Tables
-
-about_If
-
-about_Operators
-
-about_Quoting_Rules
-
-about_Script_Internationalization
-
-ConvertFrom-StringData
-
-Import-LocalizedData
+-   about_Automatic_Variables
+-   about_Comparison_Operators
+-   about_Hash_Tables
+-   about_If
+-   about_Operators
+-   about_Quoting_Rules
+-   about_Script_Internationalization
+-   ConvertFrom-StringData
+-   Import-LocalizedData

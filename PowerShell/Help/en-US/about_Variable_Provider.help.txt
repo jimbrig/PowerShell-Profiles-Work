@@ -253,8 +253,6 @@ Get-Help to specify a file system drive.
 
 See also
 
-about_Variables
-
-about_Automatic_Variables
-
-about_Providers
+-   about_Automatic_Variables
+-   about_Providers
+-   about_Variables
