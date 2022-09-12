@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.
 - Update CHANGELOG.md
 - Update CHANGELOG.md
 - Cleanup
+- Update CHANGELOG.md
+- XML for PWSH modules
+- Update-Help
 
 ### Features
 
@@ -17,11 +20,30 @@ All notable changes to this project will be documented in this file.
 - Silence errors/warnings and load modules.ps1
 - Update/backup and sync modules
 - Add new completion scripts
+- Fix r alias
+- Update profiles
+- Add expl and np (explorer and notepad) aliases
+- Import PSREADLINE
+- Sync with core PowerShell repo
+- Enhance all shell completion scripts
+- Add Remote-OldModules.ps1 custom function
+- Add Optimize-PSReadLineHistory.ps1 custom function
+- Update-Help (all modules)
+- Add custom function Set-FolderIcon.ps1
+- Add custom install script for OfficeRibbonXEditor
+- Add Network TLS 1.2 protocol to profile
+- Add new Extract-DacPacFromDB function
+- Add new New-AzureServerFirewallRule.ps1 Function
+- Update options.ps1
+- Add Fix-ScreenReaderWarning.ps1 option
+- Add git-cliff GHA
 
 ### Config
 
 - Cleaned up unnecessary modules and environments from core profile
 - Format JSON
+- Update modules.json
+- Un-ignore .github directory
 
 ## [1.1.0] - 2021-10-14
 
