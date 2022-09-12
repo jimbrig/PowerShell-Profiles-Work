@@ -9,7 +9,7 @@
 !*.yml
 !*.xml
 !*.R*
-
+!.github/
 !PowerShell/
 !WindowsPowerShell/
 .Rhistory
