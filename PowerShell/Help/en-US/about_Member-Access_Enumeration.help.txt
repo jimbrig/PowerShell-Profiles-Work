@@ -165,6 +165,18 @@ the collection object and not the items in it.
     b
     c
 
+  [!NOTE] Collections that implement the SYSTEM.COLLECTIONS.IDICTIONARY
+  interface, such as HASHTABLE and ORDEREDDICTIONARY, have a different
+  behavior. When you use the member-access operator on a dictionary that
+  has a key with the same name as a property, it returns the key's value
+  instead of the property's.
+
+  You can access the dictionary object's property value with the PSBASE
+  intrinsic member. For example, if the key name is keys and you want to
+  return the collection of the HASHTABLE keys, use this syntax:
+
+      $hashtable.PSBase.Keys
+
 Accessing members that exist on all items in a collection but not itself
 
 When you use the member-access operator on a collection object that does

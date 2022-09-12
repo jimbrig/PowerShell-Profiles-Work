@@ -641,7 +641,7 @@ Id CommandLine
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
-        <maml:para>`Clear-Host` is a simple function, not an advanced function. As such, you cannot use common parameters, such as Debug , in a `Clear-Host` command.</maml:para>
+        <maml:para>`Clear-Host` is a simple function, not an advanced function. There are no parameters.</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -5272,7 +5272,7 @@ PS C:\&gt;</dev:code>
             <maml:para>The default value is Default.</maml:para>
             <maml:para>CredSSP authentication is available only in Windows Vista, Windows Server 2008, and later versions of the Windows operating system.</maml:para>
             <maml:para>For more information about the values of this parameter, see AuthenticationMechanism Enum (/dotnet/api/system.management.automation.runspaces.authenticationmechanism).</maml:para>
-            <maml:para>Caution: Credential Security Support Provider (CredSSP) authentication, in which the user's credentials are passed to a remote computer to be authenticated, is designed for commands that require authentication on more than one resource, such as accessing a remote network share. This mechanism increases the security risk of the remote operation. If the remote computer is compromised, the credentials that are passed to it can be used to control the network session.</maml:para>
+            <maml:para>&gt; [!CAUTION] &gt; Credential Security Support Provider (CredSSP) authentication, in which the user's credentials are &gt; passed to a remote computer to be authenticated, is designed for commands that require &gt; authentication on more than one resource, such as accessing a remote network share. This mechanism &gt; increases the security risk of the remote operation. If the remote computer is compromised, the &gt; credentials that are passed to it can be used to control the network session.</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Default</command:parameterValue>
@@ -5360,7 +5360,7 @@ PS C:\&gt;</dev:code>
             <maml:para>Specifies a computer name. This cmdlet starts an interactive session with the specified remote computer. Enter only one computer name. The default is the local computer.</maml:para>
             <maml:para>Type the NetBIOS name, the IP address, or the fully qualified domain name of the computer. You can also pipe a computer name to `Enter-PSSession`.</maml:para>
             <maml:para>To use an IP address in the value of the ComputerName parameter, the command must include the Credential parameter. Also, the computer must be configured for HTTPS transport or the IP address of the remote computer must be included in the WinRM TrustedHosts list on the local computer. For instructions for adding a computer name to the TrustedHosts list, see "How to Add a Computer to the Trusted Host List" in about_Remote_Troubleshooting (About/about_Remote_Troubleshooting.md).</maml:para>
-            <maml:para>Note: In Windows Vista and later versions of the Windows operating system, to include the local computer in the value of the ComputerName parameter, you must start PowerShell with the Run as administrator option.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; On the Windows operating system, to include the local computer in the value of the &gt; ComputerName parameter, you must start PowerShell with the Run as administrator option.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -5413,7 +5413,7 @@ PS C:\&gt;</dev:code>
             <maml:para>The default value is Default.</maml:para>
             <maml:para>CredSSP authentication is available only in Windows Vista, Windows Server 2008, and later versions of the Windows operating system.</maml:para>
             <maml:para>For more information about the values of this parameter, see AuthenticationMechanism Enum (/dotnet/api/system.management.automation.runspaces.authenticationmechanism).</maml:para>
-            <maml:para>Caution: Credential Security Support Provider (CredSSP) authentication, in which the user's credentials are passed to a remote computer to be authenticated, is designed for commands that require authentication on more than one resource, such as accessing a remote network share. This mechanism increases the security risk of the remote operation. If the remote computer is compromised, the credentials that are passed to it can be used to control the network session.</maml:para>
+            <maml:para>&gt; [!CAUTION] &gt; Credential Security Support Provider (CredSSP) authentication, in which the user's credentials are &gt; passed to a remote computer to be authenticated, is designed for commands that require &gt; authentication on more than one resource, such as accessing a remote network share. This mechanism &gt; increases the security risk of the remote operation. If the remote computer is compromised, the &gt; credentials that are passed to it can be used to control the network session.</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Default</command:parameterValue>
@@ -5742,7 +5742,7 @@ PS C:\&gt;</dev:code>
             <maml:name>System.String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>powershell</dev:defaultValue>
+          <dev:defaultValue>Powershell</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>UserName</maml:name>
@@ -5872,7 +5872,7 @@ PS C:\&gt;</dev:code>
           <maml:para>The default value is Default.</maml:para>
           <maml:para>CredSSP authentication is available only in Windows Vista, Windows Server 2008, and later versions of the Windows operating system.</maml:para>
           <maml:para>For more information about the values of this parameter, see AuthenticationMechanism Enum (/dotnet/api/system.management.automation.runspaces.authenticationmechanism).</maml:para>
-          <maml:para>Caution: Credential Security Support Provider (CredSSP) authentication, in which the user's credentials are passed to a remote computer to be authenticated, is designed for commands that require authentication on more than one resource, such as accessing a remote network share. This mechanism increases the security risk of the remote operation. If the remote computer is compromised, the credentials that are passed to it can be used to control the network session.</maml:para>
+          <maml:para>&gt; [!CAUTION] &gt; Credential Security Support Provider (CredSSP) authentication, in which the user's credentials are &gt; passed to a remote computer to be authenticated, is designed for commands that require &gt; authentication on more than one resource, such as accessing a remote network share. This mechanism &gt; increases the security risk of the remote operation. If the remote computer is compromised, the &gt; credentials that are passed to it can be used to control the network session.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.Runspaces.AuthenticationMechanism</command:parameterValue>
         <dev:type>
@@ -5901,7 +5901,7 @@ PS C:\&gt;</dev:code>
           <maml:para>Specifies a computer name. This cmdlet starts an interactive session with the specified remote computer. Enter only one computer name. The default is the local computer.</maml:para>
           <maml:para>Type the NetBIOS name, the IP address, or the fully qualified domain name of the computer. You can also pipe a computer name to `Enter-PSSession`.</maml:para>
           <maml:para>To use an IP address in the value of the ComputerName parameter, the command must include the Credential parameter. Also, the computer must be configured for HTTPS transport or the IP address of the remote computer must be included in the WinRM TrustedHosts list on the local computer. For instructions for adding a computer name to the TrustedHosts list, see "How to Add a Computer to the Trusted Host List" in about_Remote_Troubleshooting (About/about_Remote_Troubleshooting.md).</maml:para>
-          <maml:para>Note: In Windows Vista and later versions of the Windows operating system, to include the local computer in the value of the ComputerName parameter, you must start PowerShell with the Run as administrator option.</maml:para>
+          <maml:para>&gt; [!NOTE] &gt; On the Windows operating system, to include the local computer in the value of the &gt; ComputerName parameter, you must start PowerShell with the Run as administrator option.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
         <dev:type>
@@ -6151,7 +6151,7 @@ PS C:\&gt;</dev:code>
           <maml:name>System.String</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>powershell</dev:defaultValue>
+        <dev:defaultValue>Powershell</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>UserName</maml:name>
@@ -6236,7 +6236,7 @@ PS C:\&gt;</dev:code>
         <maml:para>`Enter-PSSession` requires the `Get-Command`, `Out-Default`, and `Exit-PSSession` cmdlets. If these cmdlets are not included in the session configuration on the remote computer, the `Enter-PSSession` commands fails.</maml:para>
         <maml:para>Unlike `Invoke-Command`, which parses and interprets the commands before it sends them to the remote computer, `Enter-PSSession` sends the commands directly to the remote computer without interpretation.</maml:para>
         <maml:para>If the session you want to enter is busy processing a command, there might be a delay before PowerShell responds to the `Enter-PSSession` command. You are connected as soon as the session is available. To cancel the `Enter-PSSession` command, press &lt;kbd&gt;CTRL&lt;/kbd&gt;+&lt;kbd&gt;C&lt;/kbd&gt;.</maml:para>
-        <maml:para>The HostName parameter set was included starting with PowerShell 6.0. It was added to provide PowerShell remoting based on Secure Shell (SSH). Both SSH and PowerShell are supported on multiple platforms (Windows, Linux, macOS) and PowerShell remoting will work over these platforms where PowerShell and SSH are installed and configured. This is separate from the previous Windows only remoting that is based on WinRM and much of the WinRM specific features and limitations do not apply. For example, WinRM based quotas, session options, custom endpoint configuration, and disconnect/reconnect features are currently not supported. For more information about how to set up PowerShell SSH remoting, see PowerShell Remoting Over SSH (/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).</maml:para>
+        <maml:para>The HostName parameter set was included starting with PowerShell 6.0. It was added to provide PowerShell remoting based on Secure Shell (SSH). Both SSH and PowerShell are supported on multiple platforms (Windows, Linux, macOS) and PowerShell remoting works over these platforms where PowerShell and SSH are installed and configured. This is separate from the previous Windows only remoting that is based on WinRM and much of the WinRM specific features and limitations do not apply. For example, WinRM based quotas, session options, custom endpoint configuration, and disconnect/reconnect features are currently not supported. For more information about how to set up PowerShell SSH remoting, see PowerShell Remoting Over SSH (/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).</maml:para>
         <maml:para>Prior to PowerShell 7.1, remoting over SSH did not support second-hop remote sessions. This capability was limited to sessions using WinRM. PowerShell 7.1 allows `Enter-PSSession` and `Enter-PSHostProcess` to work from within any interactive remote session.</maml:para>
       </maml:alert>
     </maml:alertSet>
@@ -6253,14 +6253,14 @@ PS C:\&gt;</dev:code>
       <command:example>
         <maml:title>--------- Example 2: Work with an interactive session ---------</maml:title>
         <dev:code>PS C:\&gt; Enter-PSSession -ComputerName Server01
-[Server01]: PS&gt;
+[Server01]: PS C:\&gt;
 [Server01]: PS C:\&gt; Get-Process PowerShell &gt; C:\ps-test\Process.txt
 [Server01]: PS C:\&gt; exit
 PS C:\&gt;
-PS C:\&gt; dir C:\ps-test\process.txt
-Get-ChildItem : Cannot find path 'C:\ps-test\process.txt' because it does not exist.
+PS C:\&gt; dir C:\ps-test\Process.txt
+Get-ChildItem : Cannot find path 'C:\ps-test\Process.txt' because it does not exist.
 At line:1 char:4
-+ dir &lt;&lt;&lt;&lt;  c:\ps-test\process.txt</dev:code>
++ dir &lt;&lt;&lt;&lt;  c:\ps-test\Process.txt</dev:code>
         <dev:remarks>
           <maml:para>This command shows how to work in an interactive session with a remote computer.</maml:para>
         </dev:remarks>
@@ -6296,14 +6296,14 @@ PS&gt;</dev:code>
         <maml:title>------ Example 6: Start an interactive session using SSH ------</maml:title>
         <dev:code>PS&gt; Enter-PSSession -HostName UserA@LinuxServer01</dev:code>
         <dev:remarks>
-          <maml:para>This example shows how to start an interactive session using Secure Shell (SSH). If SSH is configured on the remote computer to prompt for passwords then you will get a password prompt. Otherwise you will have to use SSH key based user authentication.</maml:para>
+          <maml:para>This example shows how to start an interactive session using Secure Shell (SSH). If SSH is configured on the remote computer to use passwords then you are prompted to enter a password. Otherwise, you must use key-based user authentication.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>Example 7: Start an interactive session using SSH and specify the Port and user authentication key</maml:title>
-        <dev:code>PS&gt; Enter-PSSession -HostName UserA@LinuxServer02:22 -KeyFilePath c:\&lt;path&gt;\userAKey_rsa</dev:code>
+        <maml:title>Example 7: Start an interactive session using SSH with a port and user authentication key</maml:title>
+        <dev:code>PS&gt; Enter-PSSession -HostName UserA@LinuxServer02:22 -KeyFilePath c:\sshkeys\userAKey_rsa</dev:code>
         <dev:remarks>
-          <maml:para>This example shows how to start an interactive session using SSH. It uses the Port parameter to specify the port to use and the KeyFilePath parameter to specify an RSA key used to authenticate the user on the remote computer.</maml:para>
+          <maml:para>This example shows how to start an interactive session using SSH. The username and SSH port number are specified as parts of the value of the HostName parameter. The KeyFilePath parameter specifies the location of an RSA key used to authenticate the user on the remote computer.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -6764,7 +6764,7 @@ Export-ModuleMember -Function Start-Test -Alias stt</dev:code>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The `ForEach-Object` cmdlet performs an operation on each item in a collection of input objects. The input objects can be piped to the cmdlet or specified by using the InputObject parameter.</maml:para>
+      <maml:para>The `ForEach-Object` cmdlet performs an operation on each item in a collection of input objects. The input objects can be piped to the cmdlet or specified using the InputObject parameter.</maml:para>
       <maml:para>Starting in Windows PowerShell 3.0, there are two different ways to construct a `ForEach-Object` command.</maml:para>
       <maml:para>- Script block . You can use a script block to specify the operation. Within the script block,   use the `$_` variable to represent the current object. The script block is the value of the Process parameter. The script block can contain any PowerShell script.</maml:para>
       <maml:para>  For example, the following command gets the value of the ProcessName property of each process   on the computer.</maml:para>
@@ -6889,6 +6889,7 @@ Export-ModuleMember -Function Start-Test -Alias stt</dev:code>
           <maml:name>ThrottleLimit</maml:name>
           <maml:description>
             <maml:para>Specifies the number of script blocks that in parallel. Input objects are blocked until the running script block count falls below the ThrottleLimit . The default value is `5`.</maml:para>
+            <maml:para>The ThrottleLimit parameter limits the number of parallel scripts running during each instance of `ForEach-Object -Parallel`. It does not limit the number of jobs that can be created when using the AsJob parameter. Since jobs themselves run concurrently, it is possible to create a number of parallel jobs, each running up to the throttle limit number of concurrent scriptblocks.</maml:para>
             <maml:para>This parameter was introduced in PowerShell 7.0.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
@@ -7156,6 +7157,7 @@ Export-ModuleMember -Function Start-Test -Alias stt</dev:code>
         <maml:name>ThrottleLimit</maml:name>
         <maml:description>
           <maml:para>Specifies the number of script blocks that in parallel. Input objects are blocked until the running script block count falls below the ThrottleLimit . The default value is `5`.</maml:para>
+          <maml:para>The ThrottleLimit parameter limits the number of parallel scripts running during each instance of `ForEach-Object -Parallel`. It does not limit the number of jobs that can be created when using the AsJob parameter. Since jobs themselves run concurrently, it is possible to create a number of parallel jobs, each running up to the throttle limit number of concurrent scriptblocks.</maml:para>
           <maml:para>This parameter was introduced in PowerShell 7.0.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
@@ -7247,7 +7249,7 @@ Export-ModuleMember -Function Start-Test -Alias stt</dev:code>
         <maml:para>  Scriptblock invocation always attempts to run in its home runspace, regardless of where it's   actually invoked. However, `ForEach-Object -Parallel` creates temporary runspaces that get deleted   after use, so there's no runspace for the scripts to execute in anymore.</maml:para>
         <maml:para>  This behavior can work as long as the home runspace still exists. However, you may not get   the desired result if the script is dependent on external variables that are only present in the   caller's runspace and not the home runspace.</maml:para>
         <maml:para>- Non-terminating errors are written to the cmdlet error stream as they occur in parallel running   scriptblocks. Because parallel scriptblock execution order is non-deterministic, the order in   which errors appear in the error stream is random. Likewise, messages written to other data   streams, like warning, verbose, or information are written to those data streams in an   indeterminate order.</maml:para>
-        <maml:para>  Terminating errors, such as exceptions, terminate the individual parallel instance of the   scriptblocks in which they occur. A terminating error in one scriptblocks may not cause the   termination of the `Foreach-Object` cmdlet. The other scriptblocks, running in parallel, continue   to run unless they also encounter a terminating error. The terminating error is written to the   error data stream as an ErrorRecord with a FullyQualifiedErrorId of `PSTaskException`.   Terminating errors can be converted to non-terminating errors using PowerShell try/catch or trap   blocks.</maml:para>
+        <maml:para>  Terminating errors, such as exceptions, terminate the individual parallel instance of the   scriptblocks in which they occur. A terminating error in one scriptblocks may not cause the   termination of the `Foreach-Object` cmdlet. The other scriptblocks, running in parallel, continue   to run unless they also encounter a terminating error. The terminating error is written to the   error data stream as an ErrorRecord with a FullyQualifiedErrorId of `PSTaskException`.   Terminating errors can be converted to non-terminating errors using PowerShell `try`/`catch` or   `trap` blocks.</maml:para>
         <maml:para>- PipelineVariable (About/about_CommonParameters.md)common parameter variables are not supported   in parallel scenarios even with the `$using:` keyword.</maml:para>
         <maml:para>  &gt; [!IMPORTANT]   &gt; The `ForEach-Object -Parallel` parameter set runs script blocks in parallel on separate process   &gt; threads. The `$using:` keyword allows passing variable references from the cmdlet invocation   &gt; thread to each running script block thread. Since the script blocks run in different threads,   &gt; the object variables passed by reference must be used safely. Generally it is safe to read from   &gt; referenced objects that don't change. But if the object state is being modified then you must   &gt; used thread safe objects, such as .NET System.Collection.Concurrent types (See Example 11).</maml:para>
       </maml:alert>
@@ -7277,7 +7279,7 @@ Export-ModuleMember -Function Start-Test -Alias stt</dev:code>
         <dev:code>$Events = Get-EventLog -LogName System -Newest 1000
 $events | ForEach-Object -Begin {Get-Date} -Process {Out-File -FilePath Events.txt -Append -InputObject $_.Message} -End {Get-Date}</dev:code>
         <dev:remarks>
-          <maml:para>`Get-EventLog` gets the 1000 most recent events from the System event log and stores them in the `$Events` variable. `$Events` is then piped to the `ForEach-Object` cmdlet. The Begin parameter displays the current date and time. Next, the Process parameter uses the `Out-File` cmdlet to create a text file that is named events.txt and stores the message property of each of the events in that file. Last, the End parameter is used to display the date and time after all of the processing has completed.</maml:para>
+          <maml:para>`Get-EventLog` gets the 1000 most recent events from the System event log and stores them in the `$Events` variable. `$Events` is then piped to the `ForEach-Object` cmdlet. The Begin parameter displays the current date and time. Next, the Process parameter uses the `Out-File` cmdlet to create a text file that is named events.txt and stores the message property of each of the events in that file. Last, the End parameter is used to display the date and time after all the processing has completed.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -7287,12 +7289,12 @@ $events | ForEach-Object -Begin {Get-Date} -Process {Out-File -FilePath Events.t
         <dev:remarks>
           <maml:para>You can use this format to change the form or content of a registry entry value.</maml:para>
           <maml:para>Each subkey in the Network key represents a mapped network drive that reconnects at sign on. The RemotePath entry contains the UNC path of the connected drive. For example, if you map the E: drive to `\Server\Share`, an E subkey is created in `HKCU:\Network` with the RemotePath registry value set to `\Server\Share`.</maml:para>
-          <maml:para>The command uses the `Get-ItemProperty` cmdlet to get all of the subkeys of the Network key and the `Set-ItemProperty` cmdlet to change the value of the RemotePath registry entry in each key. In the `Set-ItemProperty` command, the path is the value of the PSPath property of the registry key. This is a property of the Microsoft .NET Framework object that represents the registry key, not a registry entry. The command uses the ToUpper() method of the RemotePath value, which is a string (REG_SZ).</maml:para>
+          <maml:para>The command uses the `Get-ItemProperty` cmdlet to get all the subkeys of the Network key and the `Set-ItemProperty` cmdlet to change the value of the RemotePath registry entry in each key. In the `Set-ItemProperty` command, the path is the value of the PSPath property of the registry key. This is a property of the Microsoft .NET Framework object that represents the registry key, not a registry entry. The command uses the ToUpper() method of the RemotePath value, which is a string (REG_SZ).</maml:para>
           <maml:para>Because `Set-ItemProperty` is changing the property of each key, the `ForEach-Object` cmdlet is required to access the property.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>--------- Example 5: Use the $Null automatic variable ---------</maml:title>
+        <maml:title>--------- Example 5: Use the $null automatic variable ---------</maml:title>
         <dev:code>1, 2, $null, 4 | ForEach-Object {"Hello"}
 
 Hello
@@ -7300,7 +7302,7 @@ Hello
 Hello
 Hello</dev:code>
         <dev:remarks>
-          <maml:para>Because PowerShell treats null as an explicit placeholder, the `ForEach-Object` cmdlet generates a value for `$Null`, just as it does for other objects that you pipe to it.</maml:para>
+          <maml:para>Because PowerShell treats `$null` as an explicit placeholder, the `ForEach-Object` cmdlet generates a value for `$null` as it does for other objects piped to it.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -7425,7 +7427,7 @@ Output: 8
 Output: 9
 Output: 10</dev:code>
         <dev:remarks>
-          <maml:para>the `$job` variable receives the job object that collects output data and monitors running state. The job object is piped to `Receive-Job` with the Wait switch parameter. And this streams output to the console, just as if `ForEach-Object -Parallel` was run without AsJob .</maml:para>
+          <maml:para>the `$job` variable receives the job object that collects output data and monitors running state. The job object is piped to `Receive-Job` with the Wait switch parameter, which streams output to the console as if `ForEach-Object -Parallel` was run without AsJob .</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -7507,6 +7509,19 @@ Line |
      | The value of the using variable '$using:test2' cannot be retrieved because it has not been set in the local session.</dev:code>
         <dev:remarks>
           <maml:para>The nested scriptblock can't access the `$test2` variable and an error is thrown.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 18: Creating multiple jobs that run scripts in parallel</maml:title>
+        <dev:code>$jobs = for ($i=0; $i -lt 10; $i++) {
+    1..10 | ForEach-Object -Parallel {
+        ./RunMyScript.ps1
+    } -AsJob -ThrottleLimit 5
+}
+
+$jobs | Receive-Job -Wait</dev:code>
+        <dev:remarks>
+          <maml:para>This example creates 10 running jobs. Each job runs no more that 5 scripts concurrently. The total number of instances running concurrently is limited to 50 (10 jobs times the ThrottleLimit of 5).</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -7643,9 +7658,11 @@ Line |
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedModule</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects, described in the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor?view=powershellsdk-1.1.0#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_). For example, the FullyQualifiedModule parameter accepts a module name that is specified in one of the following formats:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
             <maml:para>You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. The two parameters are mutually exclusive.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
@@ -7804,9 +7821,11 @@ Line |
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedModule</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects, described in the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor?view=powershellsdk-1.1.0#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_). For example, the FullyQualifiedModule parameter accepts a module name that is specified in one of the following formats:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
             <maml:para>You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. The two parameters are mutually exclusive.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
@@ -7987,9 +8006,11 @@ Line |
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
         <maml:name>FullyQualifiedModule</maml:name>
         <maml:description>
-          <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects, described in the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor?view=powershellsdk-1.1.0#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_). For example, the FullyQualifiedModule parameter accepts a module name that is specified in one of the following formats:</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional.</maml:para>
+          <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+          <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+          <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+          <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+          <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
           <maml:para>You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. The two parameters are mutually exclusive.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
@@ -11055,11 +11076,12 @@ Access is denied.</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedName</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#microsoft-powershell-commands-modulespecification-ctor(system-collections-hashtable)).</maml:para>
-            <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; This parameter also accepts simpler forms of input: &gt; &gt; - A module name &gt; - A fully-qualified path to the module &gt; - A relative path to the module. When used in a script, the relative path is resolved to a &gt;   fully-qualified path relative to the location of the script file.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+            <maml:para>You cannot specify the FullyQualifiedName parameter in the same command as a Name parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -11097,11 +11119,12 @@ Access is denied.</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedName</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#microsoft-powershell-commands-modulespecification-ctor(system-collections-hashtable)).</maml:para>
-            <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; This parameter also accepts simpler forms of input: &gt; &gt; - A module name &gt; - A fully-qualified path to the module &gt; - A relative path to the module. When used in a script, the relative path is resolved to a &gt;   fully-qualified path relative to the location of the script file.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+            <maml:para>You cannot specify the FullyQualifiedName parameter in the same command as a Name parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -11228,11 +11251,12 @@ Access is denied.</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedName</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#microsoft-powershell-commands-modulespecification-ctor(system-collections-hashtable)).</maml:para>
-            <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; This parameter also accepts simpler forms of input: &gt; &gt; - A module name &gt; - A fully-qualified path to the module &gt; - A relative path to the module. When used in a script, the relative path is resolved to a &gt;   fully-qualified path relative to the location of the script file.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+            <maml:para>You cannot specify the FullyQualifiedName parameter in the same command as a Name parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -11298,11 +11322,12 @@ Access is denied.</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedName</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#microsoft-powershell-commands-modulespecification-ctor(system-collections-hashtable)).</maml:para>
-            <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; This parameter also accepts simpler forms of input: &gt; &gt; - A module name &gt; - A fully-qualified path to the module &gt; - A relative path to the module. When used in a script, the relative path is resolved to a &gt;   fully-qualified path relative to the location of the script file.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+            <maml:para>You cannot specify the FullyQualifiedName parameter in the same command as a Name parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -11444,11 +11469,12 @@ Access is denied.</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
         <maml:name>FullyQualifiedName</maml:name>
         <maml:description>
-          <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#microsoft-powershell-commands-modulespecification-ctor(system-collections-hashtable)).</maml:para>
-          <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
-          <maml:para>&gt; [!NOTE] &gt; This parameter also accepts simpler forms of input: &gt; &gt; - A module name &gt; - A fully-qualified path to the module &gt; - A relative path to the module. When used in a script, the relative path is resolved to a &gt;   fully-qualified path relative to the location of the script file.</maml:para>
+          <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+          <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+          <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+          <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+          <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+          <maml:para>You cannot specify the FullyQualifiedName parameter in the same command as a Name parameter.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
         <dev:type>
@@ -11604,14 +11630,15 @@ Access is denied.</dev:code>
       </command:example>
       <command:example>
         <maml:title>----- Example 4: Get a module by its fully qualified name -----</maml:title>
-        <dev:code>$FullyQualifedName = @{ModuleName="Microsoft.PowerShell.Management";ModuleVersion="3.1.0.0"}
-Get-Module -FullyQualifiedName $FullyQualifedName | Format-Table -Property Name,Version
+        <dev:code>$FullyQualifiedName = @{ModuleName="Microsoft.PowerShell.Management";ModuleVersion="3.1.0.0"}
+Get-Module -FullyQualifiedName $FullyQualifiedName | Format-Table -Property Name,Version
 
 Name                             Version
 ----                             -------
 Microsoft.PowerShell.Management  3.1.0.0</dev:code>
         <dev:remarks>
-          <maml:para>This command gets the Microsoft.PowerShell.Management module by specifying the fully qualified name of the module by using the FullyQualifiedName parameter. The command then pipes the results into the `Format-Table` cmdlet to format the results as a table with Name and Version as the column headings.</maml:para>
+          <maml:para>This example gets the Microsoft.PowerShell.Management module by specifying the fully qualified name of the module by using the FullyQualifiedName parameter. The command then pipes the results into the `Format-Table` cmdlet to format the results as a table with Name and Version as the column headings.</maml:para>
+          <maml:para>In a fully qualified name for a module, the value ModuleVersion acts as minimum version. So, for this example, it matches any Microsoft.PowerShell.Management module that is version `3.1.0.0` or higher.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -14810,8 +14837,11 @@ Implementations           : {}</dev:code>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>FullyQualifiedName</maml:name>
           <maml:description>
-            <maml:para>Specifies the fully qualified name of the module as a hash table. The value can be a combination of strings and hash tables. The hash table has the following keys.</maml:para>
-            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify one of the three below keys. These keys   can't be used together.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -15019,8 +15049,11 @@ Implementations           : {}</dev:code>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>FullyQualifiedName</maml:name>
           <maml:description>
-            <maml:para>Specifies the fully qualified name of the module as a hash table. The value can be a combination of strings and hash tables. The hash table has the following keys.</maml:para>
-            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify one of the three below keys. These keys   can't be used together.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -15244,8 +15277,11 @@ Implementations           : {}</dev:code>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>FullyQualifiedName</maml:name>
           <maml:description>
-            <maml:para>Specifies the fully qualified name of the module as a hash table. The value can be a combination of strings and hash tables. The hash table has the following keys.</maml:para>
-            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify one of the three below keys. These keys   can't be used together.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -16563,8 +16599,11 @@ Implementations           : {}</dev:code>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
         <maml:name>FullyQualifiedName</maml:name>
         <maml:description>
-          <maml:para>Specifies the fully qualified name of the module as a hash table. The value can be a combination of strings and hash tables. The hash table has the following keys.</maml:para>
-          <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify one of the three below keys. These keys   can't be used together.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.</maml:para>
+          <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+          <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+          <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+          <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+          <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
         <dev:type>
@@ -32860,7 +32899,11 @@ Information   : {}</dev:code>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
           <maml:name>FullyQualifiedName</maml:name>
           <maml:description>
-            <maml:para>Specifies the fully qualified names of modules to remove.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -33020,7 +33063,11 @@ Information   : {}</dev:code>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
         <maml:name>FullyQualifiedName</maml:name>
         <maml:description>
-          <maml:para>Specifies the fully qualified names of modules to remove.</maml:para>
+          <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+          <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+          <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+          <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+          <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
         <dev:type>
@@ -33856,10 +33903,12 @@ Remove-PSSession -InstanceID fc4e9dfa-f246-452d-9fa3-1adbdd64ae85</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedModule</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_).</maml:para>
-            <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+            <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -33959,10 +34008,12 @@ Remove-PSSession -InstanceID fc4e9dfa-f246-452d-9fa3-1adbdd64ae85</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedModule</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_).</maml:para>
-            <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+            <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -34056,10 +34107,12 @@ Remove-PSSession -InstanceID fc4e9dfa-f246-452d-9fa3-1adbdd64ae85</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
         <maml:name>FullyQualifiedModule</maml:name>
         <maml:description>
-          <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_).</maml:para>
-          <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
+          <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+          <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+          <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+          <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+          <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+          <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
         <dev:type>
@@ -35879,8 +35932,8 @@ startupscript c:\ps-test\Maintenance.ps1</dev:code>
     </command:details>
     <maml:description>
       <maml:para>The `Set-StrictMode` cmdlet configures strict mode for the current scope and all child scopes, and turns it on and off. When strict mode is on, PowerShell generates a terminating error when the content of an expression, script, or script block violates basic best-practice coding rules.</maml:para>
-      <maml:para>Use the Version parameter to determine which coding rules are enforced.</maml:para>
-      <maml:para>`Set-PSDebug -Strict` cmdlet turns on strict mode for the global scope. `Set-StrictMode` affects only the current scope and its child scopes. Therefore, you can use it in a script or function to override the setting inherited from the global scope.</maml:para>
+      <maml:para>Use the Version parameter to determine the coding rules to enforce.</maml:para>
+      <maml:para>`Set-PSDebug -Strict` cmdlet turns on strict mode for the global scope. `Set-StrictMode` affects only the current scope and its child scopes. Then, you can use it in a script or function to override the setting inherited from the global scope.</maml:para>
       <maml:para>When `Set-StrictMode` is off, PowerShell has the following behaviors:</maml:para>
       <maml:para>- Uninitialized variables are assumed to have a value of `0` (zero) or `$Null`, depending on type</maml:para>
       <maml:para>- References to non-existent properties return `$Null`</maml:para>
@@ -35910,7 +35963,7 @@ startupscript c:\ps-test\Maintenance.ps1</dev:code>
             <maml:para>Specifies the conditions that cause an error in strict mode. This parameter accepts any valid PowerShell version number. Any number higher than `3` is treated as `Latest`. The value supplied must be the string `Latest` or a string that can be converted to a System.Version type. The version must match a valid release version of PowerShell.</maml:para>
             <maml:para>The effective values for this parameter are:</maml:para>
             <maml:para>- `1.0`   - Prohibits references to uninitialized variables, except for uninitialized variables in strings. - `2.0`   - Prohibits references to uninitialized variables. This includes uninitialized variables in     strings.   - Prohibits references to non-existent properties of an object.   - Prohibits function calls that use the syntax for calling methods. - `3.0`   - Prohibits references to uninitialized variables. This includes uninitialized variables in     strings.   - Prohibits references to non-existent properties of an object.   - Prohibits function calls that use the syntax for calling methods.   - Prohibit out of bounds or unresolvable array indexes. - `Latest`   - Selects the latest version available. The latest version is the most strict. Use this value to     make sure that scripts use the strictest available version, even when new versions are added to     PowerShell.</maml:para>
-            <maml:para>&gt; [!CAUTION] &gt; Using a Version of `Latest` in scripts. The meaning of `Latest` can change in new releases &gt; of PowerShell. Therefore, a script written for an older version of PowerShell that uses &gt; `Set-StrictMode -Version Latest` is subject to more restrictive rules when run in a newer version &gt; of PowerShell.</maml:para>
+            <maml:para>&gt; [!CAUTION] &gt; Using `Latest` for Version in scripts isn't deterministic. The meaning of `Latest` can change &gt; in new releases of PowerShell. A script written for an older version of PowerShell that uses &gt; `Set-StrictMode -Version Latest` is subject to more restrictive rules when run in a newer version &gt; of PowerShell.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Version</command:parameterValue>
           <dev:type>
@@ -35940,7 +35993,7 @@ startupscript c:\ps-test\Maintenance.ps1</dev:code>
           <maml:para>Specifies the conditions that cause an error in strict mode. This parameter accepts any valid PowerShell version number. Any number higher than `3` is treated as `Latest`. The value supplied must be the string `Latest` or a string that can be converted to a System.Version type. The version must match a valid release version of PowerShell.</maml:para>
           <maml:para>The effective values for this parameter are:</maml:para>
           <maml:para>- `1.0`   - Prohibits references to uninitialized variables, except for uninitialized variables in strings. - `2.0`   - Prohibits references to uninitialized variables. This includes uninitialized variables in     strings.   - Prohibits references to non-existent properties of an object.   - Prohibits function calls that use the syntax for calling methods. - `3.0`   - Prohibits references to uninitialized variables. This includes uninitialized variables in     strings.   - Prohibits references to non-existent properties of an object.   - Prohibits function calls that use the syntax for calling methods.   - Prohibit out of bounds or unresolvable array indexes. - `Latest`   - Selects the latest version available. The latest version is the most strict. Use this value to     make sure that scripts use the strictest available version, even when new versions are added to     PowerShell.</maml:para>
-          <maml:para>&gt; [!CAUTION] &gt; Using a Version of `Latest` in scripts. The meaning of `Latest` can change in new releases &gt; of PowerShell. Therefore, a script written for an older version of PowerShell that uses &gt; `Set-StrictMode -Version Latest` is subject to more restrictive rules when run in a newer version &gt; of PowerShell.</maml:para>
+          <maml:para>&gt; [!CAUTION] &gt; Using `Latest` for Version in scripts isn't deterministic. The meaning of `Latest` can change &gt; in new releases of PowerShell. A script written for an older version of PowerShell that uses &gt; `Set-StrictMode -Version Latest` is subject to more restrictive rules when run in a newer version &gt; of PowerShell.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Version</command:parameterValue>
         <dev:type>
@@ -35956,7 +36009,7 @@ startupscript c:\ps-test\Maintenance.ps1</dev:code>
           <maml:name>None</maml:name>
         </dev:type>
         <maml:description>
-          <maml:para>You cannot pipe input to this cmdlet.</maml:para>
+          <maml:para>You can't pipe input to this cmdlet.</maml:para>
         </maml:description>
       </command:inputType>
     </command:inputTypes>
@@ -35966,14 +36019,14 @@ startupscript c:\ps-test\Maintenance.ps1</dev:code>
           <maml:name>None</maml:name>
         </dev:type>
         <maml:description>
-          <maml:para>This cmdlet does not return any output.</maml:para>
+          <maml:para>This cmdlet doesn't return any output.</maml:para>
         </maml:description>
       </command:returnValue>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
-        <maml:para>While `Set-StrictMode` Version parameter will accept values greater than `3.0`, currently there are no additional rules defined for anything higher than `3.0`.</maml:para>
-        <maml:para>`Set-StrictMode` is effective only in the scope in which it is set and in its child scopes. For more information about scopes in PowerShell, see about_Scopes (about/about_Scopes.md).</maml:para>
+        <maml:para>While the Version parameter accepts values greater than `3.0`, there are no additional rules defined for anything higher than `3.0`.</maml:para>
+        <maml:para>`Set-StrictMode` is effective only in the scope it's set in and in its child scopes. For more information about scopes in PowerShell, see about_Scopes (about/about_Scopes.md).</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -35989,7 +36042,7 @@ $a -gt 5
 
 InvalidOperation: The variable '$a' cannot be retrieved because it has not been set.</dev:code>
         <dev:remarks>
-          <maml:para>With strict mode set to version `1.0`, attempts to reference variables that are not initialized fail.</maml:para>
+          <maml:para>With strict mode set to version `1.0`, attempts to reference variables that aren't initialized fail.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -36031,8 +36084,8 @@ PropertyNotFoundException: The property 'Month' cannot be found on this object. 
         <dev:remarks>
           <maml:para>This command turns strict mode on and sets it to version `2.0`. As a result, PowerShell returns an error if you use method syntax, which uses parentheses and commas, for a function call or reference uninitialized variables or non-existent properties.</maml:para>
           <maml:para>The sample output shows the effect of version `2.0` strict mode.</maml:para>
-          <maml:para>Without version `2.0` strict mode, the `(3,4)` value is interpreted as a single array object to which nothing is added. By using version `2.0` strict mode, it is correctly interpreted as faulty syntax for submitting two values.</maml:para>
-          <maml:para>Without version `2.0`, the reference to the non-existent Month property of a string returns only `$Null`. By using version `2.0`, it is interpreted correctly as a reference error.</maml:para>
+          <maml:para>Without version `2.0` strict mode, the `(3,4)` value is interpreted as a single array object to which nothing is added. With version `2.0` strict mode, it's correctly interpreted as faulty syntax for submitting two values.</maml:para>
+          <maml:para>Without version `2.0`, the reference to the non-existent Month property of a string returns only `$Null`. With version `2.0`, it's interpreted correctly as a reference error.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -36045,7 +36098,7 @@ $null -eq $a['abc']
 True
 True
 
-Set-StrictMode -Version 3
+Set-StrictMode -Version 3.0
 $a = @(1)
 $null -eq $a[2]
 $null -eq $a['abc']
@@ -38287,12 +38340,12 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
     <maml:description>
       <maml:para>The `Update-Help` cmdlet downloads the newest help files for PowerShell modules and installs them on your computer. You need not restart PowerShell to make the change effective. You can use the `Get-Help` cmdlet to view the new help files immediately.</maml:para>
       <maml:para>`Update-Help` checks the version of the help files on your computer. If you don't have help files for a module or if your help files are outdated, `Update-Help` downloads the newest help files. The help files can be downloaded and installed from the internet or a file share.</maml:para>
-      <maml:para>Without parameters, `Update-Help` updates the help files for modules in the session and for all installed modules that support Updatable Help. Modules that are installed but not loaded in the current session are included. PowerShell modules are stored in a location listed in the `$env:PSModulePath` environment variable. For more information, see about_Updatable_Help (./About/about_Updatable_Help.md).</maml:para>
-      <maml:para>You can use the Module parameter to update help files for a particular module. Use the UICulture parameter to download help files in multiple languages and locales.</maml:para>
-      <maml:para>You can also use `Update-Help` on computers that are not connected to the internet. First, use the `Save-Help`cmdlet to download help files from the internet and save them in a shared folder that is accessible to the system not connected to the internet. Then use the SourcePath parameter of `Update-Help` to download the updated help files from the shared and install them on the computer.</maml:para>
-      <maml:para>You can automate help updates by adding the `Update-Help` cmdlet to your PowerShell profile. By default, `Update-Help` runs only one time per day on each computer. To override the once-per-day limit, use the Force parameter.</maml:para>
+      <maml:para>Without parameters, `Update-Help` updates the help files for modules that support updateable help and are loaded in the session or installed in a location included in the `$env:PSModulePath`. For more information, see about_Updatable_Help (./About/about_Updatable_Help.md).</maml:para>
+      <maml:para>`Update-Help` checks the version of the help installed. If `Update-Help` can't find updated help files for a module it continues silently without displaying an error message. Use the Force parameter to skip the version check. Use the Verbose parameter to see status and progress details. Use the Module parameter to update help files for a particular module.</maml:para>
+      <maml:para>If the cultural settings of your operating system are configured for a language that's not available for updateable help, `Update-Help` continues silently without downloading any help. Use the UICulture parameter to download help files in a supported language. Help is always available for the `en-US` locale.</maml:para>
+      <maml:para>You can also use `Update-Help` on computers that aren't connected to the internet. First, use the `Save-Help`cmdlet to download help files from the internet and save them in a shared folder that's accessible to the system not connected to the internet. Then use the SourcePath parameter of `Update-Help` to download the updated help files from the shared and install them on the computer.</maml:para>
       <maml:para>The `Update-Help` cmdlet was introduced in Windows PowerShell 3.0.</maml:para>
-      <maml:para>&gt; [!IMPORTANT] &gt; `Update-Help` requires administrative privileges in PowerShell 6.0 and below. &gt; PowerShell 6.1 and above set the default Scope to `CurrentUser`. &gt; Prior to PowerShell 6.1, the Scope parameter was not available. &gt; &gt; You must be a member of the Administrators group on the computer &gt; to update the help files for the core PowerShell modules. &gt; &gt; To download or update the help files for modules in the PowerShell &gt; installation directory (`$PSHOME\Modules`), including the PowerShell &gt; Core modules, start PowerShell by using the Run as administrator option. &gt; For example: `Start-Process pwsh.exe -Verb RunAs`.</maml:para>
+      <maml:para>&gt; [!IMPORTANT] &gt; `Update-Help` requires administrative privileges in PowerShell 6.0 and below. PowerShell 6.1 and &gt; above set the default Scope to `CurrentUser`. Prior to PowerShell 6.1, the Scope parameter &gt; wasn't available. &gt; &gt; You must be a member of the Administrators group on the computer to update the help files for the &gt; core PowerShell modules. &gt; &gt; To download or update the help files for modules in the PowerShell installation directory &gt; (`$PSHOME\Modules`), including the PowerShell Core modules, start PowerShell using the **Run as &gt; administrator** option. For example: `Start-Process pwsh.exe -Verb RunAs`.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -38301,7 +38354,7 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
           <maml:name>Module</maml:name>
           <maml:description>
             <maml:para>Updates help for the specified modules. Enter one or more module names or name patterns in a comma-separated list, or specify a file that lists one module name on each line. Wildcard characters are permitted. You can pipeline modules from the `Get-Module` cmdlet to the `Update-Help` cmdlet.</maml:para>
-            <maml:para>The modules that you specify must be installed on the computer, but they don't have to be imported into the current session. You can specify any module in the session or any module that is installed in a location listed in the `$env:PSModulePath` environment variable.</maml:para>
+            <maml:para>The modules that you specify must be installed on the computer, but they don't have to be imported into the current session. You can specify any module in the session or any module that's installed in a location listed in the `$env:PSModulePath` environment variable.</maml:para>
             <maml:para>A value of `*` (all) attempts to update help for all modules that are installed on the computer. Modules that don't support Updatable Help are included. This value might generate errors when the command encounters modules that don't support Updatable Help. Instead, run `Update-Help` without parameters.</maml:para>
             <maml:para>The Module parameter of the `Update-Help` cmdlet doesn't accept the full path of a module file or module manifest file. To update help for a module that isn't in a `$env:PSModulePath` location, import the module into the current session before you run the `Update-Help` command.</maml:para>
           </maml:description>
@@ -38315,9 +38368,9 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>UICulture</maml:name>
           <maml:description>
-            <maml:para>Specifies UI culture values that `Update-Help` uses to get updated help files. Enter one or more language codes, such as es-ES , a variable that contains culture objects, or a command that gets culture objects, such as a `Get-Culture` or `Get-UICulture` command. Wildcard characters aren't permitted and you can't submit a partial language code, such as de .</maml:para>
+            <maml:para>Specifies UI culture values that `Update-Help` uses to get updated help files. Enter one or more language codes, such as es-ES , a variable containing culture objects, or a command that gets culture objects, such as a `Get-Culture` or `Get-UICulture` command. Wildcard characters aren't permitted and you can't submit a partial language code, such as de .</maml:para>
             <maml:para>By default, `Update-Help` gets help files in the UI culture set for the operating system. If you specify the UICulture parameter, `Update-Help` looks for help only for the specified UI culture.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; Ubuntu 18.04 changed the default locale setting to `C.UTF.8`, which is not a recognized UI &gt; culture. `Update-Help` silently fails to download help unless you use this parameter with a &gt; supported locale like `en-US`. This could occur on any platform that uses an unsupported value.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; Ubuntu 18.04 changed the default locale setting to `C.UTF.8`, which isn't a recognized UI &gt; culture. `Update-Help` silently fails to download help unless you use this parameter with a &gt; supported locale like `en-US`. This could occur on any platform that uses an unsupported value.</maml:para>
             <maml:para>Commands that use the UICulture parameter succeed only when the module provides help files for the specified UI culture. If the command fails because the specified UI culture isn't supported, an error message is displayed.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Globalization.CultureInfo[]</command:parameterValue>
@@ -38361,11 +38414,11 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedModule</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. These modules are described in the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor?view=powershellsdk-1.1.0#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_).</maml:para>
-            <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in the format:</maml:para>
-            <maml:para>`@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>or</maml:para>
-            <maml:para>`@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}.` ModuleName and ModuleVersion are required, but Guid is optional.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
             <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
@@ -38418,7 +38471,7 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>UseDefaultCredentials</maml:name>
           <maml:description>
-            <maml:para>Indicates that `Update-Help` runs the command, including the internet download, by using the credentials of the current user. By default, the command runs without explicit credentials.</maml:para>
+            <maml:para>Indicates that `Update-Help` runs the command, including the internet download, using the credentials of the current user. By default, the command runs without explicit credentials.</maml:para>
             <maml:para>This parameter is effective only when the web download uses NT LAN Manager (NTLM), negotiate, or Kerberos-based authentication.</maml:para>
           </maml:description>
           <dev:type>
@@ -38456,7 +38509,7 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
           <maml:name>Module</maml:name>
           <maml:description>
             <maml:para>Updates help for the specified modules. Enter one or more module names or name patterns in a comma-separated list, or specify a file that lists one module name on each line. Wildcard characters are permitted. You can pipeline modules from the `Get-Module` cmdlet to the `Update-Help` cmdlet.</maml:para>
-            <maml:para>The modules that you specify must be installed on the computer, but they don't have to be imported into the current session. You can specify any module in the session or any module that is installed in a location listed in the `$env:PSModulePath` environment variable.</maml:para>
+            <maml:para>The modules that you specify must be installed on the computer, but they don't have to be imported into the current session. You can specify any module in the session or any module that's installed in a location listed in the `$env:PSModulePath` environment variable.</maml:para>
             <maml:para>A value of `*` (all) attempts to update help for all modules that are installed on the computer. Modules that don't support Updatable Help are included. This value might generate errors when the command encounters modules that don't support Updatable Help. Instead, run `Update-Help` without parameters.</maml:para>
             <maml:para>The Module parameter of the `Update-Help` cmdlet doesn't accept the full path of a module file or module manifest file. To update help for a module that isn't in a `$env:PSModulePath` location, import the module into the current session before you run the `Update-Help` command.</maml:para>
           </maml:description>
@@ -38484,9 +38537,9 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
           <maml:name>UICulture</maml:name>
           <maml:description>
-            <maml:para>Specifies UI culture values that `Update-Help` uses to get updated help files. Enter one or more language codes, such as es-ES , a variable that contains culture objects, or a command that gets culture objects, such as a `Get-Culture` or `Get-UICulture` command. Wildcard characters aren't permitted and you can't submit a partial language code, such as de .</maml:para>
+            <maml:para>Specifies UI culture values that `Update-Help` uses to get updated help files. Enter one or more language codes, such as es-ES , a variable containing culture objects, or a command that gets culture objects, such as a `Get-Culture` or `Get-UICulture` command. Wildcard characters aren't permitted and you can't submit a partial language code, such as de .</maml:para>
             <maml:para>By default, `Update-Help` gets help files in the UI culture set for the operating system. If you specify the UICulture parameter, `Update-Help` looks for help only for the specified UI culture.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; Ubuntu 18.04 changed the default locale setting to `C.UTF.8`, which is not a recognized UI &gt; culture. `Update-Help` silently fails to download help unless you use this parameter with a &gt; supported locale like `en-US`. This could occur on any platform that uses an unsupported value.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; Ubuntu 18.04 changed the default locale setting to `C.UTF.8`, which isn't a recognized UI &gt; culture. `Update-Help` silently fails to download help unless you use this parameter with a &gt; supported locale like `en-US`. This could occur on any platform that uses an unsupported value.</maml:para>
             <maml:para>Commands that use the UICulture parameter succeed only when the module provides help files for the specified UI culture. If the command fails because the specified UI culture isn't supported, an error message is displayed.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Globalization.CultureInfo[]</command:parameterValue>
@@ -38530,11 +38583,11 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>FullyQualifiedModule</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. These modules are described in the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor?view=powershellsdk-1.1.0#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_).</maml:para>
-            <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in the format:</maml:para>
-            <maml:para>`@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>or</maml:para>
-            <maml:para>`@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}.` ModuleName and ModuleVersion are required, but Guid is optional.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
             <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
@@ -38573,7 +38626,7 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>UseDefaultCredentials</maml:name>
           <maml:description>
-            <maml:para>Indicates that `Update-Help` runs the command, including the internet download, by using the credentials of the current user. By default, the command runs without explicit credentials.</maml:para>
+            <maml:para>Indicates that `Update-Help` runs the command, including the internet download, using the credentials of the current user. By default, the command runs without explicit credentials.</maml:para>
             <maml:para>This parameter is effective only when the web download uses NT LAN Manager (NTLM), negotiate, or Kerberos-based authentication.</maml:para>
           </maml:description>
           <dev:type>
@@ -38642,11 +38695,11 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
         <maml:name>FullyQualifiedModule</maml:name>
         <maml:description>
-          <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. These modules are described in the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor?view=powershellsdk-1.1.0#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_).</maml:para>
-          <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in the format:</maml:para>
-          <maml:para>`@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-          <maml:para>or</maml:para>
-          <maml:para>`@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}.` ModuleName and ModuleVersion are required, but Guid is optional.</maml:para>
+          <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+          <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+          <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+          <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+          <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
           <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
@@ -38674,7 +38727,7 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
         <maml:name>Module</maml:name>
         <maml:description>
           <maml:para>Updates help for the specified modules. Enter one or more module names or name patterns in a comma-separated list, or specify a file that lists one module name on each line. Wildcard characters are permitted. You can pipeline modules from the `Get-Module` cmdlet to the `Update-Help` cmdlet.</maml:para>
-          <maml:para>The modules that you specify must be installed on the computer, but they don't have to be imported into the current session. You can specify any module in the session or any module that is installed in a location listed in the `$env:PSModulePath` environment variable.</maml:para>
+          <maml:para>The modules that you specify must be installed on the computer, but they don't have to be imported into the current session. You can specify any module in the session or any module that's installed in a location listed in the `$env:PSModulePath` environment variable.</maml:para>
           <maml:para>A value of `*` (all) attempts to update help for all modules that are installed on the computer. Modules that don't support Updatable Help are included. This value might generate errors when the command encounters modules that don't support Updatable Help. Instead, run `Update-Help` without parameters.</maml:para>
           <maml:para>The Module parameter of the `Update-Help` cmdlet doesn't accept the full path of a module file or module manifest file. To update help for a module that isn't in a `$env:PSModulePath` location, import the module into the current session before you run the `Update-Help` command.</maml:para>
         </maml:description>
@@ -38729,9 +38782,9 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
         <maml:name>UICulture</maml:name>
         <maml:description>
-          <maml:para>Specifies UI culture values that `Update-Help` uses to get updated help files. Enter one or more language codes, such as es-ES , a variable that contains culture objects, or a command that gets culture objects, such as a `Get-Culture` or `Get-UICulture` command. Wildcard characters aren't permitted and you can't submit a partial language code, such as de .</maml:para>
+          <maml:para>Specifies UI culture values that `Update-Help` uses to get updated help files. Enter one or more language codes, such as es-ES , a variable containing culture objects, or a command that gets culture objects, such as a `Get-Culture` or `Get-UICulture` command. Wildcard characters aren't permitted and you can't submit a partial language code, such as de .</maml:para>
           <maml:para>By default, `Update-Help` gets help files in the UI culture set for the operating system. If you specify the UICulture parameter, `Update-Help` looks for help only for the specified UI culture.</maml:para>
-          <maml:para>&gt; [!NOTE] &gt; Ubuntu 18.04 changed the default locale setting to `C.UTF.8`, which is not a recognized UI &gt; culture. `Update-Help` silently fails to download help unless you use this parameter with a &gt; supported locale like `en-US`. This could occur on any platform that uses an unsupported value.</maml:para>
+          <maml:para>&gt; [!NOTE] &gt; Ubuntu 18.04 changed the default locale setting to `C.UTF.8`, which isn't a recognized UI &gt; culture. `Update-Help` silently fails to download help unless you use this parameter with a &gt; supported locale like `en-US`. This could occur on any platform that uses an unsupported value.</maml:para>
           <maml:para>Commands that use the UICulture parameter succeed only when the module provides help files for the specified UI culture. If the command fails because the specified UI culture isn't supported, an error message is displayed.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Globalization.CultureInfo[]</command:parameterValue>
@@ -38744,7 +38797,7 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>UseDefaultCredentials</maml:name>
         <maml:description>
-          <maml:para>Indicates that `Update-Help` runs the command, including the internet download, by using the credentials of the current user. By default, the command runs without explicit credentials.</maml:para>
+          <maml:para>Indicates that `Update-Help` runs the command, including the internet download, using the credentials of the current user. By default, the command runs without explicit credentials.</maml:para>
           <maml:para>This parameter is effective only when the web download uses NT LAN Manager (NTLM), negotiate, or Kerberos-based authentication.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
@@ -38811,15 +38864,14 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
       <maml:alert>
         <maml:para>To update help for the core PowerShell modules, that contain the commands that are installed with PowerShell, or any module in the `$PSHOME\Modules` directory, start PowerShell with the option to Run as administrator .</maml:para>
         <maml:para>Only members of the Administrators group on the computer can update help for the core PowerShell modules, the commands that are installed together with PowerShell, and for modules in the `$PSHOME\Modules` folder. If you don't have permission to update help files, you can read the help files online. For example, `Get-Help Update-Help -Online`.</maml:para>
-        <maml:para>Modules are the smallest unit of updatable help. You can't update help for a particular cmdlet. To find the module that contains a particular cmdlet, use the ModuleName property of the `Get-Command` cmdlet, for example, `(Get-Command Update-Help).ModuleName`.</maml:para>
+        <maml:para>Modules are the smallest unit of updatable help. You can't update help for a particular cmdlet. To find the module containing a particular cmdlet, use the ModuleName property of the `Get-Command` cmdlet, for example, `(Get-Command Update-Help).ModuleName`.</maml:para>
         <maml:para>Because help files are installed in the module directory, the `Update-Help` cmdlet can install updated help file only for modules that are installed on the computer. However, the `Save-Help` cmdlet can save help for modules that aren't installed on the computer.</maml:para>
-        <maml:para>If `Update-Help` can't find updated help files for a module, or can't find updated help in the specified language, it continues silently without displaying an error message. To see status and progress details, use the Verbose parameter.</maml:para>
         <maml:para>The `Update-Help` cmdlet was introduced in Windows PowerShell 3.0. It doesn't work in earlier versions of PowerShell. On computers that have both Windows PowerShell 2.0 and Windows PowerShell 3.0, use the `Update-Help` cmdlet in a Windows PowerShell 3.0 session to download and update help files. The help files are available to both Windows PowerShell 2.0 and Windows PowerShell 3.0.</maml:para>
         <maml:para>The `Update-Help` and `Save-Help` cmdlets use the following ports to download help files: Port 80 for HTTP and port 443 for HTTPS.</maml:para>
         <maml:para>`Update-Help` supports all modules and the core PowerShell snap-ins. It doesn't support any other snap-ins.</maml:para>
         <maml:para>To update help for a module in a location that isn't listed in the `$env:PSModulePath` environment variable, import the module into the current session and then run an `Update-Help` command. Run `Update-Help` without parameters or use the Module parameter to specify the module name. The Module parameter of the `Update-Help` and `Save-Help` cmdlets doesn't accept the full path of a module file or module manifest file.</maml:para>
         <maml:para>Any module can support Updatable Help. For instructions for supporting Updatable Help in the modules that you author, see Supporting Updatable Help (/powershell/scripting/developer/module/supporting-updatable-help).</maml:para>
-        <maml:para>The `Update-Help` and `Save-Help` cmdlets are not supported on Windows Preinstallation Environment (Windows PE).</maml:para>
+        <maml:para>The `Update-Help` and `Save-Help` cmdlets aren't supported on Windows Preinstallation Environment (Windows PE).</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -38838,13 +38890,13 @@ PS&gt; New-PSSession -ConfigurationName MaintenanceShell
         </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>----- Example 3: Update help files for different languages -----</maml:title>
-        <dev:code>Update-Help -UICulture ja-JP, en-US
+        <maml:title>Example 3: Updating help on a system not set to the en-US locale</maml:title>
+        <dev:code>Update-Help Microsoft.PowerShell.Utility -Force
 
-Update-Help : Failed to update Help for the module(s) 'Microsoft.PowerShell.Utility' with UI culture(s) {ja-JP}
-No UI culture was found that matches the following pattern: ja-JP.</dev:code>
+Update-Help : Failed to update Help for the module(s) 'Microsoft.PowerShell.Utility' with UI
+culture(s) {en-GB} No UI culture was found that matches the following pattern: en-GB.</dev:code>
         <dev:remarks>
-          <maml:para></maml:para>
+          <maml:para>The help files are always published for the `en-US` locale. To download the English help, run `Update-Help` with the UICulture parameter and specify the `en-US` locale.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -38855,7 +38907,7 @@ Invoke-Command -ComputerName (Get-Content Servers.txt) -ScriptBlock {
 }</dev:code>
         <dev:remarks>
           <maml:para>The `Save-Help` command downloads the newest help files for all modules that support Updatable Help. The DestinationPath parameter saves the files in the `\Server01\Share\PSHelp` file share. The Credential parameter specifies a user who has permission to access the file share.</maml:para>
-          <maml:para>The `Invoke-Command` cmdlet runs remote `Update-Help` commands on multiple computers. The ComputerName parameter gets a list of remote computers from the Servers.txt file. The ScriptBlock parameter runs the `Update-Help` command and uses the SourcePath parameter to specify the file share that contains the updated help files. The Credential parameter specifies a user who can access the file share and run the remote `Update-Help` command.</maml:para>
+          <maml:para>The `Invoke-Command` cmdlet runs remote `Update-Help` commands on multiple computers. The ComputerName parameter gets a list of remote computers from the Servers.txt file. The ScriptBlock parameter runs the `Update-Help` command and uses the SourcePath parameter to specify the file share containing the updated help files. The Credential parameter specifies a user who can access the file share and run the remote `Update-Help` command.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>

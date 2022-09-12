@@ -24,18 +24,18 @@ strings.
 
 PowerShell recognizes these escape sequences:
 
-  Sequence   Description
-  ---------- -------------------------
-  `0         Null
-  `a         Alert
-  `b         Backspace
-  `e         Escape
-  `f         Form feed
-  `n         New line
-  `r         Carriage return
-  `t         Horizontal tab
-  `u{x}      Unicode escape sequence
-  `v         Vertical tab
+   Sequence  Description
+  ---------- -------------------------------------------------
+      `0     Null
+      `a     Alert
+      `b     Backspace
+      `e     Escape (added in PowerShell 6)
+      `f     Form feed
+      `n     New line
+      `r     Carriage return
+      `t     Horizontal tab
+    `u{x}    Unicode escape sequence (added in PowerShell 6)
+      `v     Vertical tab
 
 PowerShell also has a special token to mark where you want parsing to stop.
 All characters that follow this token are used as literal values that
@@ -81,6 +81,8 @@ Then, at the new position, writes a space followed by the word OUT.
 
 
 Escape (`e)
+
+  [!NOTE] This special character was added in PowerShell 6.0.
 
 The escape (`e) character is most commonly used to specify a virtual
 terminal sequence (ANSI escape sequence) that modifies the color of text
@@ -152,6 +154,8 @@ This example inserts two tabs between each column.
 
 
 Unicode character (`u{x})
+
+  [!NOTE] This special character was added in PowerShell 6.0.
 
 The Unicode escape sequence (`u{x}) allows you to specify any Unicode
 character by the hexadecimal representation of its code point. This

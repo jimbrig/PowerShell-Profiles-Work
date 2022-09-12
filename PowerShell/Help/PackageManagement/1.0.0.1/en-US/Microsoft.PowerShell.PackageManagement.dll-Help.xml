@@ -10,7 +10,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>`Find-Package` finds software packages that are available in package sources. `Get-PackageProvider` and `Get-PackageSource` display details about your providers.</maml:para>
+      <maml:para>`Find-Package` finds software packages that are available in package sources. `Get-PackageProvider` and `Get-PackageSource` display details about your providers. !INCLUDE [nuget-module (../../includes/nuget-module.md)]</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -1478,7 +1478,7 @@ NuGet.Core           2.14.0     C:\LocalPkg\     NuGet.Core is the core framewor
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The `Get-Package` cmdlet returns a list of all software packages on the local computer that were installed with PackageManagement . You can run `Get-Package` on remote computers by running it as part of an `Invoke-Command` or `Enter-PSSession` command or script.</maml:para>
+      <maml:para>The `Get-Package` cmdlet returns a list of all software packages on the local computer that were installed with PackageManagement . You can run `Get-Package` on remote computers by running it as part of an `Invoke-Command` or `Enter-PSSession` command or script. !INCLUDE [nuget-module (../../includes/nuget-module.md)]</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -3310,7 +3310,7 @@ Import-PackageProvider -Name "Nuget" -RequiredVersion "2.8.5.201" -Verbose</dev:
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The `Install-Package` cmdlet installs one or more software packages on the local computer. If you have multiple software sources, use `Get-PackageProvider` and `Get-PackageSource` to display details about your providers.</maml:para>
+      <maml:para>The `Install-Package` cmdlet installs one or more software packages on the local computer. If you have multiple software sources, use `Get-PackageProvider` and `Get-PackageSource` to display details about your providers. !INCLUDE [nuget-module (../../includes/nuget-module.md)]</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -10048,7 +10048,7 @@ PS&gt; Install-Package C:\LocalPkg\NuGet.Core.2.14.0.nupkg</dev:code>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The `Uninstall-Package` cmdlet uninstalls one or more software packages from the local computer. To find installed packages, use the `Get-Package` cmdlet.</maml:para>
+      <maml:para>The `Uninstall-Package` cmdlet uninstalls one or more software packages from the local computer. To find installed packages, use the `Get-Package` cmdlet. !INCLUDE [nuget-module (../../includes/nuget-module.md)]</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>

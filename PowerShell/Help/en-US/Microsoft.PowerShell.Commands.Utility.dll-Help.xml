@@ -2578,7 +2578,7 @@ ConvertFrom-Csv -InputObject $Services -UseCulture</dev:code>
           <maml:name>AsHashtable</maml:name>
           <maml:description>
             <maml:para>Converts the JSON to a hash table object. This switch was introduced in PowerShell 6.0. There are several scenarios where it can overcome some limitations of the `ConvertFrom-Json` cmdlet.</maml:para>
-            <maml:para>- If the JSON contains a list with keys that only differ in casing. Without the switch, those keys   would be seen as identical keys and therefore only the last one would get used. - If the JSON contains a key that is an empty string. Without the switch, the cmdlet would throw an   error since a `PSCustomObject` does not allow for that but a hash table does. An example use case   where this can occurs are `project.lock.json` files. - Hash tables can be processed faster for certain data structures.</maml:para>
+            <maml:para>- Without this switch, when two or more keys in a JSON object are case-insensitively identical, they   are treated as identical keys. In that case, only the last of those case-insensitively identical   keys is included in the converted object. - Without this switch, the cmdlet throws an error whenever the JSON contains a key that is an empty   string. PSCustomObject can't have property names that are empty strings. For example, this can   occur in `project.lock.json` files. - Hash tables can be processed faster for certain data structures.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -2618,7 +2618,7 @@ ConvertFrom-Csv -InputObject $Services -UseCulture</dev:code>
         <maml:name>AsHashtable</maml:name>
         <maml:description>
           <maml:para>Converts the JSON to a hash table object. This switch was introduced in PowerShell 6.0. There are several scenarios where it can overcome some limitations of the `ConvertFrom-Json` cmdlet.</maml:para>
-          <maml:para>- If the JSON contains a list with keys that only differ in casing. Without the switch, those keys   would be seen as identical keys and therefore only the last one would get used. - If the JSON contains a key that is an empty string. Without the switch, the cmdlet would throw an   error since a `PSCustomObject` does not allow for that but a hash table does. An example use case   where this can occurs are `project.lock.json` files. - Hash tables can be processed faster for certain data structures.</maml:para>
+          <maml:para>- Without this switch, when two or more keys in a JSON object are case-insensitively identical, they   are treated as identical keys. In that case, only the last of those case-insensitively identical   keys is included in the converted object. - Without this switch, the cmdlet throws an error whenever the JSON contains a key that is an empty   string. PSCustomObject can't have property names that are empty strings. For example, this can   occur in `project.lock.json` files. - Hash tables can be processed faster for certain data structures.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
         <dev:type>
@@ -2739,9 +2739,9 @@ $j = Invoke-WebRequest 'https://api.github.com/repos/PowerShell/PowerShell/issue
       </command:example>
       <command:example>
         <maml:title>----- Example 3: Convert a JSON string to a custom object -----</maml:title>
-        <dev:code>Get-Content JsonFile.JSON | ConvertFrom-Json</dev:code>
+        <dev:code>Get-Content -Raw JsonFile.JSON | ConvertFrom-Json</dev:code>
         <dev:remarks>
-          <maml:para>The command uses Get-Content cmdlet to get the strings in a JSON file. Then it uses the pipeline operator to send the delimited string to the `ConvertFrom-Json` cmdlet, which converts it to a custom object.</maml:para>
+          <maml:para>The command uses Get-Content cmdlet to get the strings in a JSON file. The Raw parameter returns the whole file as a single JSON object. Then it uses the pipeline operator to send the delimited string to the `ConvertFrom-Json` cmdlet, which converts it to a custom object.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -8708,10 +8708,12 @@ Handles  NPM(K)  PM(K)  WS(K) VM(M)   CPU(s)    Id ProcessName
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>FullyQualifiedModule</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_).</maml:para>
-            <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+            <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -8865,10 +8867,12 @@ Handles  NPM(K)  PM(K)  WS(K) VM(M)   CPU(s)    Id ProcessName
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>FullyQualifiedModule</maml:name>
         <maml:description>
-          <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects. See the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_).</maml:para>
-          <maml:para>For example, the FullyQualifiedModule parameter accepts a module name that is specified in either of these formats:</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}`</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}` ModuleName and ModuleVersion are required, but Guid is optional. You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
+          <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+          <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+          <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+          <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+          <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+          <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter. the two parameters are mutually exclusive.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
         <dev:type>
@@ -13312,7 +13316,7 @@ ChildJobs     : {}
             <maml:name>System.String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>SHA256</dev:defaultValue>
         </command:parameter>
       </command:syntaxItem>
       <command:syntaxItem>
@@ -13354,7 +13358,7 @@ ChildJobs     : {}
             <maml:name>System.String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>SHA256</dev:defaultValue>
         </command:parameter>
       </command:syntaxItem>
       <command:syntaxItem>
@@ -13396,7 +13400,7 @@ ChildJobs     : {}
             <maml:name>System.String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>SHA256</dev:defaultValue>
         </command:parameter>
       </command:syntaxItem>
     </command:syntax>
@@ -13419,7 +13423,7 @@ ChildJobs     : {}
           <maml:name>System.String</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
+        <dev:defaultValue>SHA256</dev:defaultValue>
       </command:parameter>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
         <maml:name>InputStream</maml:name>
@@ -19187,10 +19191,12 @@ NodeName                       DSC-02</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>FullyQualifiedModule</maml:name>
           <maml:description>
-            <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects (described in the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_)in the PowerShell SDK. For example, the FullyQualifiedModule parameter accepts a module name that is specified in the format:</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}` or</maml:para>
-            <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}`. ModuleName and ModuleVersion are required, but Guid is optional.</maml:para>
-            <maml:para>You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. The two parameters are mutually exclusive.</maml:para>
+            <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+            <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+            <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+            <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+            <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+            <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter. The two parameters are mutually exclusive.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
           <dev:type>
@@ -19340,10 +19346,12 @@ NodeName                       DSC-02</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>FullyQualifiedModule</maml:name>
         <maml:description>
-          <maml:para>Specifies modules with names that are specified in the form of ModuleSpecification objects (described in the Remarks section of ModuleSpecification Constructor (Hashtable) (/dotnet/api/microsoft.powershell.commands.modulespecification.-ctor#Microsoft_PowerShell_Commands_ModuleSpecification__ctor_System_Collections_Hashtable_)in the PowerShell SDK. For example, the FullyQualifiedModule parameter accepts a module name that is specified in the format:</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"}` or</maml:para>
-          <maml:para>- `@{ModuleName = "modulename"; ModuleVersion = "version_number"; Guid = "GUID"}`. ModuleName and ModuleVersion are required, but Guid is optional.</maml:para>
-          <maml:para>You cannot specify the FullyQualifiedModule parameter in the same command as a Module parameter. The two parameters are mutually exclusive.</maml:para>
+          <maml:para>The value can be a module name, a full module specification, or a path to a module file.</maml:para>
+          <maml:para>When the value is a path, the path can be fully qualified or relative. A relative path is resolved relative to the script that contains the using statement.</maml:para>
+          <maml:para>When the value is a name or module specification, PowerShell searches the PSModulePath for the specified module.</maml:para>
+          <maml:para>A module specification is a hashtable that has the following keys.</maml:para>
+          <maml:para>- `ModuleName` - Required Specifies the module name. - `GUID` - Optional Specifies the GUID of the module. - It's also Required to specify at least one of the three below keys.   - `ModuleVersion` - Specifies a minimum acceptable version of the module.   - `MaximumVersion` - Specifies the maximum acceptable version of the module.   - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with     the other Version keys.</maml:para>
+          <maml:para>You can't specify the FullyQualifiedModule parameter in the same command as a Module parameter. The two parameters are mutually exclusive.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.ModuleSpecification[]</command:parameterValue>
         <dev:type>
@@ -20078,14 +20086,14 @@ Invoke-Expression $Example_code</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RetryIntervalSec</maml:name>
           <maml:description>
-            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
           <dev:type>
             <maml:name>System.Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>5</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
           <maml:name>SessionVariable</maml:name>
@@ -20647,14 +20655,14 @@ Invoke-Expression $Example_code</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RetryIntervalSec</maml:name>
           <maml:description>
-            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
           <dev:type>
             <maml:name>System.Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>5</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
           <maml:name>SessionVariable</maml:name>
@@ -21236,14 +21244,14 @@ Invoke-Expression $Example_code</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RetryIntervalSec</maml:name>
           <maml:description>
-            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
           <dev:type>
             <maml:name>System.Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>5</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
           <maml:name>SessionVariable</maml:name>
@@ -21799,14 +21807,14 @@ Invoke-Expression $Example_code</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RetryIntervalSec</maml:name>
           <maml:description>
-            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
           <dev:type>
             <maml:name>System.Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>5</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
           <maml:name>SessionVariable</maml:name>
@@ -22394,14 +22402,14 @@ Invoke-Expression $Example_code</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>RetryIntervalSec</maml:name>
         <maml:description>
-          <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+          <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
         <dev:type>
           <maml:name>System.Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
+        <dev:defaultValue>5</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
         <maml:name>SessionVariable</maml:name>
@@ -22742,6 +22750,29 @@ $x
           <maml:para></maml:para>
         </dev:remarks>
       </command:example>
+      <command:example>
+        <maml:title>------------ Example 7: Skipping Header Validation ------------</maml:title>
+        <dev:code>$Uri = 'https://httpbin.org/headers'
+$InvalidHeaders = @{
+    'If-Match' = '12345'
+}
+
+Invoke-RestMethod -Uri $Uri -Headers $InvalidHeaders
+
+Invoke-RestMethod -Uri $Uri -Headers $InvalidHeaders -SkipHeaderValidation |
+    Format-List
+
+Invoke-RestMethod: The format of value '12345' is invalid.
+
+headers : @{Host=httpbin.org; If-Match=12345; User-Agent=Mozilla/5.0 (Windows NT 10.0; Microsoft Windows
+          10.0.19044; en-US) PowerShell/7.2.5;  X-Amzn-Trace-Id=Root=1-62f150a6-27754fd4226f31b43a3d2874}</dev:code>
+        <dev:remarks>
+          <maml:para>httpbin.org (https://httpbin.org/)is a service that returns information about web requests and responses for troubleshooting. The `$Uri` variable is assigned to the `/headers` endpoint of the service, which returns a request's headers as the content in its response.</maml:para>
+          <maml:para>The `If-Match` request header is defined in RFC-7232 section 3.1 (https://www.rfc-editor.org/rfc/rfc7232.html#section-3.1)and requires the value for that header to be defined with surrounding quotes. The `$InvalidHeaders` variable is assigned a hash table where the value of `If-Match` is invalid because it's defined as `12345` instead of `"12345"`.</maml:para>
+          <maml:para>Calling `Invoke-RestMethod` with the invalid headers returns an error reporting that the formatted value is invalid. The request is not sent to the endpoint.</maml:para>
+          <maml:para>Calling `Invoke-RestMethod` with the SkipHeaderValidation parameter ignores the validation failure and sends the request to the endpoint. Because the endpoint tolerates non-compliant header values, the cmdlet returns the response object without error.</maml:para>
+        </dev:remarks>
+      </command:example>
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
@@ -22775,7 +22806,7 @@ $x
       <maml:para>The `Invoke-WebRequest` cmdlet sends HTTP and HTTPS requests to a web page or web service. It parses the response and returns collections of links, images, and other significant HTML elements.</maml:para>
       <maml:para>This cmdlet was introduced in PowerShell 3.0.</maml:para>
       <maml:para>Beginning in PowerShell 7.0, `Invoke-WebRequest` supports proxy configuration defined by environment variables. See the Notes (#notes)section of this article.</maml:para>
-      <maml:para>&gt; [!IMPORTANT] &gt; The examples in this article reference hosts in the `contoso.com` domain. This is a fictitious &gt; domain used by Microsoft for examples. The examples are designed to show how to use the cmdlets. &gt; However, since the `contoso.com` sites do not exist, the examples do not work. Adapt the examples &gt; to hosts in your environment.</maml:para>
+      <maml:para>&gt; [!IMPORTANT] &gt; The examples in this article reference hosts in the `contoso.com` domain. This is a fictitious &gt; domain used by Microsoft for examples. The examples are designed to show how to use the cmdlets. &gt; However, since the `contoso.com` sites don't exist, the examples don't work. Adapt the examples &gt; to hosts in your environment.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -22796,8 +22827,8 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>AllowUnencryptedAuthentication</maml:name>
           <maml:description>
-            <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that does not begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
-            <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. It is provided only for compatibility &gt; with legacy systems that cannot provide encrypted connections. Use at your own risk.</maml:para>
+            <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that doesn't begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
+            <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. It is provided only for compatibility &gt; with legacy systems that can't provide encrypted connections. Use at your own risk.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -22811,7 +22842,7 @@ $x
           <maml:description>
             <maml:para>Specifies the explicit authentication type to use for the request. The default is None . The Authentication parameter can't be used with the UseDefaultCredentials parameter.</maml:para>
             <maml:para>Available Authentication Options:</maml:para>
-            <maml:para>- `None`: This is the default option when Authentication is not supplied. No explicit   authentication will be used. - `Basic`: Requires Credential . The credentials will be used to send an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
+            <maml:para>- `None`: This is the default option when Authentication isn't supplied. No explicit   authentication is used. - `Basic`: Requires Credential . The credentials are sent as an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
             <maml:para>Supplying Authentication overrides any `Authorization` headers supplied to Headers or included in WebSession .</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
@@ -22833,7 +22864,7 @@ $x
           <maml:description>
             <maml:para>Specifies the body of the request. The body is the content of the request that follows the headers. You can also pipe a body value to `Invoke-WebRequest`.</maml:para>
             <maml:para>The Body parameter can be used to specify a list of query parameters or specify the content of the response.</maml:para>
-            <maml:para>When the input is a GET request and the body is an `IDictionary` (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
+            <maml:para>When the input is a GET request and the body is an IDictionary (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
             <maml:para>The Body parameter may also accept a `System.Net.Http.MultipartFormDataContent` object. This facilitates `multipart/form-data` requests. When a MultipartFormDataContent object is supplied for Body , any Content related headers supplied to the ContentType , Headers , or WebSession parameters is overridden by the Content headers of the MultipartFormDataContent object. This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
@@ -22862,7 +22893,7 @@ $x
             <maml:para>Specifies the digital public key certificate (X509) of a user account that has permission to send the request. Enter the certificate thumbprint of the certificate.</maml:para>
             <maml:para>Certificates are used in client certificate-based authentication. They can be mapped only to local user accounts; they don't work with domain accounts.</maml:para>
             <maml:para>To get a certificate thumbprint, use the `Get-Item` or `Get-ChildItem` command in the PowerShell `Cert:` drive.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; This feature is currently only supported on Windows OS platforms.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; This feature is only supported on Windows OS platforms.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -22970,7 +23001,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>InFile</maml:name>
           <maml:description>
-            <maml:para>Gets the content of the web request from a file. Enter a path and file name. If you omit the path, the default is the current location.</maml:para>
+            <maml:para>Gets the content of the web request from a file. Enter a path and filename. If you omit the path, the default is the current location.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -23006,7 +23037,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>OutFile</maml:name>
           <maml:description>
-            <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and file name. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
+            <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and filename. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
             <maml:para>By default, `Invoke-WebRequest` returns the results to the pipeline. To send the results to a file and to the pipeline, use the Passthru parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -23055,8 +23086,8 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>ProxyCredential</maml:name>
           <maml:description>
-            <maml:para>Specifies a user account that has permission to use the proxy server that is specified by the Proxy parameter. The default is the current user.</maml:para>
-            <maml:para>Type a user name, such as User01 or Domain01\User01 , User@Domain.Com , or enter a `PSCredential` object, such as one generated by the `Get-Credential` cmdlet.</maml:para>
+            <maml:para>Specifies a user account that has permission to use the proxy server specified by the Proxy parameter. The default is the current user.</maml:para>
+            <maml:para>Type a user name, such as `User01` or `Domain01\User01`, or enter a PSCredential object, such as one generated by the `Get-Credential` cmdlet.</maml:para>
             <maml:para>This parameter is valid only when the Proxy parameter is also used in the command. You can't use the ProxyCredential and ProxyUseDefaultCredentials parameters in the same command.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
@@ -23085,8 +23116,8 @@ $x
             <maml:para>If the local file size is smaller than the remote file size, then the cmdlet attempts to resume downloading the file and append the remaining bytes to the end of the file.</maml:para>
             <maml:para>If the local file size is the same as the remote file size, then no action is taken and the cmdlet assumes the download already complete.</maml:para>
             <maml:para>If the local file size is larger than the remote file size, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-            <maml:para>If the remote server does not support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-            <maml:para>If the local file does not exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+            <maml:para>If the remote server doesn't support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+            <maml:para>If the local file doesn't exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
             <maml:para>This feature was added in PowerShell 6.1.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -23098,21 +23129,21 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RetryIntervalSec</maml:name>
           <maml:description>
-            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
           <dev:type>
             <maml:name>System.Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>5</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
           <maml:name>SessionVariable</maml:name>
           <maml:description>
             <maml:para>Specifies a variable for which this cmdlet creates a web request session and saves it in the value. Enter a variable name without the dollar sign (`$`) symbol.</maml:para>
             <maml:para>When you specify a session variable, `Invoke-WebRequest` creates a web request session object and assigns it to a variable with the specified name in your PowerShell session. You can use the variable in your session as soon as the command completes.</maml:para>
-            <maml:para>Unlike a remote session, the web request session is not a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
+            <maml:para>Unlike a remote session, the web request session isn't a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
             <maml:para>To use the web request session in subsequent web requests, specify the session variable in the value of the WebSession parameter. PowerShell uses the data in the web request session object when establishing the new connection. To override a value in the web request session, use a cmdlet parameter, such as UserAgent or Credential . Parameter values take precedence over values in the web request session.</maml:para>
             <maml:para>You can't use the SessionVariable and WebSession parameters in the same command.</maml:para>
           </maml:description>
@@ -23127,7 +23158,7 @@ $x
           <maml:name>SkipCertificateCheck</maml:name>
           <maml:description>
             <maml:para>Skips certificate validation checks. This includes all validations such as expiration, revocation, trusted root authority, etc.</maml:para>
-            <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
+            <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -23140,7 +23171,7 @@ $x
           <maml:name>SkipHeaderValidation</maml:name>
           <maml:description>
             <maml:para>Indicates the cmdlet should add headers to the request without validation.</maml:para>
-            <maml:para>This switch should be used for sites that require header values that do not conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
+            <maml:para>This switch should be used for sites that require header values that don't conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
             <maml:para>This switch disables validation for values passed to the ContentType , Headers and UserAgent parameters.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
@@ -23166,8 +23197,8 @@ $x
           <maml:name>SslProtocol</maml:name>
           <maml:description>
             <maml:para>Sets the SSL/TLS protocols that are permissible for the web request. By default all, SSL/TLS protocols supported by the system are allowed. SslProtocol allows for limiting to specific protocols for compliance purposes.</maml:para>
-            <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet will combine the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` is not available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
+            <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet combines the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` isn't available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0 and support for `Tls13` was added in PowerShell 7.1.</maml:para>
           </maml:description>
           <command:parameterValueGroup>
@@ -23199,7 +23230,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Token</maml:name>
           <maml:description>
-            <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It cannot be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
+            <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It can't be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
             <maml:para>`Invoke-WebRequest -Uri $uri -Authentication OAuth -Token (Read-Host -AsSecureString)`</maml:para>
             <maml:para>This parameter was introduced in PowerShell 6.0.</maml:para>
           </maml:description>
@@ -23214,11 +23245,11 @@ $x
           <maml:name>TransferEncoding</maml:name>
           <maml:description>
             <maml:para>Specifies a value for the transfer-encoding HTTP response header. The acceptable values for this parameter are:</maml:para>
-            <maml:para>- Chunked</maml:para>
-            <maml:para>- Compress</maml:para>
-            <maml:para>- Deflate</maml:para>
-            <maml:para>- GZip</maml:para>
-            <maml:para>- Identity</maml:para>
+            <maml:para>- `Chunked`</maml:para>
+            <maml:para>- `Compress`</maml:para>
+            <maml:para>- `Deflate`</maml:para>
+            <maml:para>- `GZip`</maml:para>
+            <maml:para>- `Identity`</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">chunked</command:parameterValue>
@@ -23261,7 +23292,7 @@ $x
           <maml:description>
             <maml:para>Specifies a user agent string for the web request.</maml:para>
             <maml:para>The default user agent is similar to `Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0` with slight variations for each operating system and platform.</maml:para>
-            <maml:para>To test a website with the standard user agent string that is used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
+            <maml:para>To test a website with the standard user agent string that's used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
             <maml:para>For example, the following command uses the user agent string for Internet Explorer: `Invoke-WebRequest -Uri https://website.com/ -UserAgent ([Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer)`</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -23306,8 +23337,8 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>AllowUnencryptedAuthentication</maml:name>
           <maml:description>
-            <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that does not begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
-            <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. It is provided only for compatibility &gt; with legacy systems that cannot provide encrypted connections. Use at your own risk.</maml:para>
+            <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that doesn't begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
+            <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. It is provided only for compatibility &gt; with legacy systems that can't provide encrypted connections. Use at your own risk.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -23321,7 +23352,7 @@ $x
           <maml:description>
             <maml:para>Specifies the explicit authentication type to use for the request. The default is None . The Authentication parameter can't be used with the UseDefaultCredentials parameter.</maml:para>
             <maml:para>Available Authentication Options:</maml:para>
-            <maml:para>- `None`: This is the default option when Authentication is not supplied. No explicit   authentication will be used. - `Basic`: Requires Credential . The credentials will be used to send an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
+            <maml:para>- `None`: This is the default option when Authentication isn't supplied. No explicit   authentication is used. - `Basic`: Requires Credential . The credentials are sent as an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
             <maml:para>Supplying Authentication overrides any `Authorization` headers supplied to Headers or included in WebSession .</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
@@ -23343,7 +23374,7 @@ $x
           <maml:description>
             <maml:para>Specifies the body of the request. The body is the content of the request that follows the headers. You can also pipe a body value to `Invoke-WebRequest`.</maml:para>
             <maml:para>The Body parameter can be used to specify a list of query parameters or specify the content of the response.</maml:para>
-            <maml:para>When the input is a GET request and the body is an `IDictionary` (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
+            <maml:para>When the input is a GET request and the body is an IDictionary (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
             <maml:para>The Body parameter may also accept a `System.Net.Http.MultipartFormDataContent` object. This facilitates `multipart/form-data` requests. When a MultipartFormDataContent object is supplied for Body , any Content related headers supplied to the ContentType , Headers , or WebSession parameters is overridden by the Content headers of the MultipartFormDataContent object. This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
@@ -23372,7 +23403,7 @@ $x
             <maml:para>Specifies the digital public key certificate (X509) of a user account that has permission to send the request. Enter the certificate thumbprint of the certificate.</maml:para>
             <maml:para>Certificates are used in client certificate-based authentication. They can be mapped only to local user accounts; they don't work with domain accounts.</maml:para>
             <maml:para>To get a certificate thumbprint, use the `Get-Item` or `Get-ChildItem` command in the PowerShell `Cert:` drive.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; This feature is currently only supported on Windows OS platforms.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; This feature is only supported on Windows OS platforms.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -23480,7 +23511,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>InFile</maml:name>
           <maml:description>
-            <maml:para>Gets the content of the web request from a file. Enter a path and file name. If you omit the path, the default is the current location.</maml:para>
+            <maml:para>Gets the content of the web request from a file. Enter a path and filename. If you omit the path, the default is the current location.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -23527,7 +23558,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>OutFile</maml:name>
           <maml:description>
-            <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and file name. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
+            <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and filename. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
             <maml:para>By default, `Invoke-WebRequest` returns the results to the pipeline. To send the results to a file and to the pipeline, use the Passthru parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -23568,8 +23599,8 @@ $x
             <maml:para>If the local file size is smaller than the remote file size, then the cmdlet attempts to resume downloading the file and append the remaining bytes to the end of the file.</maml:para>
             <maml:para>If the local file size is the same as the remote file size, then no action is taken and the cmdlet assumes the download already complete.</maml:para>
             <maml:para>If the local file size is larger than the remote file size, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-            <maml:para>If the remote server does not support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-            <maml:para>If the local file does not exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+            <maml:para>If the remote server doesn't support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+            <maml:para>If the local file doesn't exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
             <maml:para>This feature was added in PowerShell 6.1.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -23581,21 +23612,21 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RetryIntervalSec</maml:name>
           <maml:description>
-            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
           <dev:type>
             <maml:name>System.Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>5</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
           <maml:name>SessionVariable</maml:name>
           <maml:description>
             <maml:para>Specifies a variable for which this cmdlet creates a web request session and saves it in the value. Enter a variable name without the dollar sign (`$`) symbol.</maml:para>
             <maml:para>When you specify a session variable, `Invoke-WebRequest` creates a web request session object and assigns it to a variable with the specified name in your PowerShell session. You can use the variable in your session as soon as the command completes.</maml:para>
-            <maml:para>Unlike a remote session, the web request session is not a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
+            <maml:para>Unlike a remote session, the web request session isn't a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
             <maml:para>To use the web request session in subsequent web requests, specify the session variable in the value of the WebSession parameter. PowerShell uses the data in the web request session object when establishing the new connection. To override a value in the web request session, use a cmdlet parameter, such as UserAgent or Credential . Parameter values take precedence over values in the web request session.</maml:para>
             <maml:para>You can't use the SessionVariable and WebSession parameters in the same command.</maml:para>
           </maml:description>
@@ -23610,7 +23641,7 @@ $x
           <maml:name>SkipCertificateCheck</maml:name>
           <maml:description>
             <maml:para>Skips certificate validation checks. This includes all validations such as expiration, revocation, trusted root authority, etc.</maml:para>
-            <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
+            <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -23623,7 +23654,7 @@ $x
           <maml:name>SkipHeaderValidation</maml:name>
           <maml:description>
             <maml:para>Indicates the cmdlet should add headers to the request without validation.</maml:para>
-            <maml:para>This switch should be used for sites that require header values that do not conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
+            <maml:para>This switch should be used for sites that require header values that don't conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
             <maml:para>This switch disables validation for values passed to the ContentType , Headers and UserAgent parameters.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
@@ -23649,8 +23680,8 @@ $x
           <maml:name>SslProtocol</maml:name>
           <maml:description>
             <maml:para>Sets the SSL/TLS protocols that are permissible for the web request. By default all, SSL/TLS protocols supported by the system are allowed. SslProtocol allows for limiting to specific protocols for compliance purposes.</maml:para>
-            <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet will combine the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` is not available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
+            <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet combines the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` isn't available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0 and support for `Tls13` was added in PowerShell 7.1.</maml:para>
           </maml:description>
           <command:parameterValueGroup>
@@ -23682,7 +23713,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Token</maml:name>
           <maml:description>
-            <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It cannot be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
+            <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It can't be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
             <maml:para>`Invoke-WebRequest -Uri $uri -Authentication OAuth -Token (Read-Host -AsSecureString)`</maml:para>
             <maml:para>This parameter was introduced in PowerShell 6.0.</maml:para>
           </maml:description>
@@ -23697,11 +23728,11 @@ $x
           <maml:name>TransferEncoding</maml:name>
           <maml:description>
             <maml:para>Specifies a value for the transfer-encoding HTTP response header. The acceptable values for this parameter are:</maml:para>
-            <maml:para>- Chunked</maml:para>
-            <maml:para>- Compress</maml:para>
-            <maml:para>- Deflate</maml:para>
-            <maml:para>- GZip</maml:para>
-            <maml:para>- Identity</maml:para>
+            <maml:para>- `Chunked`</maml:para>
+            <maml:para>- `Compress`</maml:para>
+            <maml:para>- `Deflate`</maml:para>
+            <maml:para>- `GZip`</maml:para>
+            <maml:para>- `Identity`</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">chunked</command:parameterValue>
@@ -23744,7 +23775,7 @@ $x
           <maml:description>
             <maml:para>Specifies a user agent string for the web request.</maml:para>
             <maml:para>The default user agent is similar to `Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0` with slight variations for each operating system and platform.</maml:para>
-            <maml:para>To test a website with the standard user agent string that is used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
+            <maml:para>To test a website with the standard user agent string that's used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
             <maml:para>For example, the following command uses the user agent string for Internet Explorer: `Invoke-WebRequest -Uri https://website.com/ -UserAgent ([Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer)`</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -23789,8 +23820,8 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>AllowUnencryptedAuthentication</maml:name>
           <maml:description>
-            <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that does not begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
-            <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. It is provided only for compatibility &gt; with legacy systems that cannot provide encrypted connections. Use at your own risk.</maml:para>
+            <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that doesn't begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
+            <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. It is provided only for compatibility &gt; with legacy systems that can't provide encrypted connections. Use at your own risk.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -23804,7 +23835,7 @@ $x
           <maml:description>
             <maml:para>Specifies the explicit authentication type to use for the request. The default is None . The Authentication parameter can't be used with the UseDefaultCredentials parameter.</maml:para>
             <maml:para>Available Authentication Options:</maml:para>
-            <maml:para>- `None`: This is the default option when Authentication is not supplied. No explicit   authentication will be used. - `Basic`: Requires Credential . The credentials will be used to send an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
+            <maml:para>- `None`: This is the default option when Authentication isn't supplied. No explicit   authentication is used. - `Basic`: Requires Credential . The credentials are sent as an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
             <maml:para>Supplying Authentication overrides any `Authorization` headers supplied to Headers or included in WebSession .</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
@@ -23826,7 +23857,7 @@ $x
           <maml:description>
             <maml:para>Specifies the body of the request. The body is the content of the request that follows the headers. You can also pipe a body value to `Invoke-WebRequest`.</maml:para>
             <maml:para>The Body parameter can be used to specify a list of query parameters or specify the content of the response.</maml:para>
-            <maml:para>When the input is a GET request and the body is an `IDictionary` (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
+            <maml:para>When the input is a GET request and the body is an IDictionary (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
             <maml:para>The Body parameter may also accept a `System.Net.Http.MultipartFormDataContent` object. This facilitates `multipart/form-data` requests. When a MultipartFormDataContent object is supplied for Body , any Content related headers supplied to the ContentType , Headers , or WebSession parameters is overridden by the Content headers of the MultipartFormDataContent object. This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
@@ -23855,7 +23886,7 @@ $x
             <maml:para>Specifies the digital public key certificate (X509) of a user account that has permission to send the request. Enter the certificate thumbprint of the certificate.</maml:para>
             <maml:para>Certificates are used in client certificate-based authentication. They can be mapped only to local user accounts; they don't work with domain accounts.</maml:para>
             <maml:para>To get a certificate thumbprint, use the `Get-Item` or `Get-ChildItem` command in the PowerShell `Cert:` drive.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; This feature is currently only supported on Windows OS platforms.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; This feature is only supported on Windows OS platforms.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -23948,7 +23979,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>InFile</maml:name>
           <maml:description>
-            <maml:para>Gets the content of the web request from a file. Enter a path and file name. If you omit the path, the default is the current location.</maml:para>
+            <maml:para>Gets the content of the web request from a file. Enter a path and filename. If you omit the path, the default is the current location.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -24020,7 +24051,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>OutFile</maml:name>
           <maml:description>
-            <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and file name. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
+            <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and filename. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
             <maml:para>By default, `Invoke-WebRequest` returns the results to the pipeline. To send the results to a file and to the pipeline, use the Passthru parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -24069,8 +24100,8 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>ProxyCredential</maml:name>
           <maml:description>
-            <maml:para>Specifies a user account that has permission to use the proxy server that is specified by the Proxy parameter. The default is the current user.</maml:para>
-            <maml:para>Type a user name, such as User01 or Domain01\User01 , User@Domain.Com , or enter a `PSCredential` object, such as one generated by the `Get-Credential` cmdlet.</maml:para>
+            <maml:para>Specifies a user account that has permission to use the proxy server specified by the Proxy parameter. The default is the current user.</maml:para>
+            <maml:para>Type a user name, such as `User01` or `Domain01\User01`, or enter a PSCredential object, such as one generated by the `Get-Credential` cmdlet.</maml:para>
             <maml:para>This parameter is valid only when the Proxy parameter is also used in the command. You can't use the ProxyCredential and ProxyUseDefaultCredentials parameters in the same command.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
@@ -24099,8 +24130,8 @@ $x
             <maml:para>If the local file size is smaller than the remote file size, then the cmdlet attempts to resume downloading the file and append the remaining bytes to the end of the file.</maml:para>
             <maml:para>If the local file size is the same as the remote file size, then no action is taken and the cmdlet assumes the download already complete.</maml:para>
             <maml:para>If the local file size is larger than the remote file size, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-            <maml:para>If the remote server does not support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-            <maml:para>If the local file does not exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+            <maml:para>If the remote server doesn't support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+            <maml:para>If the local file doesn't exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
             <maml:para>This feature was added in PowerShell 6.1.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -24112,21 +24143,21 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RetryIntervalSec</maml:name>
           <maml:description>
-            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
           <dev:type>
             <maml:name>System.Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>5</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
           <maml:name>SessionVariable</maml:name>
           <maml:description>
             <maml:para>Specifies a variable for which this cmdlet creates a web request session and saves it in the value. Enter a variable name without the dollar sign (`$`) symbol.</maml:para>
             <maml:para>When you specify a session variable, `Invoke-WebRequest` creates a web request session object and assigns it to a variable with the specified name in your PowerShell session. You can use the variable in your session as soon as the command completes.</maml:para>
-            <maml:para>Unlike a remote session, the web request session is not a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
+            <maml:para>Unlike a remote session, the web request session isn't a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
             <maml:para>To use the web request session in subsequent web requests, specify the session variable in the value of the WebSession parameter. PowerShell uses the data in the web request session object when establishing the new connection. To override a value in the web request session, use a cmdlet parameter, such as UserAgent or Credential . Parameter values take precedence over values in the web request session.</maml:para>
             <maml:para>You can't use the SessionVariable and WebSession parameters in the same command.</maml:para>
           </maml:description>
@@ -24141,7 +24172,7 @@ $x
           <maml:name>SkipCertificateCheck</maml:name>
           <maml:description>
             <maml:para>Skips certificate validation checks. This includes all validations such as expiration, revocation, trusted root authority, etc.</maml:para>
-            <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
+            <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -24154,7 +24185,7 @@ $x
           <maml:name>SkipHeaderValidation</maml:name>
           <maml:description>
             <maml:para>Indicates the cmdlet should add headers to the request without validation.</maml:para>
-            <maml:para>This switch should be used for sites that require header values that do not conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
+            <maml:para>This switch should be used for sites that require header values that don't conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
             <maml:para>This switch disables validation for values passed to the ContentType , Headers and UserAgent parameters.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
@@ -24180,8 +24211,8 @@ $x
           <maml:name>SslProtocol</maml:name>
           <maml:description>
             <maml:para>Sets the SSL/TLS protocols that are permissible for the web request. By default all, SSL/TLS protocols supported by the system are allowed. SslProtocol allows for limiting to specific protocols for compliance purposes.</maml:para>
-            <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet will combine the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` is not available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
+            <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet combines the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` isn't available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0 and support for `Tls13` was added in PowerShell 7.1.</maml:para>
           </maml:description>
           <command:parameterValueGroup>
@@ -24213,7 +24244,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Token</maml:name>
           <maml:description>
-            <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It cannot be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
+            <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It can't be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
             <maml:para>`Invoke-WebRequest -Uri $uri -Authentication OAuth -Token (Read-Host -AsSecureString)`</maml:para>
             <maml:para>This parameter was introduced in PowerShell 6.0.</maml:para>
           </maml:description>
@@ -24228,11 +24259,11 @@ $x
           <maml:name>TransferEncoding</maml:name>
           <maml:description>
             <maml:para>Specifies a value for the transfer-encoding HTTP response header. The acceptable values for this parameter are:</maml:para>
-            <maml:para>- Chunked</maml:para>
-            <maml:para>- Compress</maml:para>
-            <maml:para>- Deflate</maml:para>
-            <maml:para>- GZip</maml:para>
-            <maml:para>- Identity</maml:para>
+            <maml:para>- `Chunked`</maml:para>
+            <maml:para>- `Compress`</maml:para>
+            <maml:para>- `Deflate`</maml:para>
+            <maml:para>- `GZip`</maml:para>
+            <maml:para>- `Identity`</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">chunked</command:parameterValue>
@@ -24275,7 +24306,7 @@ $x
           <maml:description>
             <maml:para>Specifies a user agent string for the web request.</maml:para>
             <maml:para>The default user agent is similar to `Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0` with slight variations for each operating system and platform.</maml:para>
-            <maml:para>To test a website with the standard user agent string that is used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
+            <maml:para>To test a website with the standard user agent string that's used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
             <maml:para>For example, the following command uses the user agent string for Internet Explorer: `Invoke-WebRequest -Uri https://website.com/ -UserAgent ([Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer)`</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -24320,8 +24351,8 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>AllowUnencryptedAuthentication</maml:name>
           <maml:description>
-            <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that does not begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
-            <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. It is provided only for compatibility &gt; with legacy systems that cannot provide encrypted connections. Use at your own risk.</maml:para>
+            <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that doesn't begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
+            <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. It is provided only for compatibility &gt; with legacy systems that can't provide encrypted connections. Use at your own risk.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -24335,7 +24366,7 @@ $x
           <maml:description>
             <maml:para>Specifies the explicit authentication type to use for the request. The default is None . The Authentication parameter can't be used with the UseDefaultCredentials parameter.</maml:para>
             <maml:para>Available Authentication Options:</maml:para>
-            <maml:para>- `None`: This is the default option when Authentication is not supplied. No explicit   authentication will be used. - `Basic`: Requires Credential . The credentials will be used to send an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
+            <maml:para>- `None`: This is the default option when Authentication isn't supplied. No explicit   authentication is used. - `Basic`: Requires Credential . The credentials are sent as an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
             <maml:para>Supplying Authentication overrides any `Authorization` headers supplied to Headers or included in WebSession .</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
@@ -24357,7 +24388,7 @@ $x
           <maml:description>
             <maml:para>Specifies the body of the request. The body is the content of the request that follows the headers. You can also pipe a body value to `Invoke-WebRequest`.</maml:para>
             <maml:para>The Body parameter can be used to specify a list of query parameters or specify the content of the response.</maml:para>
-            <maml:para>When the input is a GET request and the body is an `IDictionary` (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
+            <maml:para>When the input is a GET request and the body is an IDictionary (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
             <maml:para>The Body parameter may also accept a `System.Net.Http.MultipartFormDataContent` object. This facilitates `multipart/form-data` requests. When a MultipartFormDataContent object is supplied for Body , any Content related headers supplied to the ContentType , Headers , or WebSession parameters is overridden by the Content headers of the MultipartFormDataContent object. This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
@@ -24386,7 +24417,7 @@ $x
             <maml:para>Specifies the digital public key certificate (X509) of a user account that has permission to send the request. Enter the certificate thumbprint of the certificate.</maml:para>
             <maml:para>Certificates are used in client certificate-based authentication. They can be mapped only to local user accounts; they don't work with domain accounts.</maml:para>
             <maml:para>To get a certificate thumbprint, use the `Get-Item` or `Get-ChildItem` command in the PowerShell `Cert:` drive.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; This feature is currently only supported on Windows OS platforms.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; This feature is only supported on Windows OS platforms.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -24479,7 +24510,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>InFile</maml:name>
           <maml:description>
-            <maml:para>Gets the content of the web request from a file. Enter a path and file name. If you omit the path, the default is the current location.</maml:para>
+            <maml:para>Gets the content of the web request from a file. Enter a path and filename. If you omit the path, the default is the current location.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -24562,7 +24593,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>OutFile</maml:name>
           <maml:description>
-            <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and file name. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
+            <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and filename. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
             <maml:para>By default, `Invoke-WebRequest` returns the results to the pipeline. To send the results to a file and to the pipeline, use the Passthru parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -24603,8 +24634,8 @@ $x
             <maml:para>If the local file size is smaller than the remote file size, then the cmdlet attempts to resume downloading the file and append the remaining bytes to the end of the file.</maml:para>
             <maml:para>If the local file size is the same as the remote file size, then no action is taken and the cmdlet assumes the download already complete.</maml:para>
             <maml:para>If the local file size is larger than the remote file size, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-            <maml:para>If the remote server does not support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-            <maml:para>If the local file does not exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+            <maml:para>If the remote server doesn't support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+            <maml:para>If the local file doesn't exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
             <maml:para>This feature was added in PowerShell 6.1.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -24616,21 +24647,21 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RetryIntervalSec</maml:name>
           <maml:description>
-            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+            <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
           <dev:type>
             <maml:name>System.Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
+          <dev:defaultValue>5</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
           <maml:name>SessionVariable</maml:name>
           <maml:description>
             <maml:para>Specifies a variable for which this cmdlet creates a web request session and saves it in the value. Enter a variable name without the dollar sign (`$`) symbol.</maml:para>
             <maml:para>When you specify a session variable, `Invoke-WebRequest` creates a web request session object and assigns it to a variable with the specified name in your PowerShell session. You can use the variable in your session as soon as the command completes.</maml:para>
-            <maml:para>Unlike a remote session, the web request session is not a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
+            <maml:para>Unlike a remote session, the web request session isn't a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
             <maml:para>To use the web request session in subsequent web requests, specify the session variable in the value of the WebSession parameter. PowerShell uses the data in the web request session object when establishing the new connection. To override a value in the web request session, use a cmdlet parameter, such as UserAgent or Credential . Parameter values take precedence over values in the web request session.</maml:para>
             <maml:para>You can't use the SessionVariable and WebSession parameters in the same command.</maml:para>
           </maml:description>
@@ -24645,7 +24676,7 @@ $x
           <maml:name>SkipCertificateCheck</maml:name>
           <maml:description>
             <maml:para>Skips certificate validation checks. This includes all validations such as expiration, revocation, trusted root authority, etc.</maml:para>
-            <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
+            <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -24658,7 +24689,7 @@ $x
           <maml:name>SkipHeaderValidation</maml:name>
           <maml:description>
             <maml:para>Indicates the cmdlet should add headers to the request without validation.</maml:para>
-            <maml:para>This switch should be used for sites that require header values that do not conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
+            <maml:para>This switch should be used for sites that require header values that don't conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
             <maml:para>This switch disables validation for values passed to the ContentType , Headers and UserAgent parameters.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
           </maml:description>
@@ -24684,8 +24715,8 @@ $x
           <maml:name>SslProtocol</maml:name>
           <maml:description>
             <maml:para>Sets the SSL/TLS protocols that are permissible for the web request. By default all, SSL/TLS protocols supported by the system are allowed. SslProtocol allows for limiting to specific protocols for compliance purposes.</maml:para>
-            <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet will combine the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
-            <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` is not available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
+            <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet combines the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` isn't available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
             <maml:para>This feature was added in PowerShell 6.0.0 and support for `Tls13` was added in PowerShell 7.1.</maml:para>
           </maml:description>
           <command:parameterValueGroup>
@@ -24717,7 +24748,7 @@ $x
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Token</maml:name>
           <maml:description>
-            <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It cannot be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
+            <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It can't be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
             <maml:para>`Invoke-WebRequest -Uri $uri -Authentication OAuth -Token (Read-Host -AsSecureString)`</maml:para>
             <maml:para>This parameter was introduced in PowerShell 6.0.</maml:para>
           </maml:description>
@@ -24732,11 +24763,11 @@ $x
           <maml:name>TransferEncoding</maml:name>
           <maml:description>
             <maml:para>Specifies a value for the transfer-encoding HTTP response header. The acceptable values for this parameter are:</maml:para>
-            <maml:para>- Chunked</maml:para>
-            <maml:para>- Compress</maml:para>
-            <maml:para>- Deflate</maml:para>
-            <maml:para>- GZip</maml:para>
-            <maml:para>- Identity</maml:para>
+            <maml:para>- `Chunked`</maml:para>
+            <maml:para>- `Compress`</maml:para>
+            <maml:para>- `Deflate`</maml:para>
+            <maml:para>- `GZip`</maml:para>
+            <maml:para>- `Identity`</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">chunked</command:parameterValue>
@@ -24779,7 +24810,7 @@ $x
           <maml:description>
             <maml:para>Specifies a user agent string for the web request.</maml:para>
             <maml:para>The default user agent is similar to `Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0` with slight variations for each operating system and platform.</maml:para>
-            <maml:para>To test a website with the standard user agent string that is used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
+            <maml:para>To test a website with the standard user agent string that's used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
             <maml:para>For example, the following command uses the user agent string for Internet Explorer: `Invoke-WebRequest -Uri https://website.com/ -UserAgent ([Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer)`</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -24811,8 +24842,8 @@ $x
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>AllowUnencryptedAuthentication</maml:name>
         <maml:description>
-          <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that does not begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
-          <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. It is provided only for compatibility &gt; with legacy systems that cannot provide encrypted connections. Use at your own risk.</maml:para>
+          <maml:para>Allows sending of credentials and secrets over unencrypted connections. By default, supplying Credential or any Authentication option with a Uri that doesn't begin with `https://` results in an error and the request is aborted to prevent unintentionally communicating secrets in plain text over unencrypted connections. To override this behavior at your own risk, supply the AllowUnencryptedAuthentication parameter.</maml:para>
+          <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. It is provided only for compatibility &gt; with legacy systems that can't provide encrypted connections. Use at your own risk.</maml:para>
           <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
@@ -24827,7 +24858,7 @@ $x
         <maml:description>
           <maml:para>Specifies the explicit authentication type to use for the request. The default is None . The Authentication parameter can't be used with the UseDefaultCredentials parameter.</maml:para>
           <maml:para>Available Authentication Options:</maml:para>
-          <maml:para>- `None`: This is the default option when Authentication is not supplied. No explicit   authentication will be used. - `Basic`: Requires Credential . The credentials will be used to send an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
+          <maml:para>- `None`: This is the default option when Authentication isn't supplied. No explicit   authentication is used. - `Basic`: Requires Credential . The credentials are sent as an RFC 7617 Basic   Authentication `Authorization: Basic` header in the format of `base64(user:password)`. - `Bearer`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token. - `OAuth`: Requires the Token parameter. Sends an RFC 6750 `Authorization: Bearer` header with   the supplied token.</maml:para>
           <maml:para>Supplying Authentication overrides any `Authorization` headers supplied to Headers or included in WebSession .</maml:para>
           <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
         </maml:description>
@@ -24843,7 +24874,7 @@ $x
         <maml:description>
           <maml:para>Specifies the body of the request. The body is the content of the request that follows the headers. You can also pipe a body value to `Invoke-WebRequest`.</maml:para>
           <maml:para>The Body parameter can be used to specify a list of query parameters or specify the content of the response.</maml:para>
-          <maml:para>When the input is a GET request and the body is an `IDictionary` (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
+          <maml:para>When the input is a GET request and the body is an IDictionary (typically, a hash table), the body is added to the URI as query parameters. For other request types (such as POST), the body is set as the value of the request body in the standard `name=value` format.</maml:para>
           <maml:para>The Body parameter may also accept a `System.Net.Http.MultipartFormDataContent` object. This facilitates `multipart/form-data` requests. When a MultipartFormDataContent object is supplied for Body , any Content related headers supplied to the ContentType , Headers , or WebSession parameters is overridden by the Content headers of the MultipartFormDataContent object. This feature was added in PowerShell 6.0.0.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Object</command:parameterValue>
@@ -24872,7 +24903,7 @@ $x
           <maml:para>Specifies the digital public key certificate (X509) of a user account that has permission to send the request. Enter the certificate thumbprint of the certificate.</maml:para>
           <maml:para>Certificates are used in client certificate-based authentication. They can be mapped only to local user accounts; they don't work with domain accounts.</maml:para>
           <maml:para>To get a certificate thumbprint, use the `Get-Item` or `Get-ChildItem` command in the PowerShell `Cert:` drive.</maml:para>
-          <maml:para>&gt; [!NOTE] &gt; This feature is currently only supported on Windows OS platforms.</maml:para>
+          <maml:para>&gt; [!NOTE] &gt; This feature is only supported on Windows OS platforms.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
         <dev:type>
@@ -24981,7 +25012,7 @@ $x
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>InFile</maml:name>
         <maml:description>
-          <maml:para>Gets the content of the web request from a file. Enter a path and file name. If you omit the path, the default is the current location.</maml:para>
+          <maml:para>Gets the content of the web request from a file. Enter a path and filename. If you omit the path, the default is the current location.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
         <dev:type>
@@ -25053,7 +25084,7 @@ $x
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>OutFile</maml:name>
         <maml:description>
-          <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and file name. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
+          <maml:para>Specifies the output file for which this cmdlet saves the response body. Enter a path and filename. If you omit the path, the default is the current location. The name is treated as a literal path. Names that contain brackets (`[]`) must be enclosed in single quotes (`'`).</maml:para>
           <maml:para>By default, `Invoke-WebRequest` returns the results to the pipeline. To send the results to a file and to the pipeline, use the Passthru parameter.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -25104,8 +25135,8 @@ $x
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>ProxyCredential</maml:name>
         <maml:description>
-          <maml:para>Specifies a user account that has permission to use the proxy server that is specified by the Proxy parameter. The default is the current user.</maml:para>
-          <maml:para>Type a user name, such as User01 or Domain01\User01 , User@Domain.Com , or enter a `PSCredential` object, such as one generated by the `Get-Credential` cmdlet.</maml:para>
+          <maml:para>Specifies a user account that has permission to use the proxy server specified by the Proxy parameter. The default is the current user.</maml:para>
+          <maml:para>Type a user name, such as `User01` or `Domain01\User01`, or enter a PSCredential object, such as one generated by the `Get-Credential` cmdlet.</maml:para>
           <maml:para>This parameter is valid only when the Proxy parameter is also used in the command. You can't use the ProxyCredential and ProxyUseDefaultCredentials parameters in the same command.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
@@ -25135,8 +25166,8 @@ $x
           <maml:para>If the local file size is smaller than the remote file size, then the cmdlet attempts to resume downloading the file and append the remaining bytes to the end of the file.</maml:para>
           <maml:para>If the local file size is the same as the remote file size, then no action is taken and the cmdlet assumes the download already complete.</maml:para>
           <maml:para>If the local file size is larger than the remote file size, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-          <maml:para>If the remote server does not support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
-          <maml:para>If the local file does not exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+          <maml:para>If the remote server doesn't support download resuming, then the local file is overwritten and the entire remote file is re-downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
+          <maml:para>If the local file doesn't exist, then the local file is created and the entire remote file is downloaded. This behavior is the same as using OutFile without Resume .</maml:para>
           <maml:para>This feature was added in PowerShell 6.1.0.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
@@ -25149,21 +25180,21 @@ $x
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>RetryIntervalSec</maml:name>
         <maml:description>
-          <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries.</maml:para>
+          <maml:para>Specifies the interval between retries for the connection when a failure code between 400 and 599, inclusive or 304 is received. Also see MaximumRetryCount parameter for specifying number of retries. The value must be between `1` and `[int]::MaxValue`.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Int32</command:parameterValue>
         <dev:type>
           <maml:name>System.Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
+        <dev:defaultValue>5</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="SV">
         <maml:name>SessionVariable</maml:name>
         <maml:description>
           <maml:para>Specifies a variable for which this cmdlet creates a web request session and saves it in the value. Enter a variable name without the dollar sign (`$`) symbol.</maml:para>
           <maml:para>When you specify a session variable, `Invoke-WebRequest` creates a web request session object and assigns it to a variable with the specified name in your PowerShell session. You can use the variable in your session as soon as the command completes.</maml:para>
-          <maml:para>Unlike a remote session, the web request session is not a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
+          <maml:para>Unlike a remote session, the web request session isn't a persistent connection. It's an object that contains information about the connection and the request, including cookies, credentials, the maximum redirection value, and the user agent string. You can use it to share state and data among web requests.</maml:para>
           <maml:para>To use the web request session in subsequent web requests, specify the session variable in the value of the WebSession parameter. PowerShell uses the data in the web request session object when establishing the new connection. To override a value in the web request session, use a cmdlet parameter, such as UserAgent or Credential . Parameter values take precedence over values in the web request session.</maml:para>
           <maml:para>You can't use the SessionVariable and WebSession parameters in the same command.</maml:para>
         </maml:description>
@@ -25178,7 +25209,7 @@ $x
         <maml:name>SkipCertificateCheck</maml:name>
         <maml:description>
           <maml:para>Skips certificate validation checks. This includes all validations such as expiration, revocation, trusted root authority, etc.</maml:para>
-          <maml:para>&gt; [!WARNING] &gt; Using this parameter is not secure and is not recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
+          <maml:para>&gt; [!WARNING] &gt; Using this parameter isn't secure and isn't recommended. This switch is only intended to be used &gt; against known hosts using a self-signed certificate for testing purposes. Use at your own risk.</maml:para>
           <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
@@ -25192,7 +25223,7 @@ $x
         <maml:name>SkipHeaderValidation</maml:name>
         <maml:description>
           <maml:para>Indicates the cmdlet should add headers to the request without validation.</maml:para>
-          <maml:para>This switch should be used for sites that require header values that do not conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
+          <maml:para>This switch should be used for sites that require header values that don't conform to standards. Specifying this switch disables validation to allow the value to be passed unchecked. When specified, all headers are added without validation.</maml:para>
           <maml:para>This switch disables validation for values passed to the ContentType , Headers and UserAgent parameters.</maml:para>
           <maml:para>This feature was added in PowerShell 6.0.0.</maml:para>
         </maml:description>
@@ -25220,8 +25251,8 @@ $x
         <maml:name>SslProtocol</maml:name>
         <maml:description>
           <maml:para>Sets the SSL/TLS protocols that are permissible for the web request. By default all, SSL/TLS protocols supported by the system are allowed. SslProtocol allows for limiting to specific protocols for compliance purposes.</maml:para>
-          <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet will combine the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
-          <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` is not available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
+          <maml:para>These values are defined as a flag-based enumeration. You can combine multiple values together to set multiple flags using this parameter. The values can be passed to the SslProtocol parameter as an array of values or as a comma-separated string of those values. The cmdlet combines the values using a binary-OR operation. Passing values as an array is the simplest option and also allows you to use tab-completion on the values. You may not be able to define multiple options on all platforms.</maml:para>
+          <maml:para>&gt; [!NOTE] &gt; On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support &gt; for `Tls13` isn't available on all operating systems and will need to be verified on a per &gt; operating system basis.</maml:para>
           <maml:para>This feature was added in PowerShell 6.0.0 and support for `Tls13` was added in PowerShell 7.1.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Microsoft.PowerShell.Commands.WebSslProtocol</command:parameterValue>
@@ -25247,7 +25278,7 @@ $x
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Token</maml:name>
         <maml:description>
-          <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It cannot be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
+          <maml:para>The OAuth or Bearer token to include in the request. Token is required by certain Authentication options. It can't be used independently. Token takes a `SecureString` containing the token. To supply the token manually use the following:</maml:para>
           <maml:para>`Invoke-WebRequest -Uri $uri -Authentication OAuth -Token (Read-Host -AsSecureString)`</maml:para>
           <maml:para>This parameter was introduced in PowerShell 6.0.</maml:para>
         </maml:description>
@@ -25262,11 +25293,11 @@ $x
         <maml:name>TransferEncoding</maml:name>
         <maml:description>
           <maml:para>Specifies a value for the transfer-encoding HTTP response header. The acceptable values for this parameter are:</maml:para>
-          <maml:para>- Chunked</maml:para>
-          <maml:para>- Compress</maml:para>
-          <maml:para>- Deflate</maml:para>
-          <maml:para>- GZip</maml:para>
-          <maml:para>- Identity</maml:para>
+          <maml:para>- `Chunked`</maml:para>
+          <maml:para>- `Compress`</maml:para>
+          <maml:para>- `Deflate`</maml:para>
+          <maml:para>- `GZip`</maml:para>
+          <maml:para>- `Identity`</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
         <dev:type>
@@ -25317,7 +25348,7 @@ $x
         <maml:description>
           <maml:para>Specifies a user agent string for the web request.</maml:para>
           <maml:para>The default user agent is similar to `Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0` with slight variations for each operating system and platform.</maml:para>
-          <maml:para>To test a website with the standard user agent string that is used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
+          <maml:para>To test a website with the standard user agent string that's used by most internet browsers, use the properties of the PSUserAgent (/dotnet/api/microsoft.powershell.commands.psuseragent)class, such as Chrome, FireFox, InternetExplorer, Opera, and Safari.</maml:para>
           <maml:para>For example, the following command uses the user agent string for Internet Explorer: `Invoke-WebRequest -Uri https://website.com/ -UserAgent ([Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer)`</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -25370,12 +25401,12 @@ $x
         <maml:para>For more information, see BasicHtmlWebResponseObject (/dotnet/api/microsoft.powershell.commands.basichtmlwebresponseobject).</maml:para>
         <maml:para>Because of changes in .NET Core 3.1, PowerShell 7.0 and higher use the HttpClient.DefaultProxy (/dotnet/api/system.net.http.httpclient.defaultproxy?view=netcore-3.1)Property to determine the proxy configuration.</maml:para>
         <maml:para>The value of this property is determined by your platform:</maml:para>
-        <maml:para>- For Windows : Reads proxy configuration from environment variables. If those variables are not   defined the property is derived from the user's proxy settings. - For macOS : Reads proxy configuration from environment variables. If those variables are not   defined the property is derived from the system's proxy settings. - For Linux : Reads proxy configuration from environment variables. If those variables are not   defined the property initializes a non-configured instance that bypasses all addresses.</maml:para>
+        <maml:para>- For Windows : Reads proxy configuration from environment variables. If those variables aren't   defined the property is derived from the user's proxy settings. - For macOS : Reads proxy configuration from environment variables. If those variables aren't   defined the property is derived from the system's proxy settings. - For Linux : Reads proxy configuration from environment variables. If those variables aren't   defined the property initializes a non-configured instance that bypasses all addresses.</maml:para>
         <maml:para>The environment variables used for `DefaultProxy` initialization on Windows and Unix-based platforms are:</maml:para>
         <maml:para>- `HTTP_PROXY`: the hostname or IP address of the proxy server used on HTTP requests.</maml:para>
         <maml:para>- `HTTPS_PROXY`: the hostname or IP address of the proxy server used on HTTPS requests.</maml:para>
         <maml:para>- `ALL_PROXY`: the hostname or IP address of the proxy server used on HTTP and HTTPS requests in</maml:para>
-        <maml:para>  case `HTTP_PROXY` or `HTTPS_PROXY` are not defined. - `NO_PROXY`: a comma-separated list of hostnames that should be excluded from proxying.</maml:para>
+        <maml:para>  case `HTTP_PROXY` or `HTTPS_PROXY` aren't defined. - `NO_PROXY`: a comma-separated list of hostnames that should be excluded from proxying.</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -25397,22 +25428,20 @@ To Value   5280</dev:code>
       </command:example>
       <command:example>
         <maml:title>------------ Example 2: Use a stateful web service ------------</maml:title>
-        <dev:code>$Body = @{
-    User = 'jdoe'
-    password = 'P@S$w0rd!'
+        <dev:code>$LoginParameters = @{
+    Uri             = 'https://www.contoso.com/login/'
+    SessionVariable = 'Session'
+    Method          = 'POST'
+    Body            = @{
+        User     = 'jdoe'
+        Password = 'P@S$w0rd!'
+    }
 }
-$LoginResponse = Invoke-WebRequest 'https://www.contoso.com/login/' -SessionVariable 'Session' -Body $Body -Method 'POST'
-
-$Session
-
-$ProfileResponse = Invoke-WebRequest 'https://www.contoso.com/profile/' -WebSession $Session
-
-$ProfileResponse</dev:code>
+$LoginResponse = Invoke-WebRequest @LoginParameters
+$ProfileResponse = Invoke-WebRequest 'https://www.contoso.com/profile/' -WebSession $Session</dev:code>
         <dev:remarks>
-          <maml:para>The first call to `Invoke-WebRequest` sends a sign-in request. The command specifies a value of "Session" for the value of the -SessionVariable parameter, and saves the result in the `$LoginResponse` variable. When the command completes, the `$LoginResponse` variable contains an `BasicHtmlWebResponseObject` and the `$Session` variable contains a `WebRequestSession` object. This logs the user into the site.</maml:para>
-          <maml:para>The call to `$Session` by itself shows the `WebRequestSession` object in the variable.</maml:para>
-          <maml:para>The second call to `Invoke-WebRequest` fetches the user's profile which requires that the user be logged into the site. The session data stored in the `$Session` variable is used to provide session cookies to the site created during the login. The result is saved in the `$ProfileResponse` variable.</maml:para>
-          <maml:para>The call to `$ProfileResponse` by itself shows the `BasicHtmlWebResponseObject` in the variable.</maml:para>
+          <maml:para>The first call to `Invoke-WebRequest` sends a sign-in request. The command specifies a value of `Session` for the value of the SessionVariable parameter. When the command completes, the `$LoginResponse` variable contains an BasicHtmlWebResponseObject and the `$Session` variable contains a `WebRequestSession` object. This logs the user into the site.</maml:para>
+          <maml:para>The second call to `Invoke-WebRequest` fetches the user's profile, which requires the user be signed into the site. The session data stored in the `$Session` variable provides session cookies to the site created during the login.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -25423,19 +25452,18 @@ $ProfileResponse</dev:code>
         </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>Example 4: Writes the response content to a file using the encoding defined in the requested page.</maml:title>
+        <maml:title>Example 4: Write response content to a file using the encoding defined in the requested page</maml:title>
         <dev:code>$Response = Invoke-WebRequest -Uri "https://aka.ms/pscore6-docs"
 $Stream = [System.IO.StreamWriter]::new('.\docspage.html', $false, $Response.Encoding)
 try {
     $Stream.Write($Response.Content)
-}
-finally {
+} finally {
     $Stream.Dispose()
 }</dev:code>
         <dev:remarks>
           <maml:para>The first command retrieves the page and saves the response object in the `$Response` variable.</maml:para>
-          <maml:para>The second command creates a `StreamWriter` to use to write the response content to a file. The Encoding property of the response object is used to set the encoding for the file.</maml:para>
-          <maml:para>The final few commands write the Content property to the file then disposes the `StreamWriter`.</maml:para>
+          <maml:para>The second command creates a StreamWriter to use to write the response content to a file. The Encoding property of the response object is used to set the encoding for the file.</maml:para>
+          <maml:para>The final few commands write the Content property to the file then disposes the StreamWriter .</maml:para>
           <maml:para>Note that the Encoding property is null if the web request doesn't return text content.</maml:para>
         </dev:remarks>
       </command:example>
@@ -25476,7 +25504,7 @@ $Result = Invoke-WebRequest -Uri $Uri -Method Post -Form $Form</dev:code>
         <dev:remarks>
           <maml:para>The profile form requires these fields: `firstName`, `lastName`, `email`, `avatar`, `birthday`, and `hobbies`. The API is expecting an image for the user profile pic to be supplied in the `avatar` field. The API also accepts multiple `hobbies` entries to be submitted in the same form.</maml:para>
           <maml:para>When creating the `$Form` HashTable, the key names are used as form field names. By default, the values of the HashTable are converted to strings. If a System.IO.FileInfo value is present, the file contents are submitted. If a collection such as arrays or lists are present, the form field is submitted multiple times.</maml:para>
-          <maml:para>By using `Get-Item` on the `avatar` key, the `FileInfo` object is set as the value. The result is that the image data for `jdoe.png` is submitted.</maml:para>
+          <maml:para>Using `Get-Item` on the `avatar` key, the `FileInfo` object is set as the value. The result is that the image data for `jdoe.png` is submitted.</maml:para>
           <maml:para>By supplying a list to the `hobbies` key, the `hobbies` field is present in the submissions once for each list item.</maml:para>
         </dev:remarks>
       </command:example>
@@ -25487,9 +25515,7 @@ $Result = Invoke-WebRequest -Uri $Uri -Method Post -Form $Form</dev:code>
     $Response = Invoke-WebRequest -Uri "www.microsoft.com/unkownhost"
     # This will only execute if the Invoke-WebRequest is successful.
     $StatusCode = $Response.StatusCode
-}
-catch
-{
+} catch {
     $StatusCode = $_.Exception.Response.StatusCode.value__
 }
 $StatusCode
@@ -25497,6 +25523,88 @@ $StatusCode
 404</dev:code>
         <dev:remarks>
           <maml:para>The terminating error is caught by the `catch` block, which retrieves the StatusCode from the Exception object.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>----- Example 8: Download multiple files at the same time -----</maml:title>
+        <dev:code>$baseUri = 'https://github.com/PowerShell/PowerShell/releases/download'
+$files = @(
+    @{
+        Uri = "$baseUri/v7.3.0-preview.5/PowerShell-7.3.0-preview.5-win-x64.msi"
+        OutFile = 'PowerShell-7.3.0-preview.5-win-x64.msi'
+    },
+    @{
+        Uri = "$baseUri/v7.3.0-preview.5/PowerShell-7.3.0-preview.5-win-x64.zip"
+        OutFile = 'PowerShell-7.3.0-preview.5-win-x64.zip'
+    },
+    @{
+        Uri = "$baseUri/v7.2.5/PowerShell-7.2.5-win-x64.msi"
+        OutFile = 'PowerShell-7.2.5-win-x64.msi'
+    },
+    @{
+        Uri = "$baseUri/v7.2.5/PowerShell-7.2.5-win-x64.zip"
+        OutFile = 'PowerShell-7.2.5-win-x64.zip'
+    }
+)
+
+$jobs = @()
+
+foreach ($file in $files) {
+    $jobs += Start-ThreadJob -Name $file.OutFile -ScriptBlock {
+        $params = $using:file
+        Invoke-WebRequest @params
+    }
+}
+
+Write-Host "Downloads started..."
+Wait-Job -Job $jobs
+
+foreach ($job in $jobs) {
+    Receive-Job -Job $job
+}</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>------------ Example 9: Skipping Header Validation ------------</maml:title>
+        <dev:code>$Uri = 'https://httpbin.org/headers'
+$InvalidHeaders = @{
+    'If-Match' = '12345'
+}
+
+Invoke-WebRequest -Uri $Uri -Headers $InvalidHeaders
+
+Invoke-WebRequest -Uri $Uri -Headers $InvalidHeaders -SkipHeaderValidation
+
+Invoke-WebRequest: The format of value '12345' is invalid.
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : {
+                      "headers": {
+                        "Host": "httpbin.org",
+                        "If-Match": "12345",
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.19044; en-US) PowerShell/7.2.5",
+                        "X-Amzn-Trace-Id": �
+RawContent        : HTTP/1.1 200 OK
+                    Date: Mon, 08 Aug 2022 16:24:24 GMT
+                    Connection: keep-alive
+                    Server: gunicorn/19.9.0
+                    Access-Control-Allow-Origin: *
+                    Access-Control-Allow-Credentials: true
+                    Content-Type: application�
+Headers           : {[Date, System.String[]], [Connection, System.String[]], [Server, System.String[]], [Access-Control-Allow-Origin, System.String[]]�}
+Images            : {}
+InputFields       : {}
+Links             : {}
+RawContentLength  : 249
+RelationLink      : {}</dev:code>
+        <dev:remarks>
+          <maml:para>httpbin.org (https://httpbin.org/)is a service that returns information about web requests and responses for troubleshooting. The `$Uri` variable is assigned to the `/headers` endpoint of the service, which returns a request's headers as the content in its response.</maml:para>
+          <maml:para>The `If-Match` request header is defined in RFC-7232 section 3.1 (https://www.rfc-editor.org/rfc/rfc7232.html#section-3.1)and requires the value for that header to be defined with surrounding quotes. The `$InvalidHeaders` variable is assigned a hash table where the value of `If-Match` is invalid because it's defined as `12345` instead of `"12345"`.</maml:para>
+          <maml:para>Calling `Invoke-WebRequest` with the invalid headers returns an error reporting that the formatted value is invalid. The request is not sent to the endpoint.</maml:para>
+          <maml:para>Calling `Invoke-WebRequest` with the SkipHeaderValidation parameter ignores the validation failure and sends the request to the endpoint. Because the endpoint tolerates non-compliant header values, the cmdlet returns the response object without error.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -28152,7 +28260,7 @@ TotalMilliseconds : 27813562312.7728</dev:code>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The `New-Variable` cmdlet creates a new variable in Windows PowerShell. You can assign a value to the variable while creating it or assign or change the value after it is created.</maml:para>
+      <maml:para>The `New-Variable` cmdlet creates a new variable in PowerShell. You can assign a value to the variable while creating it or assign or change the value after it is created.</maml:para>
       <maml:para>You can use the parameters of `New-Variable` to set the properties of the variable, set the scope of a variable, and determine whether variables are public or private.</maml:para>
       <maml:para>Typically, you create a new variable by typing the variable name and its value, such as `$Var = 3`, but you can use the `New-Variable` cmdlet to use its parameters.</maml:para>
     </maml:description>
@@ -28249,9 +28357,8 @@ TotalMilliseconds : 27813562312.7728</dev:code>
           <maml:name>Scope</maml:name>
           <maml:description>
             <maml:para>Specifies the scope of the new variable. The acceptable values for this parameter are:</maml:para>
-            <maml:para>- `Global` - Variables created in the global scope are accessible everywhere in a PowerShell   process. - `Local` - The local scope refers to the current scope, this can be any scope depending on the   context. - `Script` - Variables created in the script scope are accessible only within the script file or   module they are created in. - `Private` - Variables created in the private scope cannot be accessed outside the scope they exist   in. You can use the private scope to create a private version of an item with the same name in   another scope. - A number relative to the current scope (0 through the number of scopes, where 0 is the current   scope, 1 is its parent, 2 the parent of the parent scope, and so on). Negative numbers cannot be   used.</maml:para>
-            <maml:para>`Local` is the default scope when the scope parameter is not specified.</maml:para>
-            <maml:para>For more information, see about_Scopes (../Microsoft.PowerShell.Core/About/about_Scopes.md).</maml:para>
+            <maml:para>- `Global` - Variables created in the global scope are accessible everywhere in a PowerShell   process. - `Local` - The local scope refers to the current scope, this can be any scope depending on the   context. `Local` is the default scope when the scope parameter is not specified. - `Script` - Variables created in the script scope are accessible only within the script file or   module they are created in. - A number relative to the current scope (0 through the number of scopes, where 0 is the current   scope, 1 is its parent, 2 the parent of the parent scope, and so on). Negative numbers cannot be   used.</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; The parameter also accepts the value of `Private`. `Private` is not actually a scope but an &gt; optional setting for a variable. However, using the `Private` value with this cmdlet does not &gt; change the visibility of the variable. For more information, see &gt; about_Scopes (../Microsoft.PowerShell.Core/About/about_Scopes.md).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -28377,9 +28484,8 @@ TotalMilliseconds : 27813562312.7728</dev:code>
         <maml:name>Scope</maml:name>
         <maml:description>
           <maml:para>Specifies the scope of the new variable. The acceptable values for this parameter are:</maml:para>
-          <maml:para>- `Global` - Variables created in the global scope are accessible everywhere in a PowerShell   process. - `Local` - The local scope refers to the current scope, this can be any scope depending on the   context. - `Script` - Variables created in the script scope are accessible only within the script file or   module they are created in. - `Private` - Variables created in the private scope cannot be accessed outside the scope they exist   in. You can use the private scope to create a private version of an item with the same name in   another scope. - A number relative to the current scope (0 through the number of scopes, where 0 is the current   scope, 1 is its parent, 2 the parent of the parent scope, and so on). Negative numbers cannot be   used.</maml:para>
-          <maml:para>`Local` is the default scope when the scope parameter is not specified.</maml:para>
-          <maml:para>For more information, see about_Scopes (../Microsoft.PowerShell.Core/About/about_Scopes.md).</maml:para>
+          <maml:para>- `Global` - Variables created in the global scope are accessible everywhere in a PowerShell   process. - `Local` - The local scope refers to the current scope, this can be any scope depending on the   context. `Local` is the default scope when the scope parameter is not specified. - `Script` - Variables created in the script scope are accessible only within the script file or   module they are created in. - A number relative to the current scope (0 through the number of scopes, where 0 is the current   scope, 1 is its parent, 2 the parent of the parent scope, and so on). Negative numbers cannot be   used.</maml:para>
+          <maml:para>&gt; [!NOTE] &gt; The parameter also accepts the value of `Private`. `Private` is not actually a scope but an &gt; optional setting for a variable. However, using the `Private` value with this cmdlet does not &gt; change the visibility of the variable. For more information, see &gt; about_Scopes (../Microsoft.PowerShell.Core/About/about_Scopes.md).</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
         <dev:type>
@@ -28454,10 +28560,10 @@ TotalMilliseconds : 27813562312.7728</dev:code>
     <command:returnValues>
       <command:returnValue>
         <dev:type>
-          <maml:name>None or System.Management.Automation.PSVariable</maml:name>
+          <maml:name>None, System.Management.Automation.PSVariable</maml:name>
         </dev:type>
         <maml:description>
-          <maml:para>When you use the PassThru parameter, `New-Variable` generates a System.Management.Automation.PSVariable object representing the new variable. Otherwise, this cmdlet does not generate any output.</maml:para>
+          <maml:para>This cmdlet returns a PSVariable object representing the new variable, if you specify the PassThru parameter. Otherwise, it does not return any output.</maml:para>
         </maml:description>
       </command:returnValue>
     </command:returnValues>
@@ -28537,7 +28643,6 @@ Name         Value
 Counter1     3.1415
 ...</dev:code>
         <dev:remarks>
-          <maml:para>This command demonstrates the behavior of a private variable in a module. The module contains the `Get-Counter` cmdlet, which has a private variable named Counter. The command uses the Visibility parameter with a value of Private to create the variable.</maml:para>
           <maml:para>The sample output shows the behavior of a private variable. The user who has loaded the module cannot view or change the value of the Counter variable, but the Counter variable can be read and changed by the commands in the module.</maml:para>
         </dev:remarks>
       </command:example>
@@ -28554,7 +28659,7 @@ with space                     abc123xyz
 PS C:\&gt; ${with space}
 abc123xyz</dev:code>
         <dev:remarks>
-          <maml:para>This command demonstrates that variables with spaces can be created. The variables can be accessed using the `Get-Variable` cmdlet or directly by delimiting a variable with braces.</maml:para>
+          <maml:para></maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -29054,6 +29159,7 @@ abc123xyz</dev:code>
         <maml:para>Input objects are automatically formatted as they would be in the terminal, but you can use a `Format-*` cmdlet to explicitly control the formatting of the output to the file. For example, `Get-Date | Format-List | Out-File out.txt`</maml:para>
         <maml:para>To send a PowerShell command's output to the `Out-File` cmdlet, use the pipeline. Alternatively, you can store data in a variable and use the InputObject parameter to pass data to the `Out-File` cmdlet.</maml:para>
         <maml:para>`Out-File` saves data to a file but it does not produce any output objects to the pipeline.</maml:para>
+        <maml:para>PowerShell 7.2 added the ability to control how ANSI escape sequences are rendered. ANSI-decorated output that is passed to `Out-File` can be altered based on the setting of the `$PSStyle.OutputRendering` property. For more information, see about_ANSI_Terminals (/powershell/module/microsoft.powershell.core/about/about_ansi_terminals).</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -29672,6 +29778,7 @@ Out-Printer -InputObject $H</dev:code>
     </command:details>
     <maml:description>
       <maml:para>The `Out-String` cmdlet converts input objects into strings. By default, `Out-String` accumulates the strings and returns them as a single string, but you can use the Stream parameter to direct `Out-String` to return one line at a time or create an array of strings. This cmdlet lets you search and manipulate string output as you would in traditional shells when object manipulation is less convenient.</maml:para>
+      <maml:para>PowerShell also adds the `OSS` function that calls `Out-String -Stream` as a shorthand way to use `Out-String` in a pipeline.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -29826,6 +29933,7 @@ Out-Printer -InputObject $H</dev:code>
     <maml:alertSet>
       <maml:alert>
         <maml:para>The cmdlets that contain the `Out` verb don't format objects. The `Out` cmdlets send objects to the formatter for the specified display destination.</maml:para>
+        <maml:para>PowerShell 7.2 added the ability to control how ANSI escape sequences are rendered. ANSI-decorated output that is passed to `Out-String` can be altered based on the setting of the `$PSStyle.OutputRendering` property. For more information, see about_ANSI_Terminals (/powershell/module/microsoft.powershell.core/about/about_ansi_terminals).</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -34947,7 +35055,7 @@ Select-Xml -Path $Home\Documents\WindowsPowerShell\Snippets -Namespace $SnippetN
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
           <maml:name>To</maml:name>
           <maml:description>
-            <maml:para>The To parameter is required. This parameter specifies the recipient's email address. If there are multiple recipients, separate their addresses with a comma (`,`). Enter names (optional) and the email address, such as `Name &lt;someone@fabrikam.com&gt;`.</maml:para>
+            <maml:para>The To parameter is required. This parameter specifies the recipient's email address. Enter names (optional) and the email address, such as `Name &lt;someone@fabrikam.com&gt;`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
           <dev:type>
@@ -35386,7 +35494,7 @@ Select-Xml -Path $Home\Documents\WindowsPowerShell\Snippets -Namespace $SnippetN
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
         <maml:name>To</maml:name>
         <maml:description>
-          <maml:para>The To parameter is required. This parameter specifies the recipient's email address. If there are multiple recipients, separate their addresses with a comma (`,`). Enter names (optional) and the email address, such as `Name &lt;someone@fabrikam.com&gt;`.</maml:para>
+          <maml:para>The To parameter is required. This parameter specifies the recipient's email address. Enter names (optional) and the email address, such as `Name &lt;someone@fabrikam.com&gt;`.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
         <dev:type>
@@ -44209,11 +44317,9 @@ Red on white text.</dev:code>
         <maml:title>---------- Example 5: Suppress output from Write-Host ----------</maml:title>
         <dev:code># The following two statements can be used to effectively suppress output from Write-Host
 Write-Host "I won't print" -InformationAction Ignore
-Write-Host "I won't print" 6&gt;$null
-
-</dev:code>
+Write-Host "I won't print" 6&gt; $null</dev:code>
         <dev:remarks>
-          <maml:para>These commands effectively suppress output of the `Write-Host` cmdlet. The first one uses the `InformationAction` parameter with the `Ignore` Value to suppress output to the information stream. The second example redirects the information stream of the command to the `$null` variable and thereby suppresses it.</maml:para>
+          <maml:para>These commands effectively suppress output of the `Write-Host` cmdlet. The first one uses the `InformationAction` parameter with the `Ignore` Value to suppress output to the information stream. The second example redirects the information stream of the command to the `$null` variable and thereby suppresses it. For more information, see about_Output_Streams (../Microsoft.PowerShell.Core/About/about_Output_Streams.md).</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -44935,8 +45041,7 @@ Count    : 1
     <command:examples>
       <command:example>
         <maml:title>-------- Example 1: Display the progress of a For loop --------</maml:title>
-        <dev:code>for ($i = 1; $i -le 100; $i++ )
-{
+        <dev:code>for ($i = 1; $i -le 100; $i++ ) {
     Write-Progress -Activity "Search in Progress" -Status "$i% Complete:" -PercentComplete $i
     Start-Sleep -Milliseconds 250
 }</dev:code>
@@ -44947,12 +45052,26 @@ Count    : 1
       </command:example>
       <command:example>
         <maml:title>----- Example 2: Display the progress of nested For loops -----</maml:title>
-        <dev:code>for($I = 1; $I -lt 101; $I++ )
-{
-    Write-Progress -Activity Updating -Status 'Progress-&gt;' -PercentComplete $I -CurrentOperation OuterLoop
-    for($j = 1; $j -lt 101; $j++ )
-    {
-        Write-Progress -Id 1 -Activity Updating -Status 'Progress' -PercentComplete $j -CurrentOperation InnerLoop
+        <dev:code>$PSStyle.Progress.View = 'Classic'
+
+for($I = 0; $I -lt 10; $I++ ) {
+    $OuterLoopProgressParameters = @{
+        Activity         = 'Updating'
+        Status           = 'Progress-&gt;'
+        PercentComplete  = $I * 10
+        CurrentOperation = 'OuterLoop'
+    }
+    Write-Progress @OuterLoopProgressParameters
+    for($j = 1; $j -lt 101; $j++ ) {
+        $InnerLoopProgressParameters = @{
+            ID               = 1
+            Activity         = 'Updating'
+            Status           = 'Progress'
+            PercentComplete  = $j
+            CurrentOperation = 'InnerLoop'
+        }
+        Write-Progress @InnerLoopProgressParameters
+        Start-Sleep -Milliseconds 25
     }
 }
 
@@ -44965,7 +45084,7 @@ Progress
  [oooooooooooooooooo                                                   ]
 InnerLoop</dev:code>
         <dev:remarks>
-          <maml:para>This example displays the progress of two nested For loops, each of which is represented by a progress bar.</maml:para>
+          <maml:para>This example sets the progress view to `Classic` and then displays the progress of two nested `for` loops, each represented by a progress bar.</maml:para>
           <maml:para>The `Write-Progress` command for the second progress bar includes the Id parameter that distinguishes it from the first progress bar.</maml:para>
           <maml:para>Without the Id parameter, the progress bars would be superimposed on each other instead of being displayed one below the other.</maml:para>
         </dev:remarks>
@@ -44991,9 +45110,12 @@ $Events | ForEach-Object -Begin {
     }
     # Increment the $i counter variable which is used to create the progress bar.
     $i = $i+1
+    # Determine the completion percentage
+    $Completed = ($i/$Events.count*100)
     # Use Write-Progress to output a progress bar.
-    # The Activity and Status parameters create the first and second lines of the progress bar heading, respectively.
-    Write-Progress -Activity "Searching Events" -Status "Progress:" -PercentComplete ($i/$Events.count*100)
+    # The Activity and Status parameters create the first and second lines of the progress bar
+    # heading, respectively.
+    Write-Progress -Activity "Searching Events" -Status "Progress:" -PercentComplete $Completed
 } -End {
     # Display the matching messages using the out variable.
     $out
@@ -45005,12 +45127,15 @@ $Events | ForEach-Object -Begin {
       </command:example>
       <command:example>
         <maml:title>Example 4: Display progress for each level of a nested process</maml:title>
-        <dev:code>foreach ( $i in 1..10 ) {
+        <dev:code>$PSStyle.Progress.View = 'Classic'
+
+foreach ( $i in 1..10 ) {
   Write-Progress -Id 0 "Step $i"
   foreach ( $j in 1..10 ) {
     Write-Progress -Id 1 -ParentId 0 "Step $i - Substep $j"
     foreach ( $k in 1..10 ) {
-      Write-Progress -Id 2  -ParentId 1 "Step $i - Substep $j - iteration $k"; start-sleep -m 150
+      Write-Progress -Id 2  -ParentId 1 "Step $i - Substep $j - iteration $k"
+      Start-Sleep -Milliseconds 150
     }
   }
 }

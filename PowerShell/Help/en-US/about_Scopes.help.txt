@@ -24,8 +24,8 @@ The following are the basic rules of scope:
 -   An item is visible in the scope in which it was created and in any
     child scopes, unless you explicitly make it private.
 
--   You can declare variables, aliases, functions, and PowerShell drives in
-    a scope outside of the current scope.
+-   You can declare variables, aliases, functions, and PowerShell drives
+    for a scope outside of the current scope.
 
 -   An item that you created within a scope can be changed only in the
     scope in which it was created, unless you explicitly specify a
@@ -54,9 +54,6 @@ PowerShell supports the following scopes:
 -   Script: The scope that is created while a script file runs. Only the
     commands in the script run in the script scope. To the commands in a
     script, the script scope is the local scope.
-
-  [!NOTE] PRIVATE is not a scope. It is an option that changes the
-  visibility of an item outside of the scope where the item is defined.
 
 
 Parent and Child Scopes
@@ -114,6 +111,9 @@ optional scope modifiers:
 -   private: - Specifies that the name is PRIVATE and only visible to the
     current scope.
 
+      [!NOTE] private is not a scope. It is an option that changes the
+      visibility of an item outside of the scope where the item is defined.
+
 -   script: - Specifies that the name exists in the SCRIPT scope. SCRIPT
     scope is the nearest ancestor script file's scope or GLOBAL if there is
     no nearest ancestor script file.
@@ -160,6 +160,34 @@ To create the same variable in the GLOBAL scope, use the scope global:
 modifier:
 
     $global:a = "one"
+    Get-Variable a | Format-List *
+
+Notice the VISIBILITY and OPTIONS property values.
+
+    Name        : a
+    Description :
+    Value       : one
+    Visibility  : Public
+    Module      :
+    ModuleName  :
+    Options     : None
+    Attributes  : {}
+
+Compare that to a private variable:
+
+    $private:pVar = 'Private variable'
+    Get-Variable pVar | Format-List *
+
+Using the private scope modifier sets the OPTIONS property to Private.
+
+    Name        : pVar
+    Description :
+    Value       : Private variable
+    Visibility  : Public
+    Module      :
+    ModuleName  :
+    Options     : Private
+    Attributes  : {}
 
 To create the same variable in the SCRIPT scope, use the script: scope
 modifier:
@@ -360,7 +388,7 @@ from module2 are placed at the top of the module1 session state. If you use
 Import-Module -Scope local, then the exports are placed into the current
 scope object rather than at the top level. If you are _in a module_ and use
 Import-Module -Scope global (or Import-Module -Global) to load another
-module, that module and it's exports are loaded into the global session
+module, that module and its exports are loaded into the global session
 state instead of the module's local session state. This feature was
 designed for writing module that manipulate modules. The
 WINDOWSCOMPATIBILITY module does this to import proxy modules into the
@@ -400,7 +428,7 @@ reach a breakpoint in the script, you enter the script scope.
 Private Option
 
 Aliases and variables have an OPTION property that can take a value of
-PRIVATE. Items that have the PRIVATE option can be viewed and changed in
+Private. Items that have the Private option can be viewed and changed in
 the scope in which they are created, but they cannot be viewed or changed
 outside that scope.
 
@@ -409,7 +437,7 @@ global scope and then run a script, Get-Variable commands in the script do
 not display the private variable. Using the global scope modifier in this
 instance does not display the private variable.
 
-You can use the Option parameter of the New-Variable, Set-Variable,
+You can use the OPTION parameter of the New-Variable, Set-Variable,
 New-Alias, and Set-Alias cmdlets to set the value of the Option property to
 Private.
 
@@ -418,10 +446,10 @@ Visibility
 The VISIBILITY property of a variable or alias determines whether you can
 see the item outside the container, in which it was created. A container
 could be a module, script, or snap-in. Visibility is designed for
-containers in the same way that the PRIVATE value of the OPTION property is
+containers in the same way that the Private value of the OPTION property is
 designed for scopes.
 
-The VISIBILITY property takes the PUBLIC and PRIVATE values. Items that
+The VISIBILITY property takes the Public and Private values. Items that
 have private visibility can be viewed and changed only in the container in
 which they were created. If the container is added or imported, the items
 that have private visibility cannot be viewed or changed.
@@ -527,14 +555,13 @@ When the script is complete, the global value of $test is changed.
 Example 4: Creating a Private Variable
 
 A private variable is a variable that has an OPTION property that has a
-value of _Private_. _Private_ variables are inherited by the child scope,
-but they can only be viewed or changed in the scope in which they were
-created.
+value of Private. Private variables are inherited by the child scope, but
+they can only be viewed or changed in the scope in which they were created.
 
 The following command creates a private variable called $ptest in the local
 scope.
 
-    New-Variable -Name ptest -Value 1 -Option private
+    New-Variable -Name ptest -Value 1 -Option Private
 
 You can display and change the value of $ptest in the local scope.
 

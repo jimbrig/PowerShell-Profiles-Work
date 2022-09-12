@@ -652,7 +652,7 @@ The following command gets the script help. Because the script is not in a
 directory that is listed in the $env:Path environment variable, the
 Get-Help command that gets the script help must specify the script path.
 
-    Get-Help -Path .\update-month.ps1 -Full
+    Get-Help -Name .\update-month.ps1 -Full
 
     # NAME
 

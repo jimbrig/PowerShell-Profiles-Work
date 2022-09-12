@@ -18,7 +18,7 @@ EQUALITY
 
 -   -eq, -ieq, -ceq - equals
 -   -ne, -ine, -cne - not equals
--   -gt, -igt, -igt - greater than
+-   -gt, -igt, -cgt - greater than
 -   -ge, -ige, -cge - greater than or equal
 -   -lt, -ilt, -clt - less than
 -   -le, -ile, -cle - less than or equal
@@ -63,7 +63,7 @@ elements of the collection that match the right-hand value of the
 expression. If there are no matches in the collection, comparison operators
 return an empty array. For example:
 
-    $a = (1, 2 -eq 3)
+    $a = (1, 2) -eq 3
     $a.GetType().Name
     $a.Count
 
@@ -458,7 +458,7 @@ form of DomainName\Username and converts to the Username@DomainName format:
 
     John.Doe@Contoso.local
 
-  [!WARNING] The $ character has syntatic roles in both PowerShell and
+  [!WARNING] The $ character has syntactic roles in both PowerShell and
   regular expressions:
 
   -   In PowerShell, between double quotation marks, it designates

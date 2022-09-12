@@ -7994,7 +7994,7 @@ Set-CimInstance -CimInstance $x -PassThru</dev:code>
       </command:example>
       <command:example>
         <maml:title>----------- Example 7: Set the created CIM instance -----------</maml:title>
-        <dev:code>$x = New-CimInstance -ClassName Win32_Environment -Property @{Name="testvar";UserName="domain\user"} -Keys Name,UserName -ClientOnly
+        <dev:code>$x = New-CimInstance -ClassName Win32_Environment -Property @{Name="testvar";UserName="domain\user"} -Key Name,UserName -ClientOnly
 Set-CimInstance -CimInstance $x -Property @{VariableValue="somevalue"} -PassThru</dev:code>
         <dev:remarks>
           <maml:para></maml:para>

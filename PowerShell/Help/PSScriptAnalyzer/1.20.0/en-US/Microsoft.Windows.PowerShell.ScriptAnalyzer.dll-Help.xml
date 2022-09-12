@@ -23,7 +23,7 @@
           <maml:description>
             <maml:para>By default, PSScriptAnalyzer gets only the standard rules specified in the `Microsoft.Windows.PowerShell.ScriptAnalyzer.BuiltinRules.dll` file in the module. Use this parameter to get the custom Script Analyzer rules in the specified path and the standard Script Analyzer rules.</maml:para>
             <maml:para>Enter the path to a .NET assembly or module that contains Script Analyzer rules. You can enter only one value, but wildcards are supported. To get rules in subdirectories of the path, use the RecurseCustomRulePath parameter.</maml:para>
-            <maml:para>You can create custom rules by using a custom .NET assembly or a PowerShell module, such as the Community Analyzer Rules (https://github.com/PowerShell/PSScriptAnalyzer/blob/development/Tests/Engine/CommunityAnalyzerRules/CommunityAnalyzerRules.psm1)in the GitHub repository.</maml:para>
+            <maml:para>You can create custom rules using a .NET assembly or a PowerShell module, such as the Community Analyzer Rules (https://github.com/PowerShell/PSScriptAnalyzer/blob/development/Tests/Engine/CommunityAnalyzerRules/CommunityAnalyzerRules.psm1)in the GitHub repository.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
           <dev:type>
@@ -78,7 +78,7 @@
         <maml:description>
           <maml:para>By default, PSScriptAnalyzer gets only the standard rules specified in the `Microsoft.Windows.PowerShell.ScriptAnalyzer.BuiltinRules.dll` file in the module. Use this parameter to get the custom Script Analyzer rules in the specified path and the standard Script Analyzer rules.</maml:para>
           <maml:para>Enter the path to a .NET assembly or module that contains Script Analyzer rules. You can enter only one value, but wildcards are supported. To get rules in subdirectories of the path, use the RecurseCustomRulePath parameter.</maml:para>
-          <maml:para>You can create custom rules by using a custom .NET assembly or a PowerShell module, such as the Community Analyzer Rules (https://github.com/PowerShell/PSScriptAnalyzer/blob/development/Tests/Engine/CommunityAnalyzerRules/CommunityAnalyzerRules.psm1)in the GitHub repository.</maml:para>
+          <maml:para>You can create custom rules using a .NET assembly or a PowerShell module, such as the Community Analyzer Rules (https://github.com/PowerShell/PSScriptAnalyzer/blob/development/Tests/Engine/CommunityAnalyzerRules/CommunityAnalyzerRules.psm1)in the GitHub repository.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
         <dev:type>
@@ -133,7 +133,7 @@
           <maml:name>None</maml:name>
         </dev:type>
         <maml:description>
-          <maml:para>You cannot pipe input to this cmdlet.</maml:para>
+          <maml:para>You can't pipe input to this cmdlet.</maml:para>
         </maml:description>
       </command:inputType>
     </command:inputTypes>

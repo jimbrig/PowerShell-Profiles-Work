@@ -787,6 +787,25 @@ support arrays of objects.
 For more information, see System.Tuple.
 
 
+Indexing .NET types that implement IDictionary<TKey, TValue>
+
+PowerShell doesn't call a type's true indexer for types that implement the
+generic IDictionary<TKey, TValue> interface. Instead, when given a key,
+PowerShell tests for the existence of the key using TryGetValue(), which
+returns $null when the key doesn't exist.
+
+By contrast, if you call the type's true indexer using Item(<key>), the
+method throws an exception when the key doesn't exist.
+
+The following example illustrates the difference.
+
+    PS> [Collections.Generic.Dictionary[string, int]]::new()['nosuchkey']
+    # No output ($null)
+
+    PS> [Collections.Generic.Dictionary[string, int]]::new().Item('nosuchkey')
+    GetValueInvocationException: Exception getting "Item": "The given key 'nosuchkey' was not present in the dictionary."
+
+
 Member-access enumeration
 
 Starting in PowerShell 3.0, when you use the member-access operator to

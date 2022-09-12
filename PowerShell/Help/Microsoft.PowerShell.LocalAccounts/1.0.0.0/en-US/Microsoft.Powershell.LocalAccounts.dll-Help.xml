@@ -3802,7 +3802,7 @@ Remove-LocalGroupMember -Group "Administrators" -Member $members</dev:code>
           <maml:name>Password</maml:name>
           <maml:description>
             <maml:para>Specifies a password for the user account. If the user account is connected to a Microsoft account, do not set a password.</maml:para>
-            <maml:para>You can use `Read-Host -GetCredential`, `Get-Credential`, or `ConvertTo-SecureString` to create a SecureString object for the password.</maml:para>
+            <maml:para>You can use `Read-Host -AsSecureString`, `Get-Credential`, or `ConvertTo-SecureString` to create a SecureString object for the password.</maml:para>
             <maml:para>If you omit the Password and NoPassword parameters, `Set-LocalUser` prompts you for the user's password.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>
@@ -3925,7 +3925,7 @@ Remove-LocalGroupMember -Group "Administrators" -Member $members</dev:code>
           <maml:name>Password</maml:name>
           <maml:description>
             <maml:para>Specifies a password for the user account. If the user account is connected to a Microsoft account, do not set a password.</maml:para>
-            <maml:para>You can use `Read-Host -GetCredential`, `Get-Credential`, or `ConvertTo-SecureString` to create a SecureString object for the password.</maml:para>
+            <maml:para>You can use `Read-Host -AsSecureString`, `Get-Credential`, or `ConvertTo-SecureString` to create a SecureString object for the password.</maml:para>
             <maml:para>If you omit the Password and NoPassword parameters, `Set-LocalUser` prompts you for the user's password.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>
@@ -4048,7 +4048,7 @@ Remove-LocalGroupMember -Group "Administrators" -Member $members</dev:code>
           <maml:name>Password</maml:name>
           <maml:description>
             <maml:para>Specifies a password for the user account. If the user account is connected to a Microsoft account, do not set a password.</maml:para>
-            <maml:para>You can use `Read-Host -GetCredential`, `Get-Credential`, or `ConvertTo-SecureString` to create a SecureString object for the password.</maml:para>
+            <maml:para>You can use `Read-Host -AsSecureString`, `Get-Credential`, or `ConvertTo-SecureString` to create a SecureString object for the password.</maml:para>
             <maml:para>If you omit the Password and NoPassword parameters, `Set-LocalUser` prompts you for the user's password.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>
@@ -4184,7 +4184,7 @@ Remove-LocalGroupMember -Group "Administrators" -Member $members</dev:code>
         <maml:name>Password</maml:name>
         <maml:description>
           <maml:para>Specifies a password for the user account. If the user account is connected to a Microsoft account, do not set a password.</maml:para>
-          <maml:para>You can use `Read-Host -GetCredential`, `Get-Credential`, or `ConvertTo-SecureString` to create a SecureString object for the password.</maml:para>
+          <maml:para>You can use `Read-Host -AsSecureString`, `Get-Credential`, or `ConvertTo-SecureString` to create a SecureString object for the password.</maml:para>
           <maml:para>If you omit the Password and NoPassword parameters, `Set-LocalUser` prompts you for the user's password.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Security.SecureString</command:parameterValue>

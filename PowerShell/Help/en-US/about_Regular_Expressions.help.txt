@@ -24,17 +24,16 @@ You can read more about their syntax and usage at the links below.
 
 -   Select-String
 -   -match and -replace operators
--   -split
+-   -split operator
 -   switch statement with -regex option
 
 PowerShell regular expressions are case-insensitive by default. Each method
 shown above has a different way to force case sensitivity.
 
-  Method             Case Sensitivity
-  ------------------ --------------------------------------------------
-  Select-String      use -CaseSensitive switch
-  switch statement   use the -casesensitive option
-  operators          prefix with 'C' (-cmatch, -csplit, or -creplace)
+-   For Select-String, use the CASESENSITIVE parameter.
+-   For operators that use regular expressions, use the case-sensitive
+    version: -cmatch, -creplace, or -csplit
+-   For the switch statement, use the -casesensitive option
 
 
 Character literals
@@ -255,11 +254,11 @@ contains just the username.
 
     $Matches
 
-    Name                           Value
-    ----                           -----
-    2                              CONTOSO\jsmith
-    1                              The last logged on user was
-    0                              The last logged on user was CONTOSO\jsmith
+    Name           Value
+    ----           -----
+    2              CONTOSO\jsmith
+    1              The last logged on user was
+    0              The last logged on user was CONTOSO\jsmith
 
   [!IMPORTANT] The 0 key is an INTEGER. You can use any HASHTABLE method to
   access the value stored.

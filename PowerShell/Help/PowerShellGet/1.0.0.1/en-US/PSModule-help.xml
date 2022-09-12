@@ -1407,6 +1407,28 @@ Version    Name              Repository           Description
           <maml:para>The `Find-Module` cmdlet uses the Filter parameter to search the repository for AppDomain .</maml:para>
         </dev:remarks>
       </command:example>
+      <command:example>
+        <maml:title>--------------- Example 9: Find a module by tag ---------------</maml:title>
+        <dev:code>Find-Module -Tag CrescendoBuilt
+
+Version Name            Repository Description
+------- ----            ---------- -----------
+0.1.0   Foil            PSGallery  A PowerShell Crescendo wrapper for Chocolatey
+0.3.1   Cobalt          PSGallery  A PowerShell Crescendo wrapper for WinGet
+1.1.0   SysInternals    PSGallery  PowerShell cmdlets for SysInternal tools
+0.0.4   Croze           PSGallery  A PowerShell Crescendo wrapper for Homebrew
+0.0.2   AptPackage      PSGallery  PowerShell Crescendo-generated Module to query APT-Package Information
+1.0.1   RoboCopy        PSGallery  PowerShell cmdlet for the official RoboCopy.exe
+1.0.2   TShark          PSGallery  PowerShell cmdlet for tshark.exe
+1.0.0   SpeedTestCLI    PSGallery  PowerShell cmdlets speedtest-cli
+1.0.0   SpeedTest-CLI   PSGallery  PowerShell cmdlets for Internet Speed Test
+1.0.2   Image2Text      PSGallery  PowerShell Images into ASCII art
+0.1.1   Quser.Crescendo PSGallery  This module displays session information of users logged onto a local or remote m...
+1.0.2   Takeown         PSGallery  Crescendo Powershell wrapper of takeown.exe</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
@@ -6798,7 +6820,7 @@ myNuGetSource       https://myget.c...      NuGet                Trusted</dev:co
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Force</maml:name>
           <maml:description>
-            <maml:para>Forces `Save-Module` to run without asking for user confirmation.</maml:para>
+            <maml:para>If the location specified by the Path parameter doesn't exist, the cmdlet returns an error. Using the Force parameter creates the target path.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -6952,7 +6974,7 @@ myNuGetSource       https://myget.c...      NuGet                Trusted</dev:co
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Force</maml:name>
           <maml:description>
-            <maml:para>Forces `Save-Module` to run without asking for user confirmation.</maml:para>
+            <maml:para>If the location specified by the Path parameter doesn't exist, the cmdlet returns an error. Using the Force parameter creates the target path.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -7107,7 +7129,7 @@ myNuGetSource       https://myget.c...      NuGet                Trusted</dev:co
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Force</maml:name>
           <maml:description>
-            <maml:para>Forces `Save-Module` to run without asking for user confirmation.</maml:para>
+            <maml:para>If the location specified by the Path parameter doesn't exist, the cmdlet returns an error. Using the Force parameter creates the target path.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -7226,7 +7248,7 @@ myNuGetSource       https://myget.c...      NuGet                Trusted</dev:co
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>Force</maml:name>
           <maml:description>
-            <maml:para>Forces `Save-Module` to run without asking for user confirmation.</maml:para>
+            <maml:para>If the location specified by the Path parameter doesn't exist, the cmdlet returns an error. Using the Force parameter creates the target path.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -7322,7 +7344,7 @@ myNuGetSource       https://myget.c...      NuGet                Trusted</dev:co
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>Force</maml:name>
         <maml:description>
-          <maml:para>Forces `Save-Module` to run without asking for user confirmation.</maml:para>
+          <maml:para>If the location specified by the Path parameter doesn't exist, the cmdlet returns an error. Using the Force parameter creates the target path.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
         <dev:type>

@@ -321,7 +321,7 @@ an array with just one member. Place the comma before the member.
     $SingleArray = ,1
     Write-Output (,1)
 
-Since Write-Object expects an argument, you must put the expression in
+Since Write-Output expects an argument, you must put the expression in
 parentheses.
 
 Dot sourcing operator .
@@ -352,6 +352,14 @@ formatted on the right side of the operator.
     "{0} {1,-10} {2:N}" -f 1,"hello",[math]::pi
 
     1 hello      3.14
+
+You can zero-pad a numeric value with the "0" custom specifier. The number
+of zeroes following the : indicates the maximum width to pad the formatted
+string to.
+
+    "{0:00} {1:000} {2:000000}" -f 7, 24, 365
+
+    07 024 000365
 
 If you need to keep the curly braces ({}) in the formatted string, you can
 escape them by doubling the curly braces.

@@ -26,23 +26,35 @@ provider data.
 
 Built-in providers
 
-PowerShell includes a set of built-in providers that you can use to access
-the different types of data stores.
+PowerShell includes a set of built-in providers that provide access to
+different types of objects.
 
-  Provider      Drive(s)      OutputType
-  ------------- ------------- ----------------------------------------------------------------
-  Alias         Alias:        System.Management.Automation.AliasInfo
-  Certificate   Cert:         Microsoft.PowerShell.Commands.X509StoreLocation
-                              System.Security.Cryptography.X509Certificates.X509Certificate2
-  Environment   Env:          System.Collections.DictionaryEntry
-  FileSystem    C: (*)        System.IO.FileInfo
-                              System.IO.DirectoryInfo
-  Function      Function:     System.Management.Automation.FunctionInfo
-  Registry      HKLM: HKCU:   Microsoft.Win32.RegistryKey
-  Variable      Variable:     System.Management.Automation.PSVariable
-  WSMan         WSMan:        Microsoft.WSMan.Management.WSManConfigContainerElement
-
-(*) The FileSystem drives vary on each system.
+-   ALIAS provider
+    -   Drive - Alias:
+    -   Object types - SYSTEM.MANAGEMENT.AUTOMATION.ALIASINFO
+-   CERTIFICATE provider
+    -   Drive - Cert:
+    -   Object types - MICROSOFT.POWERSHELL.COMMANDS.X509STORELOCATION,
+        SYSTEM.SECURITY.CRYPTOGRAPHY.X509CERTIFICATES.X509CERTIFICATE2
+-   ENVIRONMENT provider
+    -   Drive - Env:
+    -   Object types - SYSTEM.COLLECTIONS.DICTIONARYENTRY
+-   FILESYSTEM provider
+    -   Drive - C: and other depending on hardware
+    -   Object types - SYSTEM.IO.FILEINFO, SYSTEM.IO.DIRECTORYINFO
+-   FUNCTION provider
+    -   Drive - Function:
+    -   Object types - SYSTEM.MANAGEMENT.AUTOMATION.FUNCTIONINFO
+-   REGISTRY provider
+    -   Drive - HKLM:, HKCU:
+    -   Object types - MICROSOFT.WIN32.REGISTRYKEY
+-   VARIABLE provider
+    -   Drive - Variable:
+    -   Object types - SYSTEM.MANAGEMENT.AUTOMATION.PSVARIABLE
+-   WSMAN provider
+    -   Drive - WSMan:
+    -   Object types -
+        MICROSOFT.WSMAN.MANAGEMENT.WSMANCONFIGCONTAINERELEMENT
 
 You can also create your own PowerShell providers, and you can install
 providers that others develop. To list the providers that are available in
@@ -87,11 +99,11 @@ different types of data that providers expose. After you learn to manage
 the data of one provider, you can use the same procedures with the data
 from any provider.
 
-For example, the New-Item cmdlet creates a new item. In the C: drive that
-is supported by the FILESYSTEM provider, you can use New-Item to create a
-new file or folder. In the drives that are supported by the REGISTRY
-provider, you can use New-Item to create a new registry key. In the Alias:
-drive, you can use New-Item to create a new alias.
+For example, the New-Item cmdlet creates a new item. In the C: drive that's
+supported by the FILESYSTEM provider, you can use New-Item to create a new
+file or folder. In the drives that are supported by the REGISTRY provider,
+you can use New-Item to create a new registry key. In the Alias: drive, you
+can use New-Item to create a new alias.
 
 For detailed information about any of the following cmdlets, type:
 

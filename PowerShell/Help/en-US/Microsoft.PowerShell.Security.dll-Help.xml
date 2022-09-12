@@ -3024,7 +3024,7 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
           <maml:name>HashAlgorithm</maml:name>
           <maml:description>
             <maml:para>Specifies the hashing algorithm that Windows uses to compute the digital signature for the file.</maml:para>
-            <maml:para>For PowerShell 3.0, the default is SHA256, which is the Windows default hashing algorithm. For PowerShell 2.0, the default is SHA1. Files that are signed with a different hashing algorithm might not be recognized on other systems. Which algorithms are supported depends on the version of the operating system.</maml:para>
+            <maml:para>The default is SHA1. Files that are signed with a different hashing algorithm might not be recognized on other systems. Which algorithms are supported depends on the version of the operating system.</maml:para>
             <maml:para>For a list of possible values, see HashAlgorithmName Struct (/dotnet/api/system.security.cryptography.hashalgorithmname?view=netframework-4.7.2#properties).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -3032,7 +3032,7 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
             <maml:name>System.String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>SHA256</dev:defaultValue>
+          <dev:defaultValue>Null</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>IncludeChain</maml:name>
@@ -3140,7 +3140,7 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
           <maml:name>HashAlgorithm</maml:name>
           <maml:description>
             <maml:para>Specifies the hashing algorithm that Windows uses to compute the digital signature for the file.</maml:para>
-            <maml:para>For PowerShell 3.0, the default is SHA256, which is the Windows default hashing algorithm. For PowerShell 2.0, the default is SHA1. Files that are signed with a different hashing algorithm might not be recognized on other systems. Which algorithms are supported depends on the version of the operating system.</maml:para>
+            <maml:para>The default is SHA1. Files that are signed with a different hashing algorithm might not be recognized on other systems. Which algorithms are supported depends on the version of the operating system.</maml:para>
             <maml:para>For a list of possible values, see HashAlgorithmName Struct (/dotnet/api/system.security.cryptography.hashalgorithmname?view=netframework-4.7.2#properties).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -3148,7 +3148,7 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
             <maml:name>System.String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>SHA256</dev:defaultValue>
+          <dev:defaultValue>Null</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>IncludeChain</maml:name>
@@ -3232,7 +3232,7 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
           <maml:name>HashAlgorithm</maml:name>
           <maml:description>
             <maml:para>Specifies the hashing algorithm that Windows uses to compute the digital signature for the file.</maml:para>
-            <maml:para>For PowerShell 3.0, the default is SHA256, which is the Windows default hashing algorithm. For PowerShell 2.0, the default is SHA1. Files that are signed with a different hashing algorithm might not be recognized on other systems. Which algorithms are supported depends on the version of the operating system.</maml:para>
+            <maml:para>The default is SHA1. Files that are signed with a different hashing algorithm might not be recognized on other systems. Which algorithms are supported depends on the version of the operating system.</maml:para>
             <maml:para>For a list of possible values, see HashAlgorithmName Struct (/dotnet/api/system.security.cryptography.hashalgorithmname?view=netframework-4.7.2#properties).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -3240,7 +3240,7 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
             <maml:name>System.String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>SHA256</dev:defaultValue>
+          <dev:defaultValue>Null</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>IncludeChain</maml:name>
@@ -3361,7 +3361,7 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
         <maml:name>HashAlgorithm</maml:name>
         <maml:description>
           <maml:para>Specifies the hashing algorithm that Windows uses to compute the digital signature for the file.</maml:para>
-          <maml:para>For PowerShell 3.0, the default is SHA256, which is the Windows default hashing algorithm. For PowerShell 2.0, the default is SHA1. Files that are signed with a different hashing algorithm might not be recognized on other systems. Which algorithms are supported depends on the version of the operating system.</maml:para>
+          <maml:para>The default is SHA1. Files that are signed with a different hashing algorithm might not be recognized on other systems. Which algorithms are supported depends on the version of the operating system.</maml:para>
           <maml:para>For a list of possible values, see HashAlgorithmName Struct (/dotnet/api/system.security.cryptography.hashalgorithmname?view=netframework-4.7.2#properties).</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -3369,7 +3369,7 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
           <maml:name>System.String</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>SHA256</dev:defaultValue>
+        <dev:defaultValue>Null</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>IncludeChain</maml:name>
@@ -3478,28 +3478,48 @@ Set-Acl -Path "C:\Pets\Dog.txt" -AclObject $NewAcl</dev:code>
       <command:example>
         <maml:title>Example 1 - Sign a script using a certificate from the local certificate store</maml:title>
         <dev:code>$cert=Get-ChildItem -Path Cert:\CurrentUser\My -CodeSigningCert
-Set-AuthenticodeSignature -FilePath PsTestInternet2.ps1 -Certificate $cert</dev:code>
+$signingParameters = @{
+    FilePath      = 'PsTestInternet2.ps1'
+    Certificate   = $cert
+    HashAlgorithm = 'SHA256'
+}
+Set-AuthenticodeSignature @signingParameters</dev:code>
         <dev:remarks>
           <maml:para>The first command uses the `Get-ChildItem` cmdlet and the PowerShell certificate provider to get the certificates in the `Cert:\CurrentUser\My` subdirectory of the certificate store. The `Cert:` drive is the drive exposed by the certificate provider. The CodeSigningCert parameter, which is supported only by the certificate provider, limits the certificates retrieved to those with code-signing authority. The command stores the result in the `$cert` variable.</maml:para>
-          <maml:para>The second command uses the `Set-AuthenticodeSignature` cmdlet to sign the `PSTestInternet2.ps1` script. It uses the FilePath parameter to specify the name of the script and the Certificate parameter to specify that the certificate is stored in the `$cert` variable.</maml:para>
+          <maml:para>The second command defines the `$signingParameters` variable as a HashTable with the parameters for the `Set-AuthenticodeSignature` cmdlet to sign the `PSTestInternet2.ps1` script. It uses the FilePath parameter to specify the name of the script, the Certificate parameter to specify that the certificate is stored in the `$cert` variable, and the HashAlgorithm parameter to set the hashing algorithm to SHA256.</maml:para>
+          <maml:para>The third command signs the script by splatting the parameters defined in `$signingParameters`.</maml:para>
           <maml:para>&gt; [!NOTE] &gt; Using the CodeSigningCert parameter with `Get-ChildItem` only returns certificates that have &gt; code-signing authority and contain a private key. If there is no private key, the certificates &gt; cannot be used for signing.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title> Example 2 - Sign a script using a certificate from a PFX file </maml:title>
         <dev:code>$cert = Get-PfxCertificate -FilePath C:\Test\Mysign.pfx
-Set-AuthenticodeSignature -FilePath ServerProps.ps1 -Certificate $cert</dev:code>
+$signingParameters = @{
+    FilePath      = 'ServerProps.ps1'
+    Certificate   = $cert
+    HashAlgorithm = 'SHA256'
+}
+Set-AuthenticodeSignature @signingParameters</dev:code>
         <dev:remarks>
           <maml:para>The first command uses the `Get-PfxCertificate` cmdlet to load the C:\Test\MySign.pfx certificate into the `$cert` variable.</maml:para>
-          <maml:para>The second command uses `Set-AuthenticodeSignature` to sign the script. The FilePath parameter of `Set-AuthenticodeSignature` specifies the path to the script file being signed and the Cert parameter passes the `$cert` variable containing the certificate to `Set-AuthenticodeSignature`.</maml:para>
+          <maml:para>The second command defines the `$signingParameters` variable as a HashTable with the parameters for the `Set-AuthenticodeSignature` cmdlet to sign the `ServerProps.ps1` script. It uses the FilePath parameter to specify the name of the script, the Certificate parameter to specify that the certificate is stored in the `$cert` variable, and the HashAlgorithm parameter to set the hashing algorithm to SHA256.</maml:para>
+          <maml:para>The third command signs the script by splatting the parameters defined in `$signingParameters`.</maml:para>
           <maml:para>If the certificate file is password protected, PowerShell prompts you for the password.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>- Example 3 - Add a signature that includes the root authority -</maml:title>
-        <dev:code>Set-AuthenticodeSignature -FilePath c:\scripts\Remodel.ps1 -Certificate $cert -IncludeChain All -TimestampServer "http://timestamp.fabrikam.com/scripts/timstamper.dll"</dev:code>
+        <dev:code>$signingParameters = @{
+    FilePath      = 'C:\scripts\Remodel.ps1'
+    Certificate   = $cert
+    HashAlgorithm = 'SHA256'
+    IncludeChain  = 'All'
+    TimestampServer = 'http://timestamp.fabrikam.com/scripts/timstamper.dll'
+}
+Set-AuthenticodeSignature @signingParameters</dev:code>
         <dev:remarks>
-          <maml:para>The command uses the FilePath parameter to specify the script being signed and the Certificate parameter to specify the certificate that is saved in the `$cert` variable. It uses the IncludeChain parameter to include all of the signatures in the trust chain, including the root authority. It also uses the TimeStampServer parameter to add a timestamp to the signature. This prevents the script from failing when the certificate expires.</maml:para>
+          <maml:para>The first command defines the `$signingParameters` variable as a HashTable with the parameters for the `Set-AuthenticodeSignature` cmdlet to sign the script. It uses the FilePath parameter to specify the path to the script, the Certificate parameter to specify that the certificate is stored in the `$cert` variable, and the HashAlgorithm parameter to set the hashing algorithm to SHA256. It uses the IncludeChain parameter to include all of the signatures in the trust chain, including the root authority. It also uses the TimeStampServer parameter to add a timestamp to the signature. This prevents the script from failing when the certificate expires.</maml:para>
+          <maml:para>The second command signs the script by splatting the parameters defined in `$signingParameters`.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>

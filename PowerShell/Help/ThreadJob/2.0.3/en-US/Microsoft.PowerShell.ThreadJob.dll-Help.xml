@@ -393,6 +393,47 @@ PS&gt;</dev:code>
           <maml:para>Notice that the prompt from `Read-Host` is displayed and you are able to type input. Then, the message from `Write-Warning` is displayed. The `Receive-Job` cmdlet returns all the output from the job.</maml:para>
         </dev:remarks>
       </command:example>
+      <command:example>
+        <maml:title>----- Example 5 - Download multiple files at the same time -----</maml:title>
+        <dev:code>$baseUri = 'https://github.com/PowerShell/PowerShell/releases/download'
+$files = @(
+    @{
+        Uri = "$baseUri/v7.3.0-preview.5/PowerShell-7.3.0-preview.5-win-x64.msi"
+        OutFile = 'PowerShell-7.3.0-preview.5-win-x64.msi'
+    },
+    @{
+        Uri = "$baseUri/v7.3.0-preview.5/PowerShell-7.3.0-preview.5-win-x64.zip"
+        OutFile = 'PowerShell-7.3.0-preview.5-win-x64.zip'
+    },
+    @{
+        Uri = "$baseUri/v7.2.5/PowerShell-7.2.5-win-x64.msi"
+        OutFile = 'PowerShell-7.2.5-win-x64.msi'
+    },
+    @{
+        Uri = "$baseUri/v7.2.5/PowerShell-7.2.5-win-x64.zip"
+        OutFile = 'PowerShell-7.2.5-win-x64.zip'
+    }
+)
+
+$jobs = @()
+
+foreach ($file in $files) {
+    $jobs += Start-ThreadJob -Name $file.OutFile -ScriptBlock {
+        $params = $using:file
+        Invoke-WebRequest @params
+    }
+}
+
+Write-Host "Downloads started..."
+Wait-Job -Job $jobs
+
+foreach ($job in $jobs) {
+    Receive-Job -Job $job
+}</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>

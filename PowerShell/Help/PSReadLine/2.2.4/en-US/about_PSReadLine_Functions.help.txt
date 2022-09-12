@@ -1,6 +1,6 @@
 
 
-ABOUT_PSREADLINE
+ABOUT_PSREADLINE_FUNCTIONS
 
 
 Short Description
@@ -16,58 +16,11 @@ available. The current version of PSReadLine can be installed and used on
 Windows PowerShell 5.1 and newer. For some features, you need to be running
 PowerShell 7.2 or higher.
 
-PSReadLine provides a powerful command-line editing experience for the
-PowerShell console. It provides:
-
--   Syntax coloring of the command line
--   A visual indication of syntax errors
--   A better multi-line experience (both editing and history)
--   Customizable key bindings
--   Cmd and Emacs modes
--   Many configuration options
--   Bash style completion (optional in Cmd mode, default in Emacs mode)
--   Emacs yank/kill-ring
--   PowerShell token based "word" movement and deletion
--   Predictive IntelliSense
--   Dynamic display of Help in the console without losing your place on the
-    command line
-
-PSReadLine requires PowerShell 5.1, or newer. PSReadLine works with the
-default Windows console host, Window Terminal, and Visual Studio Code. It
-does not work in the Windows PowerShell ISE.
-
-PSReadLine can be installed from the PowerShell Gallery. To install
-PSReadLine in a supported version of PowerShell run the following command.
-
-    Install-Module -Name PSReadLine -AllowClobber -Force
-
-  [!NOTE] Beginning with PowerShell 7.0, PowerShell skips auto-loading
-  PSReadLine on Windows if a screen reader program is detected. Currently,
-  PSReadLine doesn't work well with the screen readers. The default
-  rendering and formatting of PowerShell 7.0 on Windows works properly. You
-  can manually load the module if necessary.
+This article documents the functions provided by PSReadLine. These
+functions can be bound to keystrokes for easy access and invocation.
 
 
-Predictive IntelliSense
-
-Predictive IntelliSense is an addition to the concept of tab completion
-that assists the user in successfully completing commands. It enables users
-to discover, edit, and execute full commands based on matching predictions
-from the user's history and additional domain specific plugins.
-
-Enable Predictive IntelliSense
-
-Predictive IntelliSense is disabled by default. To enable predictions, just
-run the following command:
-
-    Set-PSReadLineOption -PredictionSource History
-
-The PREDICTIONSOURCE parameter can also accept plugins for domain specific
-and custom requirements.
-
-To disable Predictive IntelliSense, just run:
-
-    Set-PSReadLineOption -PredictionSource None
+Using the Microsoft.PowerShell.PSConsoleReadLine class
 
 The following functions are available in the class
 MICROSOFT.POWERSHELL.PSCONSOLEREADLINE.
@@ -94,9 +47,9 @@ is called.
 AcceptLine
 
 Attempt to execute the current input. If the current input is incomplete
-(for example there is a missing closing parenthesis, bracket, or quote)
-then the continuation prompt is displayed on the next line and PSReadLine
-waits for keys to edit the current input.
+(for example there's a missing closing parenthesis, bracket, or quote) then
+the continuation prompt is displayed on the next line and PSReadLine waits
+for keys to edit the current input.
 
 -   Cmd: <Enter>
 -   Emacs: <Enter>
@@ -126,7 +79,7 @@ Delete the character before the cursor.
 BackwardDeleteInput
 
 Like BackwardKillInput - deletes text from the point to the start of the
-input, but does not put the deleted text in the kill-ring.
+input, but doesn't put the deleted text in the kill-ring.
 
 -   Cmd: <Ctrl+Home>
 -   Vi insert mode: <Ctrl+u>, <Ctrl+Home>
@@ -135,7 +88,7 @@ input, but does not put the deleted text in the kill-ring.
 BackwardDeleteLine
 
 Like BackwardKillLine - deletes text from the point to the start of the
-line, but does not put the deleted text in the kill-ring.
+line, but doesn't put the deleted text in the kill-ring.
 
 -   Vi command mode: <d,0>
 
@@ -286,7 +239,7 @@ Delete the next word.
 ForwardDeleteInput
 
 Like KillLine - deletes text from the point to the end of the input, but
-does not put the deleted text in the kill-ring.
+doesn't put the deleted text in the kill-ring.
 
 -   Cmd: <Ctrl+End>
 -   Vi insert mode: <Ctrl+End>
@@ -295,7 +248,7 @@ does not put the deleted text in the kill-ring.
 ForwardDeleteLine
 
 Deletes text from the point to the end of the current logical line, but
-does not put the deleted text in the kill-ring.
+doesn't put the deleted text in the kill-ring.
 
 -   Function is unbound
 
@@ -453,9 +406,9 @@ previous word to the cursor. The cleared text is placed in the kill-ring.
 ValidateAndAcceptLine
 
 Attempt to execute the current input. If the current input is incomplete
-(for example there is a missing closing parenthesis, bracket, or quote)
-then the continuation prompt is displayed on the next line and PSReadLine
-waits for keys to edit the current input.
+(for example there's a missing closing parenthesis, bracket, or quote) then
+the continuation prompt is displayed on the next line and PSReadLine waits
+for keys to edit the current input.
 
 -   Emacs: <Ctrl+m>
 
@@ -688,7 +641,7 @@ Add the most recently killed text to the input.
 YankLastArg
 
 Yank the last argument from the previous history line. With an argument,
-the first time it is invoked, behaves just like YankNthArg. If invoked
+the first time it's invoked, behaves just like YankNthArg. If invoked
 multiple times, instead it iterates through history and arg sets the
 direction (negative reverses the direction.)
 
@@ -945,7 +898,7 @@ Move to the first item in the history.
 
 ClearHistory
 
-Clears history in PSReadLine. This does not affect PowerShell history.
+Clears history in PSReadLine. This doesn't affect PowerShell history.
 
 -   Cmd: <Alt+F7>
 
@@ -1128,7 +1081,7 @@ Clear the screen and draw the current line at the top of the screen.
 DigitArgument
 
 Start a new digit argument to pass to other functions. You can use this as
-a multiplier for the next function that is invoked by a keypress. For
+a multiplier for the next function that's invoked by a keypress. For
 example, pressing <Alt+1> <Alt+0> sets the DIGIT-ARGUMENT value to 10.
 Then, pressing the # key sends 10 # characters (##########) to the input
 line. Similarly, you can use this with other operations, like <Delete> or
@@ -1197,7 +1150,7 @@ Insert the key.
 ShowCommandHelp
 
 Provides a view of full cmdlet help. When the cursor is at the end of a
-fully-expanded parameter, hitting the <F1> key positions the display of
+fully expanded parameter, hitting the <F1> key positions the display of
 help at the location of that parameter.
 
 The help is displayed on an alternate screen buffer using a Pager from
@@ -1221,8 +1174,8 @@ Show all bound keys.
 ShowParameterHelp
 
 Provides dynamic help for parameters by showing it below the current
-command line like MenuComplete. The cursor must be at the end of the
-fully-expanded parameter name when you press the <Alt+h> key.
+command line like MenuComplete. The cursor must be at the end of the fully
+expanded parameter name when you press the <Alt+h> key.
 
 -   Cmd: <Alt+h>
 -   Emacs: <Alt+h>
@@ -1479,70 +1432,10 @@ Prompts for a search string and initiates search upon AcceptLine.
 -   Vi command mode: <?>
 
 
-Custom Key Bindings
-
-PSReadLine supports custom key bindings using the cmdlet
-Set-PSReadLineKeyHandler. Most custom key bindings call one of the above
-functions, for example
-
-    Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
-
-You can bind a ScriptBlock to a key. The ScriptBlock can do pretty much
-anything you want. Some useful examples include
-
--   edit the command line
--   opening a new window (for example, help)
--   change directories without changing the command line
-
-The ScriptBlock receives two arguments:
-
--   $key - A [CONSOLEKEYINFO] object that is the key that triggered the
-    custom binding. If you bind the same ScriptBlock to multiple keys and
-    need to perform different actions depending on the key, you can check
-    $key. Many custom bindings ignore this argument.
-
--   $arg - An arbitrary argument. Most often, this would be an integer
-    argument that the user passes from the key bindings DigitArgument. If
-    your binding doesn't accept arguments, it's reasonable to ignore this
-    argument.
-
-Let's take a look at an example that adds a command line to history without
-executing it. This is useful when you realize you forgot to do something,
-but don't want to re-enter the command line you've already entered.
-
-    $parameters = @{
-        Key = 'Alt+w'
-        BriefDescription = 'SaveInHistory'
-        LongDescription = 'Save current line in history but do not execute'
-        ScriptBlock = {
-          param($key, $arg)   # The arguments are ignored in this example
-
-          # GetBufferState gives us the command line (with the cursor position)
-          $line = $null
-          $cursor = $null
-          [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line,
-            [ref]$cursor)
-
-          # AddToHistory saves the line in history, but does not execute it.
-          [Microsoft.PowerShell.PSConsoleReadLine]::AddToHistory($line)
-
-          # RevertLine is like pressing Escape.
-          [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-      }
-    }
-    Set-PSReadLineKeyHandler @parameters
-
-You can see many more examples in the file SamplePSReadLineProfile.ps1
-which is installed in the PSReadLine module folder.
-
-Most key bindings use some helper functions for editing the command line.
-Those APIs are documented in the next section.
-
-
 Custom Key Binding Support APIs
 
 The following functions are public in
-Microsoft.PowerShell.PSConsoleReadLine, but cannot be directly bound to a
+Microsoft.PowerShell.PSConsoleReadLine, but can't be directly bound to a
 key. Most are useful in custom key bindings.
 
     void AddToHistory(string command)
@@ -1559,7 +1452,7 @@ Delete length characters from start. This operation supports undo/redo.
 
     void Ding()
 
-Perform the Ding action based on the users preference.
+Perform the Ding action based on the user's preference.
 
     void GetBufferState([ref] string input, [ref] int cursor)
     void GetBufferState([ref] Ast ast, [ref] Token[] tokens,
@@ -1586,8 +1479,8 @@ in a custom key binding.
 
     void GetSelectionState([ref] int start, [ref] int length)
 
-If there is no selection on the command line, the function returns -1 in
-both start and length. If there is a selection on the command line, the
+If there's no selection on the command line, the function returns -1 in
+both start and length. If there's a selection on the command line, the
 start and length of the selection are returned.
 
     void Insert(char c)
@@ -1599,8 +1492,8 @@ undo/redo.
     string ReadLine(runspace remoteRunspace,
       System.Management.Automation.EngineIntrinsics engineIntrinsics)
 
-This is the main entry point to PSReadLine. It does not support recursion,
-so is not useful in a custom key binding.
+This is the main entry point to PSReadLine. It doesn't support recursion,
+so isn't useful in a custom key binding.
 
     void RemoveKeyHandler(string[] key)
 
@@ -1609,13 +1502,13 @@ useful in a custom key binding.
 
     void Replace(int start, int length, string replacement)
 
-Replace some of the input. This operation supports undo/redo. This is
-preferred over Delete followed by Insert because it is treated as a single
-action for undo.
+Replace some input. This operation supports undo/redo. This is preferred
+over Delete followed by Insert because it's treated as a single action for
+undo.
 
     void SetCursorPosition(int cursor)
 
-Move the cursor to the given offset. Cursor movement is not tracked for
+Move the cursor to the given offset. Cursor movement isn't tracked for
 undo.
 
     void SetOptions(Microsoft.PowerShell.SetPSReadLineOption options)
@@ -1637,135 +1530,18 @@ typical call looks like
 
 Notes
 
-Command History
-
-PSReadLine maintains a history file containing all the commands and data
-you have entered from the command line. The history files is a file named
-$($host.Name)_history.txt. On Windows systems the history file is stored at
-$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine. On non-Windows
-systems, the history files is stored at
-$env:XDG_DATA_HOME/powershell/PSReadLine or
-$env:HOME/.local/share/powershell/PSReadLine.
-
-The history can contain sensitive data including passwords. PSReadLine
-attempts to filter out sensitive information. Any command lines containing
-the following strings are not written to the history file.
-
--   password
--   asplaintext
--   token
--   apikey
--   secret
-
-PSReadLine 2.2.0 improves the filtering of sensitive data in the following
-ways:
-
--   Uses the PowerShell Abstract Syntax Tree (AST) of the parsed command
-    line to look for sensitive data.
--   Uses an allowlist of safe cmdlets from the SECRETMANAGEMENT module to
-    allow those commands to be added to the history. The allowlist
-    contains:
-    -   Get-Secret
-    -   Get-SecretInfo
-    -   Get-SecretVault
-    -   Register-SecretVault
-    -   Remove-Secret
-    -   Set-SecretInfo
-    -   Set-SecretVaultDefault
-    -   Test-SecretVault
-    -   Unlock-SecretVault
-    -   Unregister-SecretVault
-
-For example, the following commands are allowed to be written to the
-history file:
-
-    Get-Secret PSGalleryApiKey -AsPlainText # Get-Secret is in the allowlist
-    $token = Get-Secret -Name github-token -Vault MySecret
-    [MyType]::CallRestAPI($token, $url, $args)
-    $template -f $token
-
-The following command will not be written to the history file:
-
-    $token = 'abcd' # Assign expr-value to sensitive variable name.
-    Set-Secret abc $mySecret # Set-Secret is not in the allowlist.
-    ConvertTo-SecureString stringValue -AsPlainText # '-AsPlainText' is an alert.
-    Invoke-WebRequest -Token xxx # Expr-value as argument to '-Token'.
-    Get-ResultFromTwo -Secret1 (Get-Secret -Name blah -AsPlainText) -Secret2 sdv87ysdfayf798hfasd8f7ha # '-Secret2' has expr-value argument.
-
 Behavior of the OnIdle event
 
-When PSReadLine is in use, the ONIDLE event is fired when ReadKey() times
-out (no typing in 300ms). The event could be signaled while the user is in
-the middle of editing a command line, for example, the user is reading help
-to decide which parameter to use.
+-   When PSReadLine is in use, the ONIDLE event is fired when ReadKey()
+    times out (no typing in 300ms). The event could be signaled while the
+    user is in the middle of editing a command line, for example, the user
+    is reading help to decide which parameter to use.
 
-Beginning in PSReadLine 2.2.0-beta4, ONIDLE behavior changed to signal the
-event only if there is a ReadKey() timeout and the current editing buffer
-is empty.
-
-PSReadLine release history
-
-There have been many updates to PSReadLine since the version that ships in
-Windows PowerShell 5.1.
-
--   PowerShell 7.3-preview.5 ships with PSReadLine 2.2.5
--   PowerShell 7.2.5 ships with PSReadLine 2.1.0
--   PowerShell 7.0.11 ships with PSReadLine 2.0.4
--   PowerShell 5.1 ships with PSReadLine 2.0.0
-
-For a full list of changes, see the PSReadLine ChangeLog.
-
--   PSREADLINE 2.2.6
-
-    In this release, the Predictive IntelliSense feature is enabled by
-    default depending on the following conditions:
-
-    -   If Virtual Terminal (VT) is supported and PSReadLine running in
-        PowerShell 7.2 or higher, PREDICTIONSOURCE is set to
-        HistoryAndPlugin
-    -   If VT is supported and PSReadLine running in PowerShell prior to
-        7.2, PREDICTIONSOURCE is set to History
-    -   If VT is not supported, PREDICTIONSOURCE is set to None
-
--   PSREADLINE 2.2.5
-
-    This release rolls up the following enhancements added since the 2.1.0
-    release:
-
-    -   PSReadLine added two new predictive IntelliSense features:
-        -   Added the PREDICTIONVIEWSTYLE parameter to allow for the
-            selection of the new ListView.
-        -   Connected PSReadLine to the CommandPrediction APIs introduced
-            in PowerShell 7.2 to allow a user can import a predictor module
-            that can render the suggestions from a custom source.
-    -   Updated to use the 1.0.0 version of Microsoft.PowerShell.Pager for
-        dynamic help
-    -   Improved the scrubbing of sensitive history items
-    -   Lots of bug fixes and smaller improvements
-
--   PSREADLINE 2.1.0
-
-    This release rolls up the following enhancements added since the 2.0.4
-    release:
-
-    -   Add Predictive IntelliSense suggestions from the command history
-    -   Many bug fixes and API enhancements
-
--   PSREADLINE 2.0.4
-
-    This release rolls up the following enhancements added since the 2.0.0
-    release:
-
-    -   Added the -Chord parameter to Get-PSReadLineKeyHandler to allow
-        searching for specific key bindings
-
-Feedback & contributing to PSReadLine
-
-PSReadLine on GitHub
-
-Feel free to submit a pull request or submit feedback on the GitHub page.
+    Beginning in PSReadLine 2.2.0-beta4, ONIDLE behavior changed to signal
+    the event only if there's a ReadKey() timeout and the current editing
+    buffer is empty.
 
 
 See Also
 
--   PSReadLine is heavily influenced by the GNU readline library.
+-   about_PSReadLine

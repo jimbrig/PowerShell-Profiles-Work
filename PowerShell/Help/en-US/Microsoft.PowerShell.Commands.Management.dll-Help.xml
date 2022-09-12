@@ -2410,7 +2410,7 @@ C:\Users\User01</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>Credential</maml:name>
           <maml:description>
-            <maml:para>&gt; [!NOTE] &gt; This parameter is not supported by any providers installed with PowerShell. &gt; To impersonate another user, or elevate your credentials when running this cmdlet, &gt; use Invoke-Command (../Microsoft.PowerShell.Core/Invoke-Command.md).</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; This parameter isn't supported by any providers installed with PowerShell. &gt; To impersonate another user, or elevate your credentials when running this cmdlet, &gt; use Invoke-Command (../Microsoft.PowerShell.Core/Invoke-Command.md).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
           <dev:type>
@@ -2422,7 +2422,7 @@ C:\Users\User01</dev:code>
         <command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none">
           <maml:name>Exclude</maml:name>
           <maml:description>
-            <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it does not filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
+            <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it doesn't filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
           <dev:type>
@@ -2469,7 +2469,7 @@ C:\Users\User01</dev:code>
         <command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none">
           <maml:name>Include</maml:name>
           <maml:description>
-            <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it does not filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
+            <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it doesn't filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
           <dev:type>
@@ -2589,7 +2589,7 @@ C:\Users\User01</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>Credential</maml:name>
           <maml:description>
-            <maml:para>&gt; [!NOTE] &gt; This parameter is not supported by any providers installed with PowerShell. &gt; To impersonate another user, or elevate your credentials when running this cmdlet, &gt; use Invoke-Command (../Microsoft.PowerShell.Core/Invoke-Command.md).</maml:para>
+            <maml:para>&gt; [!NOTE] &gt; This parameter isn't supported by any providers installed with PowerShell. &gt; To impersonate another user, or elevate your credentials when running this cmdlet, &gt; use Invoke-Command (../Microsoft.PowerShell.Core/Invoke-Command.md).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
           <dev:type>
@@ -2601,7 +2601,7 @@ C:\Users\User01</dev:code>
         <command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none">
           <maml:name>Exclude</maml:name>
           <maml:description>
-            <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it does not filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
+            <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it doesn't filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
           <dev:type>
@@ -2648,7 +2648,7 @@ C:\Users\User01</dev:code>
         <command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none">
           <maml:name>Include</maml:name>
           <maml:description>
-            <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it does not filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
+            <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it doesn't filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
           <dev:type>
@@ -2731,7 +2731,7 @@ C:\Users\User01</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
         <maml:name>Credential</maml:name>
         <maml:description>
-          <maml:para>&gt; [!NOTE] &gt; This parameter is not supported by any providers installed with PowerShell. &gt; To impersonate another user, or elevate your credentials when running this cmdlet, &gt; use Invoke-Command (../Microsoft.PowerShell.Core/Invoke-Command.md).</maml:para>
+          <maml:para>&gt; [!NOTE] &gt; This parameter isn't supported by any providers installed with PowerShell. &gt; To impersonate another user, or elevate your credentials when running this cmdlet, &gt; use Invoke-Command (../Microsoft.PowerShell.Core/Invoke-Command.md).</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.PSCredential</command:parameterValue>
         <dev:type>
@@ -2756,7 +2756,7 @@ C:\Users\User01</dev:code>
       <command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none">
         <maml:name>Exclude</maml:name>
         <maml:description>
-          <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it does not filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
+          <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it doesn't filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
         <dev:type>
@@ -2804,7 +2804,7 @@ C:\Users\User01</dev:code>
       <command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none">
         <maml:name>Include</maml:name>
         <maml:description>
-          <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it does not filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
+          <maml:para>Specifies one or more path elements or patterns, such as `"*.txt"`, to limit this cmdlet's operation. The value of this parameter filters against the wildcard-matching result of the Path parameter, not the final results. This parameter is only effective when the Path is specified with one or more wildcards. Since this parameter only filters on the paths resolved for the Path parameter, it doesn't filter any items discovered when recursing through child folders with the Recurse parameter.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
         <dev:type>
@@ -2936,7 +2936,7 @@ C:\Users\User01</dev:code>
         <maml:title>- Example 2: Copy directory contents to an existing directory -</maml:title>
         <dev:code>Copy-Item -Path "C:\Logfiles\*" -Destination "C:\Drawings" -Recurse</dev:code>
         <dev:remarks>
-          <maml:para>&gt; [!NOTE] &gt; If you need to include the `Logfiles` directory in the copy, remove the `\ ` from the Path *. &gt; For example: &gt; &gt; `Copy-Item -Path "C:\Logfiles" -Destination "C:\Drawings" -Recurse` &gt; &gt; If the path `C:\Drawings` does not exist the cmdlet copies all the files from the `Logfiles` folder &gt; into a single file `C:\Drawings`.</maml:para>
+          <maml:para>&gt; [!NOTE] &gt; If the path `C:\Drawings` doesn't exist the cmdlet copies all the files from the `Logfiles` &gt; folder into a single file `C:\Drawings`.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -3038,7 +3038,7 @@ C:\temp\test\file5.txt
 PS C:\temp\test&gt; Get-Content .\file3.txt
 This is file3.txt in the subfolder</dev:code>
         <dev:remarks>
-          <maml:para>The `Copy-Item` cmdlet has the Container parameter set to `$false`. This causes the contents of the source folder to be copied but does not preserve the folder structure. Notice that files with the same name are overwritten in the destination folder.</maml:para>
+          <maml:para>The `Copy-Item` cmdlet has the Container parameter set to `$false`. This causes the contents of the source folder to be copied but doesn't preserve the folder structure. Notice that files with the same name are overwritten in the destination folder.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -3065,7 +3065,7 @@ D:\temp\out\examples\example_2.txt
 D:\temp\out\examples\subfolder\test.txt</dev:code>
         <dev:remarks>
           <maml:para>The Include parameter is applied to the contents of `D:\temp\tree` folder to copy all items that match `ex*`. Notice that, with recursion, the `D:\temp\out\examples` folder is copied along with all the files and subfolders. The copy includes files that do not match the include filter. When using `Copy-Item`, the filters only apply to the top-level specified by the Path parameter. Then recursion is applied to those matching items.</maml:para>
-          <maml:para>&gt; [!NOTE] &gt; The behavior of the Exclude parameter is the same as described in this example, except that &gt; it limits the operation to only those paths which do not match the pattern.</maml:para>
+          <maml:para>&gt; [!NOTE] &gt; The behavior of the Exclude parameter is the same as described in this example, except that &gt; it limits the operation to only those paths that don't match the pattern.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
@@ -21667,7 +21667,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
     </command:details>
     <maml:description>
       <maml:para>The `Start-Process` cmdlet starts one or more processes on the local computer. By default, `Start-Process` creates a new process that inherits all the environment variables that are defined in the current process.</maml:para>
-      <maml:para>To specify the program that runs in the process, enter an executable file or script file, or a file that can be opened by using a program on the computer. If you specify a non-executable file, `Start-Process` starts the program that is associated with the file, similar to the `Invoke-Item` cmdlet.</maml:para>
+      <maml:para>To specify the program that runs in the process, enter an executable file or script file, or a file that can be opened using a program on the computer. If you specify a non-executable file, `Start-Process` starts the program that's associated with the file, similar to the `Invoke-Item` cmdlet.</maml:para>
       <maml:para>You can use the parameters of `Start-Process` to specify options, such as loading a user profile, starting the process in a new window, or using alternate credentials.</maml:para>
     </maml:description>
     <command:syntax>
@@ -21676,7 +21676,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="PSPath, Path">
           <maml:name>FilePath</maml:name>
           <maml:description>
-            <maml:para>Specifies the optional path and filename of the program that runs in the process. Enter the name of an executable file or of a document, such as a `.txt` or `.doc` file, that is associated with a program on the computer. This parameter is required.</maml:para>
+            <maml:para>Specifies the optional path and filename of the program that runs in the process. Enter the name of an executable file or of a document, such as a `.txt` or `.doc` file, that's associated with a program on the computer. This parameter is required.</maml:para>
             <maml:para>If you specify only a filename, use the WorkingDirectory parameter to specify the path.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -21690,8 +21690,8 @@ C:\Documents and Settings\User01\My Documents</dev:code>
           <maml:name>ArgumentList</maml:name>
           <maml:description>
             <maml:para>Specifies parameters or parameter values to use when this cmdlet starts the process. Arguments can be accepted as a single string with the arguments separated by spaces, or as an array of strings separated by commas. The cmdlet joins the array into a single string with each element of the array separated by a single space.</maml:para>
-            <maml:para>The outer quotes of the PowerShell strings are not included when the ArgumentList values are passed to the new process. If parameters or parameter values contain a space or quotes, they need to be surrounded with escaped double quotes. For more information, see about_Quoting_Rules (../Microsoft.PowerShell.Core/About/about_Quoting_Rules.md).</maml:para>
-            <maml:para>For the best results, use a single ArgumentList value containing all of the arguments and any needed quote characters.</maml:para>
+            <maml:para>The outer quotes of the PowerShell strings aren't included when the ArgumentList values are passed to the new process. If parameters or parameter values contain a space or quotes, they need to be surrounded with escaped double quotes. For more information, see about_Quoting_Rules (../Microsoft.PowerShell.Core/About/about_Quoting_Rules.md).</maml:para>
+            <maml:para>For the best results, use a single ArgumentList value containing all the arguments and any needed quote characters.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
           <dev:type>
@@ -21718,8 +21718,8 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Lup">
           <maml:name>LoadUserProfile</maml:name>
           <maml:description>
-            <maml:para>Indicates that this cmdlet loads the Windows user profile stored in the `HKEY_USERS` registry key for the current user. The parameter does not apply for non-Windows systems.</maml:para>
-            <maml:para>This parameter does not affect the PowerShell profiles. For more information, see about_Profiles (../Microsoft.PowerShell.Core/About/about_Profiles.md).</maml:para>
+            <maml:para>Indicates that this cmdlet loads the Windows user profile stored in the `HKEY_USERS` registry key for the current user. The parameter doesn't apply to non-Windows systems.</maml:para>
+            <maml:para>This parameter doesn't affect the PowerShell profiles. For more information, see about_Profiles (../Microsoft.PowerShell.Core/About/about_Profiles.md).</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -21731,8 +21731,8 @@ C:\Documents and Settings\User01\My Documents</dev:code>
           <maml:name>NoNewWindow</maml:name>
           <maml:description>
             <maml:para>Start the new process in the current console window. By default on Windows, PowerShell opens a new window. On non-Windows systems, you never get a new window.</maml:para>
-            <maml:para>You cannot use the NoNewWindow and WindowStyle parameters in the same command.</maml:para>
-            <maml:para>The parameter does not apply for non-Windows systems.</maml:para>
+            <maml:para>You can't use the NoNewWindow and WindowStyle parameters in the same command.</maml:para>
+            <maml:para>The parameter doesn't apply to non-Windows systems.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -21743,7 +21743,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>PassThru</maml:name>
           <maml:description>
-            <maml:para>Returns a process object for each process that the cmdlet started. By default, this cmdlet does not generate any output.</maml:para>
+            <maml:para>Returns a process object for each process that the cmdlet started. By default, this cmdlet doesn't generate any output.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -21791,7 +21791,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
           <maml:name>UseNewEnvironment</maml:name>
           <maml:description>
             <maml:para>Indicates that this cmdlet uses new environment variables specified for the process. By default, the started process runs with the environment variables inherited from the parent process.</maml:para>
-            <maml:para>On Windows, when you use UseNewEnvironment , the new process starts only containing the default environment variables defined for the Machine scope. This has the side affect that the `$env:USERNAME` is set to SYSTEM . None of the variables from the User scope are included.</maml:para>
+            <maml:para>On Windows, when you use UseNewEnvironment , the new process starts only containing the default environment variables defined for the Machine scope. This has the side effect that the `$env:USERNAME` is set to SYSTEM . None of the variables from the User scope are included.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -21813,9 +21813,14 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>WindowStyle</maml:name>
           <maml:description>
-            <maml:para>Specifies the state of the window that is used for the new process. The acceptable values for this parameter are: Normal , Hidden , Minimized , and Maximized . The default value is Normal .</maml:para>
-            <maml:para>You cannot use the WindowStyle and NoNewWindow parameters in the same command.</maml:para>
-            <maml:para>The parameter does not apply for non-Windows systems. When using on non-Windows systems, you never get a new window.</maml:para>
+            <maml:para>Specifies the state of the window that's used for the new process. The default value is `Normal`. The acceptable values for this parameter are:</maml:para>
+            <maml:para>- `Normal`</maml:para>
+            <maml:para>- `Hidden`</maml:para>
+            <maml:para>- `Minimized`</maml:para>
+            <maml:para>- `Maximized`</maml:para>
+            <maml:para></maml:para>
+            <maml:para>You can't use the WindowStyle and NoNewWindow parameters in the same command.</maml:para>
+            <maml:para>The parameter doesn't apply to non-Windows systems. When using on non-Windows systems, you never get a new window.</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Normal</command:parameterValue>
@@ -21833,7 +21838,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>WorkingDirectory</maml:name>
           <maml:description>
-            <maml:para>Specifies the location that the new process should start in. The default is the location of the executable file or document being started. Wildcards are not supported. The path name must not contain characters that would be interpreted as wildcards.</maml:para>
+            <maml:para>Specifies the location that the new process should start in. The default is the location of the executable file or document being started. Wildcards aren't supported. The path must not contain characters that would be interpreted as wildcards.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -21856,7 +21861,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
           <maml:description>
-            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet isn't run.</maml:para>
             <maml:para>This parameter was introduced in PowerShell 6.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -21871,7 +21876,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="PSPath, Path">
           <maml:name>FilePath</maml:name>
           <maml:description>
-            <maml:para>Specifies the optional path and filename of the program that runs in the process. Enter the name of an executable file or of a document, such as a `.txt` or `.doc` file, that is associated with a program on the computer. This parameter is required.</maml:para>
+            <maml:para>Specifies the optional path and filename of the program that runs in the process. Enter the name of an executable file or of a document, such as a `.txt` or `.doc` file, that's associated with a program on the computer. This parameter is required.</maml:para>
             <maml:para>If you specify only a filename, use the WorkingDirectory parameter to specify the path.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -21885,8 +21890,8 @@ C:\Documents and Settings\User01\My Documents</dev:code>
           <maml:name>ArgumentList</maml:name>
           <maml:description>
             <maml:para>Specifies parameters or parameter values to use when this cmdlet starts the process. Arguments can be accepted as a single string with the arguments separated by spaces, or as an array of strings separated by commas. The cmdlet joins the array into a single string with each element of the array separated by a single space.</maml:para>
-            <maml:para>The outer quotes of the PowerShell strings are not included when the ArgumentList values are passed to the new process. If parameters or parameter values contain a space or quotes, they need to be surrounded with escaped double quotes. For more information, see about_Quoting_Rules (../Microsoft.PowerShell.Core/About/about_Quoting_Rules.md).</maml:para>
-            <maml:para>For the best results, use a single ArgumentList value containing all of the arguments and any needed quote characters.</maml:para>
+            <maml:para>The outer quotes of the PowerShell strings aren't included when the ArgumentList values are passed to the new process. If parameters or parameter values contain a space or quotes, they need to be surrounded with escaped double quotes. For more information, see about_Quoting_Rules (../Microsoft.PowerShell.Core/About/about_Quoting_Rules.md).</maml:para>
+            <maml:para>For the best results, use a single ArgumentList value containing all the arguments and any needed quote characters.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
           <dev:type>
@@ -21898,7 +21903,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>PassThru</maml:name>
           <maml:description>
-            <maml:para>Returns a process object for each process that the cmdlet started. By default, this cmdlet does not generate any output.</maml:para>
+            <maml:para>Returns a process object for each process that the cmdlet started. By default, this cmdlet doesn't generate any output.</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>System.Management.Automation.SwitchParameter</maml:name>
@@ -21913,7 +21918,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
             <maml:para>The following table shows the verbs for some common process file types.</maml:para>
             <maml:para>| File type |                Verbs                | | --------- | ----------------------------------- | | .cmd      | Edit, Open, Print, RunAs, RunAsUser | | .exe      | Open, RunAs, RunAsUser              | | .txt      | Open, Print, PrintTo                | | .wav      | Open, Play                          |</maml:para>
             <maml:para>To find the verbs that can be used with the file that runs in a process, use the `New-Object` cmdlet to create a System.Diagnostics.ProcessStartInfo object for the file. The available verbs are in the Verbs property of the ProcessStartInfo object. For details, see the examples.</maml:para>
-            <maml:para>The parameter does not apply for non-Windows systems.</maml:para>
+            <maml:para>The parameter doesn't apply to non-Windows systems.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -21936,9 +21941,14 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>WindowStyle</maml:name>
           <maml:description>
-            <maml:para>Specifies the state of the window that is used for the new process. The acceptable values for this parameter are: Normal , Hidden , Minimized , and Maximized . The default value is Normal .</maml:para>
-            <maml:para>You cannot use the WindowStyle and NoNewWindow parameters in the same command.</maml:para>
-            <maml:para>The parameter does not apply for non-Windows systems. When using on non-Windows systems, you never get a new window.</maml:para>
+            <maml:para>Specifies the state of the window that's used for the new process. The default value is `Normal`. The acceptable values for this parameter are:</maml:para>
+            <maml:para>- `Normal`</maml:para>
+            <maml:para>- `Hidden`</maml:para>
+            <maml:para>- `Minimized`</maml:para>
+            <maml:para>- `Maximized`</maml:para>
+            <maml:para></maml:para>
+            <maml:para>You can't use the WindowStyle and NoNewWindow parameters in the same command.</maml:para>
+            <maml:para>The parameter doesn't apply to non-Windows systems. When using on non-Windows systems, you never get a new window.</maml:para>
           </maml:description>
           <command:parameterValueGroup>
             <command:parameterValue required="false" command:variableLength="false">Normal</command:parameterValue>
@@ -21956,7 +21966,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>WorkingDirectory</maml:name>
           <maml:description>
-            <maml:para>Specifies the location that the new process should start in. The default is the location of the executable file or document being started. Wildcards are not supported. The path name must not contain characters that would be interpreted as wildcards.</maml:para>
+            <maml:para>Specifies the location that the new process should start in. The default is the location of the executable file or document being started. Wildcards aren't supported. The path must not contain characters that would be interpreted as wildcards.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
           <dev:type>
@@ -21979,7 +21989,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
           <maml:name>WhatIf</maml:name>
           <maml:description>
-            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet isn't run.</maml:para>
             <maml:para>This parameter was introduced in PowerShell 6.0.</maml:para>
           </maml:description>
           <dev:type>
@@ -21995,8 +22005,8 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <maml:name>ArgumentList</maml:name>
         <maml:description>
           <maml:para>Specifies parameters or parameter values to use when this cmdlet starts the process. Arguments can be accepted as a single string with the arguments separated by spaces, or as an array of strings separated by commas. The cmdlet joins the array into a single string with each element of the array separated by a single space.</maml:para>
-          <maml:para>The outer quotes of the PowerShell strings are not included when the ArgumentList values are passed to the new process. If parameters or parameter values contain a space or quotes, they need to be surrounded with escaped double quotes. For more information, see about_Quoting_Rules (../Microsoft.PowerShell.Core/About/about_Quoting_Rules.md).</maml:para>
-          <maml:para>For the best results, use a single ArgumentList value containing all of the arguments and any needed quote characters.</maml:para>
+          <maml:para>The outer quotes of the PowerShell strings aren't included when the ArgumentList values are passed to the new process. If parameters or parameter values contain a space or quotes, they need to be surrounded with escaped double quotes. For more information, see about_Quoting_Rules (../Microsoft.PowerShell.Core/About/about_Quoting_Rules.md).</maml:para>
+          <maml:para>For the best results, use a single ArgumentList value containing all the arguments and any needed quote characters.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String[]</command:parameterValue>
         <dev:type>
@@ -22023,7 +22033,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
       <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="PSPath, Path">
         <maml:name>FilePath</maml:name>
         <maml:description>
-          <maml:para>Specifies the optional path and filename of the program that runs in the process. Enter the name of an executable file or of a document, such as a `.txt` or `.doc` file, that is associated with a program on the computer. This parameter is required.</maml:para>
+          <maml:para>Specifies the optional path and filename of the program that runs in the process. Enter the name of an executable file or of a document, such as a `.txt` or `.doc` file, that's associated with a program on the computer. This parameter is required.</maml:para>
           <maml:para>If you specify only a filename, use the WorkingDirectory parameter to specify the path.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
@@ -22036,8 +22046,8 @@ C:\Documents and Settings\User01\My Documents</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Lup">
         <maml:name>LoadUserProfile</maml:name>
         <maml:description>
-          <maml:para>Indicates that this cmdlet loads the Windows user profile stored in the `HKEY_USERS` registry key for the current user. The parameter does not apply for non-Windows systems.</maml:para>
-          <maml:para>This parameter does not affect the PowerShell profiles. For more information, see about_Profiles (../Microsoft.PowerShell.Core/About/about_Profiles.md).</maml:para>
+          <maml:para>Indicates that this cmdlet loads the Windows user profile stored in the `HKEY_USERS` registry key for the current user. The parameter doesn't apply to non-Windows systems.</maml:para>
+          <maml:para>This parameter doesn't affect the PowerShell profiles. For more information, see about_Profiles (../Microsoft.PowerShell.Core/About/about_Profiles.md).</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
         <dev:type>
@@ -22050,8 +22060,8 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <maml:name>NoNewWindow</maml:name>
         <maml:description>
           <maml:para>Start the new process in the current console window. By default on Windows, PowerShell opens a new window. On non-Windows systems, you never get a new window.</maml:para>
-          <maml:para>You cannot use the NoNewWindow and WindowStyle parameters in the same command.</maml:para>
-          <maml:para>The parameter does not apply for non-Windows systems.</maml:para>
+          <maml:para>You can't use the NoNewWindow and WindowStyle parameters in the same command.</maml:para>
+          <maml:para>The parameter doesn't apply to non-Windows systems.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
         <dev:type>
@@ -22063,7 +22073,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>PassThru</maml:name>
         <maml:description>
-          <maml:para>Returns a process object for each process that the cmdlet started. By default, this cmdlet does not generate any output.</maml:para>
+          <maml:para>Returns a process object for each process that the cmdlet started. By default, this cmdlet doesn't generate any output.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
         <dev:type>
@@ -22112,7 +22122,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
         <maml:name>UseNewEnvironment</maml:name>
         <maml:description>
           <maml:para>Indicates that this cmdlet uses new environment variables specified for the process. By default, the started process runs with the environment variables inherited from the parent process.</maml:para>
-          <maml:para>On Windows, when you use UseNewEnvironment , the new process starts only containing the default environment variables defined for the Machine scope. This has the side affect that the `$env:USERNAME` is set to SYSTEM . None of the variables from the User scope are included.</maml:para>
+          <maml:para>On Windows, when you use UseNewEnvironment , the new process starts only containing the default environment variables defined for the Machine scope. This has the side effect that the `$env:USERNAME` is set to SYSTEM . None of the variables from the User scope are included.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
         <dev:type>
@@ -22128,7 +22138,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
           <maml:para>The following table shows the verbs for some common process file types.</maml:para>
           <maml:para>| File type |                Verbs                | | --------- | ----------------------------------- | | .cmd      | Edit, Open, Print, RunAs, RunAsUser | | .exe      | Open, RunAs, RunAsUser              | | .txt      | Open, Print, PrintTo                | | .wav      | Open, Play                          |</maml:para>
           <maml:para>To find the verbs that can be used with the file that runs in a process, use the `New-Object` cmdlet to create a System.Diagnostics.ProcessStartInfo object for the file. The available verbs are in the Verbs property of the ProcessStartInfo object. For details, see the examples.</maml:para>
-          <maml:para>The parameter does not apply for non-Windows systems.</maml:para>
+          <maml:para>The parameter doesn't apply to non-Windows systems.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
         <dev:type>
@@ -22152,9 +22162,14 @@ C:\Documents and Settings\User01\My Documents</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>WindowStyle</maml:name>
         <maml:description>
-          <maml:para>Specifies the state of the window that is used for the new process. The acceptable values for this parameter are: Normal , Hidden , Minimized , and Maximized . The default value is Normal .</maml:para>
-          <maml:para>You cannot use the WindowStyle and NoNewWindow parameters in the same command.</maml:para>
-          <maml:para>The parameter does not apply for non-Windows systems. When using on non-Windows systems, you never get a new window.</maml:para>
+          <maml:para>Specifies the state of the window that's used for the new process. The default value is `Normal`. The acceptable values for this parameter are:</maml:para>
+          <maml:para>- `Normal`</maml:para>
+          <maml:para>- `Hidden`</maml:para>
+          <maml:para>- `Minimized`</maml:para>
+          <maml:para>- `Maximized`</maml:para>
+          <maml:para></maml:para>
+          <maml:para>You can't use the WindowStyle and NoNewWindow parameters in the same command.</maml:para>
+          <maml:para>The parameter doesn't apply to non-Windows systems. When using on non-Windows systems, you never get a new window.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Diagnostics.ProcessWindowStyle</command:parameterValue>
         <dev:type>
@@ -22166,7 +22181,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>WorkingDirectory</maml:name>
         <maml:description>
-          <maml:para>Specifies the location that the new process should start in. The default is the location of the executable file or document being started. Wildcards are not supported. The path name must not contain characters that would be interpreted as wildcards.</maml:para>
+          <maml:para>Specifies the location that the new process should start in. The default is the location of the executable file or document being started. Wildcards aren't supported. The path must not contain characters that would be interpreted as wildcards.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.String</command:parameterValue>
         <dev:type>
@@ -22190,7 +22205,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
         <maml:name>WhatIf</maml:name>
         <maml:description>
-          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet isn't run.</maml:para>
           <maml:para>This parameter was introduced in PowerShell 6.0.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">System.Management.Automation.SwitchParameter</command:parameterValue>
@@ -22207,7 +22222,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
           <maml:name>None</maml:name>
         </dev:type>
         <maml:description>
-          <maml:para>You cannot pipe input to this cmdlet.</maml:para>
+          <maml:para>You can't pipe input to this cmdlet.</maml:para>
         </maml:description>
       </command:inputType>
     </command:inputTypes>
@@ -22217,20 +22232,22 @@ C:\Documents and Settings\User01\My Documents</dev:code>
           <maml:name>None, System.Diagnostics.Process</maml:name>
         </dev:type>
         <maml:description>
-          <maml:para>This cmdlet generates a System.Diagnostics.Process object, if you specify the PassThru parameter. Otherwise, this cmdlet does not return any output.</maml:para>
+          <maml:para>This cmdlet generates a System.Diagnostics.Process object, if you specify the PassThru parameter. Otherwise, this cmdlet doesn't return any output.</maml:para>
         </maml:description>
       </command:returnValue>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
+        <maml:para>Native commands are executable files installed in the operating system. These executables can be run from any command-line shell, like PowerShell. Usually you run the command exactly as you would in `bash` or `cmd.exe`. The `Start-Process` cmdlet can be used to run any native commands, but should only be used when you need to control how the command is executed.</maml:para>
+        <maml:para>`Start-Process` is useful for running GUI programs on non-Windows platforms. For example, run `Start-Proces gedit` to launch the graphical text editor common the GNOME Desktop environments.</maml:para>
         <maml:para>By default, `Start-Process` launches a process asynchronously . Control is instantly returned to PowerShell even if the new process is still running.</maml:para>
         <maml:para>- On the local system, the launched process lives on independent from the calling process.</maml:para>
         <maml:para>- On a remote system, the new process is terminated when the remote session ends, immediately</maml:para>
-        <maml:para>  following the `Start-Process` command. Therefore, you cannot use `Start-Process` in a remote session   expecting the launched process to outlive the session.</maml:para>
+        <maml:para>  following the `Start-Process` command. Therefore, you can't use `Start-Process` in a remote   session expecting the launched process to outlive the session.</maml:para>
         <maml:para>If you do need to use `Start-Process` in a remote session, invoke it with the Wait parameter. Or you could use other methods to create a new process on the remote system.</maml:para>
         <maml:para>When using the Wait parameter, `Start-Process` waits for the process tree (the process and all its descendants) to exit before returning control. This is different than the behavior of the `Wait-Process` cmdlet, which only waits for the specified processes to exit.</maml:para>
         <maml:para>On Windows, the most common use case for `Start-Process` is to use the Wait parameter to block progress until the new process exits. On non-Windows system, this is rarely needed since the default behavior for command-line applications is equivalent to `Start-Process -Wait`.</maml:para>
-        <maml:para>This cmdlet is implemented by using the Start method of the System.Diagnostics.Process class. For more information about this method, see Process.Start Method (/dotnet/api/system.diagnostics.process.start#overloads).</maml:para>
+        <maml:para>This cmdlet is implemented using the Start method of the System.Diagnostics.Process class. For more information about this method, see Process.Start Method (/dotnet/api/system.diagnostics.process.start#overloads).</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -22278,26 +22295,35 @@ Start-Process @processOptions</dev:code>
       </command:example>
       <command:example>
         <maml:title>----- Example 6: Using different verbs to start a process -----</maml:title>
-        <dev:code>$startExe = New-Object System.Diagnostics.ProcessStartInfo -Args PowerShell.exe
+        <dev:code>$startExe = New-Object System.Diagnostics.ProcessStartInfo -Args powershell.exe
 $startExe.verbs
 
 open
 runas
 runasuser</dev:code>
         <dev:remarks>
-          <maml:para>The example uses `New-Object` to create a System.Diagnostics.ProcessStartInfo object for PowerShell.exe , the file that runs in the PowerShell process. The Verbs property of the ProcessStartInfo object shows that you can use the Open and RunAs verbs with `PowerShell.exe`, or with any process that runs a `.exe` file.</maml:para>
+          <maml:para>The example uses `New-Object` to create a System.Diagnostics.ProcessStartInfo object for `powershell.exe`, the file that runs in the PowerShell process. The Verbs property of the ProcessStartInfo object shows that you can use the Open and `RunAs` verbs with `powershell.exe`, or with any process that runs a `.exe` file.</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------- Example 7: Specifying arguments to the process --------</maml:title>
-        <dev:code>Start-Process -FilePath "$env:comspec" -ArgumentList "/c dir `"%systemdrive%\program files`""
-Start-Process -FilePath "$env:comspec" -ArgumentList "/c","dir","`"%systemdrive%\program files`""</dev:code>
+        <dev:code>Start-Process -FilePath "$env:comspec" -ArgumentList "/c dir `"%SystemDrive%\Program Files`""
+Start-Process -FilePath "$env:comspec" -ArgumentList "/c","dir","`"%SystemDrive%\Program Files`""</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
-        <maml:title>-------- Example 8: Create a detached process on Linux --------</maml:title>
+        <maml:title>Example 8: Run a command as an Administrator using alternate credentials</maml:title>
+        <dev:code>$cred = Get-Credential
+$args = '-noprofile -command "Start-Process cmd.exe -Verb RunAs -args /k"'
+Start-Process pwsh.exe -Credential $cred -WindowStyle Hidden -ArgumentList $args</dev:code>
+        <dev:remarks>
+          <maml:para>The example starts `cmd.exe` with elevated permissions from a PowerShell session that is running under alternate credentials.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------- Example 9: Create a detached process on Linux --------</maml:title>
         <dev:code># Runs for 2 minutes and appends output to ./nohup.out
 Start-Process nohup 'pwsh -noprofile -c "1..120 | % { Write-Host . -NoNewline; sleep 1 }"'</dev:code>
         <dev:remarks>
