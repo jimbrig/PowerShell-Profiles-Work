@@ -25,3 +25,6 @@ Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
 #   -BriefDescription CopyPathToClipboard `
 #   -LongDescription 'Copies the current path to the clipboard' `
 #   -ScriptBlock { (Resolve-Path -LiteralPath $pwd).ProviderPath.Trim() | clip }
+
+# Ensure ScreenReader is disabled:
+. "$PSScriptRoot\options\Fix-ScreenReaderWarning.ps1"
