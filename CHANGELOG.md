@@ -37,6 +37,11 @@ All notable changes to this project will be documented in this file.
 - Update options.ps1
 - Add Fix-ScreenReaderWarning.ps1 option
 - Add git-cliff GHA
+- Add awesome new dacpac / dacFx and Module functions
+
+### Miscellaneous Tasks
+
+- Autopublish 2022-09-12T23:58:38Z
 
 ### Config
 
