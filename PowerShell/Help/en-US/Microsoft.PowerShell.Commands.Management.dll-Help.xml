@@ -715,7 +715,7 @@ Mode                LastWriteTime         Length Name
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/add-content?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/add-content?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Aliases</maml:linkText>
@@ -1168,7 +1168,7 @@ Get-Content C:\Test\Copy-Script.ps1 -Stream Zone.Identifier
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/clear-content?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/clear-content?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Add-Content</maml:linkText>
@@ -1557,7 +1557,7 @@ PS Variable:\&gt; Clear-Item TestVar1</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/clear-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/clear-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Copy-Item</maml:linkText>
@@ -2022,7 +2022,7 @@ PS Variable:\&gt; Clear-Item TestVar1</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/clear-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/clear-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Copy-ItemProperty</maml:linkText>
@@ -2211,7 +2211,7 @@ Performing the operation "Clear-RecycleBin" on target "All of the contents of th
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/clear-recyclebin?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/clear-recyclebin?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -2342,7 +2342,7 @@ C:\Users\User01</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/convert-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/convert-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Join-Path</maml:linkText>
@@ -3085,7 +3085,7 @@ D:\temp\out\example.txt</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/copy-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/copy-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Providers</maml:linkText>
@@ -3593,7 +3593,7 @@ D:\temp\out\example.txt</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/copy-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/copy-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-ItemProperty</maml:linkText>
@@ -3904,7 +3904,7 @@ PS C:\&gt; Debug-Process -InputObject $P</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/debug-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/debug-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Debug-Process</maml:linkText>
@@ -4870,7 +4870,7 @@ l----   12/16/2021  9:29 AM           tmp -&gt; C:\Users\user1\AppData\Local\Tem
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Certificate_Provider</maml:linkText>
@@ -4991,7 +4991,7 @@ hello</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-clipboard?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-clipboard?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Set-Clipboard</maml:linkText>
@@ -5102,7 +5102,7 @@ OsServicePackMinorVersion          : 0</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-computerinfo?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-computerinfo?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -5950,7 +5950,7 @@ Add            Method                int IList.Add(System.Object value)</dev:cod
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-content?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-content?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Automatic_Variables</maml:linkText>
@@ -6207,7 +6207,7 @@ PS&gt; $A | ForEach-Object { if (!(Get-HotFix -Id KB957095 -ComputerName $_))
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-hotfix?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-hotfix?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Arrays</maml:linkText>
@@ -6648,7 +6648,7 @@ drwxr-xr-x  root  admin   12/20/2019 11:46   192   Users</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-Item</maml:linkText>
@@ -7017,7 +7017,7 @@ PSCompatibleVersion     : 1.0,2.0</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-ItemProperty</maml:linkText>
@@ -7382,7 +7382,7 @@ LinkType            :</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-itempropertyvalue?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-itempropertyvalue?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-ItemProperty</maml:linkText>
@@ -7666,7 +7666,7 @@ PowerShell: C:\&gt;</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Pop-Location</maml:linkText>
@@ -8129,7 +8129,7 @@ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Debug-Process</maml:linkText>
@@ -8459,7 +8459,7 @@ G:        \\Music\GratefulDead  Connected       OK</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-psdrive?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-psdrive?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>New-PSDrive</maml:linkText>
@@ -8605,7 +8605,7 @@ C:\Users\User01</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-psprovider?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-psprovider?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -9022,7 +9022,7 @@ Running  seclogon           Secondary Logon</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>New-Service</maml:linkText>
@@ -9219,7 +9219,7 @@ Central Pacific Standard Time</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/get-timezone?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Set-TimeZone</maml:linkText>
@@ -9533,6 +9533,8 @@ Central Pacific Standard Time</dev:code>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
+        <maml:para>PowerShell includes the following aliases for `Invoke-Item`:</maml:para>
+        <maml:para>  - `ii`</maml:para>
         <maml:para>This cmdlet is designed to work with the data exposed by any provider. To list the providers available in your session, type `Get-PSProvider`. For more information, see about_Providers (../Microsoft.PowerShell.Core/About/about_Providers.md).</maml:para>
       </maml:alert>
     </maml:alertSet>
@@ -9546,7 +9548,7 @@ Central Pacific Standard Time</dev:code>
       </command:example>
       <command:example>
         <maml:title>--------- Example 2: Open all files of a specific type ---------</maml:title>
-        <dev:code>Invoke-Item "C:\Documents and Settings\Lister\My Documents\*.xls"</dev:code>
+        <dev:code>Invoke-Item "C:\Users\User1\Documents\*.xls"</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
         </dev:remarks>
@@ -9555,7 +9557,7 @@ Central Pacific Standard Time</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/invoke-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/invoke-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-Item</maml:linkText>
@@ -9845,7 +9847,7 @@ a\b\c\d\e\f\g</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/join-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/join-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Convert-Path</maml:linkText>
@@ -10347,7 +10349,7 @@ a\b\c\d\e\f\g</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/move-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/move-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-Item</maml:linkText>
@@ -10848,7 +10850,7 @@ a\b\c\d\e\f\g</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/move-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/move-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-ItemProperty</maml:linkText>
@@ -11354,7 +11356,7 @@ Mode                LastWriteTime         Length Name
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-Item</maml:linkText>
@@ -11909,7 +11911,7 @@ a</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/new-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/new-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-ItemProperty</maml:linkText>
@@ -12370,7 +12372,7 @@ X:           \\products\public       Disconnected             Unavailable</dev:c
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/new-psdrive?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/new-psdrive?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Providers</maml:linkText>
@@ -12754,7 +12756,7 @@ New-Service @params</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/new-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/new-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Service</maml:linkText>
@@ -12932,7 +12934,7 @@ PS C:\&gt;</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/pop-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/pop-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Location</maml:linkText>
@@ -13179,7 +13181,7 @@ PS C:\&gt;</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/push-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/push-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Location</maml:linkText>
@@ -13664,7 +13666,7 @@ PS C:\&gt;</dev:code>
         <maml:title>------ Example 4: Delete files in subfolders recursively ------</maml:title>
         <dev:code>Get-ChildItem * -Include *.csv -Recurse | Remove-Item</dev:code>
         <dev:remarks>
-          <maml:para>In the `Get-ChildItem` command, Path has a value of (`*`), which represents the contents of the current folder. It uses Include to specify the CSV file type, and it uses Recurse to make the retrieval recursive. If you try to specify the file type the path, such as `-Path *.csv`, the cmdlet interprets the subject of the search to be a file that has no child items, and Recurse fails.</maml:para>
+          <maml:para>In the `Get-ChildItem` command, Path has a value of (`*`), which represents the contents of the current folder. It uses Include to specify the CSV file type, and it uses Recurse to make the retrieval recursive. If you try to specify the file type in the path, such as `-Path *.csv`, the cmdlet interprets the subject of the search to be a file that has no child items, and Recurse fails.</maml:para>
           <maml:para>&gt; [!NOTE] &gt; This behavior was fixed in Windows versions 1909 and up.</maml:para>
         </dev:remarks>
       </command:example>
@@ -13732,7 +13734,7 @@ Get-Item : Could not open alternate data stream 'Zone.Identifier' of file 'C:\Te
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/remove-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/remove-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-Item</maml:linkText>
@@ -14191,7 +14193,7 @@ PS HKCU:\Software\MyCompany\MyApp&gt; Remove-ItemProperty -Path . -Name "Options
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/remove-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/remove-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Item</maml:linkText>
@@ -14532,7 +14534,7 @@ PS HKCU:\Software\MyCompany\MyApp&gt; Remove-ItemProperty -Path . -Name "Options
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/remove-psdrive?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/remove-psdrive?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-PSDrive</maml:linkText>
@@ -14734,7 +14736,7 @@ PS HKCU:\Software\MyCompany\MyApp&gt; Remove-ItemProperty -Path . -Name "Options
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/remove-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/remove-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Service</maml:linkText>
@@ -15099,7 +15101,7 @@ PS HKCU:\Software\MyCompany\MyApp&gt; Remove-ItemProperty -Path . -Name "Options
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/rename-computer?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/rename-computer?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Restart-Computer</maml:linkText>
@@ -15483,7 +15485,7 @@ Mode                LastWriteTime         Length Name
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/rename-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/rename-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-Item</maml:linkText>
@@ -15992,7 +15994,7 @@ Mode                LastWriteTime         Length Name
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/rename-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/rename-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-ItemProperty</maml:linkText>
@@ -16264,7 +16266,7 @@ C:\Windows</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/resolve-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/resolve-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Convert-Path</maml:linkText>
@@ -16668,7 +16670,7 @@ Restart-Computer -ComputerName $Names -Credential $Creds -Force</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/restart-computer?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/restart-computer?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>About Windows Remote Management</maml:linkText>
@@ -17111,7 +17113,7 @@ Restart-Computer -ComputerName $Names -Credential $Creds -Force</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/restart-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/restart-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Service</maml:linkText>
@@ -17521,7 +17523,7 @@ Restart-Computer -ComputerName $Names -Credential $Creds -Force</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/resume-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/resume-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Service</maml:linkText>
@@ -17728,7 +17730,7 @@ Restart-Computer -ComputerName $Names -Credential $Creds -Force</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/set-clipboard?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/set-clipboard?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Clipboard</maml:linkText>
@@ -18433,7 +18435,7 @@ The word Caution was replaced.</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/set-content?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/set-content?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Aliases</maml:linkText>
@@ -18919,7 +18921,7 @@ The word Caution was replaced.</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/set-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/set-item?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-Item</maml:linkText>
@@ -19780,7 +19782,7 @@ NoOfEmployees : 824</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/set-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/set-itemproperty?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Clear-ItemProperty</maml:linkText>
@@ -20068,7 +20070,7 @@ PS Cert:\&gt;</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/set-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/set-location?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Location</maml:linkText>
@@ -20683,7 +20685,7 @@ Set-Service -Name "BITS" -SecurityDescriptorSddl $SDDL</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/set-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/set-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Service</maml:linkText>
@@ -21002,7 +21004,7 @@ SupportsDaylightSavingTime : False</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/set-timezone?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/set-timezone?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-TimeZone</maml:linkText>
@@ -21636,7 +21638,7 @@ C:\Documents and Settings\User01\My Documents</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/split-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/split-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Convert-Path</maml:linkText>
@@ -22238,6 +22240,8 @@ C:\Documents and Settings\User01\My Documents</dev:code>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
+        <maml:para>PowerShell includes the following aliases for `Start-Process`:</maml:para>
+        <maml:para>- All platforms   - `saps` - Windows   - `start`</maml:para>
         <maml:para>Native commands are executable files installed in the operating system. These executables can be run from any command-line shell, like PowerShell. Usually you run the command exactly as you would in `bash` or `cmd.exe`. The `Start-Process` cmdlet can be used to run any native commands, but should only be used when you need to control how the command is executed.</maml:para>
         <maml:para>`Start-Process` is useful for running GUI programs on non-Windows platforms. For example, run `Start-Proces gedit` to launch the graphical text editor common the GNOME Desktop environments.</maml:para>
         <maml:para>By default, `Start-Process` launches a process asynchronously . Control is instantly returned to PowerShell even if the new process is still running.</maml:para>
@@ -22334,7 +22338,7 @@ Start-Process nohup 'pwsh -noprofile -c "1..120 | % { Write-Host . -NoNewline; s
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/start-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/start-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Quoting_Rules</maml:linkText>
@@ -22766,7 +22770,7 @@ PS&gt; Start-Service tlntsvr</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/start-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/start-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Service</maml:linkText>
@@ -23077,7 +23081,7 @@ Stop-Computer -ComputerName $s -Force -Credential $c</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/stop-computer?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/stop-computer?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Rename-Computer</maml:linkText>
@@ -23468,7 +23472,7 @@ Performing operation 'Stop-Process' on Target 'lsass(596)'
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/stop-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/stop-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Debug-Process</maml:linkText>
@@ -23967,7 +23971,7 @@ PS C:\&gt; Stop-Service -Name "iisadmin" -Force -Confirm</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/stop-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/stop-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Service</maml:linkText>
@@ -24392,7 +24396,7 @@ PS C:\&gt; Stop-Service -Name "iisadmin" -Force -Confirm</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/suspend-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/suspend-service?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-Service</maml:linkText>
@@ -25399,7 +25403,7 @@ Hop Hostname                  Ping Latency Status           Source       TargetA
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/test-connection?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/test-connection?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Restart-Computer</maml:linkText>
@@ -25911,7 +25915,7 @@ False</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/test-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/test-path?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Convert-Path</maml:linkText>
@@ -26134,7 +26138,7 @@ Wait-Process -InputObject $p</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.management/wait-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.management/wait-process?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Debug-Process</maml:linkText>

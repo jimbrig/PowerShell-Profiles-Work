@@ -206,7 +206,7 @@ Shift+Enter AddLine    Move the cursor to the next line without attempting to ex
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psreadline/get-psreadlinekeyhandler?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/psreadline/get-psreadlinekeyhandler?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Remove-PSReadLineKeyHandler</maml:linkText>
@@ -320,7 +320,7 @@ VariableColor                          : "`e[92m"</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psreadline/get-psreadlineoption?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/psreadline/get-psreadlineoption?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Remove-PSReadLineKeyHandler</maml:linkText>
@@ -452,7 +452,7 @@ VariableColor                          : "`e[92m"</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psreadline/remove-psreadlinekeyhandler?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/psreadline/remove-psreadlinekeyhandler?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-PSReadLineKeyHandler</maml:linkText>
@@ -728,7 +728,7 @@ VariableColor                          : "`e[92m"</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psreadline/set-psreadlinekeyhandler?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/psreadline/set-psreadlinekeyhandler?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-PSReadLineKeyHandler</maml:linkText>
@@ -1581,7 +1581,7 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnVi
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.2&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PSReadLine</maml:linkText>

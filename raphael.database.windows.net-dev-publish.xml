@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetDatabaseName>dev</TargetDatabaseName>
+    <TargetConnectionString>Data Source=raphael.database.windows.net;User ID=renreadmin;Password=KjqekNwI85;Packet Size=4096</TargetConnectionString>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+
+  </PropertyGroup>
+</Project>

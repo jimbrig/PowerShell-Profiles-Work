@@ -280,7 +280,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/add-localgroupmember?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/add-localgroupmember?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-LocalGroupMember</maml:linkText>
@@ -532,7 +532,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/disable-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/disable-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Enable-LocalUser</maml:linkText>
@@ -796,7 +796,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/enable-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/enable-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Disable-LocalUser</maml:linkText>
@@ -936,7 +936,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/get-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/get-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>New-LocalGroup</maml:linkText>
@@ -1143,7 +1143,7 @@
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/get-localgroupmember?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/get-localgroupmember?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Add-LocalGroupMember</maml:linkText>
@@ -1297,7 +1297,7 @@ Administrator True    Built-in account for administering the computer/domain</de
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/get-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/get-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Disable-LocalUser</maml:linkText>
@@ -1480,7 +1480,7 @@ Administrator True    Built-in account for administering the computer/domain</de
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/new-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/new-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-LocalGroup</maml:linkText>
@@ -1975,7 +1975,7 @@ User03  True     Description of this account.</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/new-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/new-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Disable-LocalUser</maml:linkText>
@@ -2252,7 +2252,7 @@ User03  True     Description of this account.</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/remove-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/remove-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-LocalGroup</maml:linkText>
@@ -2550,7 +2550,7 @@ Remove-LocalGroupMember -Group "Administrators" -Member $members</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/remove-localgroupmember?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/remove-localgroupmember?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Add-LocalGroupMember</maml:linkText>
@@ -2795,7 +2795,7 @@ Remove-LocalGroupMember -Group "Administrators" -Member $members</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/remove-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/remove-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Disable-LocalUser</maml:linkText>
@@ -3100,7 +3100,7 @@ Remove-LocalGroupMember -Group "Administrators" -Member $members</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/rename-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/rename-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-LocalGroup</maml:linkText>
@@ -3397,7 +3397,7 @@ Remove-LocalGroupMember -Group "Administrators" -Member $members</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/rename-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/rename-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Disable-LocalUser</maml:linkText>
@@ -3702,7 +3702,7 @@ Remove-LocalGroupMember -Group "Administrators" -Member $members</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/set-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/set-localgroup?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-LocalGroup</maml:linkText>
@@ -4307,7 +4307,7 @@ $UserAccount | Set-LocalUser -Password $Password</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/microsoft.powershell.localaccounts/set-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/microsoft.powershell.localaccounts/set-localuser?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Disable-LocalUser</maml:linkText>

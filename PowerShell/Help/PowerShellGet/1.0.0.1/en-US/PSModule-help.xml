@@ -386,7 +386,7 @@ VERBOSE: Module 'PSScriptAnalyzer' was saved successfully to path 'C:\Test\Modul
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/find-command?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/find-command?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-InstalledModule</maml:linkText>
@@ -821,7 +821,7 @@ dmAwsTagInstance        1.0.1      domainAwsDSCResources      PSGallery</dev:cod
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/find-dscresource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/find-dscresource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-InstalledModule</maml:linkText>
@@ -1433,7 +1433,7 @@ Version Name            Repository Description
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/find-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/find-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-PSRepository</maml:linkText>
@@ -1854,7 +1854,7 @@ Get-InstalledModule</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/find-rolecapability?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/find-rolecapability?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-ChildItem</maml:linkText>
@@ -2426,7 +2426,7 @@ Version    Name                                Type       Repository           D
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/find-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/find-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Install-Script</maml:linkText>
@@ -2656,7 +2656,7 @@ Version    Name                                Type       Repository     Descrip
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/get-installedmodule?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/get-installedmodule?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -2856,7 +2856,7 @@ Version    Name                                Type       Repository           D
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/get-installedscript?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/get-installedscript?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Install-Script</maml:linkText>
@@ -2973,7 +2973,7 @@ ProviderOptions           : {}</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/get-psrepository?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/get-psrepository?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Register-PSRepository</maml:linkText>
@@ -3703,7 +3703,7 @@ ProviderOptions           : {}</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/install-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-Module</maml:linkText>
@@ -4494,7 +4494,7 @@ Version    Name                        Type       Repository    Description
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/install-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/install-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-Script</maml:linkText>
@@ -5209,7 +5209,7 @@ Param()</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/new-scriptfileinfo?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/new-scriptfileinfo?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_Splatting</maml:linkText>
@@ -5891,7 +5891,7 @@ Param()</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/publish-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/publish-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-Module</maml:linkText>
@@ -6306,7 +6306,7 @@ Version    Name                 Type       Repository    Description
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/publish-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/publish-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-Script</maml:linkText>
@@ -6727,7 +6727,7 @@ myNuGetSource       https://myget.c...      NuGet                Trusted</dev:co
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/register-psrepository?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/register-psrepository?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-PSRepository</maml:linkText>
@@ -7555,7 +7555,7 @@ d-----         7/1/2019     14:04                1.6.5</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/save-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/save-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -8337,7 +8337,7 @@ Version   Name              Author      Description
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/save-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/save-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-Script</maml:linkText>
@@ -8688,7 +8688,7 @@ Version   Name              Author      Description
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-PSRepository</maml:linkText>
@@ -8856,7 +8856,7 @@ At line:1 char:1
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/test-scriptfileinfo?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/test-scriptfileinfo?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>New-ScriptFileInfo</maml:linkText>
@@ -9197,7 +9197,7 @@ At line:1 char:1
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/uninstall-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/uninstall-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-Module</maml:linkText>
@@ -9548,7 +9548,7 @@ At line:1 char:1
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/uninstall-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/uninstall-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-Script</maml:linkText>
@@ -9659,7 +9659,7 @@ At line:1 char:1
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/unregister-psrepository?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/unregister-psrepository?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-PSRepository</maml:linkText>
@@ -10120,7 +10120,7 @@ What if: Performing the operation "Update-Module" on target "Version '1.0.10' of
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/update-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/update-module?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-Module</maml:linkText>
@@ -11301,7 +11301,7 @@ Update-ModuleManifest @Parms</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/update-modulemanifest?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/update-modulemanifest?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -11630,7 +11630,7 @@ Version   Name                       Repository   Description
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/update-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/update-script?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-Script</maml:linkText>
@@ -12502,7 +12502,7 @@ Param()</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/powershellget/update-scriptfileinfo?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/powershellget/update-scriptfileinfo?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>New-ScriptFileInfo</maml:linkText>

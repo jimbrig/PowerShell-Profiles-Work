@@ -438,7 +438,7 @@ foreach ($job in $jobs) {
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/threadjob/start-threadjob?view=powershell-7&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/threadjob/start-threadjob?view=powershell-7&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Start-Job</maml:linkText>

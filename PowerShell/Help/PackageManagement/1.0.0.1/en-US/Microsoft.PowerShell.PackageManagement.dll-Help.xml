@@ -1066,7 +1066,7 @@ NuGet.Core           2.14.0     C:\LocalPkg\     NuGet.Core is the core framewor
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/find-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/find-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -1444,7 +1444,7 @@ NuGet.Core           2.14.0     C:\LocalPkg\     NuGet.Core is the core framewor
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/find-packageprovider?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/find-packageprovider?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -2408,7 +2408,7 @@ PackageManagement     1.3.1        https://www.powershellgallery.com/api/v2   Po
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/get-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/get-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -2614,7 +2614,7 @@ PackageManagement     1.3.1        https://www.powershellgallery.com/api/v2   Po
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/get-packageprovider?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/get-packageprovider?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -3043,7 +3043,7 @@ MyNuget              NuGet            False      https://www.nuget.org/api/v2</d
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/get-packagesource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/get-packagesource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -3276,7 +3276,7 @@ Import-PackageProvider -Name "Nuget" -RequiredVersion "2.8.5.201" -Verbose</dev:
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/import-packageprovider?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/import-packageprovider?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -5730,7 +5730,7 @@ Import-PackageProvider -Name "Nuget" -RequiredVersion "2.8.5.201" -Verbose</dev:
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/install-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/install-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -6303,7 +6303,7 @@ Install-PackageProvider -Name "NuGet" -RequiredVersion "2.8.5.216" -Force</dev:c
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Find-PackageProvider</maml:linkText>
@@ -7004,7 +7004,7 @@ MyNuGet       NuGet            False      https://www.nuget.org/api/v2</dev:code
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/register-packagesource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/register-packagesource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -8798,7 +8798,7 @@ PS&gt; Install-Package C:\LocalPkg\NuGet.Core.2.14.0.nupkg</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/save-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/save-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -10018,7 +10018,7 @@ PS&gt; Install-Package C:\LocalPkg\NuGet.Core.2.14.0.nupkg</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/set-packagesource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/set-packagesource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -11444,7 +11444,7 @@ PS&gt; Install-Package C:\LocalPkg\NuGet.Core.2.14.0.nupkg</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/uninstall-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/uninstall-package?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>
@@ -12267,7 +12267,7 @@ PS&gt; Unregister-PackageSource -InputObject $pkgsource</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/packagemanagement/unregister-packagesource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/packagemanagement/unregister-packagesource?view=powershell-5.1&amp;WT.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>about_PackageManagement</maml:linkText>

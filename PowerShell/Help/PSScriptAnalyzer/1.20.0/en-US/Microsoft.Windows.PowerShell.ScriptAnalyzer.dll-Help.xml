@@ -194,7 +194,7 @@ Invoke-ScriptAnalyzerRule -Path $Path -IncludeRule $DSCError -Recurse</dev:code>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psscriptanalyzer/get-scriptanalyzerrule?view=ps-modules&amp;wt.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/psscriptanalyzer/get-scriptanalyzerrule?view=ps-modules&amp;wt.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Invoke-ScriptAnalyzer</maml:linkText>
@@ -221,7 +221,7 @@ Invoke-ScriptAnalyzerRule -Path $Path -IncludeRule $DSCError -Recurse</dev:code>
     <command:syntax>
       <command:syntaxItem>
         <maml:name>Invoke-Formatter</maml:name>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
           <maml:name>ScriptDefinition</maml:name>
           <maml:description>
             <maml:para>The text of the script to be formatted represented as a string. This is not a ScriptBlock object.</maml:para>
@@ -233,7 +233,7 @@ Invoke-ScriptAnalyzerRule -Path $Path -IncludeRule $DSCError -Recurse</dev:code>
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True" position="2" aliases="none">
           <maml:name>Settings</maml:name>
           <maml:description>
             <maml:para>A settings hashtable or a path to a PowerShell data file (`.psd1`) that contains the settings.</maml:para>
@@ -245,7 +245,7 @@ Invoke-ScriptAnalyzerRule -Path $Path -IncludeRule $DSCError -Recurse</dev:code>
           </dev:type>
           <dev:defaultValue>CodeFormatting</dev:defaultValue>
         </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True" position="3" aliases="none">
           <maml:name>Range</maml:name>
           <maml:description>
             <maml:para>The range within which formatting should take place. The value of this parameter must be an array of four integers. These numbers must be greater than 0. The four integers represent the following four values in this order:</maml:para>
@@ -264,7 +264,7 @@ Invoke-ScriptAnalyzerRule -Path $Path -IncludeRule $DSCError -Recurse</dev:code>
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True" position="3" aliases="none">
         <maml:name>Range</maml:name>
         <maml:description>
           <maml:para>The range within which formatting should take place. The value of this parameter must be an array of four integers. These numbers must be greater than 0. The four integers represent the following four values in this order:</maml:para>
@@ -280,7 +280,7 @@ Invoke-ScriptAnalyzerRule -Path $Path -IncludeRule $DSCError -Recurse</dev:code>
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName, ByValue)" position="1" aliases="none">
         <maml:name>ScriptDefinition</maml:name>
         <maml:description>
           <maml:para>The text of the script to be formatted represented as a string. This is not a ScriptBlock object.</maml:para>
@@ -292,7 +292,7 @@ Invoke-ScriptAnalyzerRule -Path $Path -IncludeRule $DSCError -Recurse</dev:code>
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True" position="2" aliases="none">
         <maml:name>Settings</maml:name>
         <maml:description>
           <maml:para>A settings hashtable or a path to a PowerShell data file (`.psd1`) that contains the settings.</maml:para>
@@ -381,7 +381,7 @@ function foo
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psscriptanalyzer/invoke-formatter?view=ps-modules&amp;wt.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/psscriptanalyzer/invoke-formatter?view=ps-modules&amp;wt.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -558,7 +558,7 @@ function foo
             <maml:para>- Rules</maml:para>
             <maml:para>- Severity</maml:para>
             <maml:para></maml:para>
-            <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.com/about/about_splatting).</maml:para>
+            <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.core/about/about_splatting).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
@@ -790,7 +790,7 @@ function foo
             <maml:para>- Rules</maml:para>
             <maml:para>- Severity</maml:para>
             <maml:para></maml:para>
-            <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.com/about/about_splatting).</maml:para>
+            <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.core/about/about_splatting).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
@@ -995,7 +995,7 @@ function foo
             <maml:para>- Rules</maml:para>
             <maml:para>- Severity</maml:para>
             <maml:para></maml:para>
-            <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.com/about/about_splatting).</maml:para>
+            <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.core/about/about_splatting).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
@@ -1189,7 +1189,7 @@ function foo
             <maml:para>- Rules</maml:para>
             <maml:para>- Severity</maml:para>
             <maml:para></maml:para>
-            <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.com/about/about_splatting).</maml:para>
+            <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.core/about/about_splatting).</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
           <dev:type>
@@ -1441,7 +1441,7 @@ function foo
           <maml:para>- Rules</maml:para>
           <maml:para>- Severity</maml:para>
           <maml:para></maml:para>
-          <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.com/about/about_splatting).</maml:para>
+          <maml:para>The keys and values in the profile are interpreted as if they were standard parameters and values of `Invoke-ScriptAnalyzer`, similar to splatting. For more information, see about_Splatting (/powershell/module/microsoft.powershell.core/about/about_splatting).</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
         <dev:type>
@@ -1654,7 +1654,7 @@ PSUseSingularNouns                  Warning                 1     The cmd
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
-        <maml:uri>https://docs.microsoft.com/powershell/module/psscriptanalyzer/invoke-scriptanalyzer?view=ps-modules&amp;wt.mc_id=ps-gethelp</maml:uri>
+        <maml:uri>https://learn.microsoft.com/powershell/module/psscriptanalyzer/invoke-scriptanalyzer?view=ps-modules&amp;wt.mc_id=ps-gethelp</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>Get-ScriptAnalyzerRule</maml:linkText>
